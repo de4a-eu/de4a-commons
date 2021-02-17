@@ -29,15 +29,15 @@ import com.helger.ubl23.CUBL23;
 public final class CCV
 {
   @Nonnull
-  private static final ClassLoader _getCL ()
+  private static ClassLoader _getCL ()
   {
     return CCV.class.getClassLoader ();
   }
 
   public static final List <ClassPathResource> XSDS = new CommonsArrayList <> (CUBL23.XSD_UNQUALIFIED_DATA_TYPES,
-                                                                               new ClassPathResource ("schemas/CoreVocabularies-BasicComponents-1.1.xsd",
+                                                                               new ClassPathResource ("schemas/provided/CoreVocabularies-BasicComponents-1.1.xsd",
                                                                                                       _getCL ()),
-                                                                               new ClassPathResource ("schemas/CoreVocabularies-AggregateComponents-1.1.xsd",
+                                                                               new ClassPathResource ("schemas/provided/CoreVocabularies-AggregateComponents-1.1.xsd",
                                                                                                       _getCL ())).getAsUnmodifiable ();
 
   private CCV ()

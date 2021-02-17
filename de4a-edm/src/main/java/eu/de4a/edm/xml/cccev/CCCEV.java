@@ -32,7 +32,7 @@ import eu.de4a.edm.xml.dcatap.CDCatAP;
 public final class CCCEV
 {
   @Nonnull
-  private static final ClassLoader _getCL ()
+  private static ClassLoader _getCL ()
   {
     return CCCEV.class.getClassLoader ();
   }
@@ -43,10 +43,10 @@ public final class CCCEV
     final ICommonsSet <ClassPathResource> aSet = new CommonsLinkedHashSet <> ();
     aSet.addAll (CCV.XSDS);
     aSet.addAll (CDCatAP.XSDS);
-    aSet.addAll (new ClassPathResource ("schemas/CV-CommonAggregateComponents.xsd", _getCL ()),
-                 new ClassPathResource ("schemas/CV-Agent.xsd", _getCL ()),
-                 new ClassPathResource ("schemas/owl.xsd", _getCL ()),
-                 new ClassPathResource ("schemas/cccev-2.0.0.xsd", _getCL ()));
+    aSet.addAll (new ClassPathResource ("schemas/provided/CV-CommonAggregateComponents.xsd", _getCL ()),
+                 new ClassPathResource ("schemas/provided/CV-Agent.xsd", _getCL ()),
+                 new ClassPathResource ("schemas/provided/owl.xsd", _getCL ()),
+                 new ClassPathResource ("schemas/provided/cccev-2.0.0.xsd", _getCL ()));
     XSDS = aSet.getCopyAsList ().getAsUnmodifiable ();
   }
 

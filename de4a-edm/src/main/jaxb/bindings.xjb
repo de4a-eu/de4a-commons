@@ -29,23 +29,23 @@
     <xjc:javaType name="java.time.LocalTime" xmlType="xsd:time" adapter="com.helger.jaxb.adapter.AdapterLocalTime" />
     <xjc:javaType name="java.time.Duration" xmlType="xsd:duration" adapter="com.helger.jaxb.adapter.AdapterDuration" />
   </globalBindings>
-  <bindings schemaLocation="../resources/schemas/CoreVocabularies-AggregateComponents-1.1.xsd">
+  <bindings schemaLocation="../resources/schemas/provided/CoreVocabularies-AggregateComponents-1.1.xsd">
     <schemaBindings>
       <package name="eu.de4a.edm.jaxb.w3.cv.ac" />
     </schemaBindings>
   </bindings>
-  <bindings schemaLocation="../resources/schemas/CoreVocabularies-BasicComponents-1.1.xsd">
+  <bindings schemaLocation="../resources/schemas/provided/CoreVocabularies-BasicComponents-1.1.xsd">
     <schemaBindings>
       <package name="eu.de4a.edm.jaxb.w3.cv.bc" />
     </schemaBindings>
   </bindings>
 
-  <bindings schemaLocation="../resources/schemas/adms.xsd">
+  <bindings schemaLocation="../resources/schemas/provided/adms.xsd">
     <schemaBindings>
       <package name="eu.de4a.edm.jaxb.w3.adms" />
     </schemaBindings>
   </bindings>
-  <bindings schemaLocation="../resources/schemas/cccev-2.0.0.xsd">
+  <bindings schemaLocation="../resources/schemas/provided/cccev-2.0.0.xsd">
     <schemaBindings>
       <package name="eu.de4a.edm.jaxb.cccev" />
       <nameXmlTransform>
@@ -53,12 +53,12 @@
       </nameXmlTransform>
     </schemaBindings>
   </bindings>
-  <bindings schemaLocation="../resources/schemas/CV-Agent.xsd">
+  <bindings schemaLocation="../resources/schemas/provided/CV-Agent.xsd">
     <schemaBindings>
       <package name="eu.de4a.edm.jaxb.cv.agent" />
     </schemaBindings>
   </bindings>
-  <bindings schemaLocation="../resources/schemas/CV-CommonAggregateComponents.xsd">
+  <bindings schemaLocation="../resources/schemas/provided/CV-CommonAggregateComponents.xsd">
     <schemaBindings>
       <package name="eu.de4a.edm.jaxb.cv.cac" />
     </schemaBindings>
@@ -68,17 +68,17 @@
       </bindings>
     </bindings>
   </bindings>
-  <bindings schemaLocation="../resources/schemas/CV-CommonBasicComponents.xsd">
+  <bindings schemaLocation="../resources/schemas/provided/CV-CommonBasicComponents.xsd">
     <schemaBindings>
       <package name="eu.de4a.edm.jaxb.cv.cbc" />
     </schemaBindings>
   </bindings>
-  <bindings schemaLocation="../resources/schemas/CV-DataTypes.xsd">
+  <bindings schemaLocation="../resources/schemas/provided/CV-DataTypes.xsd">
     <schemaBindings>
       <package name="eu.de4a.edm.jaxb.cv.dt" />
     </schemaBindings>
   </bindings>
-  <bindings schemaLocation="../resources/schemas/dcat-ap.xsd" node="/xsd:schema">
+  <bindings schemaLocation="../resources/schemas/provided/dcat-ap.xsd" node="/xsd:schema">
     <schemaBindings>
       <package name="eu.de4a.edm.jaxb.dcatap" />
       <nameXmlTransform>
@@ -96,7 +96,7 @@
       <property name="DCTHasVersion" />
     </bindings>
   </bindings>
-  <bindings schemaLocation="../resources/schemas/dcterms.xsd">
+  <bindings schemaLocation="../resources/schemas/provided/dcterms.xsd">
     <schemaBindings>
       <package name="eu.de4a.edm.jaxb.dcterms" />
       <nameXmlTransform>
@@ -104,7 +104,7 @@
       </nameXmlTransform>
     </schemaBindings>
   </bindings>
-  <bindings schemaLocation="../resources/schemas/foaf.xsd">
+  <bindings schemaLocation="../resources/schemas/provided/foaf.xsd">
     <schemaBindings>
       <package name="eu.de4a.edm.jaxb.foaf" />
       <nameXmlTransform>
@@ -112,52 +112,52 @@
       </nameXmlTransform>
     </schemaBindings>
   </bindings>
-  <bindings schemaLocation="../resources/schemas/locn.xsd">
+  <bindings schemaLocation="../resources/schemas/provided/locn.xsd">
     <schemaBindings>
       <package name="eu.de4a.edm.jaxb.w3.locn" />
     </schemaBindings>
   </bindings>
-  <bindings schemaLocation="../resources/schemas/odrl.xsd">
+  <bindings schemaLocation="../resources/schemas/provided/odrl.xsd">
     <schemaBindings>
       <package name="eu.de4a.edm.jaxb.w3.odrl" />
     </schemaBindings>
   </bindings>
-  <bindings schemaLocation="../resources/schemas/owl.xsd">
+  <bindings schemaLocation="../resources/schemas/provided/owl.xsd">
     <schemaBindings>
       <package name="eu.de4a.edm.jaxb.owl" />
     </schemaBindings>
   </bindings>
-  <bindings schemaLocation="../resources/schemas/org.xsd">
+  <bindings schemaLocation="../resources/schemas/provided/org.xsd">
     <schemaBindings>
       <package name="eu.de4a.edm.jaxb.w3.org" />
     </schemaBindings>
   </bindings>
-  <bindings schemaLocation="../resources/schemas/prov.xsd">
+  <bindings schemaLocation="../resources/schemas/provided/prov.xsd">
     <schemaBindings>
       <package name="eu.de4a.edm.jaxb.prov" />
     </schemaBindings>
   </bindings>
-  <bindings schemaLocation="../resources/schemas/rdf.xsd">
+  <bindings schemaLocation="../resources/schemas/provided/rdf.xsd">
     <schemaBindings>
       <package name="eu.de4a.edm.jaxb.rdf" />
     </schemaBindings>
   </bindings>
-  <bindings schemaLocation="../resources/schemas/regorg.xsd">
+  <bindings schemaLocation="../resources/schemas/provided/regorg.xsd">
     <schemaBindings>
       <package name="eu.de4a.edm.jaxb.w3.regorg" />
     </schemaBindings>
   </bindings>
-  <bindings schemaLocation="../resources/schemas/skos.xsd">
+  <bindings schemaLocation="../resources/schemas/provided/skos.xsd">
     <schemaBindings>
       <package name="eu.de4a.edm.jaxb.w3.skos" />
     </schemaBindings>
   </bindings>
-  <bindings schemaLocation="../resources/schemas/spdx.xsd">
+  <bindings schemaLocation="../resources/schemas/provided/spdx.xsd">
     <schemaBindings>
       <package name="eu.de4a.edm.jaxb.spdx" />
     </schemaBindings>
   </bindings>
-  <bindings schemaLocation="../resources/schemas/vcard.xsd">
+  <bindings schemaLocation="../resources/schemas/provided/vcard.xsd">
     <schemaBindings>
       <package name="eu.de4a.edm.jaxb.vcard" />
     </schemaBindings>
