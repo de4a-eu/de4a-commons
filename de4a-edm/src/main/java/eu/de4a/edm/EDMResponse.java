@@ -48,7 +48,6 @@ import com.helger.regrep.RegRep4Writer;
 import com.helger.regrep.RegRepHelper;
 import com.helger.regrep.query.QueryResponse;
 import com.helger.regrep.rim.AnyValueType;
-import com.helger.regrep.rim.CollectionValueType;
 import com.helger.regrep.rim.DateTimeValueType;
 import com.helger.regrep.rim.ExtrinsicObjectType;
 import com.helger.regrep.rim.ObjectRefListType;
@@ -60,16 +59,12 @@ import com.helger.regrep.rim.StringValueType;
 import com.helger.regrep.rim.ValueType;
 import com.helger.regrep.slot.ISlotProvider;
 
-import eu.de4a.edm.jaxb.cccev.CCCEVConceptType;
 import eu.de4a.edm.jaxb.cv.agent.AgentType;
 import eu.de4a.edm.model.AgentPojo;
-import eu.de4a.edm.model.ConceptPojo;
 import eu.de4a.edm.model.EDE4AResponseOptionType;
-import eu.de4a.edm.response.EDMResponsePayloadConcepts;
 import eu.de4a.edm.response.IEDMResponsePayloadProvider;
 import eu.de4a.edm.response.ResponseDocumentPojo;
 import eu.de4a.edm.response.ResponseDocumentReferencePojo;
-import eu.de4a.edm.slot.SlotConceptValues;
 import eu.de4a.edm.slot.SlotDataProvider;
 import eu.de4a.edm.slot.SlotIssueDateTime;
 import eu.de4a.edm.slot.SlotSpecificationIdentifier;
@@ -79,7 +74,6 @@ import eu.de4a.edm.xml.JAXBVersatileReader;
 import eu.de4a.edm.xml.JAXBVersatileWriter;
 import eu.de4a.edm.xml.cagv.AgentMarshaller;
 import eu.de4a.edm.xml.cccev.CCCEV;
-import eu.de4a.edm.xml.cccev.ConceptMarshaller;
 
 /**
  * This class contains the data model for a single DE4A EDM Request. It requires
@@ -93,7 +87,6 @@ import eu.de4a.edm.xml.cccev.ConceptMarshaller;
  * {@link CDE4AEDM#SPECIFICATION_IDENTIFIER_DE4A_EDM_V01}.</li>
  * <li>Issue date time - when the response was created. Ideally in UTC.</li>
  * <li>Data Provider - the basic infos of the DP</li>
- * <li>If it is a "ConceptQuery" the response Concepts must be provided.</li>
  * <li>If it is a "DocumentQuery" the response Dataset must be provided.</li>
  * </ul>
  * It is recommended to use the <code>builder*()</code> methods to create the
@@ -184,7 +177,6 @@ public class EDMResponse implements IEDMTopLevelObject
   /**
    * @return The payload providers. Never <code>null</code> but maybe empty. The
    *         payload elements are either
-   *         {@link eu.de4a.edm.response.IEDMResponsePayloadConcepts},
    *         {@link eu.de4a.edm.response.IEDMResponsePayloadDocument} or
    *         {@link eu.de4a.edm.response.IEDMResponsePayloadDocumentReference}.
    */
@@ -199,7 +191,6 @@ public class EDMResponse implements IEDMTopLevelObject
   /**
    * @return The payload providers. Never <code>null</code> but maybe empty. The
    *         payload elements are either
-   *         {@link eu.de4a.edm.response.IEDMResponsePayloadConcepts},
    *         {@link eu.de4a.edm.response.IEDMResponsePayloadDocument} or
    *         {@link eu.de4a.edm.response.IEDMResponsePayloadDocumentReference}.
    */
@@ -322,14 +313,6 @@ public class EDMResponse implements IEDMTopLevelObject
                                        .append ("DataProvider", m_aDataProvider)
                                        .append ("ResponseObjects", m_aPayloadProviders)
                                        .getToString ();
-  }
-
-  @Nonnull
-  public static BuilderConcept builderConcept ()
-  {
-    // RegistryObjectID doesn't matter for concepts but must be settable in
-    // import for comparison
-    return new BuilderConcept ().specificationIdentifier (CDE4AEDM.SPECIFICATION_IDENTIFIER_DE4A_EDM_V01).randomRegistryObjectID ();
   }
 
   @Nonnull
@@ -458,153 +441,6 @@ public class EDMResponse implements IEDMTopLevelObject
 
     @Nonnull
     public abstract EDMResponse build ();
-  }
-
-  /**
-   * A builder for Concept responses. Contains exactly 1 response.
-   *
-   * @author Philip Helger
-   */
-  public static class BuilderConcept extends AbstractBuilder <BuilderConcept>
-  {
-    private String m_sRegistryObjectID;
-    private final ICommonsList <ConceptPojo> m_aConcepts = new CommonsArrayList <> ();
-
-    protected BuilderConcept ()
-    {
-      // Always inline responses
-      super (EDE4AResponseOptionType.INLINE);
-    }
-
-    @Nonnull
-    public BuilderConcept registryObjectID (@Nullable final String s)
-    {
-      m_sRegistryObjectID = s;
-      return this;
-    }
-
-    @Nonnull
-    public BuilderConcept randomRegistryObjectID ()
-    {
-      return registryObjectID (UUID.randomUUID ().toString ());
-    }
-
-    @Nonnull
-    public BuilderConcept addConcept (@Nullable final Consumer <? super ConceptPojo.Builder> a)
-    {
-      if (a != null)
-      {
-        final ConceptPojo.Builder aBuilder = ConceptPojo.builder ();
-        a.accept (aBuilder);
-        addConcept (aBuilder.build ());
-      }
-      return this;
-    }
-
-    @Nonnull
-    public BuilderConcept addConcept (@Nullable final CCCEVConceptType a)
-    {
-      return addConcept (a == null ? null : ConceptPojo.builder (a));
-    }
-
-    @Nonnull
-    public BuilderConcept addConcept (@Nullable final ConceptPojo.Builder a)
-    {
-      return addConcept (a == null ? null : a.build ());
-    }
-
-    @Nonnull
-    public BuilderConcept addConcept (@Nullable final ConceptPojo a)
-    {
-      if (a != null)
-        m_aConcepts.add (a);
-      return this;
-    }
-
-    @Nonnull
-    public BuilderConcept concept (@Nullable final Consumer <? super ConceptPojo.Builder> a)
-    {
-      if (a != null)
-      {
-        final ConceptPojo.Builder aBuilder = ConceptPojo.builder ();
-        a.accept (aBuilder);
-        concept (aBuilder.build ());
-      }
-      return this;
-    }
-
-    @Nonnull
-    public BuilderConcept concept (@Nullable final CCCEVConceptType a)
-    {
-      return concept (a == null ? null : ConceptPojo.builder (a));
-    }
-
-    @Nonnull
-    public BuilderConcept concept (@Nullable final ConceptPojo.Builder a)
-    {
-      return concept (a == null ? null : a.build ());
-    }
-
-    @Nonnull
-    public BuilderConcept concept (@Nullable final ConceptPojo a)
-    {
-      if (a != null)
-        m_aConcepts.set (a);
-      else
-        m_aConcepts.clear ();
-      return this;
-    }
-
-    @Nonnull
-    public BuilderConcept concepts (@Nullable final ConceptPojo... a)
-    {
-      m_aConcepts.setAll (a);
-      return this;
-    }
-
-    @Nonnull
-    public BuilderConcept concepts (@Nullable final Iterable <? extends ConceptPojo> a)
-    {
-      m_aConcepts.setAll (a);
-      return this;
-    }
-
-    @Nonnull
-    public <T> BuilderConcept concepts (@Nullable final Iterable <? extends T> a, @Nonnull final Function <? super T, ConceptPojo> aMapper)
-    {
-      m_aConcepts.setAllMapped (a, aMapper);
-      return thisAsT ();
-    }
-
-    @Override
-    public void checkConsistency ()
-    {
-      super.checkConsistency ();
-
-      if (StringHelper.hasNoText (m_sRegistryObjectID))
-        throw new IllegalStateException ("RegistryObjectID MUST be present");
-      if (m_aConcepts.isEmpty ())
-        throw new IllegalStateException ("At least one Concept MUST be contained");
-    }
-
-    @Override
-    @Nonnull
-    public EDMResponse build ()
-    {
-      checkConsistency ();
-
-      // Build the ResponseObjectPojo
-      final ICommonsList <IEDMResponsePayloadProvider> aResponseObjects = new CommonsArrayList <> ();
-      aResponseObjects.add (new EDMResponsePayloadConcepts (m_sRegistryObjectID, m_aConcepts));
-
-      return new EDMResponse (m_eResponseOption,
-                              m_eResponseStatus,
-                              m_sRequestID,
-                              m_sSpecificationIdentifier,
-                              m_aIssueDateTime,
-                              m_aDataProvider,
-                              aResponseObjects);
-    }
   }
 
   /**
@@ -893,30 +729,6 @@ public class EDMResponse implements IEDMTopLevelObject
     }
   }
 
-  private static void _applyConceptSlots (@Nonnull final SlotType aSlot, @Nonnull final BuilderConcept aBuilder)
-  {
-    final String sName = aSlot.getName ();
-    final ValueType aSlotValue = aSlot.getSlotValue ();
-    switch (sName)
-    {
-      case SlotConceptValues.NAME:
-        if (aSlotValue instanceof CollectionValueType)
-        {
-          final List <ValueType> aElements = ((CollectionValueType) aSlotValue).getElement ();
-          for (final ValueType aElement : aElements)
-            if (aElement instanceof AnyValueType)
-            {
-              final Object aElementValue = ((AnyValueType) aElement).getAny ();
-              if (aElementValue instanceof Node)
-                aBuilder.addConcept (new ConceptMarshaller ().read ((Node) aElementValue));
-            }
-        }
-        break;
-      default:
-        throw new IllegalStateException ("Found unsupported slot '" + sName + "'");
-    }
-  }
-
   @Nonnull
   public static EDMResponse create (@Nonnull final QueryResponse aQueryResponse)
   {
@@ -947,27 +759,6 @@ public class EDMResponse implements IEDMTopLevelObject
     final RegistryObjectListType aRegistryObjectList = aQueryResponse.getRegistryObjectList ();
     if (aRegistryObjectList != null && aRegistryObjectList.hasRegistryObjectEntries ())
     {
-      if (aRegistryObjectList.getRegistryObject ().size () == 1 &&
-          aRegistryObjectList.getRegistryObjectAtIndex (0).getSlotCount () == 1 &&
-          SlotConceptValues.NAME.equals (aRegistryObjectList.getRegistryObjectAtIndex (0).getSlotAtIndex (0).getName ()))
-      {
-        // It's a Concept Response
-        final RegistryObjectType aRO = aRegistryObjectList.getRegistryObject ().get (0);
-        final BuilderConcept aRealBuilder = builderConcept ().responseStatus (eResponseStatus)
-                                                             .requestID (sRequestID)
-                                                             .registryObjectID (aRO.getId ());
-
-        // Apply top-level response slots
-        for (final SlotType aSlot : aQueryResponse.getSlot ())
-          _applySlots (aSlot, aRealBuilder);
-
-        // Read main concepts
-        for (final SlotType aSlot : aRO.getSlot ())
-          _applyConceptSlots (aSlot, aRealBuilder);
-
-        return aRealBuilder.build ();
-      }
-
       // It's a Document Response
       final BuilderDocument aRealBuilder = builderDocument ().responseStatus (eResponseStatus).requestID (sRequestID);
 

@@ -42,8 +42,6 @@ import eu.de4a.edm.model.EDE4AGenderCode;
 import eu.de4a.edm.model.EDE4AIdentifierType;
 import eu.de4a.edm.model.EDE4AResponseOptionType;
 import eu.de4a.edm.model.PersonPojo;
-import eu.de4a.edm.pilot.gbm.EDE4AConcept;
-import eu.de4a.edm.request.EDMRequestPayloadConcepts;
 import eu.de4a.edm.schematron.SchematronBusinessRules2Validator;
 import eu.de4a.edm.schematron.SchematronEDM2Validator;
 
@@ -120,16 +118,6 @@ public final class EDMRequestTest
   }
 
   @Nonnull
-  private static EDMRequest.BuilderConcept _reqConcept ()
-  {
-    return _req (EDMRequest.builderConcept ()).concept (x -> x.randomID ()
-                                                              .name (EDE4AConcept.COMPANY_TYPE)
-                                                              .addChild (y -> y.randomID ().name (EDE4AConcept.COMPANY_NAME))
-                                                              .addChild (y -> y.randomID ().name (EDE4AConcept.COMPANY_CODE))
-                                                              .addChild (y -> y.randomID ().name (EDE4AConcept.COMPANY_TYPE)));
-  }
-
-  @Nonnull
   private static EDMRequest.BuilderDocumentsByDistribution _reqDocument ()
   {
     return _req (EDMRequest.builderDocumentsByDistribution ()).distribution (x -> x.format (EDE4ADistributionFormat.STRUCTURED)
@@ -177,35 +165,6 @@ public final class EDMRequestTest
                        .legalName ("NiarTsiou")
                        .id ("anID")
                        .idSchemeID (EDE4AIdentifierType.VATREGISTRATION);
-  }
-
-  @Test
-  public void createEDMConceptRequestLP ()
-  {
-    final EDMRequest aRequest = _reqConcept ().dataSubject (_lp ()).build ();
-    _testWriteAndRead (aRequest);
-  }
-
-  @Test
-  public void createEDMConceptRequestNP ()
-  {
-    final EDMRequest aRequest = _reqConcept ().dataSubject (_np ()).build ();
-    _testWriteAndRead (aRequest);
-  }
-
-  @Test
-  public void createEDMConceptRequestNoDS ()
-  {
-    // DataSubject is required
-    try
-    {
-      _reqConcept ().build ();
-      fail ();
-    }
-    catch (final IllegalStateException ex)
-    {
-      // expected
-    }
   }
 
   @Test
@@ -269,27 +228,12 @@ public final class EDMRequestTest
   @Test
   public void testReadAndWriteExampleFiles ()
   {
-    EDMRequest aRequest = EDMRequest.reader ().read (new ClassPathResource ("Concept Request_LP.xml"));
-    _testWriteAndRead (aRequest);
-
-    assertTrue (aRequest.getPayloadProvider () instanceof EDMRequestPayloadConcepts);
-    final EDMRequestPayloadConcepts aRPC = (EDMRequestPayloadConcepts) aRequest.getPayloadProvider ();
-    assertTrue (aRPC.concepts ()
-                    .containsAny (x -> x.getAllChildren ()
-                                        .containsAny (y -> y.getID ().equals ("ConceptID-2") &&
-                                                           y.getName ().getNamespaceURI ().equals (EDE4AConcept.NAMESPACE_URI) &&
-                                                           y.getName ().getLocalPart ().equals ("Concept-Name-2"))));
-
-    aRequest = EDMRequest.reader ().read (new ClassPathResource ("Concept Request_NP.xml"));
-    _testWriteAndRead (aRequest);
+    EDMRequest aRequest;
 
     aRequest = EDMRequest.reader ().read (new ClassPathResource ("Document Request_LP.xml"));
     _testWriteAndRead (aRequest);
 
     aRequest = EDMRequest.reader ().read (new ClassPathResource ("Document Request_NP.xml"));
-    _testWriteAndRead (aRequest);
-
-    aRequest = EDMRequest.reader ().read (new ClassPathResource ("request/edm-jonas1.xml"));
     _testWriteAndRead (aRequest);
 
     if (false)
@@ -305,7 +249,7 @@ public final class EDMRequestTest
     EDMRequest aRequest = EDMRequest.reader ().read (new ClassPathResource ("Bogus.xml"));
     assertNull (aRequest);
 
-    aRequest = EDMRequest.reader ().read (new ClassPathResource ("Concept Response.xml"));
+    aRequest = EDMRequest.reader ().read (new ClassPathResource ("Document Response.xml"));
     assertNull (aRequest);
 
     aRequest = EDMRequest.reader ().read (new ClassPathResource ("Error Response 1.xml"));

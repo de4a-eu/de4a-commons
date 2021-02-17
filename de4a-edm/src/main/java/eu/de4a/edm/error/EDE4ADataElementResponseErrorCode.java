@@ -27,12 +27,8 @@ import com.helger.commons.lang.EnumHelper;
  */
 public enum EDE4ADataElementResponseErrorCode implements IDE4AErrorCode
 {
-  /** Unknown concept */
-  DP_ELE_001 ("DP_ELE_001", "Unknown concept"),
   /** Unauthorized */
   DP_ELE_002 ("DP_ELE_002", "Unauthorized"),
-  /** Ambiguous concept */
-  DP_ELE_003 ("DP_ELE_003", "Ambiguous concept"),
   /** Unavailable */
   DP_ELE_004 ("DP_ELE_004", "Unavailable"),
   /** Internal processing error */

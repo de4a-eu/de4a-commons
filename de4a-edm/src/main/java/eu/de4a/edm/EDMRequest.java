@@ -65,7 +65,6 @@ import com.helger.regrep.slot.ISlotProvider;
 import com.helger.regrep.slot.SlotHelper;
 import com.helger.regrep.slot.predefined.SlotId;
 
-import eu.de4a.edm.jaxb.cccev.CCCEVConceptType;
 import eu.de4a.edm.jaxb.cccev.CCCEVRequirementType;
 import eu.de4a.edm.jaxb.cv.agent.AgentType;
 import eu.de4a.edm.jaxb.dcatap.DCatAPDistributionType;
@@ -73,18 +72,15 @@ import eu.de4a.edm.jaxb.w3.cv.ac.CoreBusinessType;
 import eu.de4a.edm.jaxb.w3.cv.ac.CorePersonType;
 import eu.de4a.edm.model.AgentPojo;
 import eu.de4a.edm.model.BusinessPojo;
-import eu.de4a.edm.model.ConceptPojo;
 import eu.de4a.edm.model.DistributionPojo;
 import eu.de4a.edm.model.EDE4ALanguageCode;
 import eu.de4a.edm.model.EDE4AQueryDefinitionType;
 import eu.de4a.edm.model.EDE4AResponseOptionType;
 import eu.de4a.edm.model.PersonPojo;
-import eu.de4a.edm.request.EDMRequestPayloadConcepts;
 import eu.de4a.edm.request.EDMRequestPayloadDistribution;
 import eu.de4a.edm.request.EDMRequestPayloadDocumentID;
 import eu.de4a.edm.request.IEDMRequestPayloadProvider;
 import eu.de4a.edm.slot.SlotAuthorizedRepresentative;
-import eu.de4a.edm.slot.SlotConceptRequestList;
 import eu.de4a.edm.slot.SlotConsentToken;
 import eu.de4a.edm.slot.SlotDataConsumer;
 import eu.de4a.edm.slot.SlotDataSubjectLegalPerson;
@@ -101,7 +97,6 @@ import eu.de4a.edm.xml.JAXBVersatileReader;
 import eu.de4a.edm.xml.JAXBVersatileWriter;
 import eu.de4a.edm.xml.cagv.AgentMarshaller;
 import eu.de4a.edm.xml.cagv.CCAGV;
-import eu.de4a.edm.xml.cccev.ConceptMarshaller;
 import eu.de4a.edm.xml.cccev.RequirementMarshaller;
 import eu.de4a.edm.xml.cv.BusinessMarshaller;
 import eu.de4a.edm.xml.cv.PersonMarshaller;
@@ -111,7 +106,7 @@ import eu.de4a.edm.xml.dcatap.DistributionMarshaller;
  * This class contains the data model for a single DE4A EDM Request. It requires
  * at least the following fields:
  * <ul>
- * <li>QueryDefinition - Concept or Document query?</li>
+ * <li>QueryDefinition - Document query?</li>
  * <li>Request ID - the internal ID of the request that must be part of the
  * response. Can be a UUID.</li>
  * <li>Specification Identifier - must be the value
@@ -120,7 +115,6 @@ import eu.de4a.edm.xml.dcatap.DistributionMarshaller;
  * <li>Data Consumer - the basic infos of the DC</li>
  * <li>Data Subject - either as Legal Person or as Natural Person, but not
  * both.</li>
- * <li>If it is a "ConceptQuery" the request Concepts must be provided.</li>
  * <li>If it is a "DocumentQuery" the request distribution must be
  * provided.</li>
  * <li>If it is a "ObjectReference" the request Document ID must be
@@ -311,8 +305,7 @@ public class EDMRequest implements IEDMTopLevelObject
 
   /**
    * @return The request payload provider. Never <code>null</code>. This is one
-   *         of {@link eu.de4a.edm.request.IEDMRequestPayloadConcepts},
-   *         {@link eu.de4a.edm.request.IEDMRequestPayloadDistribution} or
+   *         of {@link eu.de4a.edm.request.IEDMRequestPayloadDistribution} or
    *         {@link eu.de4a.edm.request.IEDMRequestPayloadDocumentID}.
    */
   @Nonnull
@@ -474,13 +467,6 @@ public class EDMRequest implements IEDMTopLevelObject
                                        .append ("AuthorizedRepresentative", m_aAuthorizedRepresentative)
                                        .append ("RequestPayloadProvider", m_aPayloadProvider)
                                        .getToString ();
-  }
-
-  @Nonnull
-  public static BuilderConcept builderConcept ()
-  {
-    return new BuilderConcept ().specificationIdentifier (CDE4AEDM.SPECIFICATION_IDENTIFIER_DE4A_EDM_V01)
-                                .responseOption (EDE4AResponseOptionType.INLINE);
   }
 
   @Nonnull
@@ -898,139 +884,6 @@ public class EDMRequest implements IEDMTopLevelObject
   }
 
   /**
-   * A builder for a "Concept request".Request a concept response.
-   *
-   * @author Philip Helger
-   */
-  public static class BuilderConcept extends AbstractBuilder <BuilderConcept>
-  {
-    private final ICommonsList <ConceptPojo> m_aConcepts = new CommonsArrayList <> ();
-
-    protected BuilderConcept ()
-    {
-      super (EDE4AQueryDefinitionType.CONCEPT);
-    }
-
-    @Nonnull
-    public BuilderConcept addConcept (@Nullable final Consumer <? super ConceptPojo.Builder> a)
-    {
-      if (a != null)
-      {
-        final ConceptPojo.Builder aBuilder = ConceptPojo.builder ();
-        a.accept (aBuilder);
-        addConcept (aBuilder.build ());
-      }
-      return this;
-    }
-
-    @Nonnull
-    public BuilderConcept addConcept (@Nullable final CCCEVConceptType a)
-    {
-      return addConcept (a == null ? null : ConceptPojo.builder (a));
-    }
-
-    @Nonnull
-    public BuilderConcept addConcept (@Nullable final ConceptPojo.Builder a)
-    {
-      return addConcept (a == null ? null : a.build ());
-    }
-
-    @Nonnull
-    public BuilderConcept addConcept (@Nullable final ConceptPojo a)
-    {
-      if (a != null)
-        m_aConcepts.add (a);
-      return this;
-    }
-
-    @Nonnull
-    public BuilderConcept concept (@Nullable final Consumer <? super ConceptPojo.Builder> a)
-    {
-      if (a != null)
-      {
-        final ConceptPojo.Builder aBuilder = ConceptPojo.builder ();
-        a.accept (aBuilder);
-        concept (aBuilder.build ());
-      }
-      return this;
-    }
-
-    @Nonnull
-    public BuilderConcept concept (@Nullable final CCCEVConceptType a)
-    {
-      return concept (a == null ? null : ConceptPojo.builder (a));
-    }
-
-    @Nonnull
-    public BuilderConcept concept (@Nullable final ConceptPojo.Builder a)
-    {
-      return concept (a == null ? null : a.build ());
-    }
-
-    @Nonnull
-    public BuilderConcept concept (@Nullable final ConceptPojo a)
-    {
-      if (a != null)
-        m_aConcepts.set (a);
-      else
-        m_aConcepts.clear ();
-      return this;
-    }
-
-    @Nonnull
-    public BuilderConcept concepts (@Nullable final ConceptPojo... a)
-    {
-      m_aConcepts.setAll (a);
-      return this;
-    }
-
-    @Nonnull
-    public BuilderConcept concepts (@Nullable final Iterable <? extends ConceptPojo> a)
-    {
-      m_aConcepts.setAll (a);
-      return this;
-    }
-
-    @Nonnull
-    public <T> BuilderConcept concepts (@Nullable final Iterable <? extends T> a, @Nonnull final Function <? super T, ConceptPojo> aMapper)
-    {
-      m_aConcepts.setAllMapped (a, aMapper);
-      return thisAsT ();
-    }
-
-    @Override
-    public void checkConsistency ()
-    {
-      super.checkConsistency ();
-
-      if (m_aConcepts.isEmpty ())
-        throw new IllegalStateException ("A Query Definition of type 'Concept' must contain a Concept");
-    }
-
-    @Override
-    @Nonnull
-    public EDMRequest build ()
-    {
-      checkConsistency ();
-
-      return new EDMRequest (m_eQueryDefinition,
-                             m_sRequestID,
-                             m_eResponseOption,
-                             m_sSpecificationIdentifier,
-                             m_aIssueDateTime,
-                             m_aProcedure,
-                             m_aFullfillingRequirements,
-                             m_aDataConsumer,
-                             m_sConsentToken,
-                             m_sDatasetIdentifier,
-                             m_aDataSubjectLegalPerson,
-                             m_aDataSubjectNaturalPerson,
-                             m_aAuthorizedRepresentative,
-                             new EDMRequestPayloadConcepts (m_aConcepts));
-    }
-  }
-
-  /**
    * Builder for a "Documents by distribution request". Request 1-n documents -
    * either directly or as a reference.
    *
@@ -1300,22 +1153,6 @@ public class EDMRequest implements IEDMTopLevelObject
           aBuilder.authorizedRepresentative (PersonPojo.builder (new PersonMarshaller ().read (aAny)));
         }
         break;
-      case SlotConceptRequestList.NAME:
-        if (aSlotValue instanceof CollectionValueType)
-        {
-          final List <ValueType> aElements = ((CollectionValueType) aSlotValue).getElement ();
-          if (!aElements.isEmpty ())
-          {
-            for (final ValueType aElement : aElements)
-              if (aElement instanceof AnyValueType)
-              {
-                final Object aElementValue = ((AnyValueType) aElement).getAny ();
-                if (aElementValue instanceof Node)
-                  ((EDMRequest.BuilderConcept) aBuilder).addConcept (new ConceptMarshaller ().read ((Node) aElementValue));
-              }
-          }
-        }
-        break;
       case SlotDistributionRequestList.NAME:
         if (aSlotValue instanceof CollectionValueType)
         {
@@ -1355,16 +1192,13 @@ public class EDMRequest implements IEDMTopLevelObject
 
     // Enforce a default response option
     final EDMRequest.AbstractBuilder <?> aBuilder;
-    if (aQuerySlotNames.contains (SlotConceptRequestList.NAME))
-      aBuilder = builderConcept ();
+    if (aQuerySlotNames.contains (SlotDistributionRequestList.NAME))
+      aBuilder = builderDocumentsByDistribution ();
     else
-      if (aQuerySlotNames.contains (SlotDistributionRequestList.NAME))
-        aBuilder = builderDocumentsByDistribution ();
+      if (aQuerySlotNames.contains (SlotId.NAME))
+        aBuilder = builderDocumentByID ();
       else
-        if (aQuerySlotNames.contains (SlotId.NAME))
-          aBuilder = builderDocumentByID ();
-        else
-          throw new IllegalStateException ("Cannot read this QueryRequest as a DE4A EDM request");
+        throw new IllegalStateException ("Cannot read this QueryRequest as a DE4A EDM request");
 
     // Request ID
     aBuilder.id (aQueryRequest.getId ());

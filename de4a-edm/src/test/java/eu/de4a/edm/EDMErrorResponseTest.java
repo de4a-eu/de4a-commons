@@ -30,11 +30,11 @@ import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.commons.mock.CommonsTestHelper;
 import com.helger.schematron.svrl.AbstractSVRLMessage;
 
-import eu.de4a.edm.error.EDMExceptionPojo;
-import eu.de4a.edm.error.EEDMExceptionType;
 import eu.de4a.edm.error.EDE4AErrorCode;
 import eu.de4a.edm.error.EDE4AErrorOrigin;
 import eu.de4a.edm.error.EDE4AErrorSeverity;
+import eu.de4a.edm.error.EDMExceptionPojo;
+import eu.de4a.edm.error.EEDMExceptionType;
 import eu.de4a.edm.model.EDE4AIdentifierType;
 import eu.de4a.edm.schematron.SchematronBusinessRules2Validator;
 import eu.de4a.edm.schematron.SchematronEDM2Validator;
@@ -108,7 +108,7 @@ public final class EDMErrorResponseTest
   }
 
   @Test
-  public void testRequestConceptLegalPerson ()
+  public void testResponseTimeout ()
   {
     final EDMErrorResponse aErrorResponse = _builder ().addException (_exBuilder (EEDMExceptionType.OBJECT_NOT_FOUND))
                                                        .addException (_exBuilder (EEDMExceptionType.TIMEOUT))
@@ -132,10 +132,10 @@ public final class EDMErrorResponseTest
     EDMErrorResponse aErrorResponse = EDMErrorResponse.reader ().read (new ClassPathResource ("Bogus.xml"));
     assertNull (aErrorResponse);
 
-    aErrorResponse = EDMErrorResponse.reader ().read (new ClassPathResource ("Concept Request_LP.xml"));
+    aErrorResponse = EDMErrorResponse.reader ().read (new ClassPathResource ("Document Request_LP.xml"));
     assertNull (aErrorResponse);
 
-    aErrorResponse = EDMErrorResponse.reader ().read (new ClassPathResource ("Concept Response.xml"));
+    aErrorResponse = EDMErrorResponse.reader ().read (new ClassPathResource ("Document Response.xml"));
     assertNull (aErrorResponse);
   }
 }

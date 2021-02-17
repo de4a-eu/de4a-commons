@@ -17,9 +17,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 
-import java.time.Month;
 import java.util.UUID;
 
 import javax.annotation.Nonnull;
@@ -34,11 +32,9 @@ import com.helger.commons.mock.CommonsTestHelper;
 import com.helger.regrep.ERegRepResponseStatus;
 import com.helger.schematron.svrl.AbstractSVRLMessage;
 
-import eu.de4a.edm.model.ConceptPojo;
 import eu.de4a.edm.model.DatasetPojo;
 import eu.de4a.edm.model.EDE4AIdentifierType;
 import eu.de4a.edm.model.EDE4ALanguageCode;
-import eu.de4a.edm.pilot.gbm.EDE4AConcept;
 import eu.de4a.edm.schematron.SchematronBusinessRules2Validator;
 import eu.de4a.edm.schematron.SchematronEDM2Validator;
 
@@ -96,24 +92,6 @@ public final class EDMResponseTest
   }
 
   @Nonnull
-  private static EDMResponse.BuilderConcept _respConcept ()
-  {
-    return _resp (EDMResponse.builderConcept ()).concept (x -> x.id ("ConceptID-1")
-                                                                .name (EDE4AConcept.REGISTERED_ORGANIZATION)
-                                                                .addChild (y -> y.randomID ()
-                                                                                 .name (EDE4AConcept.COMPANY_NAME)
-                                                                                 .valueText ("Helger Enterprises"))
-                                                                .addChild (y -> y.randomID ()
-                                                                                 .name (EDE4AConcept.FAX_NUMBER)
-                                                                                 .valueText ("342342424"))
-                                                                .addChild (y -> y.randomID ()
-                                                                                 .name (EDE4AConcept.FOUNDATION_DATE)
-                                                                                 .valueDate (PDTFactory.createLocalDate (1960,
-                                                                                                                         Month.AUGUST,
-                                                                                                                         12))));
-  }
-
-  @Nonnull
   private static DatasetPojo.Builder _dataset ()
   {
     return DatasetPojo.builder ()
@@ -151,13 +129,6 @@ public final class EDMResponseTest
   }
 
   @Test
-  public void createConceptResponse ()
-  {
-    final EDMResponse aResp = _respConcept ().build ();
-    _testWriteAndRead (aResp);
-  }
-
-  @Test
   public void createDocumentResponse ()
   {
     final EDMResponse aResp = _respDocument ().build ();
@@ -171,27 +142,10 @@ public final class EDMResponseTest
     _testWriteAndRead (aResp);
   }
 
-  public void createDocumentResponseWithConceptType ()
-  {
-    try
-    {
-      // This attempts to create an EDMResponse with a dataset element but with
-      // ConceptQuery set as the QueryDefinition
-      // which is not permitted and fails
-      _respConcept ().concepts ((ConceptPojo []) null).build ();
-      fail ();
-    }
-    catch (final IllegalStateException ex)
-    {
-      // Expected
-    }
-  }
-
   @Test
   public void testReadAndWriteExampleFiles ()
   {
-    EDMResponse aResponse = EDMResponse.reader ().read (new ClassPathResource ("Concept Response.xml"));
-    _testWriteAndRead (aResponse);
+    EDMResponse aResponse;
 
     aResponse = EDMResponse.reader ().read (new ClassPathResource ("Document Response.xml"));
     _testWriteAndRead (aResponse);
@@ -203,7 +157,7 @@ public final class EDMResponseTest
     EDMResponse aResponse = EDMResponse.reader ().read (new ClassPathResource ("Bogus.xml"));
     assertNull (aResponse);
 
-    aResponse = EDMResponse.reader ().read (new ClassPathResource ("Concept Request_LP.xml"));
+    aResponse = EDMResponse.reader ().read (new ClassPathResource ("Document Request_LP.xml"));
     assertNull (aResponse);
 
     aResponse = EDMResponse.reader ().read (new ClassPathResource ("Error Response 1.xml"));

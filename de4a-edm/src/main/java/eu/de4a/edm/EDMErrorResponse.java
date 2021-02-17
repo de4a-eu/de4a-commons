@@ -60,8 +60,8 @@ import eu.de4a.edm.xml.cagv.AgentMarshaller;
 import eu.de4a.edm.xml.cccev.CCCEV;
 
 /**
- * A simple builder to create valid DE4A Error responses for both "concept
- * queries" and for "document queries". See {@link #builder()}.
+ * A simple builder to create valid DE4A Error responses for "document queries".
+ * See {@link #builder()}.
  *
  * @author Philip Helger
  */

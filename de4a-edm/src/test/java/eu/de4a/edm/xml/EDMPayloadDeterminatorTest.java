@@ -39,14 +39,6 @@ public final class EDMPayloadDeterminatorTest
     IEDMTopLevelObject aTLO;
 
     // EDM Requests
-    aTLO = EDMPayloadDeterminator.parseAndFind (ClassPathResource.getInputStream ("Concept Request_LP.xml"));
-    assertNotNull (aTLO);
-    assertTrue (aTLO instanceof EDMRequest);
-
-    aTLO = EDMPayloadDeterminator.parseAndFind (ClassPathResource.getInputStream ("Concept Request_NP.xml"));
-    assertNotNull (aTLO);
-    assertTrue (aTLO instanceof EDMRequest);
-
     aTLO = EDMPayloadDeterminator.parseAndFind (ClassPathResource.getInputStream ("Document Request_LP.xml"));
     assertNotNull (aTLO);
     assertTrue (aTLO instanceof EDMRequest);
@@ -56,10 +48,6 @@ public final class EDMPayloadDeterminatorTest
     assertTrue (aTLO instanceof EDMRequest);
 
     // EDM Responses
-    aTLO = EDMPayloadDeterminator.parseAndFind (ClassPathResource.getInputStream ("Concept Response.xml"));
-    assertNotNull (aTLO);
-    assertTrue (aTLO instanceof EDMResponse);
-
     aTLO = EDMPayloadDeterminator.parseAndFind (ClassPathResource.getInputStream ("Document Response.xml"));
     assertNotNull (aTLO);
     assertTrue (aTLO instanceof EDMResponse);

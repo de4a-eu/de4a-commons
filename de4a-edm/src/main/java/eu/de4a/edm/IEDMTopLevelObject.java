@@ -15,11 +15,9 @@ package eu.de4a.edm;
 
 import com.helger.commons.annotation.MustImplementEqualsAndHashcode;
 
-import eu.de4a.edm.response.EDMResponsePayloadConcepts;
-
 /**
  * Marker base interface for {@link EDMRequest}, {@link EDMResponse} and
- * {@link EDMResponsePayloadConcepts}.
+ * {@link EDMErrorResponse}.
  *
  * @author Philip Helger
  */

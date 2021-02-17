@@ -28,10 +28,6 @@ import com.helger.commons.lang.EnumHelper;
 public enum EDE4AQueryDefinitionType implements IHasID <String>
 {
   /**
-   * Query for concepts (name-value-pairs).
-   */
-  CONCEPT ("ConceptQuery"),
-  /**
    * Query for an unstructured document (like PDF or an image).
    */
   DOCUMENT_BY_DISTRIBUTION ("DocumentQuery"),
