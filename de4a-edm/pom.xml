@@ -80,6 +80,10 @@
     </dependency>
     <dependency>
       <groupId>com.helger.ubl</groupId>
+      <artifactId>ph-ubl20</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.helger.ubl</groupId>
       <artifactId>ph-ubl23</artifactId>
     </dependency>
     <dependency>
@@ -158,6 +162,7 @@
         </executions>
         <configuration>
           <schemaDirectory>${basedir}/src/main/resources/schemas</schemaDirectory>
+          <schemaIncludes>**/*.xsd</schemaIncludes>
           <bindingDirectory>${basedir}/src/main/jaxb</bindingDirectory>
           <catalog>src/main/jaxb/catalog.txt</catalog>
           <extension>true</extension>
@@ -186,6 +191,10 @@
             </episode>
             <episode>
               <groupId>com.helger.ubl</groupId>
+              <artifactId>ph-ubl20</artifactId>
+            </episode>
+            <episode>
+              <groupId>com.helger.ubl</groupId>
               <artifactId>ph-ubl23</artifactId>
             </episode>
             <episode>
@@ -204,6 +213,11 @@
             <groupId>com.helger</groupId>
             <artifactId>ph-regrep</artifactId>
             <version>${ph-regrep.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>com.helger.ubl</groupId>
+            <artifactId>ph-ubl20</artifactId>
+            <version>${ph-ubl.version}</version>
           </dependency>
           <dependency>
             <groupId>com.helger</groupId>

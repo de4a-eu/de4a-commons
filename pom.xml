@@ -61,8 +61,9 @@
   
   <properties>
     <jaxb.version>2.3.3</jaxb.version>
-    <ph-xsds.version>2.4.2</ph-xsds.version>
     <ph-regrep.version>1.0.0</ph-regrep.version>
+    <ph-ubl.version>6.4.3</ph-ubl.version>
+    <ph-xsds.version>2.4.2</ph-xsds.version>
   </properties>
 
   <dependencyManagement>
@@ -91,7 +92,7 @@
       <dependency>
         <groupId>com.helger.ubl</groupId>
         <artifactId>ph-ubl-parent-pom</artifactId>
-        <version>6.4.2</version>
+        <version>${ph-ubl.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -112,14 +113,14 @@
       <dependency>
         <groupId>com.helger.schematron</groupId>
         <artifactId>ph-schematron-parent-pom</artifactId>
-        <version>6.0.2</version>
+        <version>6.0.3</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
       <dependency>
         <groupId>com.helger.peppol</groupId>
         <artifactId>peppol-commons-parent-pom</artifactId>
-        <version>8.3.1</version>
+        <version>8.4.0</version>
         <scope>import</scope>
         <type>pom</type>
       </dependency>

@@ -22,13 +22,15 @@
           xmlns:adms="http://www.w3.org/ns/adms#"
           xsi:schemaLocation="http://java.sun.com/xml/ns/jaxb http://java.sun.com/xml/ns/jaxb/bindingschema_2_0.xsd">
   <globalBindings fixedAttributeAsConstantProperty="true"
-                  typesafeEnumMemberName="generateError"
+                  typesafeEnumMaxMembers="2000"
+                  typesafeEnumMemberName="generateName"
                   underscoreBinding="asCharInWord">
     <xjc:javaType name="java.time.LocalDateTime" xmlType="xsd:dateTime" adapter="com.helger.jaxb.adapter.AdapterLocalDateTime" />
     <xjc:javaType name="java.time.LocalDate" xmlType="xsd:date" adapter="com.helger.jaxb.adapter.AdapterLocalDate" />
     <xjc:javaType name="java.time.LocalTime" xmlType="xsd:time" adapter="com.helger.jaxb.adapter.AdapterLocalTime" />
     <xjc:javaType name="java.time.Duration" xmlType="xsd:duration" adapter="com.helger.jaxb.adapter.AdapterDuration" />
   </globalBindings>
+  <!-- Source TOOP stuff -->
   <bindings schemaLocation="../resources/schemas/provided/CoreVocabularies-AggregateComponents-1.1.xsd">
     <schemaBindings>
       <package name="eu.de4a.edm.jaxb.w3.cv.ac" />
@@ -166,5 +168,69 @@
         <property name="VCardTYPE"/>
       </bindings>
     </bindings>
+  </bindings>
+  
+  <!-- DE4A stuff -->
+  <bindings schemaLocation="../resources/schemas/de4a/common-types.xsd">
+    <schemaBindings>
+      <package name="eu.de4a.edm.jaxb.common.types" />
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="../resources/schemas/de4a/common-identity-types.xsd">
+    <schemaBindings>
+      <package name="eu.de4a.edm.jaxb.common.idtypes" />
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="../resources/schemas/de4a/ISO3166-1-Country-Codes.xsd">
+    <schemaBindings>
+      <package name="eu.de4a.edm.jaxb.common.countrycodes" />
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="../resources/schemas/external/eidas-LP.xsd">
+    <schemaBindings>
+      <package name="eu.de4a.edm.jaxb.eidas.lp" />
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="../resources/schemas/external/eidas-NP.xsd">
+    <schemaBindings>
+      <package name="eu.de4a.edm.jaxb.eidas.np" />
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="../resources/schemas/DE1-USI.xsd">
+    <schemaBindings>
+      <package name="eu.de4a.edm.jaxb.de_usi" />
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="../resources/schemas/DO1-IM.xsd">
+    <schemaBindings>
+      <!-- "do" is a reserved word and cannot be used as a package name part -->
+      <package name="eu.de4a.edm.jaxb.do_im" />
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="../resources/schemas/DO1-USI.xsd">
+    <schemaBindings>
+      <!-- "do" is a reserved word and cannot be used as a package name part -->
+      <package name="eu.de4a.edm.jaxb.do_usi" />
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="../resources/schemas/DR1-IDK.xsd">
+    <schemaBindings>
+      <package name="eu.de4a.edm.jaxb.dr_idk" />
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="../resources/schemas/DR1-IM.xsd">
+    <schemaBindings>
+      <package name="eu.de4a.edm.jaxb.dr_im" />
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="../resources/schemas/DR1-USI.xsd">
+    <schemaBindings>
+      <package name="eu.de4a.edm.jaxb.dr_usi" />
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="../resources/schemas/DT1-USI.xsd">
+    <schemaBindings>
+      <package name="eu.de4a.edm.jaxb.dt_usi" />
+    </schemaBindings>
   </bindings>
 </bindings>
