@@ -87,4 +87,56 @@ public class DE4AMarshaller
                                          _getXSDs_DO_IM (),
                                          new eu.de4a.edm.jaxb.do_im.ObjectFactory ()::createResponseExtractEvidence);
   }
+
+  @Nonnull
+  @Nonempty
+  private static ICommonsList <ClassPathResource> _getXSDs_DO_USI ()
+  {
+    final ICommonsList <ClassPathResource> ret = new CommonsArrayList <> ();
+    ret.addAll (CDE4AJaxb.XSDS);
+    ret.add (CDE4AJaxb.XSD_DO_USI);
+    return ret;
+  }
+
+  @Nonnull
+  public static GenericJAXBMarshaller <eu.de4a.edm.jaxb.do_usi.RequestExtractEvidenceType> doUsiRequestMarshaller ()
+  {
+    return new GenericJAXBMarshaller <> (eu.de4a.edm.jaxb.do_usi.RequestExtractEvidenceType.class,
+                                         _getXSDs_DO_USI (),
+                                         new eu.de4a.edm.jaxb.do_usi.ObjectFactory ()::createRequestExtractEvidence);
+  }
+
+  @Nonnull
+  public static GenericJAXBMarshaller <eu.de4a.edm.jaxb.do_usi.ResponseExtractEvidenceType> doUsiResponseMarshaller ()
+  {
+    return new GenericJAXBMarshaller <> (eu.de4a.edm.jaxb.do_usi.ResponseExtractEvidenceType.class,
+                                         _getXSDs_DO_USI (),
+                                         new eu.de4a.edm.jaxb.do_usi.ObjectFactory ()::createResponseExtractEvidence);
+  }
+
+  @Nonnull
+  @Nonempty
+  private static ICommonsList <ClassPathResource> _getXSDs_DR_IM ()
+  {
+    final ICommonsList <ClassPathResource> ret = new CommonsArrayList <> ();
+    ret.addAll (CDE4AJaxb.XSDS);
+    ret.add (CDE4AJaxb.XSD_DR_IM);
+    return ret;
+  }
+
+  @Nonnull
+  public static GenericJAXBMarshaller <eu.de4a.edm.jaxb.dr_im.RequestTransferEvidenceType> drImRequestMarshaller ()
+  {
+    return new GenericJAXBMarshaller <> (eu.de4a.edm.jaxb.dr_im.RequestTransferEvidenceType.class,
+                                         _getXSDs_DR_IM (),
+                                         new eu.de4a.edm.jaxb.dr_im.ObjectFactory ()::createRequestTransferEvidence);
+  }
+
+  @Nonnull
+  public static GenericJAXBMarshaller <eu.de4a.edm.jaxb.dr_im.ResponseTransferEvidenceType> drImResponseMarshaller ()
+  {
+    return new GenericJAXBMarshaller <> (eu.de4a.edm.jaxb.dr_im.ResponseTransferEvidenceType.class,
+                                         _getXSDs_DR_IM (),
+                                         new eu.de4a.edm.jaxb.dr_im.ObjectFactory ()::createResponseTransferEvidence);
+  }
 }
