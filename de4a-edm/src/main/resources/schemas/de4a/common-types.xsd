@@ -92,7 +92,7 @@
 		</xs:sequence>
 	</xs:complexType>
 	<xs:simpleType name="IdRefType">
-		<xs:restriction base="xs:IDREF"/>
+		<xs:restriction base="xs:string"/>
 	</xs:simpleType>
 	<xs:simpleType name="IssuingTypeType">
 		<xs:restriction base="xs:token">
