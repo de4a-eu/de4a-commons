@@ -6,9 +6,6 @@ import java.io.File;
 
 import org.junit.Test;
 
-import eu.de4a.edm.jaxb.de_usi.RequestForwardEvidenceType;
-import eu.de4a.edm.jaxb.de_usi.ResponseForwardEvidenceType;
-
 /**
  * Test class for class {@link DE4AMarshaller}.
  *
@@ -19,12 +16,24 @@ public class DE4AMarshallerTest
   @Test
   public void testDE_USI ()
   {
-    final RequestForwardEvidenceType req = DE4AMarshaller.deUsiRequestMarshaller ()
-                                                         .read (new File ("src/test/resources/de4a/DE1-USI-request.xml"));
+    final eu.de4a.edm.jaxb.de_usi.RequestForwardEvidenceType req = DE4AMarshaller.deUsiRequestMarshaller ()
+                                                                                 .read (new File ("src/test/resources/de4a/DE1-USI-request.xml"));
     assertNotNull (req);
 
-    final ResponseForwardEvidenceType resp = DE4AMarshaller.deUsiResponseMarshaller ()
-                                                           .read (new File ("src/test/resources/de4a/DE1-USI-response.xml"));
+    final eu.de4a.edm.jaxb.de_usi.ResponseForwardEvidenceType resp = DE4AMarshaller.deUsiResponseMarshaller ()
+                                                                                   .read (new File ("src/test/resources/de4a/DE1-USI-response.xml"));
+    assertNotNull (resp);
+  }
+
+  @Test
+  public void testDO_IM ()
+  {
+    final eu.de4a.edm.jaxb.do_im.RequestExtractEvidenceType req = DE4AMarshaller.doImRequestMarshaller ()
+                                                                                .read (new File ("src/test/resources/de4a/DO1-IM-request.xml"));
+    assertNotNull (req);
+
+    final eu.de4a.edm.jaxb.do_im.ResponseExtractEvidenceType resp = DE4AMarshaller.doImResponseMarshaller ()
+                                                                                  .read (new File ("src/test/resources/de4a/DO1-IM-response.xml"));
     assertNotNull (resp);
   }
 }

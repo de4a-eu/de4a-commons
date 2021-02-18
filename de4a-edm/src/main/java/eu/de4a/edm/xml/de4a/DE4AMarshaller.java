@@ -47,7 +47,7 @@ public class DE4AMarshaller
   }
 
   @Nonnull
-  public static GenericJAXBMarshaller <RequestForwardEvidenceType> deUsiRequestMarshaller ()
+  public static GenericJAXBMarshaller <eu.de4a.edm.jaxb.de_usi.RequestForwardEvidenceType> deUsiRequestMarshaller ()
   {
     return new GenericJAXBMarshaller <> (RequestForwardEvidenceType.class,
                                          _getXSDs_DE_USI (),
@@ -55,10 +55,36 @@ public class DE4AMarshaller
   }
 
   @Nonnull
-  public static GenericJAXBMarshaller <ResponseForwardEvidenceType> deUsiResponseMarshaller ()
+  public static GenericJAXBMarshaller <eu.de4a.edm.jaxb.de_usi.ResponseForwardEvidenceType> deUsiResponseMarshaller ()
   {
     return new GenericJAXBMarshaller <> (ResponseForwardEvidenceType.class,
                                          _getXSDs_DE_USI (),
                                          new eu.de4a.edm.jaxb.de_usi.ObjectFactory ()::createResponseForwardEvidence);
+  }
+
+  @Nonnull
+  @Nonempty
+  private static ICommonsList <ClassPathResource> _getXSDs_DO_IM ()
+  {
+    final ICommonsList <ClassPathResource> ret = new CommonsArrayList <> ();
+    ret.addAll (CDE4AJaxb.XSDS);
+    ret.add (CDE4AJaxb.XSD_DO_IM);
+    return ret;
+  }
+
+  @Nonnull
+  public static GenericJAXBMarshaller <eu.de4a.edm.jaxb.do_im.RequestExtractEvidenceType> doImRequestMarshaller ()
+  {
+    return new GenericJAXBMarshaller <> (eu.de4a.edm.jaxb.do_im.RequestExtractEvidenceType.class,
+                                         _getXSDs_DO_IM (),
+                                         new eu.de4a.edm.jaxb.do_im.ObjectFactory ()::createRequestExtractEvidence);
+  }
+
+  @Nonnull
+  public static GenericJAXBMarshaller <eu.de4a.edm.jaxb.do_im.ResponseExtractEvidenceType> doImResponseMarshaller ()
+  {
+    return new GenericJAXBMarshaller <> (eu.de4a.edm.jaxb.do_im.ResponseExtractEvidenceType.class,
+                                         _getXSDs_DO_IM (),
+                                         new eu.de4a.edm.jaxb.do_im.ObjectFactory ()::createResponseExtractEvidence);
   }
 }
