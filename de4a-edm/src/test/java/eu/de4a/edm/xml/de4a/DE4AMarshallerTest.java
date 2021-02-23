@@ -11,7 +11,7 @@ import org.junit.Test;
  *
  * @author Philip Helger
  */
-public class DE4AMarshallerTest
+public final class DE4AMarshallerTest
 {
   @Test
   public void testDE_USI ()
@@ -70,6 +70,18 @@ public class DE4AMarshallerTest
 
     final eu.de4a.edm.jaxb.dr_usi.ResponseTransferEvidenceType resp = DE4AMarshaller.drUsiResponseMarshaller ()
                                                                                     .read (new File ("src/test/resources/de4a/DR1-USI-response.xml"));
+    assertNotNull (resp);
+  }
+
+  @Test
+  public void testDT_USI ()
+  {
+    final eu.de4a.edm.jaxb.dt_usi.RequestTransferEvidenceType req = DE4AMarshaller.dtUsiRequestMarshaller ()
+                                                                                  .read (new File ("src/test/resources/de4a/DT1-USI-request.xml"));
+    assertNotNull (req);
+
+    final eu.de4a.edm.jaxb.dt_usi.ResponseTransferEvidenceType resp = DE4AMarshaller.dtUsiResponseMarshaller ()
+                                                                                    .read (new File ("src/test/resources/de4a/DT1-USI-response.xml"));
     assertNotNull (resp);
   }
 }

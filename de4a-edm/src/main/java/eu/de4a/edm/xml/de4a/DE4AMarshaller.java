@@ -165,4 +165,30 @@ public class DE4AMarshaller
                                          _getXSDs_DR_USI (),
                                          new eu.de4a.edm.jaxb.dr_usi.ObjectFactory ()::createResponseTransferEvidence);
   }
+
+  @Nonnull
+  @Nonempty
+  private static ICommonsList <ClassPathResource> _getXSDs_DT_USI ()
+  {
+    final ICommonsList <ClassPathResource> ret = new CommonsArrayList <> ();
+    ret.addAll (CDE4AJaxb.XSDS);
+    ret.add (CDE4AJaxb.XSD_DT_USI);
+    return ret;
+  }
+
+  @Nonnull
+  public static GenericJAXBMarshaller <eu.de4a.edm.jaxb.dt_usi.RequestTransferEvidenceType> dtUsiRequestMarshaller ()
+  {
+    return new GenericJAXBMarshaller <> (eu.de4a.edm.jaxb.dt_usi.RequestTransferEvidenceType.class,
+                                         _getXSDs_DT_USI (),
+                                         new eu.de4a.edm.jaxb.dt_usi.ObjectFactory ()::createRequestTransferEvidence);
+  }
+
+  @Nonnull
+  public static GenericJAXBMarshaller <eu.de4a.edm.jaxb.dt_usi.ResponseTransferEvidenceType> dtUsiResponseMarshaller ()
+  {
+    return new GenericJAXBMarshaller <> (eu.de4a.edm.jaxb.dt_usi.ResponseTransferEvidenceType.class,
+                                         _getXSDs_DT_USI (),
+                                         new eu.de4a.edm.jaxb.dt_usi.ObjectFactory ()::createResponseTransferEvidence);
+  }
 }
