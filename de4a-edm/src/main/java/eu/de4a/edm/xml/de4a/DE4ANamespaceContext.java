@@ -13,15 +13,12 @@
  */
 package eu.de4a.edm.xml.de4a;
 
-import java.util.Map.Entry;
-
 import javax.annotation.Nonnull;
 
 import com.helger.commons.annotation.Singleton;
 import com.helger.xml.namespace.MapBasedNamespaceContext;
 
 import eu.de4a.edm.xml.cagv.CAGVNamespaceContext;
-import eu.de4a.edm.xml.cv.CCVNamespaceContext;
 
 /**
  * XML Namespace context for DE4A
@@ -38,10 +35,12 @@ public class DE4ANamespaceContext extends MapBasedNamespaceContext
 
   protected DE4ANamespaceContext ()
   {
+    // CGAV contain CV
     addMappings (CAGVNamespaceContext.getInstance ());
-    for (final Entry <String, String> aEntry : CCVNamespaceContext.getInstance ().getPrefixToNamespaceURIMap ().entrySet ())
-      if (!isPrefixMapped (aEntry.getKey ()))
-        addMapping (aEntry.getKey (), aEntry.getValue ());
+    addMapping ("eilp", "http://eidas.europa.eu/attributes/legalperson");
+    addMapping ("einp", "http://eidas.europa.eu/attributes/naturalperson");
+    addMapping ("de4aid", "http://www.de4a.eu/2020/commons/identity/type");
+    addMapping ("de4a", "http://www.de4a.eu/2020/commons/type");
   }
 
   @Nonnull

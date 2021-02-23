@@ -151,7 +151,7 @@
   </bindings>
   <bindings schemaLocation="../resources/schemas/DR-DT1-IDK.xsd">
     <schemaBindings>
-      <package name="eu.de4a.edm.jaxb.dr_idk" />
+      <package name="eu.de4a.edm.jaxb.idk" />
     </schemaBindings>
   </bindings>
   <bindings schemaLocation="../resources/schemas/DR1-IM.xsd">

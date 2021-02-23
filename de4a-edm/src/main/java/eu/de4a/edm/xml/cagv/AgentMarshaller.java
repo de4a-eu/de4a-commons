@@ -22,7 +22,6 @@ import com.helger.jaxb.GenericJAXBMarshaller;
 import com.helger.jaxb.JAXBContextCache;
 
 import eu.de4a.edm.jaxb.cv.agent.AgentType;
-import eu.de4a.edm.jaxb.cv.agent.ObjectFactory;
 
 /**
  * Core Agent XML Marshaller
@@ -33,7 +32,7 @@ public class AgentMarshaller extends GenericJAXBMarshaller <AgentType>
 {
   public AgentMarshaller ()
   {
-    super (AgentType.class, CCAGV.XSDS, x -> new ObjectFactory ().createAgent (x));
+    super (AgentType.class, CCAGV.XSDS, new eu.de4a.edm.jaxb.cv.agent.ObjectFactory ()::createAgent);
     setNamespaceContext (CAGVNamespaceContext.getInstance ());
   }
 

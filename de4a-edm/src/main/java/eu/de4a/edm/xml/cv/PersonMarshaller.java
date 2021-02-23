@@ -26,7 +26,7 @@ public class PersonMarshaller extends GenericJAXBMarshaller <CorePersonType>
 {
   public PersonMarshaller ()
   {
-    super (CorePersonType.class, CCV.XSDS, x -> new eu.de4a.edm.jaxb.w3.cv.ac.ObjectFactory ().createCorePerson (x));
+    super (CorePersonType.class, CCV.XSDS, new eu.de4a.edm.jaxb.w3.cv.ac.ObjectFactory ()::createCorePerson);
     setNamespaceContext (CCVNamespaceContext.getInstance ());
   }
 }

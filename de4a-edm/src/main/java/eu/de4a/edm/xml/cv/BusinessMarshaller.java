@@ -26,7 +26,7 @@ public class BusinessMarshaller extends GenericJAXBMarshaller <CoreBusinessType>
 {
   public BusinessMarshaller ()
   {
-    super (CoreBusinessType.class, CCV.XSDS, x -> new eu.de4a.edm.jaxb.w3.cv.ac.ObjectFactory ().createCoreBusiness (x));
+    super (CoreBusinessType.class, CCV.XSDS, new eu.de4a.edm.jaxb.w3.cv.ac.ObjectFactory ()::createCoreBusiness);
     setNamespaceContext (CCVNamespaceContext.getInstance ());
   }
 }
