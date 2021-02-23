@@ -182,15 +182,15 @@ public final class EDMRequestTest
   {
     EDMRequest aRequest;
 
-    aRequest = EDMRequest.reader ().read (new ClassPathResource ("Document Request_LP.xml"));
+    aRequest = EDMRequest.reader ().read (new ClassPathResource ("toop/Document Request_LP.xml"));
     _testWriteAndRead (aRequest);
 
-    aRequest = EDMRequest.reader ().read (new ClassPathResource ("Document Request_NP.xml"));
+    aRequest = EDMRequest.reader ().read (new ClassPathResource ("toop/Document Request_NP.xml"));
     _testWriteAndRead (aRequest);
 
     if (false)
     {
-      aRequest = EDMRequest.reader ().read (new ClassPathResource ("request/request1.xml"));
+      aRequest = EDMRequest.reader ().read (new ClassPathResource ("toop/request/request1.xml"));
       _testWriteAndRead (aRequest);
     }
   }
@@ -198,13 +198,13 @@ public final class EDMRequestTest
   @Test
   public void testBadCases ()
   {
-    EDMRequest aRequest = EDMRequest.reader ().read (new ClassPathResource ("Bogus.xml"));
+    EDMRequest aRequest = EDMRequest.reader ().read (new ClassPathResource ("toop/Bogus.xml"));
     assertNull (aRequest);
 
-    aRequest = EDMRequest.reader ().read (new ClassPathResource ("Document Response.xml"));
+    aRequest = EDMRequest.reader ().read (new ClassPathResource ("toop/Document Response.xml"));
     assertNull (aRequest);
 
-    aRequest = EDMRequest.reader ().read (new ClassPathResource ("Error Response 1.xml"));
+    aRequest = EDMRequest.reader ().read (new ClassPathResource ("toop/Error Response 1.xml"));
     assertNull (aRequest);
   }
 }

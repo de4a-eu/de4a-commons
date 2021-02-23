@@ -121,20 +121,20 @@ public final class EDMResponseTest
   {
     EDMResponse aResponse;
 
-    aResponse = EDMResponse.reader ().read (new ClassPathResource ("Document Response.xml"));
+    aResponse = EDMResponse.reader ().read (new ClassPathResource ("toop/Document Response.xml"));
     _testWriteAndRead (aResponse);
   }
 
   @Test
   public void testBadCases ()
   {
-    EDMResponse aResponse = EDMResponse.reader ().read (new ClassPathResource ("Bogus.xml"));
+    EDMResponse aResponse = EDMResponse.reader ().read (new ClassPathResource ("toop/Bogus.xml"));
     assertNull (aResponse);
 
-    aResponse = EDMResponse.reader ().read (new ClassPathResource ("Document Request_LP.xml"));
+    aResponse = EDMResponse.reader ().read (new ClassPathResource ("toop/Document Request_LP.xml"));
     assertNull (aResponse);
 
-    aResponse = EDMResponse.reader ().read (new ClassPathResource ("Error Response 1.xml"));
+    aResponse = EDMResponse.reader ().read (new ClassPathResource ("toop/Error Response 1.xml"));
     assertNull (aResponse);
   }
 }

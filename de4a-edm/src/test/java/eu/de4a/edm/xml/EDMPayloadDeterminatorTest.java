@@ -39,21 +39,21 @@ public final class EDMPayloadDeterminatorTest
     IEDMTopLevelObject aTLO;
 
     // EDM Requests
-    aTLO = EDMPayloadDeterminator.parseAndFind (ClassPathResource.getInputStream ("Document Request_LP.xml"));
+    aTLO = EDMPayloadDeterminator.parseAndFind (ClassPathResource.getInputStream ("toop/Document Request_LP.xml"));
     assertNotNull (aTLO);
     assertTrue (aTLO instanceof EDMRequest);
 
-    aTLO = EDMPayloadDeterminator.parseAndFind (ClassPathResource.getInputStream ("Document Request_NP.xml"));
+    aTLO = EDMPayloadDeterminator.parseAndFind (ClassPathResource.getInputStream ("toop/Document Request_NP.xml"));
     assertNotNull (aTLO);
     assertTrue (aTLO instanceof EDMRequest);
 
     // EDM Responses
-    aTLO = EDMPayloadDeterminator.parseAndFind (ClassPathResource.getInputStream ("Document Response.xml"));
+    aTLO = EDMPayloadDeterminator.parseAndFind (ClassPathResource.getInputStream ("toop/Document Response.xml"));
     assertNotNull (aTLO);
     assertTrue (aTLO instanceof EDMResponse);
 
     // EDM Error Responses
-    aTLO = EDMPayloadDeterminator.parseAndFind (ClassPathResource.getInputStream ("Error Response 1.xml"));
+    aTLO = EDMPayloadDeterminator.parseAndFind (ClassPathResource.getInputStream ("toop/Error Response 1.xml"));
     assertNotNull (aTLO);
     assertTrue (aTLO instanceof EDMErrorResponse);
   }
@@ -64,7 +64,7 @@ public final class EDMPayloadDeterminatorTest
     IEDMTopLevelObject aTLO;
 
     // EDM Requests
-    aTLO = EDMPayloadDeterminator.parseAndFind (ClassPathResource.getInputStream ("Bogus.xml"));
+    aTLO = EDMPayloadDeterminator.parseAndFind (ClassPathResource.getInputStream ("toop/Bogus.xml"));
     assertNull (aTLO);
   }
 }

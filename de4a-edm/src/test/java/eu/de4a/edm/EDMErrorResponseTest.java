@@ -119,23 +119,23 @@ public final class EDMErrorResponseTest
   @Test
   public void testReadAndWriteExampleFiles ()
   {
-    EDMErrorResponse aErrorResponse = EDMErrorResponse.reader ().read (new ClassPathResource ("Error Response 1.xml"));
+    EDMErrorResponse aErrorResponse = EDMErrorResponse.reader ().read (new ClassPathResource ("toop/Error Response 1.xml"));
     _testWriteAndRead (aErrorResponse);
 
-    aErrorResponse = EDMErrorResponse.reader ().read (new ClassPathResource ("error-response/edm-jonas2.xml"));
+    aErrorResponse = EDMErrorResponse.reader ().read (new ClassPathResource ("toop/error-response/edm-jonas2.xml"));
     _testWriteAndRead (aErrorResponse);
   }
 
   @Test
   public void testBadCases ()
   {
-    EDMErrorResponse aErrorResponse = EDMErrorResponse.reader ().read (new ClassPathResource ("Bogus.xml"));
+    EDMErrorResponse aErrorResponse = EDMErrorResponse.reader ().read (new ClassPathResource ("toop/Bogus.xml"));
     assertNull (aErrorResponse);
 
-    aErrorResponse = EDMErrorResponse.reader ().read (new ClassPathResource ("Document Request_LP.xml"));
+    aErrorResponse = EDMErrorResponse.reader ().read (new ClassPathResource ("toop/Document Request_LP.xml"));
     assertNull (aErrorResponse);
 
-    aErrorResponse = EDMErrorResponse.reader ().read (new ClassPathResource ("Document Response.xml"));
+    aErrorResponse = EDMErrorResponse.reader ().read (new ClassPathResource ("toop/Document Response.xml"));
     assertNull (aErrorResponse);
   }
 }
