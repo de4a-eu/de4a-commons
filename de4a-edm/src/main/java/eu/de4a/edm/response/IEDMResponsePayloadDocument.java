@@ -15,7 +15,6 @@ package eu.de4a.edm.response;
 
 import javax.annotation.Nonnull;
 
-import eu.de4a.edm.model.DatasetPojo;
 import eu.de4a.edm.model.RepositoryItemRefPojo;
 
 /**
@@ -26,9 +25,6 @@ import eu.de4a.edm.model.RepositoryItemRefPojo;
  */
 public interface IEDMResponsePayloadDocument extends IEDMResponsePayloadProvider
 {
-  @Nonnull
-  DatasetPojo getDataset ();
-
   @Nonnull
   RepositoryItemRefPojo getRepositoryItemRef ();
 }

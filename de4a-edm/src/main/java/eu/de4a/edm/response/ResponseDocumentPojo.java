@@ -19,25 +19,18 @@ import java.util.function.Consumer;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import org.w3c.dom.Node;
-
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.equals.EqualsHelper;
 import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.string.StringHelper;
 import com.helger.commons.string.ToStringGenerator;
-import com.helger.regrep.rim.AnyValueType;
 import com.helger.regrep.rim.ExtrinsicObjectType;
 import com.helger.regrep.rim.SimpleLinkType;
 import com.helger.regrep.rim.SlotType;
 import com.helger.regrep.rim.ValueType;
 
-import eu.de4a.edm.jaxb.dcatap.DCatAPDatasetType;
-import eu.de4a.edm.model.DatasetPojo;
 import eu.de4a.edm.model.RepositoryItemRefPojo;
-import eu.de4a.edm.slot.SlotDocumentMetadata;
-import eu.de4a.edm.xml.dcatap.DatasetMarshaller;
 
 /**
  * Represents a single response object
@@ -49,19 +42,14 @@ import eu.de4a.edm.xml.dcatap.DatasetMarshaller;
 public class ResponseDocumentPojo implements IEDMResponsePayloadDocument
 {
   private final String m_sRegistryObjectID;
-  private final DatasetPojo m_aDataset;
   private final RepositoryItemRefPojo m_aRepositoryItemRef;
 
-  public ResponseDocumentPojo (@Nonnull @Nonempty final String sRegistryObjectID,
-                               @Nonnull final DatasetPojo aDataset,
-                               @Nonnull final RepositoryItemRefPojo aRepositoryItemRef)
+  public ResponseDocumentPojo (@Nonnull @Nonempty final String sRegistryObjectID, @Nonnull final RepositoryItemRefPojo aRepositoryItemRef)
   {
     ValueEnforcer.notEmpty (sRegistryObjectID, "RegistryObjectID");
-    ValueEnforcer.notNull (aDataset, "Dataset");
     ValueEnforcer.notNull (aRepositoryItemRef, "RepositoryItemRef");
 
     m_sRegistryObjectID = sRegistryObjectID;
-    m_aDataset = aDataset;
     m_aRepositoryItemRef = aRepositoryItemRef;
   }
 
@@ -70,12 +58,6 @@ public class ResponseDocumentPojo implements IEDMResponsePayloadDocument
   public final String getRegistryObjectID ()
   {
     return m_sRegistryObjectID;
-  }
-
-  @Nonnull
-  public final DatasetPojo getDataset ()
-  {
-    return m_aDataset;
   }
 
   @Nonnull
@@ -90,9 +72,6 @@ public class ResponseDocumentPojo implements IEDMResponsePayloadDocument
   {
     final ExtrinsicObjectType ret = new ExtrinsicObjectType ();
     ret.setId (m_sRegistryObjectID);
-
-    // DocumentMetadata
-    ret.addSlot (new SlotDocumentMetadata (m_aDataset).createSlot ());
 
     // Reference to AS4 artifact
     ret.setRepositoryItemRef (m_aRepositoryItemRef.getAsSimpleLink ());
@@ -109,21 +88,19 @@ public class ResponseDocumentPojo implements IEDMResponsePayloadDocument
       return false;
     final ResponseDocumentPojo rhs = (ResponseDocumentPojo) o;
     return EqualsHelper.equals (m_sRegistryObjectID, rhs.m_sRegistryObjectID) &&
-           EqualsHelper.equals (m_aDataset, rhs.m_aDataset) &&
            EqualsHelper.equals (m_aRepositoryItemRef, rhs.m_aRepositoryItemRef);
   }
 
   @Override
   public int hashCode ()
   {
-    return new HashCodeGenerator (this).append (m_sRegistryObjectID).append (m_aDataset).append (m_aRepositoryItemRef).getHashCode ();
+    return new HashCodeGenerator (this).append (m_sRegistryObjectID).append (m_aRepositoryItemRef).getHashCode ();
   }
 
   @Override
   public String toString ()
   {
     return new ToStringGenerator (this).append ("RegistryObjectID", m_sRegistryObjectID)
-                                       .append ("Dataset", m_aDataset)
                                        .append ("RepositoryItemRef", m_aRepositoryItemRef)
                                        .getToString ();
   }
@@ -137,7 +114,6 @@ public class ResponseDocumentPojo implements IEDMResponsePayloadDocument
   public static class Builder
   {
     private String m_sRegistryObjectID;
-    private DatasetPojo m_aDataset;
     private RepositoryItemRefPojo m_aRepositoryItemRef;
 
     protected Builder ()
@@ -154,25 +130,6 @@ public class ResponseDocumentPojo implements IEDMResponsePayloadDocument
     public Builder randomRegistryObjectID ()
     {
       return registryObjectID (UUID.randomUUID ().toString ());
-    }
-
-    @Nonnull
-    public Builder dataset (@Nullable final DatasetPojo.Builder a)
-    {
-      return dataset (a == null ? null : a.build ());
-    }
-
-    @Nonnull
-    public Builder dataset (@Nullable final DatasetPojo a)
-    {
-      m_aDataset = a;
-      return this;
-    }
-
-    @Nonnull
-    public Builder dataset (@Nullable final DCatAPDatasetType a)
-    {
-      return dataset (a == null ? null : DatasetPojo.builder (a));
     }
 
     @Nonnull
@@ -210,8 +167,6 @@ public class ResponseDocumentPojo implements IEDMResponsePayloadDocument
     {
       if (StringHelper.hasNoText (m_sRegistryObjectID))
         throw new IllegalStateException ("RegistryObjectID must be present");
-      if (m_aDataset == null)
-        throw new IllegalStateException ("Dataset MUST be present");
       if (m_aRepositoryItemRef == null)
         throw new IllegalStateException ("RepositoryItemRef MUST be present");
     }
@@ -221,7 +176,7 @@ public class ResponseDocumentPojo implements IEDMResponsePayloadDocument
     {
       checkConsistency ();
 
-      return new ResponseDocumentPojo (m_sRegistryObjectID, m_aDataset, m_aRepositoryItemRef);
+      return new ResponseDocumentPojo (m_sRegistryObjectID, m_aRepositoryItemRef);
     }
   }
 
@@ -231,15 +186,6 @@ public class ResponseDocumentPojo implements IEDMResponsePayloadDocument
     final ValueType aSlotValue = aSlot.getSlotValue ();
     switch (sName)
     {
-      case SlotDocumentMetadata.NAME:
-      {
-        if (aSlotValue instanceof AnyValueType)
-        {
-          final Node aAny = (Node) ((AnyValueType) aSlotValue).getAny ();
-          aBuilder.dataset (DatasetPojo.builder (new DatasetMarshaller ().read (aAny)));
-        }
-        break;
-      }
       default:
         throw new IllegalStateException ("Found unsupported slot '" + sName + "'");
     }

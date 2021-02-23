@@ -26,15 +26,12 @@ import org.junit.Test;
 import org.w3c.dom.Document;
 
 import com.helger.commons.collection.impl.ICommonsList;
-import com.helger.commons.datetime.PDTFactory;
 import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.commons.mock.CommonsTestHelper;
 import com.helger.regrep.ERegRepResponseStatus;
 import com.helger.schematron.svrl.AbstractSVRLMessage;
 
-import eu.de4a.edm.model.DatasetPojo;
 import eu.de4a.edm.model.EDE4AIdentifierType;
-import eu.de4a.edm.model.EDE4ALanguageCode;
 import eu.de4a.edm.schematron.SchematronBusinessRules2Validator;
 import eu.de4a.edm.schematron.SchematronEDM2Validator;
 
@@ -92,40 +89,17 @@ public final class EDMResponseTest
   }
 
   @Nonnull
-  private static DatasetPojo.Builder _dataset ()
-  {
-    return DatasetPojo.builder ()
-                      .description ("bla desc")
-                      .title ("bla title")
-                      .distribution (x -> x.documentURI ("URI")
-                                           .documentDescription ("DocumentDescription")
-                                           .documentType ("application/xml"))
-                      .language (EDE4ALanguageCode.EN)
-                      .creator (x -> x.name ("Agent name").address (y -> y.town ("Kewlkidshome")))
-                      .ids ("RE238918378", "DOC-555")
-                      .issuedNow ()
-                      .lastModifiedNow ()
-                      .validFrom (PDTFactory.getCurrentLocalDate ().minusMonths (1))
-                      .validTo (PDTFactory.getCurrentLocalDate ().plusYears (1))
-                      .addQualifiedRelation (x -> x.description ("LegalResourceDesc").title ("Name").id ("RE238918378"))
-                      .addQualifiedRelation (x -> x.descriptions ("LegalResourceDesc2", "nice isn't it")
-                                                   .titles ("Name1", "Name2")
-                                                   .ids ("RE238918378", "and-id2"));
-  }
-
-  @Nonnull
   private static EDMResponse.BuilderDocument _respDocument ()
   {
-    return _resp (EDMResponse.builderDocument ()).addResponseObject (x -> x.dataset (_dataset ())
-                                                                           .repositoryItemRef (y -> y.title ("Evidence.pdf")
+    return _resp (EDMResponse.builderDocument ()).addResponseObject (x -> x.repositoryItemRef (y -> y.title ("Evidence.pdf")
                                                                                                      .link ("https://www.example.com/evidence.pdf")));
   }
 
   @Nonnull
   private static EDMResponse.BuilderDocumentReference _respDocumentRef ()
   {
-    return _resp (EDMResponse.builderDocumentReference ()).addResponseObject (x -> x.randomRegistryObjectID ().dataset (_dataset ()))
-                                                          .addResponseObject (x -> x.randomRegistryObjectID ().dataset (_dataset ()));
+    return _resp (EDMResponse.builderDocumentReference ()).addResponseObject (x -> x.randomRegistryObjectID ())
+                                                          .addResponseObject (x -> x.randomRegistryObjectID ());
   }
 
   @Test

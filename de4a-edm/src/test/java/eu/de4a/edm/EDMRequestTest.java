@@ -17,7 +17,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 
 import java.time.Month;
 import java.util.Locale;
@@ -31,13 +30,10 @@ import org.w3c.dom.Document;
 import com.helger.commons.collection.impl.ICommonsList;
 import com.helger.commons.datetime.PDTFactory;
 import com.helger.commons.io.resource.ClassPathResource;
-import com.helger.commons.mime.CMimeType;
 import com.helger.commons.mock.CommonsTestHelper;
 import com.helger.schematron.svrl.AbstractSVRLMessage;
 
-import eu.de4a.edm.jaxb.cccev.CCCEVRequirementType;
 import eu.de4a.edm.model.BusinessPojo;
-import eu.de4a.edm.model.EDE4ADistributionFormat;
 import eu.de4a.edm.model.EDE4AGenderCode;
 import eu.de4a.edm.model.EDE4AIdentifierType;
 import eu.de4a.edm.model.EDE4AResponseOptionType;
@@ -89,7 +85,6 @@ public final class EDMRequestTest
                    .randomID ()
                    .issueDateTimeNow ()
                    .procedure (Locale.US, "GBM Procedure")
-                   .addFullfillingRequirement (new CCCEVRequirementType ())
                    .dataConsumer (x -> x.address (y -> y.town ("MyTown")
                                                         .streetName ("MyStreet")
                                                         .buildingNumber ("22")
@@ -115,13 +110,6 @@ public final class EDMRequestTest
                                                     .idSchemeID (EDE4AIdentifierType.EIDAS))
                    .datasetIdentifier ("IdentifierForDatasets")
                    .consentToken ("AAABBB");
-  }
-
-  @Nonnull
-  private static EDMRequest.BuilderDocumentsByDistribution _reqDocument ()
-  {
-    return _req (EDMRequest.builderDocumentsByDistribution ()).distribution (x -> x.format (EDE4ADistributionFormat.STRUCTURED)
-                                                                                   .mediaType (CMimeType.APPLICATION_PDF));
   }
 
   @Nonnull
@@ -168,35 +156,6 @@ public final class EDMRequestTest
   }
 
   @Test
-  public void createEDMDocumentRequestLP ()
-  {
-    final EDMRequest aRequest = _reqDocument ().dataSubject (_lp ()).build ();
-    _testWriteAndRead (aRequest);
-  }
-
-  @Test
-  public void createEDMDocumentRequestNP ()
-  {
-    final EDMRequest aRequest = _reqDocument ().dataSubject (_np ()).build ();
-    _testWriteAndRead (aRequest);
-  }
-
-  @Test
-  public void createEDMDocumentRequestNoDS ()
-  {
-    // DataSubject is required
-    try
-    {
-      _reqDocument ().build ();
-      fail ();
-    }
-    catch (final IllegalStateException ex)
-    {
-      // expected
-    }
-  }
-
-  @Test
   public void createEDMDocumentGetByIDRequestLP ()
   {
     final EDMRequest aRequest = _reqDocumentByID ().dataSubject (_lp ()).build ();
@@ -215,13 +174,6 @@ public final class EDMRequestTest
   {
     // No DataSubject is okay when querying by ID
     final EDMRequest aRequest = _reqDocumentByID ().build ();
-    _testWriteAndRead (aRequest);
-  }
-
-  @Test
-  public void createEDMDocumentRefRequestNP ()
-  {
-    final EDMRequest aRequest = _reqDocument ().dataSubject (_np ()).responseOption (EDE4AResponseOptionType.REFERENCE).build ();
     _testWriteAndRead (aRequest);
   }
 

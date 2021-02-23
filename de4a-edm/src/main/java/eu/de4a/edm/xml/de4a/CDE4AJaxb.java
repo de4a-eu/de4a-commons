@@ -45,7 +45,6 @@ public final class CDE4AJaxb
     a.add (new ClassPathResource ("schemas/external/eidas-LP.xsd", _getCL ()));
     a.add (new ClassPathResource ("schemas/external/eidas-NP.xsd", _getCL ()));
     a.add (new ClassPathResource ("schemas/de4a/common-identity-types.xsd", _getCL ()));
-    a.add (new ClassPathResource ("schemas/de4a/ISO3166-1-Country-Codes.xsd", _getCL ()));
     a.add (CUBL20.XSD_CODELIST_MIME_MEDIA_TYPE_CODE);
     a.addAll (CCV.XSDS);
     a.addAll (CCAGV.XSDS);
@@ -58,7 +57,7 @@ public final class CDE4AJaxb
   public static final ClassPathResource XSD_DO_IM = new ClassPathResource ("schemas/DO1-IM.xsd", _getCL ());
   public static final ClassPathResource XSD_DO_USI = new ClassPathResource ("schemas/DO1-USI.xsd", _getCL ());
 
-  public static final ClassPathResource XSD_DR_IDK = new ClassPathResource ("schemas/DR1-IDK.xsd", _getCL ());
+  public static final ClassPathResource XSD_DR_DT_IDK = new ClassPathResource ("schemas/DR-DT1-IDK.xsd", _getCL ());
   public static final ClassPathResource XSD_DR_IM = new ClassPathResource ("schemas/DR1-IM.xsd", _getCL ());
   public static final ClassPathResource XSD_DR_USI = new ClassPathResource ("schemas/DR1-USI.xsd", _getCL ());
 

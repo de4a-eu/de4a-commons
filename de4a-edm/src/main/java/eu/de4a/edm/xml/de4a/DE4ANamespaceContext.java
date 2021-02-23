@@ -11,37 +11,41 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package eu.de4a.edm.xml.cccev;
+package eu.de4a.edm.xml.de4a;
+
+import java.util.Map.Entry;
 
 import javax.annotation.Nonnull;
 
 import com.helger.commons.annotation.Singleton;
 import com.helger.xml.namespace.MapBasedNamespaceContext;
 
-import eu.de4a.edm.xml.dcatap.DCatNamespaceContext;
+import eu.de4a.edm.xml.cagv.CAGVNamespaceContext;
+import eu.de4a.edm.xml.cv.CCVNamespaceContext;
 
 /**
- * XML Namespace context for CCCEV
+ * XML Namespace context for DE4A
  *
  * @author Philip Helger
  */
 @Singleton
-public class CCCEVNamespaceContext extends MapBasedNamespaceContext
+public class DE4ANamespaceContext extends MapBasedNamespaceContext
 {
   private static final class SingletonHolder
   {
-    static final CCCEVNamespaceContext s_aInstance = new CCCEVNamespaceContext ();
+    static final DE4ANamespaceContext s_aInstance = new DE4ANamespaceContext ();
   }
 
-  protected CCCEVNamespaceContext ()
+  protected DE4ANamespaceContext ()
   {
-    setMappings (DCatNamespaceContext.getInstance ());
-    addMapping ("owl", "http://www.w3.org/2002/07/owl#");
-    addMapping ("cccev", "https://data.europe.eu/semanticassets/ns/cv/cccev_v2.0.0#");
+    addMappings (CAGVNamespaceContext.getInstance ());
+    for (final Entry <String, String> aEntry : CCVNamespaceContext.getInstance ().getPrefixToNamespaceURIMap ().entrySet ())
+      if (!isPrefixMapped (aEntry.getKey ()))
+        addMapping (aEntry.getKey (), aEntry.getValue ());
   }
 
   @Nonnull
-  public static CCCEVNamespaceContext getInstance ()
+  public static DE4ANamespaceContext getInstance ()
   {
     return SingletonHolder.s_aInstance;
   }

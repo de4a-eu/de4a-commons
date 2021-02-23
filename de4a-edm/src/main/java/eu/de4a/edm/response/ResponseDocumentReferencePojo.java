@@ -18,23 +18,15 @@ import java.util.UUID;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-import org.w3c.dom.Node;
-
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.equals.EqualsHelper;
 import com.helger.commons.hashcode.HashCodeGenerator;
 import com.helger.commons.string.StringHelper;
 import com.helger.commons.string.ToStringGenerator;
-import com.helger.regrep.rim.AnyValueType;
 import com.helger.regrep.rim.ObjectRefType;
 import com.helger.regrep.rim.SlotType;
 import com.helger.regrep.rim.ValueType;
-
-import eu.de4a.edm.jaxb.dcatap.DCatAPDatasetType;
-import eu.de4a.edm.model.DatasetPojo;
-import eu.de4a.edm.slot.SlotDocumentMetadata;
-import eu.de4a.edm.xml.dcatap.DatasetMarshaller;
 
 /**
  * Represents a single response object reference
@@ -46,15 +38,12 @@ import eu.de4a.edm.xml.dcatap.DatasetMarshaller;
 public class ResponseDocumentReferencePojo implements IEDMResponsePayloadDocumentReference
 {
   private final String m_sRegistryObjectID;
-  private final DatasetPojo m_aDataset;
 
-  public ResponseDocumentReferencePojo (@Nonnull @Nonempty final String sRegistryObjectID, @Nonnull final DatasetPojo aDataset)
+  public ResponseDocumentReferencePojo (@Nonnull @Nonempty final String sRegistryObjectID)
   {
     ValueEnforcer.notEmpty (sRegistryObjectID, "RegistryObjectID");
-    ValueEnforcer.notNull (aDataset, "Dataset");
 
     m_sRegistryObjectID = sRegistryObjectID;
-    m_aDataset = aDataset;
   }
 
   @Nonnull
@@ -65,20 +54,11 @@ public class ResponseDocumentReferencePojo implements IEDMResponsePayloadDocumen
   }
 
   @Nonnull
-  public final DatasetPojo getDataset ()
-  {
-    return m_aDataset;
-  }
-
-  @Nonnull
   @Override
   public ObjectRefType getAsObjectRef ()
   {
     final ObjectRefType ret = new ObjectRefType ();
     ret.setId (m_sRegistryObjectID);
-
-    // DocumentMetadata
-    ret.addSlot (new SlotDocumentMetadata (m_aDataset).createSlot ());
 
     return ret;
   }
@@ -91,19 +71,19 @@ public class ResponseDocumentReferencePojo implements IEDMResponsePayloadDocumen
     if (o == null || !getClass ().equals (o.getClass ()))
       return false;
     final ResponseDocumentReferencePojo rhs = (ResponseDocumentReferencePojo) o;
-    return EqualsHelper.equals (m_sRegistryObjectID, rhs.m_sRegistryObjectID) && EqualsHelper.equals (m_aDataset, rhs.m_aDataset);
+    return EqualsHelper.equals (m_sRegistryObjectID, rhs.m_sRegistryObjectID);
   }
 
   @Override
   public int hashCode ()
   {
-    return new HashCodeGenerator (this).append (m_sRegistryObjectID).append (m_aDataset).getHashCode ();
+    return new HashCodeGenerator (this).append (m_sRegistryObjectID).getHashCode ();
   }
 
   @Override
   public String toString ()
   {
-    return new ToStringGenerator (this).append ("RegistryObjectID", m_sRegistryObjectID).append ("Dataset", m_aDataset).getToString ();
+    return new ToStringGenerator (this).append ("RegistryObjectID", m_sRegistryObjectID).getToString ();
   }
 
   @Nonnull
@@ -115,7 +95,6 @@ public class ResponseDocumentReferencePojo implements IEDMResponsePayloadDocumen
   public static class Builder
   {
     private String m_sRegistryObjectID;
-    private DatasetPojo m_aDataset;
 
     protected Builder ()
     {}
@@ -133,31 +112,10 @@ public class ResponseDocumentReferencePojo implements IEDMResponsePayloadDocumen
       return registryObjectID (UUID.randomUUID ().toString ());
     }
 
-    @Nonnull
-    public Builder dataset (@Nullable final DatasetPojo.Builder a)
-    {
-      return dataset (a == null ? null : a.build ());
-    }
-
-    @Nonnull
-    public Builder dataset (@Nullable final DatasetPojo a)
-    {
-      m_aDataset = a;
-      return this;
-    }
-
-    @Nonnull
-    public Builder dataset (@Nullable final DCatAPDatasetType a)
-    {
-      return dataset (a == null ? null : DatasetPojo.builder (a));
-    }
-
     public void checkConsistency ()
     {
       if (StringHelper.hasNoText (m_sRegistryObjectID))
         throw new IllegalStateException ("RegistryObjectID must be present");
-      if (m_aDataset == null)
-        throw new IllegalStateException ("Dataset MUST be present");
     }
 
     @Nonnull
@@ -165,7 +123,7 @@ public class ResponseDocumentReferencePojo implements IEDMResponsePayloadDocumen
     {
       checkConsistency ();
 
-      return new ResponseDocumentReferencePojo (m_sRegistryObjectID, m_aDataset);
+      return new ResponseDocumentReferencePojo (m_sRegistryObjectID);
     }
   }
 
@@ -175,15 +133,6 @@ public class ResponseDocumentReferencePojo implements IEDMResponsePayloadDocumen
     final ValueType aSlotValue = aSlot.getSlotValue ();
     switch (sName)
     {
-      case SlotDocumentMetadata.NAME:
-      {
-        if (aSlotValue instanceof AnyValueType)
-        {
-          final Node aAny = (Node) ((AnyValueType) aSlotValue).getAny ();
-          aBuilder.dataset (DatasetPojo.builder (new DatasetMarshaller ().read (aAny)));
-        }
-        break;
-      }
       default:
         throw new IllegalStateException ("Found unsupported slot '" + sName + "'");
     }

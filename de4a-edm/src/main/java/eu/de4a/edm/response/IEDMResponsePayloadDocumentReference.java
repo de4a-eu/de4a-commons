@@ -13,10 +13,6 @@
  */
 package eu.de4a.edm.response;
 
-import javax.annotation.Nonnull;
-
-import eu.de4a.edm.model.DatasetPojo;
-
 /**
  * A single EDM Response payload of type "Document reference"
  *
@@ -24,7 +20,4 @@ import eu.de4a.edm.model.DatasetPojo;
  * @since 2.0.0-beta3
  */
 public interface IEDMResponsePayloadDocumentReference extends IEDMResponsePayloadProvider
-{
-  @Nonnull
-  DatasetPojo getDataset ();
-}
+{}

@@ -15,12 +15,10 @@ package eu.de4a.edm;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
-import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.UUID;
 import java.util.function.Consumer;
-import java.util.function.Function;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -30,8 +28,6 @@ import org.w3c.dom.Node;
 
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.Nonempty;
-import com.helger.commons.annotation.ReturnsMutableCopy;
-import com.helger.commons.annotation.ReturnsMutableObject;
 import com.helger.commons.collection.impl.CommonsArrayList;
 import com.helger.commons.collection.impl.CommonsHashSet;
 import com.helger.commons.collection.impl.CommonsLinkedHashMap;
@@ -52,7 +48,6 @@ import com.helger.regrep.RegRepHelper;
 import com.helger.regrep.query.QueryRequest;
 import com.helger.regrep.query.ResponseOptionType;
 import com.helger.regrep.rim.AnyValueType;
-import com.helger.regrep.rim.CollectionValueType;
 import com.helger.regrep.rim.DateTimeValueType;
 import com.helger.regrep.rim.InternationalStringType;
 import com.helger.regrep.rim.InternationalStringValueType;
@@ -65,19 +60,15 @@ import com.helger.regrep.slot.ISlotProvider;
 import com.helger.regrep.slot.SlotHelper;
 import com.helger.regrep.slot.predefined.SlotId;
 
-import eu.de4a.edm.jaxb.cccev.CCCEVRequirementType;
 import eu.de4a.edm.jaxb.cv.agent.AgentType;
-import eu.de4a.edm.jaxb.dcatap.DCatAPDistributionType;
 import eu.de4a.edm.jaxb.w3.cv.ac.CoreBusinessType;
 import eu.de4a.edm.jaxb.w3.cv.ac.CorePersonType;
 import eu.de4a.edm.model.AgentPojo;
 import eu.de4a.edm.model.BusinessPojo;
-import eu.de4a.edm.model.DistributionPojo;
 import eu.de4a.edm.model.EDE4ALanguageCode;
 import eu.de4a.edm.model.EDE4AQueryDefinitionType;
 import eu.de4a.edm.model.EDE4AResponseOptionType;
 import eu.de4a.edm.model.PersonPojo;
-import eu.de4a.edm.request.EDMRequestPayloadDistribution;
 import eu.de4a.edm.request.EDMRequestPayloadDocumentID;
 import eu.de4a.edm.request.IEDMRequestPayloadProvider;
 import eu.de4a.edm.slot.SlotAuthorizedRepresentative;
@@ -86,8 +77,6 @@ import eu.de4a.edm.slot.SlotDataConsumer;
 import eu.de4a.edm.slot.SlotDataSubjectLegalPerson;
 import eu.de4a.edm.slot.SlotDataSubjectNaturalPerson;
 import eu.de4a.edm.slot.SlotDatasetIdentifier;
-import eu.de4a.edm.slot.SlotDistributionRequestList;
-import eu.de4a.edm.slot.SlotFullfillingRequirements;
 import eu.de4a.edm.slot.SlotIssueDateTime;
 import eu.de4a.edm.slot.SlotProcedure;
 import eu.de4a.edm.slot.SlotSpecificationIdentifier;
@@ -97,10 +86,8 @@ import eu.de4a.edm.xml.JAXBVersatileReader;
 import eu.de4a.edm.xml.JAXBVersatileWriter;
 import eu.de4a.edm.xml.cagv.AgentMarshaller;
 import eu.de4a.edm.xml.cagv.CCAGV;
-import eu.de4a.edm.xml.cccev.RequirementMarshaller;
 import eu.de4a.edm.xml.cv.BusinessMarshaller;
 import eu.de4a.edm.xml.cv.PersonMarshaller;
-import eu.de4a.edm.xml.dcatap.DistributionMarshaller;
 
 /**
  * This class contains the data model for a single DE4A EDM Request. It requires
@@ -131,7 +118,6 @@ public class EDMRequest implements IEDMTopLevelObject
   private static final ICommonsOrderedSet <String> TOP_LEVEL_SLOTS = new CommonsLinkedHashSet <> (SlotSpecificationIdentifier.NAME,
                                                                                                   SlotIssueDateTime.NAME,
                                                                                                   SlotProcedure.NAME,
-                                                                                                  SlotFullfillingRequirements.NAME,
                                                                                                   SlotConsentToken.NAME,
                                                                                                   SlotDatasetIdentifier.NAME,
                                                                                                   SlotDataConsumer.NAME);
@@ -142,7 +128,6 @@ public class EDMRequest implements IEDMTopLevelObject
   private final String m_sSpecificationIdentifier;
   private final LocalDateTime m_aIssueDateTime;
   private final InternationalStringType m_aProcedure;
-  private final ICommonsList <CCCEVRequirementType> m_aFullfillingRequirements = new CommonsArrayList <> ();
   private final AgentPojo m_aDataConsumer;
   private final String m_sConsentToken;
   private final String m_sDatasetIdentifier;
@@ -157,7 +142,6 @@ public class EDMRequest implements IEDMTopLevelObject
                         @Nonnull @Nonempty final String sSpecificationIdentifier,
                         @Nonnull final LocalDateTime aIssueDateTime,
                         @Nullable final InternationalStringType aProcedure,
-                        @Nullable final ICommonsList <CCCEVRequirementType> aFullfillingRequirements,
                         @Nonnull final AgentPojo aDataConsumer,
                         @Nullable final String sConsentToken,
                         @Nullable final String sDatasetIdentifier,
@@ -171,7 +155,6 @@ public class EDMRequest implements IEDMTopLevelObject
     ValueEnforcer.notEmpty (sRequestID, "RequestID");
     ValueEnforcer.notEmpty (sSpecificationIdentifier, "SpecificationIdentifier");
     ValueEnforcer.notNull (aIssueDateTime, "IssueDateTime");
-    ValueEnforcer.noNullValue (aFullfillingRequirements, "FullfillingRequirements");
     ValueEnforcer.notNull (aDataConsumer, "DataConsumer");
     if (!eQueryDefinition.isDataSujectOptional ())
       ValueEnforcer.isFalse (aDataSubjectLegalPerson == null && aDataSubjectNaturalPerson == null, "A DataSubject must be set");
@@ -185,8 +168,6 @@ public class EDMRequest implements IEDMTopLevelObject
     m_sSpecificationIdentifier = sSpecificationIdentifier;
     m_aIssueDateTime = aIssueDateTime;
     m_aProcedure = aProcedure;
-    if (aFullfillingRequirements != null)
-      m_aFullfillingRequirements.addAll (aFullfillingRequirements);
     m_aDataConsumer = aDataConsumer;
     m_sConsentToken = sConsentToken;
     m_sDatasetIdentifier = sDatasetIdentifier;
@@ -254,20 +235,6 @@ public class EDMRequest implements IEDMTopLevelObject
   }
 
   @Nonnull
-  @ReturnsMutableObject
-  public final List <CCCEVRequirementType> fullfillingRequirements ()
-  {
-    return m_aFullfillingRequirements;
-  }
-
-  @Nonnull
-  @ReturnsMutableCopy
-  public final List <CCCEVRequirementType> getAllFullfillingRequirements ()
-  {
-    return m_aFullfillingRequirements.getClone ();
-  }
-
-  @Nonnull
   public final AgentPojo getDataConsumer ()
   {
     return m_aDataConsumer;
@@ -305,8 +272,7 @@ public class EDMRequest implements IEDMTopLevelObject
 
   /**
    * @return The request payload provider. Never <code>null</code>. This is one
-   *         of {@link eu.de4a.edm.request.IEDMRequestPayloadDistribution} or
-   *         {@link eu.de4a.edm.request.IEDMRequestPayloadDocumentID}.
+   *         of {@link eu.de4a.edm.request.IEDMRequestPayloadDocumentID}.
    */
   @Nonnull
   public final IEDMRequestPayloadProvider getPayloadProvider ()
@@ -370,8 +336,6 @@ public class EDMRequest implements IEDMTopLevelObject
       aSlots.add (new SlotIssueDateTime (m_aIssueDateTime));
     if (m_aProcedure != null)
       aSlots.add (new SlotProcedure (m_aProcedure));
-    if (m_aFullfillingRequirements.isNotEmpty ())
-      aSlots.add (new SlotFullfillingRequirements (m_aFullfillingRequirements));
     if (m_sConsentToken != null)
       aSlots.add (new SlotConsentToken (m_sConsentToken));
     if (m_sDatasetIdentifier != null)
@@ -419,7 +383,6 @@ public class EDMRequest implements IEDMTopLevelObject
            EqualsHelper.equals (m_sSpecificationIdentifier, rhs.m_sSpecificationIdentifier) &&
            EqualsHelper.equals (m_aIssueDateTime, rhs.m_aIssueDateTime) &&
            EqualsHelper.equals (m_aProcedure, rhs.m_aProcedure) &&
-           EqualsHelper.equals (m_aFullfillingRequirements, rhs.m_aFullfillingRequirements) &&
            EqualsHelper.equals (m_aDataConsumer, rhs.m_aDataConsumer) &&
            EqualsHelper.equals (m_sConsentToken, rhs.m_sConsentToken) &&
            EqualsHelper.equals (m_sDatasetIdentifier, rhs.m_sDatasetIdentifier) &&
@@ -438,7 +401,6 @@ public class EDMRequest implements IEDMTopLevelObject
                                        .append (m_sSpecificationIdentifier)
                                        .append (m_aIssueDateTime)
                                        .append (m_aProcedure)
-                                       .append (m_aFullfillingRequirements)
                                        .append (m_aDataConsumer)
                                        .append (m_sConsentToken)
                                        .append (m_sDatasetIdentifier)
@@ -458,7 +420,6 @@ public class EDMRequest implements IEDMTopLevelObject
                                        .append ("SpecificationIdentifier", m_sSpecificationIdentifier)
                                        .append ("IssueDateTime", m_aIssueDateTime)
                                        .append ("Procedure", m_aProcedure)
-                                       .append ("FullfillingRequirements", m_aFullfillingRequirements)
                                        .append ("DataConsumer", m_aDataConsumer)
                                        .append ("ConsentToken", m_sConsentToken)
                                        .append ("DatasetIdentifier", m_sDatasetIdentifier)
@@ -467,20 +428,6 @@ public class EDMRequest implements IEDMTopLevelObject
                                        .append ("AuthorizedRepresentative", m_aAuthorizedRepresentative)
                                        .append ("RequestPayloadProvider", m_aPayloadProvider)
                                        .getToString ();
-  }
-
-  @Nonnull
-  public static BuilderDocumentsByDistribution builderDocumentsByDistribution ()
-  {
-    return new BuilderDocumentsByDistribution ().specificationIdentifier (CDE4AEDM.SPECIFICATION_IDENTIFIER_DE4A_EDM_V01)
-                                                .responseOption (EDE4AResponseOptionType.INLINE);
-  }
-
-  @Nonnull
-  public static BuilderDocumentsByDistribution builderDocumentReferencesByDistribution ()
-  {
-    return new BuilderDocumentsByDistribution ().specificationIdentifier (CDE4AEDM.SPECIFICATION_IDENTIFIER_DE4A_EDM_V01)
-                                                .responseOption (EDE4AResponseOptionType.REFERENCE);
   }
 
   /**
@@ -508,7 +455,6 @@ public class EDMRequest implements IEDMTopLevelObject
     protected String m_sSpecificationIdentifier;
     protected LocalDateTime m_aIssueDateTime;
     protected InternationalStringType m_aProcedure;
-    protected final ICommonsList <CCCEVRequirementType> m_aFullfillingRequirements = new CommonsArrayList <> ();
     protected AgentPojo m_aDataConsumer;
     protected String m_sConsentToken;
     protected String m_sDatasetIdentifier;
@@ -602,46 +548,6 @@ public class EDMRequest implements IEDMTopLevelObject
     public final IMPLTYPE procedure (@Nullable final InternationalStringType a)
     {
       m_aProcedure = a;
-      return thisAsT ();
-    }
-
-    @Nonnull
-    public final IMPLTYPE addFullfillingRequirement (@Nullable final CCCEVRequirementType a)
-    {
-      if (a != null)
-        m_aFullfillingRequirements.add (a);
-      return thisAsT ();
-    }
-
-    @Nonnull
-    public final IMPLTYPE fullfillingRequirement (@Nullable final CCCEVRequirementType a)
-    {
-      if (a != null)
-        m_aFullfillingRequirements.set (a);
-      else
-        m_aFullfillingRequirements.clear ();
-      return thisAsT ();
-    }
-
-    @Nonnull
-    public final IMPLTYPE fullfillingRequirements (@Nullable final CCCEVRequirementType... a)
-    {
-      m_aFullfillingRequirements.setAll (a);
-      return thisAsT ();
-    }
-
-    @Nonnull
-    public final IMPLTYPE fullfillingRequirements (@Nullable final Iterable <? extends CCCEVRequirementType> a)
-    {
-      m_aFullfillingRequirements.setAll (a);
-      return thisAsT ();
-    }
-
-    @Nonnull
-    public final <U> IMPLTYPE fullfillingRequirements (@Nullable final Iterable <? extends U> a,
-                                                       @Nonnull final Function <? super U, CCCEVRequirementType> aMapper)
-    {
-      m_aFullfillingRequirements.setAllMapped (a, aMapper);
       return thisAsT ();
     }
 
@@ -884,141 +790,6 @@ public class EDMRequest implements IEDMTopLevelObject
   }
 
   /**
-   * Builder for a "Documents by distribution request". Request 1-n documents -
-   * either directly or as a reference.
-   *
-   * @author Philip Helger
-   */
-  public static class BuilderDocumentsByDistribution extends AbstractBuilder <BuilderDocumentsByDistribution>
-  {
-    private final ICommonsList <DistributionPojo> m_aDistributions = new CommonsArrayList <> ();
-
-    protected BuilderDocumentsByDistribution ()
-    {
-      super (EDE4AQueryDefinitionType.DOCUMENT_BY_DISTRIBUTION);
-    }
-
-    @Nonnull
-    public final BuilderDocumentsByDistribution addDistribution (@Nullable final Consumer <? super DistributionPojo.Builder> a)
-    {
-      if (a != null)
-      {
-        final DistributionPojo.Builder aBuilder = DistributionPojo.builder ();
-        a.accept (aBuilder);
-        addDistribution (aBuilder.build ());
-      }
-      return this;
-    }
-
-    @Nonnull
-    public BuilderDocumentsByDistribution addDistribution (@Nullable final DCatAPDistributionType a)
-    {
-      return addDistribution (a == null ? null : DistributionPojo.builder (a));
-    }
-
-    @Nonnull
-    public BuilderDocumentsByDistribution addDistribution (@Nullable final DistributionPojo.Builder a)
-    {
-      return addDistribution (a == null ? null : a.build ());
-    }
-
-    @Nonnull
-    public BuilderDocumentsByDistribution addDistribution (@Nullable final DistributionPojo a)
-    {
-      if (a != null)
-        m_aDistributions.add (a);
-      return this;
-    }
-
-    @Nonnull
-    public final BuilderDocumentsByDistribution distribution (@Nullable final Consumer <? super DistributionPojo.Builder> a)
-    {
-      if (a != null)
-      {
-        final DistributionPojo.Builder aBuilder = DistributionPojo.builder ();
-        a.accept (aBuilder);
-        distribution (aBuilder.build ());
-      }
-      return this;
-    }
-
-    @Nonnull
-    public BuilderDocumentsByDistribution distribution (@Nullable final DCatAPDistributionType a)
-    {
-      return distribution (a == null ? null : DistributionPojo.builder (a));
-    }
-
-    @Nonnull
-    public BuilderDocumentsByDistribution distribution (@Nullable final DistributionPojo.Builder a)
-    {
-      return distribution (a == null ? null : a.build ());
-    }
-
-    @Nonnull
-    public BuilderDocumentsByDistribution distribution (@Nullable final DistributionPojo a)
-    {
-      if (a != null)
-        m_aDistributions.set (a);
-      else
-        m_aDistributions.clear ();
-      return this;
-    }
-
-    @Nonnull
-    public BuilderDocumentsByDistribution distributions (@Nullable final DistributionPojo... a)
-    {
-      m_aDistributions.setAll (a);
-      return this;
-    }
-
-    @Nonnull
-    public BuilderDocumentsByDistribution distributions (@Nullable final Iterable <? extends DistributionPojo> a)
-    {
-      m_aDistributions.setAll (a);
-      return this;
-    }
-
-    @Nonnull
-    public <T> BuilderDocumentsByDistribution distributions (@Nullable final Iterable <? extends T> a,
-                                                             @Nonnull final Function <? super T, DistributionPojo> aMapper)
-    {
-      m_aDistributions.setAllMapped (a, aMapper);
-      return thisAsT ();
-    }
-
-    @Override
-    public void checkConsistency ()
-    {
-      super.checkConsistency ();
-
-      if (m_aDistributions.isEmpty ())
-        throw new IllegalStateException ("A Query Definition of type 'Document' must contain a Distribution");
-    }
-
-    @Override
-    @Nonnull
-    public EDMRequest build ()
-    {
-      checkConsistency ();
-
-      return new EDMRequest (m_eQueryDefinition,
-                             m_sRequestID,
-                             m_eResponseOption,
-                             m_sSpecificationIdentifier,
-                             m_aIssueDateTime,
-                             m_aProcedure,
-                             m_aFullfillingRequirements,
-                             m_aDataConsumer,
-                             m_sConsentToken,
-                             m_sDatasetIdentifier,
-                             m_aDataSubjectLegalPerson,
-                             m_aDataSubjectNaturalPerson,
-                             m_aAuthorizedRepresentative,
-                             new EDMRequestPayloadDistribution (m_aDistributions));
-    }
-  }
-
-  /**
    * Builder for a "Document by ID request". Request 1 document directly.
    *
    * @author Philip Helger
@@ -1060,7 +831,6 @@ public class EDMRequest implements IEDMTopLevelObject
                              m_sSpecificationIdentifier,
                              m_aIssueDateTime,
                              m_aProcedure,
-                             m_aFullfillingRequirements,
                              m_aDataConsumer,
                              m_sConsentToken,
                              m_sDatasetIdentifier,
@@ -1096,19 +866,6 @@ public class EDMRequest implements IEDMTopLevelObject
         {
           final InternationalStringType aIntString = ((InternationalStringValueType) aSlotValue).getValue ();
           aBuilder.procedure (aIntString);
-        }
-        break;
-      case SlotFullfillingRequirements.NAME:
-        if (aSlotValue instanceof CollectionValueType)
-        {
-          final List <ValueType> aElements = ((CollectionValueType) aSlotValue).getElement ();
-          for (final ValueType aElement : aElements)
-            if (aElement instanceof AnyValueType)
-            {
-              final Object aElementValue = ((AnyValueType) aElement).getAny ();
-              if (aElementValue instanceof Node)
-                aBuilder.addFullfillingRequirement (new RequirementMarshaller ().read ((Node) aElementValue));
-            }
         }
         break;
       case SlotConsentToken.NAME:
@@ -1153,22 +910,6 @@ public class EDMRequest implements IEDMTopLevelObject
           aBuilder.authorizedRepresentative (PersonPojo.builder (new PersonMarshaller ().read (aAny)));
         }
         break;
-      case SlotDistributionRequestList.NAME:
-        if (aSlotValue instanceof CollectionValueType)
-        {
-          final List <ValueType> aElements = ((CollectionValueType) aSlotValue).getElement ();
-          if (!aElements.isEmpty ())
-          {
-            for (final ValueType aElement : aElements)
-              if (aElement instanceof AnyValueType)
-              {
-                final Object aElementValue = ((AnyValueType) aElement).getAny ();
-                if (aElementValue instanceof Node)
-                  ((EDMRequest.BuilderDocumentsByDistribution) aBuilder).addDistribution (new DistributionMarshaller ().read ((Node) aElementValue));
-              }
-          }
-        }
-        break;
       case SlotId.NAME:
         if (aSlotValue instanceof StringValueType)
         {
@@ -1192,13 +933,10 @@ public class EDMRequest implements IEDMTopLevelObject
 
     // Enforce a default response option
     final EDMRequest.AbstractBuilder <?> aBuilder;
-    if (aQuerySlotNames.contains (SlotDistributionRequestList.NAME))
-      aBuilder = builderDocumentsByDistribution ();
+    if (aQuerySlotNames.contains (SlotId.NAME))
+      aBuilder = builderDocumentByID ();
     else
-      if (aQuerySlotNames.contains (SlotId.NAME))
-        aBuilder = builderDocumentByID ();
-      else
-        throw new IllegalStateException ("Cannot read this QueryRequest as a DE4A EDM request");
+      throw new IllegalStateException ("Cannot read this QueryRequest as a DE4A EDM request");
 
     // Request ID
     aBuilder.id (aQueryRequest.getId ());

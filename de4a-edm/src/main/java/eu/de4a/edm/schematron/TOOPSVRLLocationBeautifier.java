@@ -20,7 +20,7 @@ import com.helger.commons.annotation.IsSPIImplementation;
 import com.helger.regrep.RegRep4NamespaceContext;
 import com.helger.schematron.svrl.ISVRLLocationBeautifierSPI;
 
-import eu.de4a.edm.xml.cccev.CCCEVNamespaceContext;
+import eu.de4a.edm.xml.de4a.DE4ANamespaceContext;
 
 /**
  * Beautifier for Schematron error messages.
@@ -33,7 +33,7 @@ public final class TOOPSVRLLocationBeautifier implements ISVRLLocationBeautifier
   @Nullable
   public String getReplacementText (@Nonnull final String sNamespaceURI, @Nonnull final String sLocalName)
   {
-    String sPrefix = CCCEVNamespaceContext.getInstance ().getCustomPrefix (sNamespaceURI);
+    String sPrefix = DE4ANamespaceContext.getInstance ().getCustomPrefix (sNamespaceURI);
     if (sPrefix == null)
       sPrefix = RegRep4NamespaceContext.getInstance ().getCustomPrefix (sNamespaceURI);
 

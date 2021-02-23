@@ -17,10 +17,7 @@
 <bindings version="2.1" 
           xmlns="http://java.sun.com/xml/ns/jaxb"
           xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" 
-          xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
-          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xmlns:adms="http://www.w3.org/ns/adms#"
-          xsi:schemaLocation="http://java.sun.com/xml/ns/jaxb http://java.sun.com/xml/ns/jaxb/bindingschema_2_0.xsd">
+          xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <globalBindings fixedAttributeAsConstantProperty="true"
                   typesafeEnumMaxMembers="2000"
                   typesafeEnumMemberName="generateName"
@@ -42,19 +39,6 @@
     </schemaBindings>
   </bindings>
 
-  <bindings schemaLocation="../resources/schemas/provided/adms.xsd">
-    <schemaBindings>
-      <package name="eu.de4a.edm.jaxb.w3.adms" />
-    </schemaBindings>
-  </bindings>
-  <bindings schemaLocation="../resources/schemas/provided/cccev-2.0.0.xsd">
-    <schemaBindings>
-      <package name="eu.de4a.edm.jaxb.cccev" />
-      <nameXmlTransform>
-        <typeName prefix="CCCEV"/>
-      </nameXmlTransform>
-    </schemaBindings>
-  </bindings>
   <bindings schemaLocation="../resources/schemas/provided/CV-Agent.xsd">
     <schemaBindings>
       <package name="eu.de4a.edm.jaxb.cv.agent" />
@@ -80,24 +64,6 @@
       <package name="eu.de4a.edm.jaxb.cv.dt" />
     </schemaBindings>
   </bindings>
-  <bindings schemaLocation="../resources/schemas/provided/dcat-ap.xsd" node="/xsd:schema">
-    <schemaBindings>
-      <package name="eu.de4a.edm.jaxb.dcatap" />
-      <nameXmlTransform>
-        <typeName prefix="DCatAP"/>
-      </nameXmlTransform>
-    </schemaBindings>
-    <!-- 
-    <bindings node="//xsd:complexType[@name='DatasetType']">
-      <bindings node=".//xsd:element[@ref='adms:identifier']">
-        <property name="AdmsIdentifier" />
-      </bindings>
-    </bindings>
-     -->
-    <bindings node="//xsd:complexType[@name='DatasetType']//xsd:element[@ref='dct:hasVersion']">
-      <property name="DCTHasVersion" />
-    </bindings>
-  </bindings>
   <bindings schemaLocation="../resources/schemas/provided/dcterms.xsd">
     <schemaBindings>
       <package name="eu.de4a.edm.jaxb.dcterms" />
@@ -119,11 +85,6 @@
       <package name="eu.de4a.edm.jaxb.w3.locn" />
     </schemaBindings>
   </bindings>
-  <bindings schemaLocation="../resources/schemas/provided/odrl.xsd">
-    <schemaBindings>
-      <package name="eu.de4a.edm.jaxb.w3.odrl" />
-    </schemaBindings>
-  </bindings>
   <bindings schemaLocation="../resources/schemas/provided/owl.xsd">
     <schemaBindings>
       <package name="eu.de4a.edm.jaxb.owl" />
@@ -132,11 +93,6 @@
   <bindings schemaLocation="../resources/schemas/provided/org.xsd">
     <schemaBindings>
       <package name="eu.de4a.edm.jaxb.w3.org" />
-    </schemaBindings>
-  </bindings>
-  <bindings schemaLocation="../resources/schemas/provided/prov.xsd">
-    <schemaBindings>
-      <package name="eu.de4a.edm.jaxb.prov" />
     </schemaBindings>
   </bindings>
   <bindings schemaLocation="../resources/schemas/provided/rdf.xsd">
@@ -154,21 +110,6 @@
       <package name="eu.de4a.edm.jaxb.w3.skos" />
     </schemaBindings>
   </bindings>
-  <bindings schemaLocation="../resources/schemas/provided/spdx.xsd">
-    <schemaBindings>
-      <package name="eu.de4a.edm.jaxb.spdx" />
-    </schemaBindings>
-  </bindings>
-  <bindings schemaLocation="../resources/schemas/provided/vcard.xsd">
-    <schemaBindings>
-      <package name="eu.de4a.edm.jaxb.vcard" />
-    </schemaBindings>
-    <bindings node="//xsd:complexType[@name='binaryElement']">
-      <bindings node=".//xsd:attribute[@name='TYPE']">
-        <property name="VCardTYPE"/>
-      </bindings>
-    </bindings>
-  </bindings>
   
   <!-- DE4A stuff -->
   <bindings schemaLocation="../resources/schemas/de4a/common-types.xsd">
@@ -179,11 +120,6 @@
   <bindings schemaLocation="../resources/schemas/de4a/common-identity-types.xsd">
     <schemaBindings>
       <package name="eu.de4a.edm.jaxb.common.idtypes" />
-    </schemaBindings>
-  </bindings>
-  <bindings schemaLocation="../resources/schemas/de4a/ISO3166-1-Country-Codes.xsd">
-    <schemaBindings>
-      <package name="eu.de4a.edm.jaxb.common.countrycodes" />
     </schemaBindings>
   </bindings>
   <bindings schemaLocation="../resources/schemas/external/eidas-LP.xsd">
@@ -213,7 +149,7 @@
       <package name="eu.de4a.edm.jaxb.do_usi" />
     </schemaBindings>
   </bindings>
-  <bindings schemaLocation="../resources/schemas/DR1-IDK.xsd">
+  <bindings schemaLocation="../resources/schemas/DR-DT1-IDK.xsd">
     <schemaBindings>
       <package name="eu.de4a.edm.jaxb.dr_idk" />
     </schemaBindings>
