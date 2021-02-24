@@ -1,27 +1,56 @@
 package eu.de4a.edm.xml.de4a;
 
-import com.helger.commons.collection.impl.CommonsArrayList;
+import javax.annotation.Nonnull;
+
+import com.helger.commons.annotation.Nonempty;
+import com.helger.commons.annotation.ReturnsMutableCopy;
+import com.helger.commons.collection.impl.CommonsLinkedHashSet;
 import com.helger.commons.collection.impl.ICommonsList;
+import com.helger.commons.collection.impl.ICommonsOrderedSet;
 import com.helger.commons.io.resource.ClassPathResource;
 
+/**
+ * Contains the technical details of a single canonical evidence.
+ *
+ * @author Philip Helger
+ */
 public interface IDE4ACanonicalEvidenceType
 {
-  String getName ();
+  /**
+   * @return The display name of this particular evidence. May neither be
+   *         <code>null</code> nor empty.
+   */
+  @Nonnull
+  @Nonempty
+  String getDisplayName ();
 
-  ICommonsList <ClassPathResource> getAllXSDs ();
+  @Nonnull
+  @ReturnsMutableCopy
+  ICommonsList <? extends ClassPathResource> getAllXSDs ();
 
+  /**
+   * A specific instance that encapsulates all predefined objects from the
+   * {@link EDE4ACanonicalEvidenceType} enum.
+   */
+  @Nonnull
   IDE4ACanonicalEvidenceType ALL_PREDEFINED = new IDE4ACanonicalEvidenceType ()
   {
-    public String getName ()
+    @Nonnull
+    @Nonempty
+    public String getDisplayName ()
     {
-      return "all";
+      return "All predefined DE4A Canoncical Evidences";
     }
 
-    public ICommonsList <ClassPathResource> getAllXSDs ()
+    @Nonnull
+    @ReturnsMutableCopy
+    public ICommonsList <? extends ClassPathResource> getAllXSDs ()
     {
-      // TODO
-      return new CommonsArrayList <> ();
+      // Create a set to avoid duplicates in it
+      final ICommonsOrderedSet <ClassPathResource> ret = new CommonsLinkedHashSet <> ();
+      for (final EDE4ACanonicalEvidenceType e : EDE4ACanonicalEvidenceType.values ())
+        ret.addAll (e.getAllXSDs ());
+      return ret.getCopyAsList ();
     }
-
   };
 }

@@ -13,6 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.helger.commons.wrapper.Wrapper;
+import com.helger.jaxb.GenericJAXBMarshaller;
 
 /**
  * Test class for class {@link DE4AMarshaller}.
@@ -25,7 +26,7 @@ public final class DE4AMarshallerTest
   private static final String BASE_PATH = "src/test/resources/de4a/";
 
   @SuppressWarnings ("unused")
-  private static <T> void _receiveViaHttp (@Nonnull final DE4AMarshaller <T> aMarshaller, @Nonnull final File aFile) throws Exception
+  private static <T> void _receiveViaHttp (@Nonnull final GenericJAXBMarshaller <T> aMarshaller, @Nonnull final File aFile) throws Exception
   {
     final Wrapper <Exception> aExWrapper = new Wrapper <> ();
     aMarshaller.readExceptionCallbacks ().removeAll ();
@@ -41,7 +42,7 @@ public final class DE4AMarshallerTest
     }
   }
 
-  private static <T> void _testReadWrite (@Nonnull final DE4AMarshaller <T> aMarshaller, @Nonnull final File aFile)
+  private static <T> void _testReadWrite (@Nonnull final GenericJAXBMarshaller <T> aMarshaller, @Nonnull final File aFile)
   {
     assertTrue ("Test file does not exists " + aFile.getAbsolutePath (), aFile.exists ());
 
