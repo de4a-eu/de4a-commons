@@ -68,18 +68,18 @@ public class DE4AMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
   }
 
   @Nonnull
-  public static DE4AMarshaller <eu.de4a.edm.jaxb.de_usi.ResponseForwardEvidenceType> deUsiResponseMarshaller (@Nonnull final IDE4ACanonicalEvidenceType aCanonicalEvidenceType)
+  public static DE4AMarshaller <eu.de4a.edm.jaxb.de_usi.ResponseForwardEvidenceType> deUsiResponseMarshaller ()
   {
     return new DE4AMarshaller <> (ResponseForwardEvidenceType.class,
-                                  _getXSDs (CDE4AJAXB.XSD_DE_USI, aCanonicalEvidenceType.getAllXSDs ()),
+                                  _getXSDs (CDE4AJAXB.XSD_DE_USI, null),
                                   new eu.de4a.edm.jaxb.de_usi.ObjectFactory ()::createResponseForwardEvidence);
   }
 
   @Nonnull
-  public static DE4AMarshaller <eu.de4a.edm.jaxb.do_im.RequestExtractEvidenceType> doImRequestMarshaller (@Nonnull final IDE4ACanonicalEvidenceType aCanonicalEvidenceType)
+  public static DE4AMarshaller <eu.de4a.edm.jaxb.do_im.RequestExtractEvidenceType> doImRequestMarshaller ()
   {
     return new DE4AMarshaller <> (eu.de4a.edm.jaxb.do_im.RequestExtractEvidenceType.class,
-                                  _getXSDs (CDE4AJAXB.XSD_DO_IM, aCanonicalEvidenceType.getAllXSDs ()),
+                                  _getXSDs (CDE4AJAXB.XSD_DO_IM, null),
                                   new eu.de4a.edm.jaxb.do_im.ObjectFactory ()::createRequestExtractEvidence);
   }
 
@@ -110,10 +110,10 @@ public class DE4AMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
   }
 
   @Nonnull
-  public static DE4AMarshaller <eu.de4a.edm.jaxb.dr_im.RequestTransferEvidenceType> drImRequestMarshaller (@Nonnull final IDE4ACanonicalEvidenceType aCanonicalEvidenceType)
+  public static DE4AMarshaller <eu.de4a.edm.jaxb.dr_im.RequestTransferEvidenceType> drImRequestMarshaller ()
   {
     return new DE4AMarshaller <> (eu.de4a.edm.jaxb.dr_im.RequestTransferEvidenceType.class,
-                                  _getXSDs (CDE4AJAXB.XSD_DR_IM, aCanonicalEvidenceType.getAllXSDs ()),
+                                  _getXSDs (CDE4AJAXB.XSD_DR_IM, null),
                                   new eu.de4a.edm.jaxb.dr_im.ObjectFactory ()::createRequestTransferEvidence);
   }
 
@@ -152,10 +152,10 @@ public class DE4AMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
   }
 
   @Nonnull
-  public static DE4AMarshaller <eu.de4a.edm.jaxb.dt_usi.ResponseTransferEvidenceType> dtUsiResponseMarshaller (@Nonnull final IDE4ACanonicalEvidenceType aCanonicalEvidenceType)
+  public static DE4AMarshaller <eu.de4a.edm.jaxb.dt_usi.ResponseTransferEvidenceType> dtUsiResponseMarshaller ()
   {
     return new DE4AMarshaller <> (eu.de4a.edm.jaxb.dt_usi.ResponseTransferEvidenceType.class,
-                                  _getXSDs (CDE4AJAXB.XSD_DT_USI, aCanonicalEvidenceType.getAllXSDs ()),
+                                  _getXSDs (CDE4AJAXB.XSD_DT_USI, null),
                                   new eu.de4a.edm.jaxb.dt_usi.ObjectFactory ()::createResponseTransferEvidence);
   }
 
