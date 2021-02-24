@@ -20,7 +20,7 @@ public class DE4AT42Marshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYP
   public DE4AT42Marshaller (@Nonnull final Class <JAXBTYPE> aType,
                             @Nonnull final IFunction <? super JAXBTYPE, ? extends JAXBElement <JAXBTYPE>> aJAXBElementWrapper)
   {
-    super (aType, CT42.XSDS, aJAXBElementWrapper);
+    super (aType, CT42.getAllXSDs (), aJAXBElementWrapper);
     setNamespaceContext (DE4AT42NamespaceContext.getInstance ());
   }
 

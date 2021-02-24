@@ -16,7 +16,7 @@ public final class CT42Test
   @Test
   public void testBasic ()
   {
-    for (final ClassPathResource aCP : CT42.XSDS)
+    for (final ClassPathResource aCP : CT42.getAllXSDs ())
       assertTrue (aCP.getPath (), aCP.exists ());
   }
 }

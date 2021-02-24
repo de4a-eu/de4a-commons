@@ -4,6 +4,7 @@ import javax.annotation.Nonnull;
 
 import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.annotation.ReturnsMutableCopy;
+import com.helger.commons.collection.impl.CommonsArrayList;
 import com.helger.commons.collection.impl.CommonsLinkedHashSet;
 import com.helger.commons.collection.impl.ICommonsList;
 import com.helger.commons.collection.impl.ICommonsOrderedSet;
@@ -51,6 +52,27 @@ public interface IDE4ACanonicalEvidenceType
       for (final EDE4ACanonicalEvidenceType e : EDE4ACanonicalEvidenceType.values ())
         ret.addAll (e.getAllXSDs ());
       return ret.getCopyAsList ();
+    }
+  };
+
+  /**
+   * A specific instance that is empty.
+   */
+  @Nonnull
+  IDE4ACanonicalEvidenceType NONE = new IDE4ACanonicalEvidenceType ()
+  {
+    @Nonnull
+    @Nonempty
+    public String getDisplayName ()
+    {
+      return "No DE4A Canoncical Evidence - for testing only";
+    }
+
+    @Nonnull
+    @ReturnsMutableCopy
+    public ICommonsList <? extends ClassPathResource> getAllXSDs ()
+    {
+      return new CommonsArrayList <> ();
     }
   };
 }

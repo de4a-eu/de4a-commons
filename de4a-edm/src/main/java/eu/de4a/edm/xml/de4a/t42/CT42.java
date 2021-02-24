@@ -13,10 +13,9 @@
  */
 package eu.de4a.edm.xml.de4a.t42;
 
-import java.util.List;
-
 import javax.annotation.Nonnull;
 
+import com.helger.commons.annotation.ReturnsMutableCopy;
 import com.helger.commons.collection.impl.CommonsArrayList;
 import com.helger.commons.collection.impl.ICommonsList;
 import com.helger.commons.io.resource.ClassPathResource;
@@ -29,21 +28,22 @@ import com.helger.xsds.xml.CXML_XSD;
  */
 public final class CT42
 {
+  private CT42 ()
+  {}
+
   @Nonnull
   private static ClassLoader _getCL ()
   {
     return CT42.class.getClassLoader ();
   }
 
-  public static final List <ClassPathResource> XSDS;
-  static
+  @Nonnull
+  @ReturnsMutableCopy
+  public static ICommonsList <ClassPathResource> getAllXSDs ()
   {
     final ICommonsList <ClassPathResource> a = new CommonsArrayList <> ();
     a.add (CXML_XSD.getXSDResource ());
     a.add (new ClassPathResource ("schemas/t4.2/doing_Business_abroad_XSD_v0.4 2.xsd", _getCL ()));
-    XSDS = a.getAsUnmodifiable ();
+    return a;
   }
-
-  private CT42 ()
-  {}
 }
