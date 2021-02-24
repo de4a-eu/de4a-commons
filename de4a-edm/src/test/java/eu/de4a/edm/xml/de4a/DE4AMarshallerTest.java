@@ -47,11 +47,8 @@ public final class DE4AMarshallerTest
 
     if (false)
     {
-      aMarshaller.readExceptionCallbacks ().removeAll ();
-      aMarshaller.readExceptionCallbacks ().add (ex -> LOGGER.error ("Read error", ex));
-
-      aMarshaller.writeExceptionCallbacks ().removeAll ();
-      aMarshaller.writeExceptionCallbacks ().add (ex -> LOGGER.error ("Write error", ex));
+      aMarshaller.readExceptionCallbacks ().set (ex -> LOGGER.error ("Read error", ex));
+      aMarshaller.writeExceptionCallbacks ().set (ex -> LOGGER.error ("Write error", ex));
     }
 
     final T aRead = aMarshaller.read (aFile);
