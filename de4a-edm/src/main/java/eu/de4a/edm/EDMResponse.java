@@ -73,7 +73,7 @@ import eu.de4a.edm.xml.IVersatileWriter;
 import eu.de4a.edm.xml.JAXBVersatileReader;
 import eu.de4a.edm.xml.JAXBVersatileWriter;
 import eu.de4a.edm.xml.cagv.AgentMarshaller;
-import eu.de4a.edm.xml.de4a.CDE4AJaxb;
+import eu.de4a.edm.xml.de4a.CDE4AJAXB;
 
 /**
  * This class contains the data model for a single DE4A EDM Request. It requires
@@ -263,13 +263,13 @@ public class EDMResponse implements IEDMTopLevelObject
   @Nonnull
   public IVersatileWriter <QueryResponse> getWriter ()
   {
-    return new JAXBVersatileWriter <> (getAsQueryResponse (), RegRep4Writer.queryResponse (CDE4AJaxb.XSDS).setFormattedOutput (true));
+    return new JAXBVersatileWriter <> (getAsQueryResponse (), RegRep4Writer.queryResponse (CDE4AJAXB.XSDS).setFormattedOutput (true));
   }
 
   @Nonnull
   public static IJAXBVersatileReader <EDMResponse> reader ()
   {
-    return new JAXBVersatileReader <> (RegRep4Reader.queryResponse (CDE4AJaxb.XSDS), EDMResponse::create);
+    return new JAXBVersatileReader <> (RegRep4Reader.queryResponse (CDE4AJAXB.XSDS), EDMResponse::create);
   }
 
   @Override

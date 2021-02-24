@@ -46,18 +46,18 @@ public final class CCAGV
     aList.addAll (CCCTS.getXSDResource (),
                   CXML_XSD.getXSDResource (),
                   CXLink.getXSDResource (),
-                  new ClassPathResource ("schemas/provided/owl.xsd", _getCL ()),
-                  new ClassPathResource ("schemas/provided/skos.xsd", _getCL ()),
-                  new ClassPathResource ("schemas/provided/locn.xsd", _getCL ()),
-                  new ClassPathResource ("schemas/provided/foaf.xsd", _getCL ()),
-                  new ClassPathResource ("schemas/provided/org.xsd", _getCL ()),
-                  new ClassPathResource ("schemas/provided/rdf.xsd", _getCL ()),
-                  new ClassPathResource ("schemas/provided/dcterms.xsd", _getCL ()),
-                  new ClassPathResource ("schemas/provided/regorg.xsd", _getCL ()),
-                  new ClassPathResource ("schemas/provided/CV-DataTypes.xsd", _getCL ()),
-                  new ClassPathResource ("schemas/provided/CV-CommonBasicComponents.xsd", _getCL ()),
-                  new ClassPathResource ("schemas/provided/CV-CommonAggregateComponents.xsd", _getCL ()),
-                  new ClassPathResource ("schemas/provided/CV-Agent.xsd", _getCL ()));
+                  new ClassPathResource ("schemas/core/provided/owl.xsd", _getCL ()),
+                  new ClassPathResource ("schemas/core/provided/skos.xsd", _getCL ()),
+                  new ClassPathResource ("schemas/core/provided/locn.xsd", _getCL ()),
+                  new ClassPathResource ("schemas/core/provided/foaf.xsd", _getCL ()),
+                  new ClassPathResource ("schemas/core/provided/org.xsd", _getCL ()),
+                  new ClassPathResource ("schemas/core/provided/rdf.xsd", _getCL ()),
+                  new ClassPathResource ("schemas/core/provided/dcterms.xsd", _getCL ()),
+                  new ClassPathResource ("schemas/core/provided/regorg.xsd", _getCL ()),
+                  new ClassPathResource ("schemas/core/provided/CV-DataTypes.xsd", _getCL ()),
+                  new ClassPathResource ("schemas/core/provided/CV-CommonBasicComponents.xsd", _getCL ()),
+                  new ClassPathResource ("schemas/core/provided/CV-CommonAggregateComponents.xsd", _getCL ()),
+                  new ClassPathResource ("schemas/core/provided/CV-Agent.xsd", _getCL ()));
     // Add W3 CoreVocabularies
     aList.addAll (CCV.XSDS);
     XSDS = aList.getAsUnmodifiable ();

@@ -35,9 +35,9 @@ public final class CCV
   }
 
   public static final List <ClassPathResource> XSDS = new CommonsArrayList <> (CUBL23.XSD_UNQUALIFIED_DATA_TYPES,
-                                                                               new ClassPathResource ("schemas/provided/CoreVocabularies-BasicComponents-1.1.xsd",
+                                                                               new ClassPathResource ("schemas/core/provided/CoreVocabularies-BasicComponents-1.1.xsd",
                                                                                                       _getCL ()),
-                                                                               new ClassPathResource ("schemas/provided/CoreVocabularies-AggregateComponents-1.1.xsd",
+                                                                               new ClassPathResource ("schemas/core/provided/CoreVocabularies-AggregateComponents-1.1.xsd",
                                                                                                       _getCL ())).getAsUnmodifiable ();
 
   private CCV ()

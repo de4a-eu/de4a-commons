@@ -30,39 +30,40 @@ import eu.de4a.edm.xml.cv.CCV;
  *
  * @author Philip Helger
  */
-public final class CDE4AJaxb
+public final class CDE4AJAXB
 {
   @Nonnull
   private static ClassLoader _getCL ()
   {
-    return CDE4AJaxb.class.getClassLoader ();
+    return CDE4AJAXB.class.getClassLoader ();
   }
 
   public static final List <ClassPathResource> XSDS;
   static
   {
     final ICommonsList <ClassPathResource> a = new CommonsArrayList <> ();
-    a.add (new ClassPathResource ("schemas/external/eidas-LP.xsd", _getCL ()));
-    a.add (new ClassPathResource ("schemas/external/eidas-NP.xsd", _getCL ()));
-    a.add (new ClassPathResource ("schemas/de4a/common-identity-types.xsd", _getCL ()));
+    a.add (new ClassPathResource ("schemas/core/external/eidas-LP.xsd", _getCL ()));
+    a.add (new ClassPathResource ("schemas/core/external/eidas-NP.xsd", _getCL ()));
+    a.add (new ClassPathResource ("schemas/core/de4a/common-identity-types.xsd", _getCL ()));
     a.add (CUBL20.XSD_CODELIST_MIME_MEDIA_TYPE_CODE);
     a.addAll (CCV.XSDS);
     a.addAll (CCAGV.XSDS);
-    a.add (new ClassPathResource ("schemas/de4a/common-types.xsd", _getCL ()));
+    a.add (new ClassPathResource ("schemas/core/de4a/common-types.xsd", _getCL ()));
     XSDS = a.getAsUnmodifiable ();
   }
 
-  public static final ClassPathResource XSD_DE_USI = new ClassPathResource ("schemas/DE1-USI.xsd", _getCL ());
+  public static final ClassPathResource XSD_DE_USI = new ClassPathResource ("schemas/core/DE1-USI.xsd", _getCL ());
 
-  public static final ClassPathResource XSD_DO_IM = new ClassPathResource ("schemas/DO1-IM.xsd", _getCL ());
-  public static final ClassPathResource XSD_DO_USI = new ClassPathResource ("schemas/DO1-USI.xsd", _getCL ());
+  public static final ClassPathResource XSD_DO_IM = new ClassPathResource ("schemas/core/DO1-IM.xsd", _getCL ());
+  public static final ClassPathResource XSD_DO_USI = new ClassPathResource ("schemas/core/DO1-USI.xsd", _getCL ());
 
-  public static final ClassPathResource XSD_DR_DT_IDK = new ClassPathResource ("schemas/DR-DT1-IDK.xsd", _getCL ());
-  public static final ClassPathResource XSD_DR_IM = new ClassPathResource ("schemas/DR1-IM.xsd", _getCL ());
-  public static final ClassPathResource XSD_DR_USI = new ClassPathResource ("schemas/DR1-USI.xsd", _getCL ());
+  public static final ClassPathResource XSD_DR_DT_IDK = new ClassPathResource ("schemas/core/DR-DT1-IDK.xsd", _getCL ());
 
-  public static final ClassPathResource XSD_DT_USI = new ClassPathResource ("schemas/DT1-USI.xsd", _getCL ());
+  public static final ClassPathResource XSD_DR_IM = new ClassPathResource ("schemas/core/DR1-IM.xsd", _getCL ());
+  public static final ClassPathResource XSD_DR_USI = new ClassPathResource ("schemas/core/DR1-USI.xsd", _getCL ());
 
-  private CDE4AJaxb ()
+  public static final ClassPathResource XSD_DT_USI = new ClassPathResource ("schemas/core/DT1-USI.xsd", _getCL ());
+
+  private CDE4AJAXB ()
   {}
 }

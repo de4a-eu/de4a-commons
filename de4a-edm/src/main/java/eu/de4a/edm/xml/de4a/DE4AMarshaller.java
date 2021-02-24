@@ -48,167 +48,185 @@ public class DE4AMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
 
   @Nonnull
   @Nonempty
-  private static ICommonsList <ClassPathResource> _getXSDs_DE_USI ()
+  private static ICommonsList <ClassPathResource> _getXSDs_DE_USI (@Nullable final ICommonsList <ClassPathResource> aCanonicalEvidenceXSDs)
   {
     final ICommonsList <ClassPathResource> ret = new CommonsArrayList <> ();
-    ret.addAll (CDE4AJaxb.XSDS);
-    ret.add (CDE4AJaxb.XSD_DE_USI);
+    ret.addAll (CDE4AJAXB.XSDS);
+    ret.add (CDE4AJAXB.XSD_DE_USI);
+    if (aCanonicalEvidenceXSDs != null)
+      ret.addAll (aCanonicalEvidenceXSDs);
     return ret;
   }
 
   @Nonnull
-  public static DE4AMarshaller <eu.de4a.edm.jaxb.de_usi.RequestForwardEvidenceType> deUsiRequestMarshaller ()
+  public static DE4AMarshaller <eu.de4a.edm.jaxb.de_usi.RequestForwardEvidenceType> deUsiRequestMarshaller (@Nonnull final IDE4ACanonicalEvidenceType aCanonicalEvidenceType)
   {
     return new DE4AMarshaller <> (RequestForwardEvidenceType.class,
-                                  _getXSDs_DE_USI (),
+                                  _getXSDs_DE_USI (aCanonicalEvidenceType.getAllXSDs ()),
                                   new eu.de4a.edm.jaxb.de_usi.ObjectFactory ()::createRequestForwardEvidence);
   }
 
   @Nonnull
-  public static DE4AMarshaller <eu.de4a.edm.jaxb.de_usi.ResponseForwardEvidenceType> deUsiResponseMarshaller ()
+  public static DE4AMarshaller <eu.de4a.edm.jaxb.de_usi.ResponseForwardEvidenceType> deUsiResponseMarshaller (@Nonnull final IDE4ACanonicalEvidenceType aCanonicalEvidenceType)
   {
     return new DE4AMarshaller <> (ResponseForwardEvidenceType.class,
-                                  _getXSDs_DE_USI (),
+                                  _getXSDs_DE_USI (aCanonicalEvidenceType.getAllXSDs ()),
                                   new eu.de4a.edm.jaxb.de_usi.ObjectFactory ()::createResponseForwardEvidence);
   }
 
   @Nonnull
   @Nonempty
-  private static ICommonsList <ClassPathResource> _getXSDs_DO_IM ()
+  private static ICommonsList <ClassPathResource> _getXSDs_DO_IM (@Nullable final ICommonsList <ClassPathResource> aCanonicalEvidenceXSDs)
   {
     final ICommonsList <ClassPathResource> ret = new CommonsArrayList <> ();
-    ret.addAll (CDE4AJaxb.XSDS);
-    ret.add (CDE4AJaxb.XSD_DO_IM);
+    ret.addAll (CDE4AJAXB.XSDS);
+    ret.add (CDE4AJAXB.XSD_DO_IM);
+    if (aCanonicalEvidenceXSDs != null)
+      ret.addAll (aCanonicalEvidenceXSDs);
     return ret;
   }
 
   @Nonnull
-  public static DE4AMarshaller <eu.de4a.edm.jaxb.do_im.RequestExtractEvidenceType> doImRequestMarshaller ()
+  public static DE4AMarshaller <eu.de4a.edm.jaxb.do_im.RequestExtractEvidenceType> doImRequestMarshaller (@Nonnull final IDE4ACanonicalEvidenceType aCanonicalEvidenceType)
   {
     return new DE4AMarshaller <> (eu.de4a.edm.jaxb.do_im.RequestExtractEvidenceType.class,
-                                  _getXSDs_DO_IM (),
+                                  _getXSDs_DO_IM (aCanonicalEvidenceType.getAllXSDs ()),
                                   new eu.de4a.edm.jaxb.do_im.ObjectFactory ()::createRequestExtractEvidence);
   }
 
   @Nonnull
-  public static DE4AMarshaller <eu.de4a.edm.jaxb.do_im.ResponseExtractEvidenceType> doImResponseMarshaller ()
+  public static DE4AMarshaller <eu.de4a.edm.jaxb.do_im.ResponseExtractEvidenceType> doImResponseMarshaller (@Nonnull final IDE4ACanonicalEvidenceType aCanonicalEvidenceType)
   {
     return new DE4AMarshaller <> (eu.de4a.edm.jaxb.do_im.ResponseExtractEvidenceType.class,
-                                  _getXSDs_DO_IM (),
+                                  _getXSDs_DO_IM (aCanonicalEvidenceType.getAllXSDs ()),
                                   new eu.de4a.edm.jaxb.do_im.ObjectFactory ()::createResponseExtractEvidence);
   }
 
   @Nonnull
   @Nonempty
-  private static ICommonsList <ClassPathResource> _getXSDs_DO_USI ()
+  private static ICommonsList <ClassPathResource> _getXSDs_DO_USI (@Nullable final ICommonsList <ClassPathResource> aCanonicalEvidenceXSDs)
   {
     final ICommonsList <ClassPathResource> ret = new CommonsArrayList <> ();
-    ret.addAll (CDE4AJaxb.XSDS);
-    ret.add (CDE4AJaxb.XSD_DO_USI);
+    ret.addAll (CDE4AJAXB.XSDS);
+    ret.add (CDE4AJAXB.XSD_DO_USI);
+    if (aCanonicalEvidenceXSDs != null)
+      ret.addAll (aCanonicalEvidenceXSDs);
     return ret;
   }
 
   @Nonnull
   public static DE4AMarshaller <eu.de4a.edm.jaxb.do_usi.RequestExtractEvidenceType> doUsiRequestMarshaller ()
   {
+    // Only CanonicalEvidenceId
     return new DE4AMarshaller <> (eu.de4a.edm.jaxb.do_usi.RequestExtractEvidenceType.class,
-                                  _getXSDs_DO_USI (),
+                                  _getXSDs_DO_USI (null),
                                   new eu.de4a.edm.jaxb.do_usi.ObjectFactory ()::createRequestExtractEvidence);
   }
 
   @Nonnull
   public static DE4AMarshaller <eu.de4a.edm.jaxb.do_usi.ResponseExtractEvidenceType> doUsiResponseMarshaller ()
   {
+    // Only CanonicalEvidenceId
     return new DE4AMarshaller <> (eu.de4a.edm.jaxb.do_usi.ResponseExtractEvidenceType.class,
-                                  _getXSDs_DO_USI (),
+                                  _getXSDs_DO_USI (null),
                                   new eu.de4a.edm.jaxb.do_usi.ObjectFactory ()::createResponseExtractEvidence);
   }
 
   @Nonnull
   @Nonempty
-  private static ICommonsList <ClassPathResource> _getXSDs_DR_IM ()
+  private static ICommonsList <ClassPathResource> _getXSDs_DR_IM (@Nullable final ICommonsList <ClassPathResource> aCanonicalEvidenceXSDs)
   {
     final ICommonsList <ClassPathResource> ret = new CommonsArrayList <> ();
-    ret.addAll (CDE4AJaxb.XSDS);
-    ret.add (CDE4AJaxb.XSD_DR_IM);
+    ret.addAll (CDE4AJAXB.XSDS);
+    ret.add (CDE4AJAXB.XSD_DR_IM);
+    if (aCanonicalEvidenceXSDs != null)
+      ret.addAll (aCanonicalEvidenceXSDs);
     return ret;
   }
 
   @Nonnull
-  public static DE4AMarshaller <eu.de4a.edm.jaxb.dr_im.RequestTransferEvidenceType> drImRequestMarshaller ()
+  public static DE4AMarshaller <eu.de4a.edm.jaxb.dr_im.RequestTransferEvidenceType> drImRequestMarshaller (@Nonnull final IDE4ACanonicalEvidenceType aCanonicalEvidenceType)
   {
     return new DE4AMarshaller <> (eu.de4a.edm.jaxb.dr_im.RequestTransferEvidenceType.class,
-                                  _getXSDs_DR_IM (),
+                                  _getXSDs_DR_IM (aCanonicalEvidenceType.getAllXSDs ()),
                                   new eu.de4a.edm.jaxb.dr_im.ObjectFactory ()::createRequestTransferEvidence);
   }
 
   @Nonnull
-  public static DE4AMarshaller <eu.de4a.edm.jaxb.dr_im.ResponseTransferEvidenceType> drImResponseMarshaller ()
+  public static DE4AMarshaller <eu.de4a.edm.jaxb.dr_im.ResponseTransferEvidenceType> drImResponseMarshaller (@Nonnull final IDE4ACanonicalEvidenceType aCanonicalEvidenceType)
   {
     return new DE4AMarshaller <> (eu.de4a.edm.jaxb.dr_im.ResponseTransferEvidenceType.class,
-                                  _getXSDs_DR_IM (),
+                                  _getXSDs_DR_IM (aCanonicalEvidenceType.getAllXSDs ()),
                                   new eu.de4a.edm.jaxb.dr_im.ObjectFactory ()::createResponseTransferEvidence);
   }
 
   @Nonnull
   @Nonempty
-  private static ICommonsList <ClassPathResource> _getXSDs_DR_USI ()
+  private static ICommonsList <ClassPathResource> _getXSDs_DR_USI (@Nullable final ICommonsList <ClassPathResource> aCanonicalEvidenceXSDs)
   {
     final ICommonsList <ClassPathResource> ret = new CommonsArrayList <> ();
-    ret.addAll (CDE4AJaxb.XSDS);
-    ret.add (CDE4AJaxb.XSD_DR_USI);
+    ret.addAll (CDE4AJAXB.XSDS);
+    ret.add (CDE4AJAXB.XSD_DR_USI);
+    if (aCanonicalEvidenceXSDs != null)
+      ret.addAll (aCanonicalEvidenceXSDs);
     return ret;
   }
 
   @Nonnull
   public static DE4AMarshaller <eu.de4a.edm.jaxb.dr_usi.RequestTransferEvidenceType> drUsiRequestMarshaller ()
   {
+    // Only CanonicalEvidenceId
     return new DE4AMarshaller <> (eu.de4a.edm.jaxb.dr_usi.RequestTransferEvidenceType.class,
-                                  _getXSDs_DR_USI (),
+                                  _getXSDs_DR_USI (null),
                                   new eu.de4a.edm.jaxb.dr_usi.ObjectFactory ()::createRequestTransferEvidence);
   }
 
   @Nonnull
   public static DE4AMarshaller <eu.de4a.edm.jaxb.dr_usi.ResponseTransferEvidenceType> drUsiResponseMarshaller ()
   {
+    // Only CanonicalEvidenceId
     return new DE4AMarshaller <> (eu.de4a.edm.jaxb.dr_usi.ResponseTransferEvidenceType.class,
-                                  _getXSDs_DR_USI (),
+                                  _getXSDs_DR_USI (null),
                                   new eu.de4a.edm.jaxb.dr_usi.ObjectFactory ()::createResponseTransferEvidence);
   }
 
   @Nonnull
   @Nonempty
-  private static ICommonsList <ClassPathResource> _getXSDs_DT_USI ()
+  private static ICommonsList <ClassPathResource> _getXSDs_DT_USI (@Nullable final ICommonsList <ClassPathResource> aCanonicalEvidenceXSDs)
   {
     final ICommonsList <ClassPathResource> ret = new CommonsArrayList <> ();
-    ret.addAll (CDE4AJaxb.XSDS);
-    ret.add (CDE4AJaxb.XSD_DT_USI);
+    ret.addAll (CDE4AJAXB.XSDS);
+    ret.add (CDE4AJAXB.XSD_DT_USI);
+    if (aCanonicalEvidenceXSDs != null)
+      ret.addAll (aCanonicalEvidenceXSDs);
     return ret;
   }
 
   @Nonnull
-  public static DE4AMarshaller <eu.de4a.edm.jaxb.dt_usi.RequestTransferEvidenceType> dtUsiRequestMarshaller ()
+  public static DE4AMarshaller <eu.de4a.edm.jaxb.dt_usi.RequestTransferEvidenceType> dtUsiRequestMarshaller (@Nonnull final IDE4ACanonicalEvidenceType aCanonicalEvidenceType)
   {
     return new DE4AMarshaller <> (eu.de4a.edm.jaxb.dt_usi.RequestTransferEvidenceType.class,
-                                  _getXSDs_DT_USI (),
+                                  _getXSDs_DT_USI (aCanonicalEvidenceType.getAllXSDs ()),
                                   new eu.de4a.edm.jaxb.dt_usi.ObjectFactory ()::createRequestTransferEvidence);
   }
 
   @Nonnull
-  public static DE4AMarshaller <eu.de4a.edm.jaxb.dt_usi.ResponseTransferEvidenceType> dtUsiResponseMarshaller ()
+  public static DE4AMarshaller <eu.de4a.edm.jaxb.dt_usi.ResponseTransferEvidenceType> dtUsiResponseMarshaller (@Nonnull final IDE4ACanonicalEvidenceType aCanonicalEvidenceType)
   {
     return new DE4AMarshaller <> (eu.de4a.edm.jaxb.dt_usi.ResponseTransferEvidenceType.class,
-                                  _getXSDs_DT_USI (),
+                                  _getXSDs_DT_USI (aCanonicalEvidenceType.getAllXSDs ()),
                                   new eu.de4a.edm.jaxb.dt_usi.ObjectFactory ()::createResponseTransferEvidence);
   }
 
   @Nonnull
   @Nonempty
-  private static ICommonsList <ClassPathResource> _getXSDs_IDK ()
+  private static ICommonsList <ClassPathResource> _getXSDs_IDK (@Nullable final ICommonsList <ClassPathResource> aCanonicalEvidenceXSDs)
   {
     final ICommonsList <ClassPathResource> ret = new CommonsArrayList <> ();
-    ret.addAll (CDE4AJaxb.XSDS);
-    ret.add (CDE4AJaxb.XSD_DR_DT_IDK);
+    ret.addAll (CDE4AJAXB.XSDS);
+    ret.add (CDE4AJAXB.XSD_DR_DT_IDK);
+    if (aCanonicalEvidenceXSDs != null)
+      ret.addAll (aCanonicalEvidenceXSDs);
     return ret;
   }
 
@@ -216,7 +234,7 @@ public class DE4AMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
   public static DE4AMarshaller <eu.de4a.edm.jaxb.idk.RequestLookupEvidenceServiceDataType> idkRequestLookupEvidenceServiceDataMarshaller ()
   {
     return new DE4AMarshaller <> (eu.de4a.edm.jaxb.idk.RequestLookupEvidenceServiceDataType.class,
-                                  _getXSDs_IDK (),
+                                  _getXSDs_IDK (null),
                                   new eu.de4a.edm.jaxb.idk.ObjectFactory ()::createRequestLookupEvidenceServiceData);
   }
 
@@ -224,7 +242,7 @@ public class DE4AMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
   public static DE4AMarshaller <eu.de4a.edm.jaxb.idk.ResponseLookupEvidenceServiceDataType> idkResponseLookupEvidenceServiceDataMarshaller ()
   {
     return new DE4AMarshaller <> (eu.de4a.edm.jaxb.idk.ResponseLookupEvidenceServiceDataType.class,
-                                  _getXSDs_IDK (),
+                                  _getXSDs_IDK (null),
                                   new eu.de4a.edm.jaxb.idk.ObjectFactory ()::createResponseLookupEvidenceServiceData);
   }
 
@@ -232,7 +250,7 @@ public class DE4AMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
   public static DE4AMarshaller <eu.de4a.edm.jaxb.idk.RequestLookupRoutingInformationType> idkRequestLookupRoutingInformationMarshaller ()
   {
     return new DE4AMarshaller <> (eu.de4a.edm.jaxb.idk.RequestLookupRoutingInformationType.class,
-                                  _getXSDs_IDK (),
+                                  _getXSDs_IDK (null),
                                   new eu.de4a.edm.jaxb.idk.ObjectFactory ()::createRequestLookupRoutingInformation);
   }
 
@@ -240,7 +258,7 @@ public class DE4AMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
   public static DE4AMarshaller <eu.de4a.edm.jaxb.idk.ResponseLookupRoutingInformationType> idkResponseLookupRoutingInformationMarshaller ()
   {
     return new DE4AMarshaller <> (eu.de4a.edm.jaxb.idk.ResponseLookupRoutingInformationType.class,
-                                  _getXSDs_IDK (),
+                                  _getXSDs_IDK (null),
                                   new eu.de4a.edm.jaxb.idk.ObjectFactory ()::createResponseLookupRoutingInformation);
   }
 }
