@@ -6,7 +6,6 @@ import static org.junit.Assert.assertTrue;
 import java.io.File;
 
 import javax.annotation.Nonnull;
-import javax.xml.bind.JAXBException;
 
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -49,10 +48,10 @@ public final class DE4AMarshallerTest
     if (false)
     {
       aMarshaller.readExceptionCallbacks ().removeAll ();
-      aMarshaller.readExceptionCallbacks ().add (JAXBException::printStackTrace);
+      aMarshaller.readExceptionCallbacks ().add (ex -> LOGGER.error ("Read error", ex));
 
       aMarshaller.writeExceptionCallbacks ().removeAll ();
-      aMarshaller.writeExceptionCallbacks ().add (JAXBException::printStackTrace);
+      aMarshaller.writeExceptionCallbacks ().add (ex -> LOGGER.error ("Write error", ex));
     }
 
     final T aRead = aMarshaller.read (aFile);
@@ -61,7 +60,7 @@ public final class DE4AMarshallerTest
     final byte [] aBytes = aMarshaller.getAsBytes (aRead);
     assertNotNull ("Failed to re-write " + aFile.getAbsolutePath (), aBytes);
 
-    if (true)
+    if (false)
     {
       aMarshaller.setFormattedOutput (true);
       LOGGER.info (aMarshaller.getAsString (aRead));
