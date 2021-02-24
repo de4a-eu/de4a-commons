@@ -155,14 +155,30 @@
         <version>0.14.3</version>
         <executions>
           <execution>
+            <id>core</id>
             <goals>
               <goal>generate</goal>
             </goals>
+            <configuration>
+              <schemaIncludes>core/**/*.xsd</schemaIncludes>
+              <bindingIncludes>bindings-core.xjb</bindingIncludes>
+              <generateDirectory>${project.build.directory}/generated-sources/xjc-core</generateDirectory>
+            </configuration>
+          </execution>
+          <execution>
+            <id>t42</id>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+            <configuration>
+              <schemaIncludes>t4.2/*.xsd</schemaIncludes>
+              <bindingIncludes>bindings-t42.xjb</bindingIncludes>
+              <generateDirectory>${project.build.directory}/generated-sources/xjc-t42</generateDirectory>
+            </configuration>
           </execution>
         </executions>
         <configuration>
           <schemaDirectory>${basedir}/src/main/resources/schemas</schemaDirectory>
-          <schemaIncludes>**/*.xsd</schemaIncludes>
           <bindingDirectory>${basedir}/src/main/jaxb</bindingDirectory>
           <catalog>src/main/jaxb/catalog.txt</catalog>
           <extension>true</extension>
