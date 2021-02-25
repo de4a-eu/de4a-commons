@@ -57,6 +57,18 @@ public class DE4AMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
     setNamespaceContext (DE4ANamespaceContext.getInstance ());
   }
 
+  /**
+   * Enable formatted output. Syntactic sugar.
+   *
+   * @return this for chaining
+   */
+  @Nonnull
+  public final DE4AMarshaller <JAXBTYPE> formatted ()
+  {
+    setFormattedOutput (true);
+    return this;
+  }
+
   @Nonnull
   @Nonempty
   private static ICommonsList <ClassPathResource> _getXSDs (@Nonnull final ClassPathResource aCoreXSD,
