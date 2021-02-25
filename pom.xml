@@ -120,7 +120,7 @@
       <dependency>
         <groupId>com.helger.peppol</groupId>
         <artifactId>peppol-commons-parent-pom</artifactId>
-        <version>8.4.0</version>
+        <version>8.4.1</version>
         <scope>import</scope>
         <type>pom</type>
       </dependency>
@@ -206,6 +206,14 @@
   <build>
     <plugins>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>11</source>
+          <target>11</target>
+        </configuration>
+      </plugin>
+      <plugin>
         <groupId>de.thetaphi</groupId>
         <artifactId>forbiddenapis</artifactId>
         <configuration>
@@ -231,7 +239,7 @@
         <configuration>
           <source>8</source>
         </configuration>
-      </plugin> 
+      </plugin>
     </plugins>
   </build>
 </project>
