@@ -18,7 +18,9 @@ import java.util.List;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
+import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
+import javax.xml.bind.JAXBException;
 
 import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.collection.impl.CommonsArrayList;
@@ -26,6 +28,7 @@ import com.helger.commons.collection.impl.ICommonsList;
 import com.helger.commons.functional.IFunction;
 import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.jaxb.GenericJAXBMarshaller;
+import com.helger.jaxb.JAXBContextCache;
 
 import eu.de4a.edm.jaxb.common.types.RequestExtractEvidenceIMType;
 import eu.de4a.edm.jaxb.common.types.RequestExtractEvidenceUSIType;
@@ -55,6 +58,46 @@ public class DE4AMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
   {
     super (aType, aXSDs, aJAXBElementWrapper);
     setNamespaceContext (DE4ANamespaceContext.getInstance ());
+  }
+
+  @Override
+  protected JAXBContext getJAXBContext (@Nullable final ClassLoader aClassLoader) throws JAXBException
+  {
+    // TODO switch when ready
+    if (true)
+      return super.getJAXBContext (aClassLoader);
+
+    final Class <?> [] aClasses = new Class <?> [] { com.helger.xsds.ccts.cct.schemamodule.ObjectFactory.class,
+                                                     com.helger.xsds.xlink.ObjectFactory.class,
+                                                     eu.de4a.edm.jaxb.common.idtypes.ObjectFactory.class,
+                                                     eu.de4a.edm.jaxb.common.types.ObjectFactory.class,
+                                                     eu.de4a.edm.jaxb.cv.agent.ObjectFactory.class,
+                                                     eu.de4a.edm.jaxb.cv.cac.ObjectFactory.class,
+                                                     eu.de4a.edm.jaxb.cv.cbc.ObjectFactory.class,
+                                                     eu.de4a.edm.jaxb.cv.dt.ObjectFactory.class,
+                                                     eu.de4a.edm.jaxb.dcterms.ObjectFactory.class,
+                                                     eu.de4a.edm.jaxb.de_usi.ObjectFactory.class,
+                                                     eu.de4a.edm.jaxb.do_im.ObjectFactory.class,
+                                                     eu.de4a.edm.jaxb.do_usi.ObjectFactory.class,
+                                                     eu.de4a.edm.jaxb.dr_im.ObjectFactory.class,
+                                                     eu.de4a.edm.jaxb.dr_usi.ObjectFactory.class,
+                                                     eu.de4a.edm.jaxb.do_usi.ObjectFactory.class,
+                                                     eu.de4a.edm.jaxb.eidas.lp.ObjectFactory.class,
+                                                     eu.de4a.edm.jaxb.eidas.np.ObjectFactory.class,
+                                                     eu.de4a.edm.jaxb.foaf.ObjectFactory.class,
+                                                     eu.de4a.edm.jaxb.idk.ObjectFactory.class,
+                                                     eu.de4a.edm.jaxb.owl.ObjectFactory.class,
+                                                     eu.de4a.edm.jaxb.rdf.ObjectFactory.class,
+                                                     eu.de4a.edm.jaxb.w3.cv.ac.ObjectFactory.class,
+                                                     eu.de4a.edm.jaxb.w3.cv.bc.ObjectFactory.class,
+                                                     eu.de4a.edm.jaxb.w3.locn.ObjectFactory.class,
+                                                     eu.de4a.edm.jaxb.w3.org.ObjectFactory.class,
+                                                     eu.de4a.edm.jaxb.w3.regorg.ObjectFactory.class,
+                                                     eu.de4a.edm.jaxb.w3.skos.ObjectFactory.class };
+
+    if (isUseContextCache ())
+      return JAXBContextCache.getInstance ().getFromCache (new CommonsArrayList <> (aClasses));
+    return JAXBContext.newInstance (aClasses);
   }
 
   /**
