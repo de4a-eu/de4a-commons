@@ -30,23 +30,23 @@
   <!-- Source TOOP stuff -->
   <bindings schemaLocation="../resources/schemas/core/provided/CoreVocabularies-AggregateComponents-1.1.xsd">
     <schemaBindings>
-      <package name="eu.de4a.edm.jaxb.w3.cv.ac" />
+      <package name="eu.de4a.iem.jaxb.w3.cv.ac" />
     </schemaBindings>
   </bindings>
   <bindings schemaLocation="../resources/schemas/core/provided/CoreVocabularies-BasicComponents-1.1.xsd">
     <schemaBindings>
-      <package name="eu.de4a.edm.jaxb.w3.cv.bc" />
+      <package name="eu.de4a.iem.jaxb.w3.cv.bc" />
     </schemaBindings>
   </bindings>
 
   <bindings schemaLocation="../resources/schemas/core/provided/CV-Agent.xsd">
     <schemaBindings>
-      <package name="eu.de4a.edm.jaxb.cv.agent" />
+      <package name="eu.de4a.iem.jaxb.cv.agent" />
     </schemaBindings>
   </bindings>
   <bindings schemaLocation="../resources/schemas/core/provided/CV-CommonAggregateComponents.xsd">
     <schemaBindings>
-      <package name="eu.de4a.edm.jaxb.cv.cac" />
+      <package name="eu.de4a.iem.jaxb.cv.cac" />
     </schemaBindings>
     <bindings node="//xsd:attributeGroup[@name='ThingAttributes']">
       <bindings node="./xsd:attribute[@name='versionId']">
@@ -56,17 +56,17 @@
   </bindings>
   <bindings schemaLocation="../resources/schemas/core/provided/CV-CommonBasicComponents.xsd">
     <schemaBindings>
-      <package name="eu.de4a.edm.jaxb.cv.cbc" />
+      <package name="eu.de4a.iem.jaxb.cv.cbc" />
     </schemaBindings>
   </bindings>
   <bindings schemaLocation="../resources/schemas/core/provided/CV-DataTypes.xsd">
     <schemaBindings>
-      <package name="eu.de4a.edm.jaxb.cv.dt" />
+      <package name="eu.de4a.iem.jaxb.cv.dt" />
     </schemaBindings>
   </bindings>
   <bindings schemaLocation="../resources/schemas/core/provided/dcterms.xsd">
     <schemaBindings>
-      <package name="eu.de4a.edm.jaxb.dcterms" />
+      <package name="eu.de4a.iem.jaxb.dcterms" />
       <nameXmlTransform>
         <typeName prefix="DC"/>
       </nameXmlTransform>
@@ -74,7 +74,7 @@
   </bindings>
   <bindings schemaLocation="../resources/schemas/core/provided/foaf.xsd">
     <schemaBindings>
-      <package name="eu.de4a.edm.jaxb.foaf" />
+      <package name="eu.de4a.iem.jaxb.foaf" />
       <nameXmlTransform>
         <typeName prefix="Foaf"/>
       </nameXmlTransform>
@@ -82,91 +82,91 @@
   </bindings>
   <bindings schemaLocation="../resources/schemas/core/provided/locn.xsd">
     <schemaBindings>
-      <package name="eu.de4a.edm.jaxb.w3.locn" />
+      <package name="eu.de4a.iem.jaxb.w3.locn" />
     </schemaBindings>
   </bindings>
   <bindings schemaLocation="../resources/schemas/core/provided/owl.xsd">
     <schemaBindings>
-      <package name="eu.de4a.edm.jaxb.owl" />
+      <package name="eu.de4a.iem.jaxb.owl" />
     </schemaBindings>
   </bindings>
   <bindings schemaLocation="../resources/schemas/core/provided/org.xsd">
     <schemaBindings>
-      <package name="eu.de4a.edm.jaxb.w3.org" />
+      <package name="eu.de4a.iem.jaxb.w3.org" />
     </schemaBindings>
   </bindings>
   <bindings schemaLocation="../resources/schemas/core/provided/rdf.xsd">
     <schemaBindings>
-      <package name="eu.de4a.edm.jaxb.rdf" />
+      <package name="eu.de4a.iem.jaxb.rdf" />
     </schemaBindings>
   </bindings>
   <bindings schemaLocation="../resources/schemas/core/provided/regorg.xsd">
     <schemaBindings>
-      <package name="eu.de4a.edm.jaxb.w3.regorg" />
+      <package name="eu.de4a.iem.jaxb.w3.regorg" />
     </schemaBindings>
   </bindings>
   <bindings schemaLocation="../resources/schemas/core/provided/skos.xsd">
     <schemaBindings>
-      <package name="eu.de4a.edm.jaxb.w3.skos" />
+      <package name="eu.de4a.iem.jaxb.w3.skos" />
     </schemaBindings>
   </bindings>
   
   <!-- DE4A stuff -->
   <bindings schemaLocation="../resources/schemas/core/de4a/common-types.xsd">
     <schemaBindings>
-      <package name="eu.de4a.edm.jaxb.common.types" />
+      <package name="eu.de4a.iem.jaxb.common.types" />
     </schemaBindings>
   </bindings>
   <bindings schemaLocation="../resources/schemas/core/de4a/common-identity-types.xsd">
     <schemaBindings>
-      <package name="eu.de4a.edm.jaxb.common.idtypes" />
+      <package name="eu.de4a.iem.jaxb.common.idtypes" />
     </schemaBindings>
   </bindings>
   <bindings schemaLocation="../resources/schemas/core/external/eidas-LP.xsd">
     <schemaBindings>
-      <package name="eu.de4a.edm.jaxb.eidas.lp" />
+      <package name="eu.de4a.iem.jaxb.eidas.lp" />
     </schemaBindings>
   </bindings>
   <bindings schemaLocation="../resources/schemas/core/external/eidas-NP.xsd">
     <schemaBindings>
-      <package name="eu.de4a.edm.jaxb.eidas.np" />
+      <package name="eu.de4a.iem.jaxb.eidas.np" />
     </schemaBindings>
   </bindings>
   <bindings schemaLocation="../resources/schemas/core/DE1-USI.xsd">
     <schemaBindings>
-      <package name="eu.de4a.edm.jaxb.de_usi" />
+      <package name="eu.de4a.iem.jaxb.de_usi" />
     </schemaBindings>
   </bindings>
   <bindings schemaLocation="../resources/schemas/core/DO1-IM.xsd">
     <schemaBindings>
       <!-- "do" is a reserved word and cannot be used as a package name part -->
-      <package name="eu.de4a.edm.jaxb.do_im" />
+      <package name="eu.de4a.iem.jaxb.do_im" />
     </schemaBindings>
   </bindings>
   <bindings schemaLocation="../resources/schemas/core/DO1-USI.xsd">
     <schemaBindings>
       <!-- "do" is a reserved word and cannot be used as a package name part -->
-      <package name="eu.de4a.edm.jaxb.do_usi" />
+      <package name="eu.de4a.iem.jaxb.do_usi" />
     </schemaBindings>
   </bindings>
   <bindings schemaLocation="../resources/schemas/core/DR-DT1-IDK.xsd">
     <schemaBindings>
-      <package name="eu.de4a.edm.jaxb.idk" />
+      <package name="eu.de4a.iem.jaxb.idk" />
     </schemaBindings>
   </bindings>
   <bindings schemaLocation="../resources/schemas/core/DR1-IM.xsd">
     <schemaBindings>
-      <package name="eu.de4a.edm.jaxb.dr_im" />
+      <package name="eu.de4a.iem.jaxb.dr_im" />
     </schemaBindings>
   </bindings>
   <bindings schemaLocation="../resources/schemas/core/DR1-USI.xsd">
     <schemaBindings>
-      <package name="eu.de4a.edm.jaxb.dr_usi" />
+      <package name="eu.de4a.iem.jaxb.dr_usi" />
     </schemaBindings>
   </bindings>
   <bindings schemaLocation="../resources/schemas/core/DT1-USI.xsd">
     <schemaBindings>
-      <package name="eu.de4a.edm.jaxb.dt_usi" />
+      <package name="eu.de4a.iem.jaxb.dt_usi" />
     </schemaBindings>
   </bindings>
 </bindings>

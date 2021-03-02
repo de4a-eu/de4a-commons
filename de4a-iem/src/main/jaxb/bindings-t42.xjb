@@ -29,7 +29,7 @@
   </globalBindings>
   <bindings schemaLocation="../resources/schemas/t4.2/doing_Business_abroad_XSD_v0.4 2.xsd">
     <schemaBindings>
-      <package name="eu.de4a.edm.jaxb.t42" />
+      <package name="eu.de4a.iem.jaxb.t42" />
     </schemaBindings>
   </bindings>
 </bindings>
