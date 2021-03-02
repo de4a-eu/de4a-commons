@@ -10,7 +10,7 @@
   xmlns:p6="https://data.europe.eu/semanticassets/ns/cv/common/dataTypes-2.0.0#"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://www.de4a.eu/2020/data/owner/pattern/intermediate ../XSD/DO1-IM.xsd ">
-  <p:CanonicalEvidence>
+  <p1:CanonicalEvidence>
     <LegalEntity xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:nsA="http://www.w3.org/1999/xhtml"
       xsi:noNamespaceSchemaLocation="schema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <CompanyName>
@@ -42,5 +42,5 @@
         <AdminUnitL1>NL</AdminUnitL1>
       </PostalAddress>
     </LegalEntity>
-  </p:CanonicalEvidence>
+  </p1:CanonicalEvidence>
 </p:ResponseExtractEvidence>
