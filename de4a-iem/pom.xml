@@ -21,10 +21,10 @@
     <artifactId>de4a-commons-parent-pom</artifactId>
     <version>0.1.0-SNAPSHOT</version>
   </parent>
-  <artifactId>de4a-edm</artifactId>
+  <artifactId>de4a-iem</artifactId>
   <packaging>bundle</packaging>
-  <name>de4a-edm</name>
-  <url>https://github.com/de4a-wp5/de4a-commons/de4a-edm</url>
+  <name>de4a-iem</name>
+  <url>https://github.com/de4a-wp5/de4a-commons/de4a-iem</url>
   <inceptionYear>2021</inceptionYear>
 
   <licenses>
