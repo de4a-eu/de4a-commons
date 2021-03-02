@@ -236,22 +236,6 @@ public class DE4AMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
   }
 
   @Nonnull
-  public static DE4AMarshaller <RequestLookupEvidenceServiceDataType> idkRequestLookupEvidenceServiceDataMarshaller ()
-  {
-    return new DE4AMarshaller <> (RequestLookupEvidenceServiceDataType.class,
-                                  _getXSDs (CDE4AJAXB.XSD_DR_DT_IDK, null),
-                                  new eu.de4a.iem.jaxb.idk.ObjectFactory ()::createRequestLookupEvidenceServiceData);
-  }
-
-  @Nonnull
-  public static DE4AMarshaller <ResponseLookupEvidenceServiceDataType> idkResponseLookupEvidenceServiceDataMarshaller ()
-  {
-    return new DE4AMarshaller <> (ResponseLookupEvidenceServiceDataType.class,
-                                  _getXSDs (CDE4AJAXB.XSD_DR_DT_IDK, null),
-                                  new eu.de4a.iem.jaxb.idk.ObjectFactory ()::createResponseLookupEvidenceServiceData);
-  }
-
-  @Nonnull
   public static DE4AMarshaller <RequestLookupRoutingInformationType> idkRequestLookupRoutingInformationMarshaller ()
   {
     return new DE4AMarshaller <> (RequestLookupRoutingInformationType.class,
@@ -265,5 +249,21 @@ public class DE4AMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
     return new DE4AMarshaller <> (ResponseLookupRoutingInformationType.class,
                                   _getXSDs (CDE4AJAXB.XSD_DR_DT_IDK, null),
                                   new eu.de4a.iem.jaxb.idk.ObjectFactory ()::createResponseLookupRoutingInformation);
+  }
+
+  @Nonnull
+  public static DE4AMarshaller <RequestLookupEvidenceServiceDataType> idkRequestLookupEvidenceServiceDataMarshaller ()
+  {
+    return new DE4AMarshaller <> (RequestLookupEvidenceServiceDataType.class,
+                                  _getXSDs (CDE4AJAXB.XSD_DR_DT_IDK, null),
+                                  new eu.de4a.iem.jaxb.idk.ObjectFactory ()::createRequestLookupEvidenceServiceData);
+  }
+
+  @Nonnull
+  public static DE4AMarshaller <ResponseLookupEvidenceServiceDataType> idkResponseLookupEvidenceServiceDataMarshaller ()
+  {
+    return new DE4AMarshaller <> (ResponseLookupEvidenceServiceDataType.class,
+                                  _getXSDs (CDE4AJAXB.XSD_DR_DT_IDK, null),
+                                  new eu.de4a.iem.jaxb.idk.ObjectFactory ()::createResponseLookupEvidenceServiceData);
   }
 }
