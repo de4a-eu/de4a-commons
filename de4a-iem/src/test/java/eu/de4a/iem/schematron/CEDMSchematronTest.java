@@ -17,8 +17,6 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import eu.de4a.iem.schematron.CEDMSchematron;
-
 /**
  * Test class for class {@link CEDMSchematron}.
  *

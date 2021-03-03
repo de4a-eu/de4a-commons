@@ -501,22 +501,7 @@
 			<xs:element name="DomesticEvidenceList" type="DomesticsEvidencesType"/>
 		</xs:sequence>
 	</xs:complexType>
-	<xs:complexType name="RequestTransferEvidenceUSIDRType">
-		<xs:sequence>
-			<xs:element name="RequestId" type="RequestIdType"/>
-			<xs:element name="SpecificationId" type="SpecificationIdType"/>
-			<xs:element name="TimeStamp" type="TimeStampType"/>
-			<xs:element name="ProcedureId" type="ProcedureIdType" minOccurs="0"/>
-			<xs:element name="DataEvaluator" type="AgentCVType"/>
-			<xs:element name="DataOwner" type="AgentCVType"/>
-			<xs:element name="DataRequestSubject" type="DataRequestSubjectCVType"/>
-			<xs:element name="RequestGrounds" type="RequestGroundsType"/>
-			<xs:element name="CanonicalEvidenceId" type="CanonicalEvidenceIdType"/>
-			<xs:element name="EvidenceServiceData" type="EvidenceServiceDataType"/>
-			<xs:element name="ReturnServiceId" type="ReturnServiceIdType"/>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="RequestTransferEvidenceIMType">
+	<xs:complexType name="RequestTransferEvidenceUSIIMDRType">
 		<xs:sequence>
 			<xs:element name="RequestId" type="RequestIdType"/>
 			<xs:element name="SpecificationId" type="SpecificationIdType"/>
@@ -602,7 +587,7 @@
 	<xs:complexType name="RequestLookupRoutingInformationType">
 		<xs:sequence>
 			<xs:element name="CanonicalEvidenceId" type="CanonicalEvidenceIdType"/>
-			<xs:element name="Country" type="CountryType"/>
+			<xs:element name="CountryCode" type="CountryType"/>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="ResponseLookupRoutingInformationType">
@@ -615,7 +600,7 @@
 	<xs:complexType name="RequestLookupEvidenceServiceDataType">
 		<xs:sequence>
 			<xs:element name="CanonicalEvidenceId" type="CanonicalEvidenceIdType"/>
-			<xs:element name="Country" type="CountryType"/>
+			<xs:element name="CountryCode" type="CountryType"/>
 			<xs:element name="AdminTerritorialUnit" type="AdminTerritorialUnitType"/>
 		</xs:sequence>
 	</xs:complexType>
@@ -630,7 +615,7 @@
 	<xs:complexType name="ResponseErrorType">
 		<xs:sequence>
 			<xs:element name="Ack" type="AckType"/>
-			<xs:element name="ErrorList" type="ErrorListType"/>
+			<xs:element name="ErrorList" type="ErrorListType" minOccurs="0"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- End Interface Types -->

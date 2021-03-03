@@ -13,8 +13,6 @@ import org.slf4j.LoggerFactory;
 
 import com.helger.jaxb.GenericJAXBMarshaller;
 
-import eu.de4a.iem.xml.de4a.t42.DE4AT42Marshaller;
-
 /**
  * Test class for class {@link DE4AT42Marshaller}.
  *

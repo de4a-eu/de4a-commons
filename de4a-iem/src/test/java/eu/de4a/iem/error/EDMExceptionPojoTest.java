@@ -24,11 +24,6 @@ import com.helger.commons.mock.CommonsTestHelper;
 import com.helger.regrep.RegRep4Reader;
 import com.helger.regrep.RegRep4Writer;
 
-import eu.de4a.iem.error.EDE4AErrorOrigin;
-import eu.de4a.iem.error.EDE4AErrorSeverity;
-import eu.de4a.iem.error.EDMExceptionPojo;
-import eu.de4a.iem.error.EEDMExceptionType;
-
 /**
  * Test class for class {@link EDMExceptionPojo}.
  *

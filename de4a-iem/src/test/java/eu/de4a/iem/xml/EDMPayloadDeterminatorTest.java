@@ -25,7 +25,6 @@ import eu.de4a.iem.EDMErrorResponse;
 import eu.de4a.iem.EDMRequest;
 import eu.de4a.iem.EDMResponse;
 import eu.de4a.iem.IEDMTopLevelObject;
-import eu.de4a.iem.xml.EDMPayloadDeterminator;
 
 /**
  * Test class for class {@link EDMPayloadDeterminator}.

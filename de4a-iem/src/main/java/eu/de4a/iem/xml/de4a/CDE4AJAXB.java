@@ -53,16 +53,14 @@ public final class CDE4AJAXB
   }
 
   public static final ClassPathResource XSD_DE_USI = new ClassPathResource ("schemas/core/DE1-USI.xsd", _getCL ());
-
-  public static final ClassPathResource XSD_DO_IM = new ClassPathResource ("schemas/core/DO1-IM.xsd", _getCL ());
+  public static final ClassPathResource XSD_DR_USI = new ClassPathResource ("schemas/core/DR1-USI.xsd", _getCL ());
+  public static final ClassPathResource XSD_DT_USI = new ClassPathResource ("schemas/core/DT1-USI.xsd", _getCL ());
   public static final ClassPathResource XSD_DO_USI = new ClassPathResource ("schemas/core/DO1-USI.xsd", _getCL ());
 
+  public static final ClassPathResource XSD_DR_DE_IM = new ClassPathResource ("schemas/core/DR-DE1-IM.xsd", _getCL ());
+  public static final ClassPathResource XSD_DT_DO_IM = new ClassPathResource ("schemas/core/DT-DO1-IM.xsd", _getCL ());
+
   public static final ClassPathResource XSD_DR_DT_IDK = new ClassPathResource ("schemas/core/DR-DT1-IDK.xsd", _getCL ());
-
-  public static final ClassPathResource XSD_DR_IM = new ClassPathResource ("schemas/core/DR1-IM.xsd", _getCL ());
-  public static final ClassPathResource XSD_DR_USI = new ClassPathResource ("schemas/core/DR1-USI.xsd", _getCL ());
-
-  public static final ClassPathResource XSD_DT_USI = new ClassPathResource ("schemas/core/DT1-USI.xsd", _getCL ());
 
   private CDE4AJAXB ()
   {}

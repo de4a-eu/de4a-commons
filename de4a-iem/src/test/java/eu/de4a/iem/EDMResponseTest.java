@@ -31,8 +31,6 @@ import com.helger.commons.mock.CommonsTestHelper;
 import com.helger.regrep.ERegRepResponseStatus;
 import com.helger.schematron.svrl.AbstractSVRLMessage;
 
-import eu.de4a.iem.CDE4AEDM;
-import eu.de4a.iem.EDMResponse;
 import eu.de4a.iem.model.EDE4AIdentifierType;
 import eu.de4a.iem.schematron.SchematronBusinessRules2Validator;
 import eu.de4a.iem.schematron.SchematronEDM2Validator;

@@ -14,10 +14,6 @@ import org.slf4j.LoggerFactory;
 import com.helger.commons.wrapper.Wrapper;
 import com.helger.jaxb.GenericJAXBMarshaller;
 
-import eu.de4a.iem.xml.de4a.DE4AMarshaller;
-import eu.de4a.iem.xml.de4a.EDE4ACanonicalEvidenceType;
-import eu.de4a.iem.xml.de4a.IDE4ACanonicalEvidenceType;
-
 /**
  * Test class for class {@link DE4AMarshaller}.
  *

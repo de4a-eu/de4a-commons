@@ -33,8 +33,6 @@ import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.commons.mock.CommonsTestHelper;
 import com.helger.schematron.svrl.AbstractSVRLMessage;
 
-import eu.de4a.iem.CDE4AEDM;
-import eu.de4a.iem.EDMRequest;
 import eu.de4a.iem.model.BusinessPojo;
 import eu.de4a.iem.model.EDE4AGenderCode;
 import eu.de4a.iem.model.EDE4AIdentifierType;

@@ -19,8 +19,6 @@ import org.junit.Test;
 
 import com.helger.commons.io.resource.ClassPathResource;
 
-import eu.de4a.iem.xml.cagv.CCAGV;
-
 public final class CCAGVTest
 {
   @Test

@@ -30,7 +30,6 @@ import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.commons.mock.CommonsTestHelper;
 import com.helger.schematron.svrl.AbstractSVRLMessage;
 
-import eu.de4a.iem.EDMErrorResponse;
 import eu.de4a.iem.error.EDE4AErrorCode;
 import eu.de4a.iem.error.EDE4AErrorOrigin;
 import eu.de4a.iem.error.EDE4AErrorSeverity;

@@ -137,7 +137,7 @@
       <package name="eu.de4a.iem.jaxb.de_usi" />
     </schemaBindings>
   </bindings>
-  <bindings schemaLocation="../resources/schemas/core/DO1-IM.xsd">
+  <bindings schemaLocation="../resources/schemas/core/DT-DO1-IM.xsd">
     <schemaBindings>
       <!-- "do" is a reserved word and cannot be used as a package name part -->
       <package name="eu.de4a.iem.jaxb.do_im" />
@@ -154,7 +154,7 @@
       <package name="eu.de4a.iem.jaxb.idk" />
     </schemaBindings>
   </bindings>
-  <bindings schemaLocation="../resources/schemas/core/DR1-IM.xsd">
+  <bindings schemaLocation="../resources/schemas/core/DR-DE1-IM.xsd">
     <schemaBindings>
       <package name="eu.de4a.iem.jaxb.dr_im" />
     </schemaBindings>
