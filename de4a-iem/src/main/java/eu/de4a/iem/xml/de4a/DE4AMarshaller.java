@@ -115,15 +115,17 @@ public class DE4AMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
     return this;
   }
 
-  public final void validateOnly (@Nonnull final String sDocument, @Nonnull final ErrorList aErrors)
+  @Nullable
+  public final JAXBTYPE readAndValidate (@Nonnull final String sDocument, @Nonnull final ErrorList aErrors)
   {
     final IExceptionCallback <JAXBException> aCB = x -> aErrors.add (SingleError.builderError ()
                                                                                 .setErrorText (x.getMessage ())
                                                                                 .setLinkedException (x.getLinkedException ())
                                                                                 .build ());
     readExceptionCallbacks ().add (aCB);
-    read (sDocument);
+    final JAXBTYPE ret = read (sDocument);
     readExceptionCallbacks ().removeObject (aCB);
+    return ret;
   }
 
   @Nonnull
