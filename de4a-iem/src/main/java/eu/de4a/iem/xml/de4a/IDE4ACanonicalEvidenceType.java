@@ -22,6 +22,7 @@ import com.helger.commons.collection.impl.CommonsLinkedHashSet;
 import com.helger.commons.collection.impl.ICommonsList;
 import com.helger.commons.collection.impl.ICommonsOrderedSet;
 import com.helger.commons.io.resource.ClassPathResource;
+import com.helger.commons.string.StringHelper;
 
 /**
  * Contains the technical details of a single canonical evidence.
@@ -43,30 +44,33 @@ public interface IDE4ACanonicalEvidenceType
   ICommonsList <? extends ClassPathResource> getAllXSDs ();
 
   /**
-   * A specific instance that encapsulates all predefined objects from the
-   * {@link EDE4ACanonicalEvidenceType} enum.
+   * A specific instance that encapsulates the provided
+   * {@link IDE4ACanonicalEvidenceType} objects.
    */
   @Nonnull
-  IDE4ACanonicalEvidenceType ALL_PREDEFINED = new IDE4ACanonicalEvidenceType ()
+  static IDE4ACanonicalEvidenceType multiple (@Nonnull final IDE4ACanonicalEvidenceType... aTypes)
   {
-    @Nonnull
-    @Nonempty
-    public String getDisplayName ()
+    return new IDE4ACanonicalEvidenceType ()
     {
-      return "All predefined DE4A Canoncical Evidences";
-    }
+      @Nonnull
+      @Nonempty
+      public String getDisplayName ()
+      {
+        return "collectionOf(" + StringHelper.getImplodedMapped (',', aTypes, IDE4ACanonicalEvidenceType::getDisplayName) + ")";
+      }
 
-    @Nonnull
-    @ReturnsMutableCopy
-    public ICommonsList <? extends ClassPathResource> getAllXSDs ()
-    {
-      // Create a set to avoid duplicates in it
-      final ICommonsOrderedSet <ClassPathResource> ret = new CommonsLinkedHashSet <> ();
-      for (final EDE4ACanonicalEvidenceType e : EDE4ACanonicalEvidenceType.values ())
-        ret.addAll (e.getAllXSDs ());
-      return ret.getCopyAsList ();
-    }
-  };
+      @Nonnull
+      @ReturnsMutableCopy
+      public ICommonsList <? extends ClassPathResource> getAllXSDs ()
+      {
+        // Create a set to avoid duplicates in it
+        final ICommonsOrderedSet <ClassPathResource> ret = new CommonsLinkedHashSet <> ();
+        for (final IDE4ACanonicalEvidenceType e : aTypes)
+          ret.addAll (e.getAllXSDs ());
+        return ret.getCopyAsList ();
+      }
+    };
+  }
 
   /**
    * A specific instance that is empty.

@@ -11,7 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package eu.de4a.iem.xml.de4a.t42;
+package eu.de4a.iem.xml.de4a.t42.v0_4;
 
 import javax.annotation.Nonnull;
 
@@ -19,7 +19,7 @@ import com.helger.commons.annotation.Singleton;
 import com.helger.xml.namespace.MapBasedNamespaceContext;
 
 /**
- * XML Namespace context for DE4A T4.2
+ * XML Namespace context for DE4A T4.2 v0.4
  *
  * @author Philip Helger
  */

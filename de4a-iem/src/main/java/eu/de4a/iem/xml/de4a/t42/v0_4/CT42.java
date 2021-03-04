@@ -11,7 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package eu.de4a.iem.xml.de4a.t42;
+package eu.de4a.iem.xml.de4a.t42.v0_4;
 
 import javax.annotation.Nonnull;
 
@@ -21,10 +21,8 @@ import com.helger.commons.collection.impl.ICommonsList;
 import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.xsds.xml.CXML_XSD;
 
-import eu.de4a.iem.xml.cv.CCV;
-
 /**
- * Constants for handling DE4A T4.2 pilot stuff
+ * Constants for handling DE4A T4.2 v0.4 pilot stuff
  *
  * @author Philip Helger
  */
@@ -45,8 +43,7 @@ public final class CT42
   {
     final ICommonsList <ClassPathResource> a = new CommonsArrayList <> ();
     a.add (CXML_XSD.getXSDResource ());
-    a.addAll (CCV.XSDS);
-    a.add (new ClassPathResource ("schemas/t4.2/doing_Business_abroad_XSD_v0.5 draft.xsd", _getCL ()));
+    a.add (new ClassPathResource ("schemas/t4.2/doing_Business_abroad_XSD_v0.4 2.xsd", _getCL ()));
     return a;
   }
 }

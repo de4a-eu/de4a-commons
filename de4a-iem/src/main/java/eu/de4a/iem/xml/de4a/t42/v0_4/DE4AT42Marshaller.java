@@ -11,7 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package eu.de4a.iem.xml.de4a.t42;
+package eu.de4a.iem.xml.de4a.t42.v0_4;
 
 import javax.annotation.Nonnull;
 import javax.xml.bind.JAXBElement;
@@ -19,11 +19,11 @@ import javax.xml.bind.JAXBElement;
 import com.helger.commons.functional.IFunction;
 import com.helger.jaxb.GenericJAXBMarshaller;
 
-import eu.de4a.iem.jaxb.t42.LegalEntityType;
+import eu.de4a.iem.jaxb.t42.v0_4.LegalEntityType;
 
 /**
- * Special marshaller for DE4A T4.2 pilot. This class can ONLY ready T4.2 stuff
- * without the surrounding core document.
+ * Special marshaller for DE4A T4.2 v0.4 pilot. This class can ONLY ready T4.2
+ * stuff without the surrounding core document.
  *
  * @author Philip Helger
  * @param <JAXBTYPE>
@@ -41,6 +41,6 @@ public class DE4AT42Marshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYP
   @Nonnull
   public static DE4AT42Marshaller <LegalEntityType> legalEntity ()
   {
-    return new DE4AT42Marshaller <> (LegalEntityType.class, new eu.de4a.iem.jaxb.t42.ObjectFactory ()::createLegalEntity);
+    return new DE4AT42Marshaller <> (LegalEntityType.class, new eu.de4a.iem.jaxb.t42.v0_4.ObjectFactory ()::createLegalEntity);
   }
 }

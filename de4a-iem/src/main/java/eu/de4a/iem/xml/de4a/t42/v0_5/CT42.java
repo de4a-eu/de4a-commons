@@ -11,45 +11,44 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package eu.de4a.iem.xml.de4a;
+package eu.de4a.iem.xml.de4a.t42.v0_5;
 
 import javax.annotation.Nonnull;
 
-import com.helger.commons.annotation.Nonempty;
 import com.helger.commons.annotation.ReturnsMutableCopy;
+import com.helger.commons.collection.impl.CommonsArrayList;
 import com.helger.commons.collection.impl.ICommonsList;
 import com.helger.commons.io.resource.ClassPathResource;
+import com.helger.xsds.xml.CXML_XSD;
+
+import eu.de4a.iem.xml.cv.CCV;
 
 /**
- * Contains all the predefined DE4A Canonical Evidences
+ * Constants for handling DE4A T4.2 v0.5 pilot stuff
  *
  * @author Philip Helger
  */
-public enum EDE4ACanonicalEvidenceType implements IDE4ACanonicalEvidenceType
+public final class CT42
 {
-  T42_COMPANY_INFO_V04 ("T4.2 Company Info v0.4", eu.de4a.iem.xml.de4a.t42.v0_4.CT42.getAllXSDs ()),
-  T42_COMPANY_INFO_V05 ("T4.2 Company Info v0.5", eu.de4a.iem.xml.de4a.t42.v0_5.CT42.getAllXSDs ());
+  public static final String NAMESPACE_URI = "urn:de4a:dba:canonical-evidence:v0.5";
 
-  private final String m_sDisplayName;
-  private final ICommonsList <ClassPathResource> m_aXSDs;
-
-  EDE4ACanonicalEvidenceType (@Nonnull @Nonempty final String sDisplayName, @Nonnull final ICommonsList <ClassPathResource> aXSDs)
-  {
-    m_sDisplayName = sDisplayName;
-    m_aXSDs = aXSDs;
-  }
+  private CT42 ()
+  {}
 
   @Nonnull
-  @Nonempty
-  public String getDisplayName ()
+  private static ClassLoader _getCL ()
   {
-    return m_sDisplayName;
+    return CT42.class.getClassLoader ();
   }
 
   @Nonnull
   @ReturnsMutableCopy
-  public ICommonsList <? extends ClassPathResource> getAllXSDs ()
+  public static ICommonsList <ClassPathResource> getAllXSDs ()
   {
-    return m_aXSDs;
+    final ICommonsList <ClassPathResource> a = new CommonsArrayList <> ();
+    a.add (CXML_XSD.getXSDResource ());
+    a.addAll (CCV.XSDS);
+    a.add (new ClassPathResource ("schemas/t4.2/doing_Business_abroad_XSD_v0.5 draft.xsd", _getCL ()));
+    return a;
   }
 }
