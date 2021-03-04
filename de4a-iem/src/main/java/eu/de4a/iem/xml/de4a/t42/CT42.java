@@ -21,6 +21,8 @@ import com.helger.commons.collection.impl.ICommonsList;
 import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.xsds.xml.CXML_XSD;
 
+import eu.de4a.iem.xml.cv.CCV;
+
 /**
  * Constants for handling DE4A T4.2 pilot stuff
  *
@@ -43,7 +45,8 @@ public final class CT42
   {
     final ICommonsList <ClassPathResource> a = new CommonsArrayList <> ();
     a.add (CXML_XSD.getXSDResource ());
-    a.add (new ClassPathResource ("schemas/t4.2/doing_Business_abroad_XSD_v0.4 2.xsd", _getCL ()));
+    a.addAll (CCV.XSDS);
+    a.add (new ClassPathResource ("schemas/t4.2/doing_Business_abroad_XSD_v0.5 draft.xsd", _getCL ()));
     return a;
   }
 }

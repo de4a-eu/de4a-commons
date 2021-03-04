@@ -18,6 +18,7 @@
           xmlns="http://java.sun.com/xml/ns/jaxb"
           xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" 
           xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <!--
   <globalBindings fixedAttributeAsConstantProperty="true"
                   typesafeEnumMaxMembers="2000"
                   typesafeEnumMemberName="generateName"
@@ -27,7 +28,8 @@
     <xjc:javaType name="java.time.LocalTime" xmlType="xsd:time" adapter="com.helger.jaxb.adapter.AdapterLocalTime" />
     <xjc:javaType name="java.time.Duration" xmlType="xsd:duration" adapter="com.helger.jaxb.adapter.AdapterDuration" />
   </globalBindings>
-  <bindings schemaLocation="../resources/schemas/t4.2/doing_Business_abroad_XSD_v0.4 2.xsd">
+    -->
+  <bindings schemaLocation="../resources/schemas/t4.2/doing_Business_abroad_XSD_v0.5 draft.xsd">
     <schemaBindings>
       <package name="eu.de4a.iem.jaxb.t42" />
     </schemaBindings>

@@ -161,20 +161,14 @@
               <goal>generate</goal>
             </goals>
             <configuration>
-              <schemaIncludes>core/**/*.xsd</schemaIncludes>
-              <bindingIncludes>bindings-core.xjb</bindingIncludes>
-              <generateDirectory>${project.build.directory}/generated-sources/xjc-core</generateDirectory>
-            </configuration>
-          </execution>
-          <execution>
-            <id>t42</id>
-            <goals>
-              <goal>generate</goal>
-            </goals>
-            <configuration>
-              <schemaIncludes>t4.2/*.xsd</schemaIncludes>
-              <bindingIncludes>bindings-t42.xjb</bindingIncludes>
-              <generateDirectory>${project.build.directory}/generated-sources/xjc-t42</generateDirectory>
+              <schemaIncludes>
+                <schemaInclude>core/**/*.xsd</schemaInclude>
+                <schemaInclude>t4.2/*.xsd</schemaInclude>
+              </schemaIncludes>
+              <bindingIncludes>
+                <bindingInclude>bindings-core.xjb</bindingInclude>
+                <bindingInclude>bindings-t42.xjb</bindingInclude>
+              </bindingIncludes>
             </configuration>
           </execution>
         </executions>

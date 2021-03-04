@@ -19,7 +19,6 @@ import javax.xml.bind.JAXBElement;
 import com.helger.commons.functional.IFunction;
 import com.helger.jaxb.GenericJAXBMarshaller;
 
-import eu.de4a.iem.jaxb.t42.ContactPointType;
 import eu.de4a.iem.jaxb.t42.LegalEntityType;
 
 /**
@@ -43,11 +42,5 @@ public class DE4AT42Marshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYP
   public static DE4AT42Marshaller <LegalEntityType> legalEntity ()
   {
     return new DE4AT42Marshaller <> (LegalEntityType.class, new eu.de4a.iem.jaxb.t42.ObjectFactory ()::createLegalEntity);
-  }
-
-  @Nonnull
-  public static DE4AT42Marshaller <ContactPointType> contactPoint ()
-  {
-    return new DE4AT42Marshaller <> (ContactPointType.class, new eu.de4a.iem.jaxb.t42.ObjectFactory ()::createContactPoint);
   }
 }
