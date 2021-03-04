@@ -35,10 +35,8 @@
 			<xs:element name="CompanyEndDate" type="xs:date" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="CompanyEUID" type="xs:string" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="VatNumber" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="CompanyContactData" type="ContactPointType" minOccurs="0"
-				maxOccurs="1"/>
-			<xs:element name="RegisteredAddress" type="AddressType" minOccurs="1"
-				maxOccurs="unbounded"/>
+			<xs:element name="CompanyContactData" type="ContactPointType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="RegisteredAddress" type="AddressType" minOccurs="1" maxOccurs="unbounded"/>
 			<xs:element name="PostalAddress" type="AddressType" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="HasBranch" type="BranchType" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
@@ -70,8 +68,7 @@
 		
 		<xs:sequence>
 			<xs:element name="NaceCode" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="ActivityDescription" type="xs:string" minOccurs="0"
-				maxOccurs="unbounded"/>
+			<xs:element name="ActivityDescription" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 

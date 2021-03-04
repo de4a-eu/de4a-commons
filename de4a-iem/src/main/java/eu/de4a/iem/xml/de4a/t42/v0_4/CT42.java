@@ -11,7 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package eu.de4a.iem.xml.de4a.t42;
+package eu.de4a.iem.xml.de4a.t42.v0_4;
 
 import javax.annotation.Nonnull;
 
@@ -22,7 +22,7 @@ import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.xsds.xml.CXML_XSD;
 
 /**
- * Constants for handling DE4A T4.2 pilot stuff
+ * Constants for handling DE4A T4.2 v0.4 pilot stuff
  *
  * @author Philip Helger
  */

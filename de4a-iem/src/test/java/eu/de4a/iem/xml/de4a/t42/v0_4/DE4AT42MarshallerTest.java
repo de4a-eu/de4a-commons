@@ -11,7 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package eu.de4a.iem.xml.de4a.t42;
+package eu.de4a.iem.xml.de4a.t42.v0_4;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -34,7 +34,7 @@ import com.helger.jaxb.GenericJAXBMarshaller;
 public final class DE4AT42MarshallerTest
 {
   private static final Logger LOGGER = LoggerFactory.getLogger (DE4AT42MarshallerTest.class);
-  private static final String BASE_PATH = "src/test/resources/de4a/";
+  private static final String BASE_PATH = "src/test/resources/de4a/t4.2/v0.4/";
 
   private static <T> void _testReadWrite (@Nonnull final GenericJAXBMarshaller <T> aMarshaller, @Nonnull final File aFile)
   {
@@ -56,8 +56,8 @@ public final class DE4AT42MarshallerTest
   @Test
   public void testLegalEntity ()
   {
-    _testReadWrite (DE4AT42Marshaller.legalEntity (), new File (BASE_PATH + "t4.2/sample CompanyInfo NL KVK.xml"));
-    _testReadWrite (DE4AT42Marshaller.legalEntity (), new File (BASE_PATH + "t4.2/sample CompanyInfo RO ONRC-2.xml"));
-    _testReadWrite (DE4AT42Marshaller.legalEntity (), new File (BASE_PATH + "t4.2/sample company info SE -2.xml"));
+    _testReadWrite (DE4AT42Marshaller.legalEntity (), new File (BASE_PATH + "sample CompanyInfo NL KVK.xml"));
+    _testReadWrite (DE4AT42Marshaller.legalEntity (), new File (BASE_PATH + "sample CompanyInfo RO ONRC-3.xml"));
+    _testReadWrite (DE4AT42Marshaller.legalEntity (), new File (BASE_PATH + "sample company info SE -2.xml"));
   }
 }

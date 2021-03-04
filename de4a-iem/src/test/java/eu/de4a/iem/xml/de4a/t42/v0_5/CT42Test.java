@@ -11,7 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package eu.de4a.iem.xml.de4a.t42;
+package eu.de4a.iem.xml.de4a.t42.v0_5;
 
 import static org.junit.Assert.assertTrue;
 
