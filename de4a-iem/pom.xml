@@ -79,20 +79,16 @@
       <artifactId>ph-xsds-ccts-cct-schemamodule</artifactId>
     </dependency>
     <dependency>
+      <groupId>com.helger.xsd</groupId>
+      <artifactId>ph-xsds-xlink</artifactId>
+    </dependency>
+    <dependency>
       <groupId>com.helger.ubl</groupId>
       <artifactId>ph-ubl20</artifactId>
     </dependency>
     <dependency>
       <groupId>com.helger.ubl</groupId>
       <artifactId>ph-ubl23</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.helger.schematron</groupId>
-      <artifactId>ph-schematron-xslt</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.helger</groupId>
-      <artifactId>ph-regrep</artifactId>
     </dependency>
     <dependency>
       <groupId>com.sun.activation</groupId>
@@ -104,7 +100,8 @@
       <artifactId>slf4j-simple</artifactId>
       <scope>test</scope>
     </dependency>
-    <!-- JUnit 4 for testing -->    <dependency>
+    <!-- JUnit 4 for testing -->
+    <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <scope>test</scope>
@@ -210,19 +207,10 @@
               <groupId>com.helger.xsd</groupId>
               <artifactId>ph-xsds-xlink</artifactId>
             </episode>
-            <episode>
-              <groupId>com.helger</groupId>
-              <artifactId>ph-regrep</artifactId>
-            </episode>
           </episodes>
         </configuration>
         <dependencies>
           <!-- Required for VCard -->
-          <dependency>
-            <groupId>com.helger</groupId>
-            <artifactId>ph-regrep</artifactId>
-            <version>${ph-regrep.version}</version>
-          </dependency>
           <dependency>
             <groupId>com.helger.ubl</groupId>
             <artifactId>ph-ubl20</artifactId>

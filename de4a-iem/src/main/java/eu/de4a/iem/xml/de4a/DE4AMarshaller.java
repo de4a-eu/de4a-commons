@@ -70,7 +70,6 @@ public class DE4AMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
       return super.getJAXBContext (aClassLoader);
 
     final Class <?> [] aClasses = new Class <?> [] { com.helger.xsds.ccts.cct.schemamodule.ObjectFactory.class,
-                                                     com.helger.xsds.xlink.ObjectFactory.class,
                                                      eu.de4a.iem.jaxb.common.idtypes.ObjectFactory.class,
                                                      eu.de4a.iem.jaxb.common.types.ObjectFactory.class,
                                                      eu.de4a.iem.jaxb.cv.agent.ObjectFactory.class,
