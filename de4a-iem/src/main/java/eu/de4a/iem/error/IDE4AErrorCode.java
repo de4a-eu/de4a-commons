@@ -13,8 +13,6 @@
  */
 package eu.de4a.iem.error;
 
-import java.io.Serializable;
-
 import com.helger.commons.id.IHasID;
 
 /**
@@ -22,7 +20,7 @@ import com.helger.commons.id.IHasID;
  *
  * @author Philip Helger
  */
-public interface IDE4AErrorCode extends IHasID <String>, Serializable
+public interface IDE4AErrorCode extends IHasID <String>
 {
   /* empty */
 }
