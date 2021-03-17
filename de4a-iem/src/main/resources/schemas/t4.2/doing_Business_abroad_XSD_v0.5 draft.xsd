@@ -70,11 +70,10 @@
       </xs:documentation>
     </xs:annotation>
     
-    <!-- [ph] does it make that this can be empty? -->
-    <xs:sequence>
-      <xs:element name="NaceCode" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
-      <xs:element name="ActivityDescription" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
-    </xs:sequence>
+    <xs:choice>
+      <xs:element name="NaceCode" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+      <xs:element name="ActivityDescription" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:choice>
   </xs:complexType>
 
   <xs:complexType name="BranchType">
@@ -111,15 +110,14 @@
     </xs:annotation>
     
     <xs:sequence>
-      <xs:element ref="cvb:AddressPostOfficeBox" minOccurs="0" maxOccurs="1"/>
-      <xs:element ref="cvb:AddressThoroughfare" minOccurs="0" maxOccurs="1"/>
-      <xs:element ref="cvb:AddressLocatorDesignator" minOccurs="0" maxOccurs="1"/>
-      <xs:element ref="cvb:AddressPostCode" minOccurs="0" maxOccurs="1"/>
-      <xs:element ref="cvb:AddressPostName" minOccurs="0" maxOccurs="1"/>
-      <xs:element ref="cvb:AddressAdminUnitLocationOne" minOccurs="0" maxOccurs="1"/>
-      <xs:element ref="cvb:AddressAdminUnitLocationTwo" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="PoBox" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="Thoroughfare" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="LocationDesignator" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="PostCode" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="PostName" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="AdminUnitL1" type="xs:string" minOccurs="0" maxOccurs="1"/>
+      <xs:element name="AdminUnitL2" type="xs:string" minOccurs="0" maxOccurs="1"/>
     </xs:sequence>
-    <!-- [ph] this could be removed as it is part of the cb elements -->
     <xs:attribute ref="xml:lang" use="optional"/>
   </xs:complexType>
 
@@ -130,9 +128,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <!-- There would be "cvb:LegalEntityLegalName" element -->
-      <xs:element name="LegalEntityName" type="xs:string" minOccurs="1" maxOccurs="1"/>
+      <xs:element ref="cvb:LegalEntityLegalName" minOccurs="1" maxOccurs="1"/>
     </xs:sequence>
-      <xs:attribute ref="xml:lang" use="optional"/>
   </xs:complexType>
 </xs:schema>

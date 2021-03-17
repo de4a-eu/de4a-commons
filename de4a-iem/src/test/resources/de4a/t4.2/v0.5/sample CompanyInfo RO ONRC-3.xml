@@ -4,7 +4,7 @@
              xmlns="urn:de4a:dba:canonical-evidence:v0.5"
              xmlns:cvb="http://www.w3.org/ns/corevocabulary/BasicComponents">
 	<CompanyName>
-		<LegalEntityName>ELVILA SA</LegalEntityName>
+		<cvb:LegalEntityLegalName>ELVILA SA</cvb:LegalEntityLegalName>
 	</CompanyName>
 	<CompanyType>SA</CompanyType>
 	<CompanyStatus>economically active</CompanyStatus>
@@ -19,19 +19,19 @@
 		<Telephone>0214084700</Telephone>
 	</CompanyContactData>
 	<RegisteredAddress>
- 		<cvb:AddressThoroughfare>Str. SIRIULUI</cvb:AddressThoroughfare>
-		<cvb:AddressLocatorDesignator>74-76</cvb:AddressLocatorDesignator>
-		<cvb:AddressPostCode>014354</cvb:AddressPostCode>
-		<cvb:AddressPostName>Bucureşti Sectorul 1</cvb:AddressPostName>
-		<cvb:AddressAdminUnitLocationOne>RO</cvb:AddressAdminUnitLocationOne>
-    <cvb:AddressAdminUnitLocationTwo>Bucureşti</cvb:AddressAdminUnitLocationTwo>
+ 		<Thoroughfare>Str. SIRIULUI</Thoroughfare>
+		<LocationDesignator>74-76</LocationDesignator>
+		<PostCode>014354</PostCode>
+		<PostName>Bucureşti Sectorul 1</PostName>
+		<AdminUnitL1>RO</AdminUnitL1>
+    <AdminUnitL2>Bucureşti</AdminUnitL2>
 	</RegisteredAddress>
   <PostalAddress>
- 		<cvb:AddressThoroughfare>Str. SIRIULUI</cvb:AddressThoroughfare>
-		<cvb:AddressLocatorDesignator>74-76</cvb:AddressLocatorDesignator>
-		<cvb:AddressPostCode>014354</cvb:AddressPostCode>
-		<cvb:AddressPostName>Bucureşti Sectorul 1</cvb:AddressPostName>
-		<cvb:AddressAdminUnitLocationOne>RO</cvb:AddressAdminUnitLocationOne>
-    <cvb:AddressAdminUnitLocationTwo>Bucureşti</cvb:AddressAdminUnitLocationTwo>
+ 		<Thoroughfare>Str. SIRIULUI</Thoroughfare>
+		<LocationDesignator>74-76</LocationDesignator>
+		<PostCode>014354</PostCode>
+		<PostName>Bucureşti Sectorul 1</PostName>
+		<AdminUnitL1>RO</AdminUnitL1>
+    <AdminUnitL2>Bucureşti</AdminUnitL2>
 	</PostalAddress>
 </LegalEntity>
