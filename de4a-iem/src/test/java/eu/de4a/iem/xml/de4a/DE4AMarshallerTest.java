@@ -150,18 +150,6 @@ public final class DE4AMarshallerTest
   }
 
   @Test
-  public void testIDK_LookupEvidenceServiceData ()
-  {
-    // Request
-    _testReadWrite (DE4AMarshaller.idkRequestLookupEvidenceServiceDataMarshaller (),
-                    new File (BASE_PATH + "core/DR-DT1-IDK-request-evidence.xml"));
-
-    // Response
-    _testReadWrite (DE4AMarshaller.idkResponseLookupEvidenceServiceDataMarshaller (),
-                    new File (BASE_PATH + "core/DR-DT1-IDK-response-evidence.xml"));
-  }
-
-  @Test
   public void testIDK_LookupRoutingInformation ()
   {
     // Request

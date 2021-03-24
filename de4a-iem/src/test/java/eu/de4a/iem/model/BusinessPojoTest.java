@@ -18,13 +18,6 @@ import static org.junit.Assert.assertNotNull;
 import javax.annotation.Nonnull;
 
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import com.helger.commons.mock.CommonsTestHelper;
-
-import eu.de4a.iem.jaxb.w3.cv.ac.CoreBusinessType;
-import eu.de4a.iem.xml.cv.BusinessMarshaller;
 
 /**
  * Test class for class {@link BusinessPojo}.
@@ -33,26 +26,9 @@ import eu.de4a.iem.xml.cv.BusinessMarshaller;
  */
 public final class BusinessPojoTest
 {
-  private static final Logger LOGGER = LoggerFactory.getLogger (BusinessPojoTest.class);
-
   private static void _testWriteAndRead (@Nonnull final BusinessPojo x)
   {
     assertNotNull (x);
-
-    final CoreBusinessType aObj = x.getAsCoreBusiness ();
-    assertNotNull (aObj);
-    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (aObj, aObj.clone ());
-
-    // Write
-    final BusinessMarshaller m = new BusinessMarshaller ();
-    m.setFormattedOutput (true);
-    assertNotNull (m.getAsDocument (aObj));
-    if (false)
-      LOGGER.info (m.getAsString (aObj));
-
-    // Re-read
-    final BusinessPojo y = BusinessPojo.builder (aObj).build ();
-    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (x, y);
   }
 
   @Test

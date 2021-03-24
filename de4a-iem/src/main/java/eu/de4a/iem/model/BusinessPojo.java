@@ -22,13 +22,7 @@ import javax.annotation.concurrent.NotThreadSafe;
 
 import com.helger.commons.equals.EqualsHelper;
 import com.helger.commons.hashcode.HashCodeGenerator;
-import com.helger.commons.string.StringHelper;
 import com.helger.commons.string.ToStringGenerator;
-
-import eu.de4a.iem.jaxb.w3.cv.ac.CoreBusinessType;
-import eu.de4a.iem.jaxb.w3.cv.bc.LegalEntityIDType;
-import eu.de4a.iem.jaxb.w3.cv.bc.LegalEntityLegalIDType;
-import eu.de4a.iem.jaxb.w3.cv.bc.LegalEntityLegalNameType;
 
 /**
  * Represents a "Business"
@@ -96,37 +90,6 @@ public class BusinessPojo
     return m_aAddress;
   }
 
-  @Nonnull
-  public CoreBusinessType getAsCoreBusiness ()
-  {
-    final CoreBusinessType ret = new CoreBusinessType ();
-
-    if (StringHelper.hasText (m_sLegalID))
-    {
-      final LegalEntityLegalIDType aLegalID = new LegalEntityLegalIDType ();
-      aLegalID.setValue (m_sLegalID);
-      aLegalID.setSchemeID (m_sLegalIDSchemeID);
-      ret.addLegalEntityLegalID (aLegalID);
-    }
-    if (StringHelper.hasText (m_sID))
-    {
-      final LegalEntityIDType aLegalID = new LegalEntityIDType ();
-      aLegalID.setValue (m_sID);
-      aLegalID.setSchemeID (m_sIDSchemeID);
-      ret.addLegalEntityID (aLegalID);
-    }
-    if (StringHelper.hasText (m_sLegalName))
-    {
-      final LegalEntityLegalNameType aLegalName = new LegalEntityLegalNameType ();
-      aLegalName.setValue (m_sLegalName);
-      ret.addLegalEntityLegalName (aLegalName);
-    }
-    if (m_aAddress != null)
-      ret.setLegalEntityCoreAddress (m_aAddress.getAsCoreAddress ());
-
-    return ret;
-  }
-
   @Override
   public boolean equals (final Object o)
   {
@@ -171,30 +134,6 @@ public class BusinessPojo
   public static Builder builder ()
   {
     return new Builder ();
-  }
-
-  @Nonnull
-  public static Builder builder (@Nullable final CoreBusinessType a)
-  {
-    final Builder ret = new Builder ();
-    if (a != null)
-    {
-      if (a.hasLegalEntityLegalIDEntries ())
-      {
-        final LegalEntityLegalIDType aItem = a.getLegalEntityLegalIDAtIndex (0);
-        ret.legalID (aItem.getValue ()).legalIDSchemeID (aItem.getSchemeID ());
-      }
-      if (a.hasLegalEntityIDEntries ())
-      {
-        final LegalEntityIDType aItem = a.getLegalEntityIDAtIndex (0);
-        ret.id (aItem.getValue ()).idSchemeID (aItem.getSchemeID ());
-      }
-      if (a.hasLegalEntityLegalNameEntries ())
-        ret.legalName (a.getLegalEntityLegalNameAtIndex (0).getValue ());
-      if (a.getLegalEntityCoreAddress () != null)
-        ret.address (AddressPojo.builder (a.getLegalEntityCoreAddress ()));
-    }
-    return ret;
   }
 
   /**

@@ -23,20 +23,15 @@
                   typesafeEnumMaxMembers="2000"
                   typesafeEnumMemberName="generateName"
                   underscoreBinding="asCharInWord">
-    <xjc:javaType name="java.time.LocalDateTime" xmlType="xsd:dateTime" adapter="com.helger.jaxb.adapter.AdapterLocalDateTime" />
-    <xjc:javaType name="java.time.LocalDate" xmlType="xsd:date" adapter="com.helger.jaxb.adapter.AdapterLocalDate" />
-    <xjc:javaType name="java.time.LocalTime" xmlType="xsd:time" adapter="com.helger.jaxb.adapter.AdapterLocalTime" />
+    <xjc:javaType name="java.time.OffsetDateTime" xmlType="xsd:dateTime" adapter="com.helger.jaxb.adapter.AdapterOffsetDateTime" />
+    <xjc:javaType name="com.helger.commons.datetime.OffsetDate" xmlType="xsd:date" adapter="com.helger.jaxb.adapter.AdapterOffsetDate" />
+    <xjc:javaType name="java.time.OffsetTime" xmlType="xsd:time" adapter="com.helger.jaxb.adapter.AdapterOffsetTime" />
     <xjc:javaType name="java.time.Duration" xmlType="xsd:duration" adapter="com.helger.jaxb.adapter.AdapterDuration" />
   </globalBindings>
-    -->
-  <bindings schemaLocation="../resources/schemas/t4.2/doing_Business_abroad_XSD_v0.4 2.xsd">
+  -->
+  <bindings schemaLocation="../resources/schemas/pilot-shared/CoreVocabularies-BasicComponents-1.1.xsd">
     <schemaBindings>
-      <package name="eu.de4a.iem.jaxb.t42.v0_4" />
-    </schemaBindings>
-  </bindings>
-  <bindings schemaLocation="../resources/schemas/t4.2/doing_Business_abroad_XSD_v0.5.xsd">
-    <schemaBindings>
-      <package name="eu.de4a.iem.jaxb.t42.v0_5" />
+      <package name="eu.de4a.iem.jaxb.w3.cv.bc" />
     </schemaBindings>
   </bindings>
 </bindings>

@@ -19,11 +19,6 @@ import javax.annotation.Nonnull;
 
 import org.junit.Test;
 
-import com.helger.commons.mock.CommonsTestHelper;
-
-import eu.de4a.iem.jaxb.cv.agent.AgentType;
-import eu.de4a.iem.xml.cagv.AgentMarshaller;
-
 /**
  * Test class for class {@link AgentPojo}
  *
@@ -34,17 +29,6 @@ public final class AgentPojoTest
   private static void _testWriteAndRead (@Nonnull final AgentPojo x)
   {
     assertNotNull (x);
-
-    final AgentType aObj = x.getAsAgent ();
-    assertNotNull (aObj);
-    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (aObj, aObj.clone ());
-
-    final AgentMarshaller m = new AgentMarshaller ();
-    m.setFormattedOutput (true);
-    assertNotNull (m.getAsDocument (aObj));
-
-    final AgentPojo y = AgentPojo.builder (aObj).build ();
-    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (x, y);
   }
 
   @Test

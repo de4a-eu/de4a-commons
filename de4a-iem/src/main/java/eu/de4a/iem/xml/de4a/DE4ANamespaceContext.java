@@ -16,9 +16,8 @@ package eu.de4a.iem.xml.de4a;
 import javax.annotation.Nonnull;
 
 import com.helger.commons.annotation.Singleton;
+import com.helger.ubl23.UBL23NamespaceContext;
 import com.helger.xml.namespace.MapBasedNamespaceContext;
-
-import eu.de4a.iem.xml.cagv.CAGVNamespaceContext;
 
 /**
  * XML Namespace context for DE4A
@@ -35,8 +34,7 @@ public class DE4ANamespaceContext extends MapBasedNamespaceContext
 
   protected DE4ANamespaceContext ()
   {
-    // CGAV contain CV
-    addMappings (CAGVNamespaceContext.getInstance ());
+    addMappings (UBL23NamespaceContext.getInstance ());
     addMapping ("eilp", "http://eidas.europa.eu/attributes/legalperson");
     addMapping ("einp", "http://eidas.europa.eu/attributes/naturalperson");
     addMapping ("de4aid", "http://www.de4a.eu/2020/commons/identity/type");

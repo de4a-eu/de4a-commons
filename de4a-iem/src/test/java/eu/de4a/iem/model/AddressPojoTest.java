@@ -14,16 +14,10 @@
 package eu.de4a.iem.model;
 
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
 
 import javax.annotation.Nonnull;
 
 import org.junit.Test;
-
-import com.helger.commons.mock.CommonsTestHelper;
-
-import eu.de4a.iem.jaxb.cv.cac.AddressType;
-import eu.de4a.iem.jaxb.w3.cv.ac.CoreAddressType;
 
 /**
  * Test class for class {@link AddressPojo}
@@ -35,22 +29,6 @@ public final class AddressPojoTest
   private static void _testWriteAndRead (@Nonnull final AddressPojo x)
   {
     assertNotNull (x);
-
-    // one version
-    final CoreAddressType aObj = x.getAsCoreAddress ();
-    assertNotNull (aObj);
-    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (aObj, aObj.clone ());
-
-    AddressPojo y = AddressPojo.builder (aObj).build ();
-    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (x, y);
-
-    // Another version
-    final AddressType aObj2 = x.getAsAgentAddress ();
-    assertNotNull (aObj2);
-    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (aObj2, aObj2.clone ());
-
-    y = AddressPojo.builder (aObj2).build ();
-    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (x, y);
   }
 
   @Test
@@ -79,7 +57,5 @@ public final class AddressPojoTest
   {
     final AddressPojo x = AddressPojo.builder ().build ();
     assertNotNull (x);
-    assertNull (x.getAsCoreAddress ());
-    assertNull (x.getAsAgentAddress ());
   }
 }

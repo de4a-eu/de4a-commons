@@ -25,18 +25,8 @@ import javax.xml.datatype.XMLGregorianCalendar;
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.equals.EqualsHelper;
 import com.helger.commons.hashcode.HashCodeGenerator;
-import com.helger.commons.string.StringHelper;
 import com.helger.commons.string.ToStringGenerator;
 import com.helger.datetime.util.PDTXMLConverter;
-
-import eu.de4a.iem.jaxb.w3.cv.ac.CoreLocationType;
-import eu.de4a.iem.jaxb.w3.cv.ac.CorePersonType;
-import eu.de4a.iem.jaxb.w3.cv.bc.PersonBirthDateType;
-import eu.de4a.iem.jaxb.w3.cv.bc.PersonBirthNameType;
-import eu.de4a.iem.jaxb.w3.cv.bc.PersonFamilyNameType;
-import eu.de4a.iem.jaxb.w3.cv.bc.PersonGenderCodeType;
-import eu.de4a.iem.jaxb.w3.cv.bc.PersonGivenNameType;
-import eu.de4a.iem.jaxb.w3.cv.bc.PersonIDType;
 
 /**
  * Representation of a "Person"
@@ -137,60 +127,6 @@ public class PersonPojo
     return m_aAddress;
   }
 
-  @Nonnull
-  public CorePersonType getAsCorePerson ()
-  {
-    final CorePersonType ret = new CorePersonType ();
-
-    if (StringHelper.hasText (m_sID))
-    {
-      final PersonIDType aID = new PersonIDType ();
-      aID.setValue (m_sID);
-      aID.setSchemeID (m_sIDSchemeID);
-      ret.addPersonID (aID);
-    }
-    if (StringHelper.hasText (m_sFamilyName))
-    {
-      final PersonFamilyNameType aFamilyName = new PersonFamilyNameType ();
-      aFamilyName.setValue (m_sFamilyName);
-      ret.addPersonFamilyName (aFamilyName);
-    }
-    if (StringHelper.hasText (m_sGivenName))
-    {
-      final PersonGivenNameType aGivenName = new PersonGivenNameType ();
-      aGivenName.setValue (m_sGivenName);
-      ret.addPersonGivenName (aGivenName);
-    }
-    if (StringHelper.hasText (m_sGenderCode))
-    {
-      final PersonGenderCodeType aGC = new PersonGenderCodeType ();
-      aGC.setValue (m_sGenderCode);
-      ret.addPersonGenderCode (aGC);
-    }
-    if (StringHelper.hasText (m_sBirthName))
-    {
-      final PersonBirthNameType aBirthName = new PersonBirthNameType ();
-      aBirthName.setValue (m_sBirthName);
-      ret.addPersonBirthName (aBirthName);
-    }
-    if (m_aBirthDate != null)
-    {
-      final PersonBirthDateType aBirthDate = new PersonBirthDateType ();
-      aBirthDate.setValue (m_aBirthDate);
-      ret.addPersonBirthDate (aBirthDate);
-    }
-    if (StringHelper.hasText (m_sBirthTown))
-    {
-      final CoreLocationType aLocation = new CoreLocationType ();
-      aLocation.addLocationCoreAddress (AddressPojo.builder ().town (m_sBirthTown).build ().getAsCoreAddress ());
-      ret.addPersonPlaceOfBirthCoreLocation (aLocation);
-    }
-    if (m_aAddress != null)
-      ret.addPersonCoreAddress (m_aAddress.getAsCoreAddress ());
-
-    return ret;
-  }
-
   @Override
   public boolean equals (final Object o)
   {
@@ -244,36 +180,6 @@ public class PersonPojo
   public static Builder builder ()
   {
     return new Builder ();
-  }
-
-  @Nonnull
-  public static Builder builder (@Nullable final CorePersonType a)
-  {
-    final Builder ret = new Builder ();
-    if (a != null)
-    {
-      if (a.hasPersonIDEntries ())
-        ret.id (a.getPersonIDAtIndex (0).getValue ()).idSchemeID (a.getPersonIDAtIndex (0).getSchemeID ());
-      if (a.hasPersonFamilyNameEntries ())
-        ret.familyName (a.getPersonFamilyNameAtIndex (0).getValue ());
-      if (a.hasPersonGivenNameEntries ())
-        ret.givenName (a.getPersonGivenNameAtIndex (0).getValue ());
-      if (a.hasPersonGenderCodeEntries ())
-        ret.genderCode (a.getPersonGenderCodeAtIndex (0).getValue ());
-      if (a.hasPersonBirthNameEntries ())
-        ret.birthName (a.getPersonBirthNameAtIndex (0).getValue ());
-      if (a.hasPersonBirthDateEntries ())
-        ret.birthDate (a.getPersonBirthDateAtIndex (0).getValue ());
-      if (a.hasPersonPlaceOfBirthCoreLocationEntries ())
-      {
-        final CoreLocationType aLoc = a.getPersonPlaceOfBirthCoreLocationAtIndex (0);
-        if (aLoc.hasLocationCoreAddressEntries ())
-          ret.birthTown (AddressPojo.builder (aLoc.getLocationCoreAddressAtIndex (0)).build ().getTown ());
-      }
-      if (a.hasPersonCoreAddressEntries ())
-        ret.address (AddressPojo.builder (a.getPersonCoreAddressAtIndex (0)));
-    }
-    return ret;
   }
 
   /**

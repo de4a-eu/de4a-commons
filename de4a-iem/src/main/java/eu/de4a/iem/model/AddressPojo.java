@@ -20,16 +20,7 @@ import javax.annotation.concurrent.NotThreadSafe;
 
 import com.helger.commons.equals.EqualsHelper;
 import com.helger.commons.hashcode.HashCodeGenerator;
-import com.helger.commons.string.StringHelper;
 import com.helger.commons.string.ToStringGenerator;
-
-import eu.de4a.iem.jaxb.w3.cv.ac.CoreAddressType;
-import eu.de4a.iem.jaxb.w3.cv.bc.AddressAdminUnitLocationOneType;
-import eu.de4a.iem.jaxb.w3.cv.bc.AddressFullAddressType;
-import eu.de4a.iem.jaxb.w3.cv.bc.AddressLocatorDesignatorType;
-import eu.de4a.iem.jaxb.w3.cv.bc.AddressPostCodeType;
-import eu.de4a.iem.jaxb.w3.cv.bc.AddressPostNameType;
-import eu.de4a.iem.jaxb.w3.cv.bc.AddressThoroughfareType;
 
 /**
  * Represents the needed extract of an "Address".
@@ -116,94 +107,6 @@ public class AddressPojo
     return m_sCountryCode;
   }
 
-  @Nullable
-  public CoreAddressType getAsCoreAddress ()
-  {
-    boolean bAny = false;
-    final CoreAddressType aAddress = new CoreAddressType ();
-    if (StringHelper.hasText (m_sFullAddress))
-    {
-      final AddressFullAddressType aFullAddress = new AddressFullAddressType ();
-      aFullAddress.setValue (m_sFullAddress);
-      aAddress.addAddressFullAddress (aFullAddress);
-      bAny = true;
-    }
-    if (StringHelper.hasText (m_sStreetName))
-    {
-      final AddressThoroughfareType aThoroughfare = new AddressThoroughfareType ();
-      aThoroughfare.setValue (m_sStreetName);
-      aAddress.addAddressThoroughfare (aThoroughfare);
-      bAny = true;
-    }
-    if (StringHelper.hasText (m_sBuildingNumber))
-    {
-      final AddressLocatorDesignatorType aLD = new AddressLocatorDesignatorType ();
-      aLD.setValue (m_sBuildingNumber);
-      aAddress.addAddressLocatorDesignator (aLD);
-      bAny = true;
-    }
-    if (StringHelper.hasText (m_sTown))
-    {
-      final AddressPostNameType aPostName = new AddressPostNameType ();
-      aPostName.setValue (m_sTown);
-      aAddress.addAddressPostName (aPostName);
-      bAny = true;
-    }
-    if (StringHelper.hasText (m_sPostalCode))
-    {
-      final AddressPostCodeType aPostCode = new AddressPostCodeType ();
-      aPostCode.setValue (m_sPostalCode);
-      aAddress.addAddressPostCode (aPostCode);
-      bAny = true;
-    }
-    if (StringHelper.hasText (m_sCountryCode))
-    {
-      final AddressAdminUnitLocationOneType aAdmin1 = new AddressAdminUnitLocationOneType ();
-      aAdmin1.setValue (m_sCountryCode);
-      aAddress.addAddressAdminUnitLocationOne (aAdmin1);
-      bAny = true;
-    }
-    return bAny ? aAddress : null;
-  }
-
-  @Nullable
-  public eu.de4a.iem.jaxb.cv.cac.AddressType getAsAgentAddress ()
-  {
-    boolean bAny = false;
-    final eu.de4a.iem.jaxb.cv.cac.AddressType aAddress = new eu.de4a.iem.jaxb.cv.cac.AddressType ();
-    if (StringHelper.hasText (m_sFullAddress))
-    {
-      aAddress.setFullAddress (m_sFullAddress);
-      bAny = true;
-    }
-    if (StringHelper.hasText (m_sStreetName))
-    {
-      aAddress.setThoroughfare (m_sStreetName);
-      bAny = true;
-    }
-    if (StringHelper.hasText (m_sBuildingNumber))
-    {
-      aAddress.setLocatorDesignator (m_sBuildingNumber);
-      bAny = true;
-    }
-    if (StringHelper.hasText (m_sTown))
-    {
-      aAddress.setPostName (m_sTown);
-      bAny = true;
-    }
-    if (StringHelper.hasText (m_sPostalCode))
-    {
-      aAddress.setPostCode (m_sPostalCode);
-      bAny = true;
-    }
-    if (StringHelper.hasText (m_sCountryCode))
-    {
-      aAddress.setAdminUnitLevel1 (m_sCountryCode);
-      bAny = true;
-    }
-    return bAny ? aAddress : null;
-  }
-
   @Override
   public boolean equals (final Object o)
   {
@@ -248,44 +151,6 @@ public class AddressPojo
   public static Builder builder ()
   {
     return new Builder ();
-  }
-
-  @Nonnull
-  public static Builder builder (@Nullable final CoreAddressType a)
-  {
-    final Builder ret = new Builder ();
-    if (a != null)
-    {
-      if (a.hasAddressFullAddressEntries ())
-        ret.fullAddress (a.getAddressFullAddressAtIndex (0).getValue ());
-      if (a.hasAddressThoroughfareEntries ())
-        ret.streetName (a.getAddressThoroughfareAtIndex (0).getValue ());
-      if (a.hasAddressLocatorDesignatorEntries ())
-        ret.buildingNumber (a.getAddressLocatorDesignatorAtIndex (0).getValue ());
-      if (a.hasAddressPostNameEntries ())
-        ret.town (a.getAddressPostNameAtIndex (0).getValue ());
-      if (a.hasAddressPostCodeEntries ())
-        ret.postalCode (a.getAddressPostCodeAtIndex (0).getValue ());
-      if (a.hasAddressAdminUnitLocationOneEntries ())
-        ret.countryCode (a.getAddressAdminUnitLocationOneAtIndex (0).getValue ());
-    }
-    return ret;
-  }
-
-  @Nonnull
-  public static Builder builder (@Nullable final eu.de4a.iem.jaxb.w3.locn.AddressType a)
-  {
-    final Builder ret = new Builder ();
-    if (a != null)
-    {
-      ret.fullAddress (a.getFullAddress ())
-         .streetName (a.getThoroughfare ())
-         .buildingNumber (a.getLocatorDesignator ())
-         .town (a.getPostName ())
-         .postalCode (a.getPostCode ())
-         .countryCode (a.getAdminUnitLevel1 ());
-    }
-    return ret;
   }
 
   /**

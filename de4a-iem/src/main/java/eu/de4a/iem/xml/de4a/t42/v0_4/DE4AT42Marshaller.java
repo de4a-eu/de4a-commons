@@ -13,10 +13,11 @@
  */
 package eu.de4a.iem.xml.de4a.t42.v0_4;
 
+import java.util.function.Function;
+
 import javax.annotation.Nonnull;
 import javax.xml.bind.JAXBElement;
 
-import com.helger.commons.functional.IFunction;
 import com.helger.jaxb.GenericJAXBMarshaller;
 
 import eu.de4a.iem.jaxb.t42.v0_4.LegalEntityType;
@@ -32,7 +33,7 @@ import eu.de4a.iem.jaxb.t42.v0_4.LegalEntityType;
 public class DE4AT42Marshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
 {
   public DE4AT42Marshaller (@Nonnull final Class <JAXBTYPE> aType,
-                            @Nonnull final IFunction <? super JAXBTYPE, ? extends JAXBElement <JAXBTYPE>> aJAXBElementWrapper)
+                            @Nonnull final Function <? super JAXBTYPE, ? extends JAXBElement <JAXBTYPE>> aJAXBElementWrapper)
   {
     super (aType, CT42.getAllXSDs (), aJAXBElementWrapper);
     setNamespaceContext (DE4AT42NamespaceContext.getInstance ());

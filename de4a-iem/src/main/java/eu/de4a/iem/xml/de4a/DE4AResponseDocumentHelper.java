@@ -115,7 +115,7 @@ public final class DE4AResponseDocumentHelper
     ret.setDataEvaluator (aRequest.getDataEvaluator ().clone ());
     ret.setDataOwner (aRequest.getDataOwner ().clone ());
     ret.setDataRequestSubject (aRequest.getDataRequestSubject ().clone ());
-    ret.setCanonicalEvidenceId (aRequest.getCanonicalEvidenceId ());
+    ret.setCanonicalEvidenceTypeId (aRequest.getCanonicalEvidenceTypeId ());
     return ret;
   }
 }

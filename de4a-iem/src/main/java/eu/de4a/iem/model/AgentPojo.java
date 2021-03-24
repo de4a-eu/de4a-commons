@@ -22,14 +22,7 @@ import javax.annotation.concurrent.NotThreadSafe;
 
 import com.helger.commons.equals.EqualsHelper;
 import com.helger.commons.hashcode.HashCodeGenerator;
-import com.helger.commons.string.StringHelper;
 import com.helger.commons.string.ToStringGenerator;
-
-import eu.de4a.iem.jaxb.cv.agent.AgentType;
-import eu.de4a.iem.jaxb.cv.agent.LocationType;
-import eu.de4a.iem.jaxb.cv.cac.AddressType;
-import eu.de4a.iem.jaxb.cv.cbc.IDType;
-import eu.de4a.iem.jaxb.cv.cbc.NameType;
 
 /**
  * Represents an "Agent"
@@ -79,36 +72,6 @@ public class AgentPojo
     return m_aAddress;
   }
 
-  @Nonnull
-  public AgentType getAsAgent ()
-  {
-    final AgentType ret = new AgentType ();
-    if (StringHelper.hasText (m_sID))
-    {
-      final IDType aID = new IDType ();
-      aID.setValue (m_sID);
-      aID.setSchemeID (m_sIDSchemeID);
-      ret.addId (aID);
-    }
-    if (StringHelper.hasText (m_sName))
-    {
-      final NameType aName = new NameType ();
-      aName.setValue (m_sName);
-      ret.addName (aName);
-    }
-    if (m_aAddress != null)
-    {
-      final AddressType aAddress = m_aAddress.getAsAgentAddress ();
-      if (aAddress != null)
-      {
-        final LocationType aLocation = new LocationType ();
-        aLocation.setAddress (aAddress);
-        ret.addLocation (aLocation);
-      }
-    }
-    return ret;
-  }
-
   @Override
   public boolean equals (final Object o)
   {
@@ -143,22 +106,6 @@ public class AgentPojo
   public static Builder builder ()
   {
     return new Builder ();
-  }
-
-  @Nonnull
-  public static Builder builder (@Nullable final AgentType a)
-  {
-    final Builder ret = new Builder ();
-    if (a != null)
-    {
-      if (a.hasIdEntries ())
-        ret.id (a.getIdAtIndex (0).getValue ()).idSchemeID (a.getIdAtIndex (0).getSchemeID ());
-      if (a.hasNameEntries ())
-        ret.name (a.getNameAtIndex (0).getValue ());
-      if (a.hasLocationEntries ())
-        ret.address (AddressPojo.builder (a.getLocationAtIndex (0).getAddress ()));
-    }
-    return ret;
   }
 
   /**

@@ -22,12 +22,13 @@
                   typesafeEnumMaxMembers="2000"
                   typesafeEnumMemberName="generateName"
                   underscoreBinding="asCharInWord">
-    <xjc:javaType name="java.time.LocalDateTime" xmlType="xsd:dateTime" adapter="com.helger.jaxb.adapter.AdapterLocalDateTime" />
-    <xjc:javaType name="java.time.LocalDate" xmlType="xsd:date" adapter="com.helger.jaxb.adapter.AdapterLocalDate" />
-    <xjc:javaType name="java.time.LocalTime" xmlType="xsd:time" adapter="com.helger.jaxb.adapter.AdapterLocalTime" />
+    <xjc:javaType name="java.time.OffsetDateTime" xmlType="xsd:dateTime" adapter="com.helger.jaxb.adapter.AdapterOffsetDateTime" />
+    <xjc:javaType name="com.helger.commons.datetime.OffsetDate" xmlType="xsd:date" adapter="com.helger.jaxb.adapter.AdapterOffsetDate" />
+    <xjc:javaType name="java.time.OffsetTime" xmlType="xsd:time" adapter="com.helger.jaxb.adapter.AdapterOffsetTime" />
     <xjc:javaType name="java.time.Duration" xmlType="xsd:duration" adapter="com.helger.jaxb.adapter.AdapterDuration" />
   </globalBindings>
   <!-- Source TOOP stuff -->
+  <!-- 
   <bindings schemaLocation="../resources/schemas/core/provided/CoreVocabularies-AggregateComponents-1.1.xsd">
     <schemaBindings>
       <package name="eu.de4a.iem.jaxb.w3.cv.ac" />
@@ -59,11 +60,13 @@
       <package name="eu.de4a.iem.jaxb.cv.cbc" />
     </schemaBindings>
   </bindings>
+   -->
   <bindings schemaLocation="../resources/schemas/core/provided/CV-DataTypes.xsd">
     <schemaBindings>
       <package name="eu.de4a.iem.jaxb.cv.dt" />
     </schemaBindings>
   </bindings>
+  <!-- 
   <bindings schemaLocation="../resources/schemas/core/provided/dcterms.xsd">
     <schemaBindings>
       <package name="eu.de4a.iem.jaxb.dcterms" />
@@ -110,7 +113,8 @@
       <package name="eu.de4a.iem.jaxb.w3.skos" />
     </schemaBindings>
   </bindings>
-  
+   -->
+   
   <!-- DE4A stuff -->
   <bindings schemaLocation="../resources/schemas/core/de4a/common-types.xsd">
     <schemaBindings>

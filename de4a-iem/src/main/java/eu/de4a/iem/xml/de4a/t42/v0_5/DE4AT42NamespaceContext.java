@@ -16,9 +16,8 @@ package eu.de4a.iem.xml.de4a.t42.v0_5;
 import javax.annotation.Nonnull;
 
 import com.helger.commons.annotation.Singleton;
+import com.helger.ubl23.UBL23NamespaceContext;
 import com.helger.xml.namespace.MapBasedNamespaceContext;
-
-import eu.de4a.iem.xml.cv.CCVNamespaceContext;
 
 /**
  * XML Namespace context for DE4A T4.2 v0.5
@@ -35,8 +34,9 @@ public class DE4AT42NamespaceContext extends MapBasedNamespaceContext
 
   protected DE4AT42NamespaceContext ()
   {
+    addMappings (UBL23NamespaceContext.getInstance ());
+    addMapping ("cvb", "http://www.w3.org/ns/corevocabulary/BasicComponents");
     addMapping ("de4at42", CT42.NAMESPACE_URI);
-    addMappings (CCVNamespaceContext.getInstance ());
   }
 
   @Nonnull

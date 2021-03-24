@@ -18,14 +18,8 @@ import static org.junit.Assert.assertNotNull;
 import javax.annotation.Nonnull;
 
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.helger.commons.datetime.PDTFactory;
-import com.helger.commons.mock.CommonsTestHelper;
-
-import eu.de4a.iem.jaxb.w3.cv.ac.CorePersonType;
-import eu.de4a.iem.xml.cv.PersonMarshaller;
 
 /**
  * Test class for class {@link PersonPojo}.
@@ -34,24 +28,9 @@ import eu.de4a.iem.xml.cv.PersonMarshaller;
  */
 public final class PersonPojoTest
 {
-  private static final Logger LOGGER = LoggerFactory.getLogger (PersonPojoTest.class);
-
   private static void _testWriteAndRead (@Nonnull final PersonPojo x)
   {
     assertNotNull (x);
-
-    final CorePersonType aObj = x.getAsCorePerson ();
-    assertNotNull (aObj);
-    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (aObj, aObj.clone ());
-
-    final PersonMarshaller m = new PersonMarshaller ();
-    m.setFormattedOutput (true);
-    assertNotNull (m.getAsDocument (aObj));
-    if (false)
-      LOGGER.info (m.getAsString (aObj));
-
-    final PersonPojo y = PersonPojo.builder (aObj).build ();
-    CommonsTestHelper.testDefaultImplementationWithEqualContentObject (x, y);
   }
 
   @Test
