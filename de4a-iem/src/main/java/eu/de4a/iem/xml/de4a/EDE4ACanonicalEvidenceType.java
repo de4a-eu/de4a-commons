@@ -28,7 +28,8 @@ import com.helger.commons.io.resource.ClassPathResource;
 public enum EDE4ACanonicalEvidenceType implements IDE4ACanonicalEvidenceType
 {
   T42_COMPANY_INFO_V04 ("T4.2 Company Info v0.4", eu.de4a.iem.xml.de4a.t42.v0_4.CT42.getAllXSDs ()),
-  T42_COMPANY_INFO_V05 ("T4.2 Company Info v0.5", eu.de4a.iem.xml.de4a.t42.v0_5.CT42.getAllXSDs ());
+  T42_COMPANY_INFO_V05 ("T4.2 Company Info v0.5", eu.de4a.iem.xml.de4a.t42.v0_5.CT42.getAllXSDs ()),
+  T42_COMPANY_INFO_V06 ("T4.2 Company Info v0.6", eu.de4a.iem.xml.de4a.t42.v0_6.CT42.getAllXSDs ());
 
   private final String m_sDisplayName;
   private final ICommonsList <ClassPathResource> m_aXSDs;
