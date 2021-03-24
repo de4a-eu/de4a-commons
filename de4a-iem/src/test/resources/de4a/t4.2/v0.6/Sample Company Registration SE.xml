@@ -21,7 +21,7 @@
 		<PostCode>85546</PostCode>
 		<PostName>Sundsvall</PostName>
 		<AdminUnitL1>Västernorrland</AdminUnitL1>
-		<AdminUnitL2>Sverige</AdminUnitL2>
+		<AdminUnitL2>SE</AdminUnitL2>
 	</RegisteredAddress>
 	<PostalAddress xml:lang="sv-se">
 		<Thoroughfare>Storgatan</Thoroughfare>
@@ -29,6 +29,6 @@
 		<PostCode>85546</PostCode>
 		<PostName>Sundsvall</PostName>
 		<AdminUnitL1>Västernorrland</AdminUnitL1>
-		<AdminUnitL2>Sverige</AdminUnitL2>
+		<AdminUnitL2>SE</AdminUnitL2>
 	</PostalAddress>
 </LegalEntity>

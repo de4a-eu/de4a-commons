@@ -56,8 +56,8 @@ public final class DE4AT42MarshallerTest
   @Test
   public void testLegalEntity ()
   {
-    _testReadWrite (DE4AT42Marshaller.legalEntity (), new File (BASE_PATH + "sample CompanyInfo NL KVK.xml"));
-    _testReadWrite (DE4AT42Marshaller.legalEntity (), new File (BASE_PATH + "sample CompanyInfo RO ONRC-3.xml"));
-    _testReadWrite (DE4AT42Marshaller.legalEntity (), new File (BASE_PATH + "sample company info SE -2.xml"));
+    _testReadWrite (DE4AT42Marshaller.legalEntity (), new File (BASE_PATH + "Sample Company Registration NL KVK.xml"));
+    _testReadWrite (DE4AT42Marshaller.legalEntity (), new File (BASE_PATH + "Sample Company Registration RO ONRC.xml"));
+    _testReadWrite (DE4AT42Marshaller.legalEntity (), new File (BASE_PATH + "Sample Company Registration SE.xml"));
   }
 }
