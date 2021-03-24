@@ -20,14 +20,10 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 import javax.xml.bind.JAXBElement;
-import javax.xml.bind.JAXBException;
 
 import com.helger.commons.annotation.Nonempty;
-import com.helger.commons.callback.exception.IExceptionCallback;
 import com.helger.commons.collection.impl.CommonsArrayList;
 import com.helger.commons.collection.impl.ICommonsList;
-import com.helger.commons.error.SingleError;
-import com.helger.commons.error.list.ErrorList;
 import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.jaxb.GenericJAXBMarshaller;
 
@@ -68,19 +64,6 @@ public class DE4AMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
   {
     setFormattedOutput (true);
     return this;
-  }
-
-  @Nullable
-  public final JAXBTYPE readAndValidate (@Nonnull final String sDocument, @Nonnull final ErrorList aErrors)
-  {
-    final IExceptionCallback <JAXBException> aCB = x -> aErrors.add (SingleError.builderError ()
-                                                                                .errorText (x.getMessage ())
-                                                                                .linkedException (x.getLinkedException ())
-                                                                                .build ());
-    readExceptionCallbacks ().add (aCB);
-    final JAXBTYPE ret = read (sDocument);
-    readExceptionCallbacks ().removeObject (aCB);
-    return ret;
   }
 
   @Nonnull
