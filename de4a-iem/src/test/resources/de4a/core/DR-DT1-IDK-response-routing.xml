@@ -3,8 +3,8 @@
   <p1:AvaliableSources>
     <p1:Source>
       <p1:CountryCode>AT</p1:CountryCode>
-      <p1:NumProvisions>2</p1:NumProvisions>
       <p1:AtuLevel>nuts0</p1:AtuLevel>
+      <p1:NumProvisions>2</p1:NumProvisions>
     </p1:Source>
   </p1:AvaliableSources>
 </p:ResponseLookupRoutingInformation>
