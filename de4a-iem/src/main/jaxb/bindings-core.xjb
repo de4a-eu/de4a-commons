@@ -19,7 +19,7 @@
           xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" 
           xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <globalBindings fixedAttributeAsConstantProperty="true"
-                  typesafeEnumMaxMembers="2000"
+                  typesafeEnumMaxMembers="3000"
                   typesafeEnumMemberName="generateName"
                   underscoreBinding="asCharInWord">
     <xjc:javaType name="java.time.OffsetDateTime" xmlType="xsd:dateTime" adapter="com.helger.jaxb.adapter.AdapterOffsetDateTime" />
