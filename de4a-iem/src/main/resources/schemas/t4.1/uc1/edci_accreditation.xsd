@@ -4,6 +4,31 @@
 	<xs:include schemaLocation="edci_simpleContentTypes.xsd"/>
 	<xs:include schemaLocation="edci_commonTypes.xsd"/>
 	<xs:include schemaLocation="edci_complexContentTypes.xsd"/>
+  <!-- [ph] extracted and named -->
+        <xs:complexType name="AccreditationTypeCodeType">
+          <xs:complexContent>
+            <xs:restriction base="CodeType">
+              <xs:sequence>
+                <xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+                <xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+              </xs:sequence>
+              <xs:attribute name="uri" type="AccreditationTypeEnumType" use="optional">
+                <xs:annotation>
+                  <xs:documentation>The URI identifier of a known code that
+                    indicates/specifiesy the type of accreditation.</xs:documentation>
+                </xs:annotation>
+              </xs:attribute>
+              <xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+              <xs:attribute name="type" type="xs:anyURI" use="optional"/>
+              <xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+              <xs:attribute name="targetNotation" type="xs:token" use="optional"/>
+              <xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
+              <xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
+              <xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
+            </xs:restriction>
+          </xs:complexContent>
+        </xs:complexType>
 	<xs:complexType name="AccreditationType">
 		<xs:annotation>
 			<xs:documentation>The quality assurance or licensing of an organization or a qualification. An accreditation instance can be used to specify information about:
@@ -12,34 +37,10 @@
 		</xs:annotation>
 		<xs:sequence>
 			<xs:element name="identifier" type="IdentifierType" minOccurs="0" maxOccurs="unbounded"/>
-			<xs:element name="type">
+			<xs:element name="type" type="AccreditationTypeCodeType">
 				<xs:annotation>
 					<xs:documentation>The type of accreditation (i.e program quality assurance, institutional quality assurance, program license, institutional license)</xs:documentation>
 				</xs:annotation>
-				<xs:complexType>
-					<xs:complexContent>
-						<xs:restriction base="CodeType">
-							<xs:sequence>
-								<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
-								<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
-								<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
-							</xs:sequence>
-							<xs:attribute name="uri" type="AccreditationTypeEnumType" use="optional">
-								<xs:annotation>
-									<xs:documentation>The URI identifier of a known code that
-										indicates/specifiesy the type of accreditation.</xs:documentation>
-								</xs:annotation>
-							</xs:attribute>
-							<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
-							<xs:attribute name="type" type="xs:anyURI" use="optional"/>
-							<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
-							<xs:attribute name="targetNotation" type="xs:token" use="optional"/>
-							<xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
-							<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
-							<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
-						</xs:restriction>
-					</xs:complexContent>
-				</xs:complexType>
 			</xs:element>
 			<xs:element name="title" type="LanguageStringType" maxOccurs="unbounded">
 				<xs:annotation>

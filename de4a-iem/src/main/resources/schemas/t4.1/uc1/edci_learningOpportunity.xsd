@@ -5,7 +5,9 @@
 	xmlns:eup="http://data.europa.eu/europass/model/credentials#"
 	xmlns:cred="http://data.europa.eu/europass/model/credentials/w3c#"
 	targetNamespace="http://data.europa.eu/europass/model/credentials#"
-	elementFormDefault="qualified" version="0.10.0">
+	elementFormDefault="qualified" version="0.10.0"
+  xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+  jxb:version="2.1">
 	
 	<xs:include schemaLocation="edci_simpleContentTypes.xsd"/>
 	<xs:include schemaLocation="edci_commonTypes.xsd"/>
@@ -1058,6 +1060,32 @@ An opportunity can have its own specific curricula,  based on or in addition to 
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
+  <!-- [ph] extracted -->
+        <xs:complexType name="LearningOutcomeTypeCodeType">
+          <xs:complexContent>
+            <xs:restriction base="CodeType">
+              <xs:sequence>
+                <xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+                <xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+              </xs:sequence>
+              <xs:attribute name="uri" type="LearningOutcomeTypeEnumType" use="optional">
+                <xs:annotation>
+                  <xs:documentation>The URI identifier of a known code that
+                    indicates/specifies the skill type.</xs:documentation>
+                </xs:annotation>
+              </xs:attribute>
+              <xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+              <xs:attribute name="type" type="xs:anyURI" use="optional"/>
+              <xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+              <xs:attribute name="targetNotation" type="xs:token" use="optional"/>
+              <xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
+              <xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
+              <xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
+            </xs:restriction>
+          </xs:complexContent>
+        </xs:complexType>
+  
 	<xs:complexType name="LearningOutcomeType">
 		<xs:annotation>
 			<xs:documentation>A learning outcome (i.e. knowledge, skill, autonomy-responsibility). The details, such as the description, of a learning outcome.</xs:documentation>
@@ -1074,34 +1102,14 @@ An opportunity can have its own specific curricula,  based on or in addition to 
 					<xs:documentation>A free text describing the learning outcome. Maximum cardinality of one per language.</xs:documentation>
 				</xs:annotation>
 			</xs:element>
-			<xs:element name="learningOutcomeType" minOccurs="0">
+			<xs:element name="learningOutcomeType" minOccurs="0" type="LearningOutcomeTypeCodeType">
 				<xs:annotation>
+          <!-- [ph] added -->
+          <xs:appinfo>
+            <jxb:property name="LearningOutcomeTypeElement"/>
+          </xs:appinfo>
 					<xs:documentation>The learning outcome type (i.e. knowledge, skill, ...).</xs:documentation>
 				</xs:annotation>
-				<xs:complexType>
-					<xs:complexContent>
-						<xs:restriction base="CodeType">
-							<xs:sequence>
-								<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
-								<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
-								<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
-							</xs:sequence>
-							<xs:attribute name="uri" type="LearningOutcomeTypeEnumType" use="optional">
-								<xs:annotation>
-									<xs:documentation>The URI identifier of a known code that
-										indicates/specifies the skill type.</xs:documentation>
-								</xs:annotation>
-							</xs:attribute>
-							<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
-							<xs:attribute name="type" type="xs:anyURI" use="optional"/>
-							<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
-							<xs:attribute name="targetNotation" type="xs:token" use="optional"/>
-							<xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
-							<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
-							<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
-						</xs:restriction>
-					</xs:complexContent>
-				</xs:complexType>
 			</xs:element>
 			<xs:element name="reusabilityLevel" minOccurs="0">
 				<xs:annotation>

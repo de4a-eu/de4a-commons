@@ -84,6 +84,10 @@
     </dependency>
     <dependency>
       <groupId>com.helger.ubl</groupId>
+      <artifactId>ph-ubl20</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.helger.ubl</groupId>
       <artifactId>ph-ubl23</artifactId>
     </dependency>
     <dependency>
@@ -207,10 +211,9 @@
           </episodes>
         </configuration>
         <dependencies>
-          <!-- Required for VCard -->
           <dependency>
             <groupId>com.helger.ubl</groupId>
-            <artifactId>ph-ubl20</artifactId>
+            <artifactId>ph-ubl23</artifactId>
             <version>${ph-ubl.version}</version>
           </dependency>
           <dependency>
