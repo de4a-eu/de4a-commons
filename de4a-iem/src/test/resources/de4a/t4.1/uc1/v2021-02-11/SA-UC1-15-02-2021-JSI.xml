@@ -3,17 +3,17 @@
   <edci:title>
     <edci:text content-type="text/html" lang="sl">Magisterij iz plesa</edci:text>
   </edci:title>
-  <degree content-type="text/html" lang="en">Masters</degree>
-  <country>http://publications.europa.eu/resource/authority/country/SVN</country>
-  <institutionName content-type="text/html" lang="sl">Akademija za ples</institutionName>
-  <studyProgramme content-type="text/html" lang="en">Dance, coreography</studyProgramme>
-  <mainFieldOfStudy>http://data.europa.eu/snb/isced-f/0215</mainFieldOfStudy>
-  <modeOfStudy>full time</modeOfStudy>
-  <durationOfEducation>2</durationOfEducation>
-  <scope>120</scope>
-  <dateOfIssue>2020-06-01</dateOfIssue>
-  <placeOfIssue content-type="text/html" lang="en">Ljubljana</placeOfIssue>
-  <holderOfAchievement id="http://tempuri.org">
+  <sa:degree content-type="text/html" lang="en">Masters</sa:degree>
+  <sa:country>http://publications.europa.eu/resource/authority/country/SVN</sa:country>
+  <sa:institutionName content-type="text/html" lang="sl">Akademija za ples</sa:institutionName>
+  <sa:studyProgramme content-type="text/html" lang="en">Dance, coreography</sa:studyProgramme>
+  <sa:mainFieldOfStudy>http://data.europa.eu/snb/isced-f/0215</sa:mainFieldOfStudy>
+  <sa:modeOfStudy>full time</sa:modeOfStudy>
+  <sa:durationOfEducation>2</sa:durationOfEducation>
+  <sa:scope>120</sa:scope>
+  <sa:dateOfIssue>2020-06-01</sa:dateOfIssue>
+  <sa:placeOfIssue content-type="text/html" lang="en">Ljubljana</sa:placeOfIssue>
+  <sa:holderOfAchievement id="http://tempuri.org">
     <edci:nationalId spatialID="http://publications.europa.eu/resource/authority/country/SVN">0</edci:nationalId>
     <edci:givenNames>
       <edci:text content-type="text/html" lang="sl">Marjeta</edci:text>
@@ -22,5 +22,5 @@
       <edci:text content-type="text/html" lang="sl">Maček</edci:text>
     </edci:familyName>
     <edci:dateOfBirth>1999-09-16</edci:dateOfBirth>
-  </holderOfAchievement>
+  </sa:holderOfAchievement>
 </sa:HigherEducationEvidence>

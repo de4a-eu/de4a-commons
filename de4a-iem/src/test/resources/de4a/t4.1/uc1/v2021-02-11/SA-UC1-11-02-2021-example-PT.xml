@@ -3,17 +3,17 @@
   <p:title>
     <p:text content-type="text/html" lang="pt">Mestrado em Engenharia Informática e de Computadores</p:text>
   </p:title>
-  <degree content-type="text/html" lang="pt">Mestre em Engenharia Informática e de Computadores</degree>
-  <country>http://publications.europa.eu/resource/authority/country/PRT</country>
-  <institutionName content-type="text/html" lang="pt">Instituto Superior Técnico</institutionName>
-  <studyProgramme content-type="text/html" lang="pt">Mestrado em Engenharia Informática e de Computadores</studyProgramme>
-  <mainFieldOfStudy>http://data.europa.eu/snb/isced-f/061</mainFieldOfStudy>
-  <modeOfStudy>full time</modeOfStudy>
-  <durationOfEducation>2</durationOfEducation>
-  <scope>120</scope>
-  <dateOfIssue>2021-01-31</dateOfIssue>
-  <placeOfIssue content-type="text/html" lang="pt">Lisboa - Portugal</placeOfIssue>
-  <holderOfAchievement id="http://tempuri.org">
+  <sa:degree content-type="text/html" lang="pt">Mestre em Engenharia Informática e de Computadores</sa:degree>
+  <sa:country>http://publications.europa.eu/resource/authority/country/PRT</sa:country>
+  <sa:institutionName content-type="text/html" lang="pt">Instituto Superior Técnico</sa:institutionName>
+  <sa:studyProgramme content-type="text/html" lang="pt">Mestrado em Engenharia Informática e de Computadores</sa:studyProgramme>
+  <sa:mainFieldOfStudy>http://data.europa.eu/snb/isced-f/061</sa:mainFieldOfStudy>
+  <sa:modeOfStudy>full time</sa:modeOfStudy>
+  <sa:durationOfEducation>2</sa:durationOfEducation>
+  <sa:scope>120</sa:scope>
+  <sa:dateOfIssue>2021-01-31</sa:dateOfIssue>
+  <sa:placeOfIssue content-type="text/html" lang="pt">Lisboa - Portugal</sa:placeOfIssue>
+  <sa:holderOfAchievement id="http://tempuri.org">
     <p:nationalId spatialID="http://publications.europa.eu/resource/authority/country/PRT">123456789</p:nationalId>
     <p:givenNames>
       <p:text content-type="text/html" lang="pt">Alice</p:text>
@@ -22,5 +22,5 @@
       <p:text content-type="text/html" lang="pt">Alves</p:text>
     </p:familyName>
     <p:dateOfBirth>1997-01-01</p:dateOfBirth>
-  </holderOfAchievement>
+  </sa:holderOfAchievement>
 </sa:HigherEducationEvidence>

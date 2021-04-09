@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- edited with XMLSpy v2021 (x64) (http://www.altova.com) by Peter Bruhn Andersen (Digitaliseringsstyrelsen) -->
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cvb="http://www.w3.org/ns/corevocabulary/BasicComponents" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:udt="urn:oasis:names:specification:bdndr:schema:xsd:UnqualifiedDataTypes-1" xmlns:cred="http://data.europa.eu/europass/model/credentials/w3c#" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:sa="https://data.europe.eu/de4a/model/studying-abroad/" xmlns:edci="http://data.europa.eu/europass/model/credentials#" targetNamespace="https://data.europe.eu/de4a/model/studying-abroad/">
-  <!-- [ph] disabled -->
-  <!-- 
-	<xsd:import namespace="http://data.europa.eu/europass/model/credentials#" schemaLocation="edci_simpleContentTypes.xsd"/>
-   -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+            xmlns:cvb="http://www.w3.org/ns/corevocabulary/BasicComponents" 
+            xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" 
+            xmlns:udt="urn:oasis:names:specification:bdndr:schema:xsd:UnqualifiedDataTypes-1" 
+            xmlns:cred="http://data.europa.eu/europass/model/credentials/w3c#" 
+            xmlns:ds="http://www.w3.org/2000/09/xmldsig#" 
+            xmlns:sa="https://data.europe.eu/de4a/model/studying-abroad/" 
+            xmlns:edci="http://data.europa.eu/europass/model/credentials#" 
+            targetNamespace="https://data.europe.eu/de4a/model/studying-abroad/"
+            elementFormDefault="qualified">
+            <!-- [ph] added elementFormDefault -->
 	<xsd:import namespace="http://data.europa.eu/europass/model/credentials#" schemaLocation="edci_credentialTypes.xsd"/>
 	<!--<xsd:import namespace="http://data.europa.eu/europass/model/credentials#" schemaLocation="edci_agent.xsd"/>-->
 	<xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" />

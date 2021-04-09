@@ -55,7 +55,7 @@ public final class DE4AT41MarshallerTest
   }
 
   @Test
-  public void testLegalEntity ()
+  public void testHigherEducationEvidence ()
   {
     _testReadWrite (DE4AT41Marshaller.higherEducationEvidence (),
                     new File (BASE_PATH + "HigherEducationEvidenceTypev3.xml"));

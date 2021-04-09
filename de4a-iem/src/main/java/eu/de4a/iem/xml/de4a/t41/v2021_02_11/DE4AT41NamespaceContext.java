@@ -35,9 +35,9 @@ public class DE4AT41NamespaceContext extends MapBasedNamespaceContext
   protected DE4AT41NamespaceContext ()
   {
     addMappings (UBL23NamespaceContext.getInstance ());
-    addMapping ("de4at41", CT41.NAMESPACE_URI);
     addMapping ("eup", "http://data.europa.eu/europass/model/credentials#");
     addMapping ("cred", "http://data.europa.eu/europass/model/credentials/w3c#");
+    addMapping ("sa", CT41.NAMESPACE_URI);
   }
 
   @Nonnull

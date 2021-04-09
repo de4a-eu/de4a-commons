@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<de4asa:HigherEducationEvidence 
+<sa:HigherEducationEvidence 
 	xmlns:cvb="http://www.w3.org/ns/corevocabulary/BasicComponents" 
 	xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" 
 	xmlns:udt="urn:un:unece:uncefact:data:specification:UnqualifiedDataTypesSchemaModule:2" 
@@ -8,48 +7,49 @@
 	xmlns:ds="http://www.w3.org/2000/09/xmldsig#" 
 	xmlns:sa="https://data.europe.eu/de4a/model/studying-abroad/" 
 	xmlns:edci="http://data.europa.eu/europass/model/credentials#" 
-	xmlns:de4asa="https://data.europe.eu/de4a/model/studying-abroad/"
 
 	id="urn:credential:ef3b1a56-e668-4397-8dfd-c6a35f970c73"
 	>
 
-	<title>
-		<text lang="es" content-type="text/plain">Diploma en Ingeniería Informática</text>
-		<text lang="en" content-type="text/plain">Diploma on Computer Engineering</text>
-	</title>
+  <edci:identifier spatialID="ES">0124738434</edci:identifier>
+
+	<edci:title>
+		<edci:text lang="es" content-type="text/plain">Diploma en Ingeniería Informática</edci:text>
+  </edci:title>
+  <edci:title>
+		<edci:text lang="en" content-type="text/plain">Diploma on Computer Engineering</edci:text>
+	</edci:title>
 
 	<!-- Current RFC 3066 allows 3 letter codes. what do we use? two-letter codes? 
 	three letter codes? two-letter codes with subtag? do we adjust to the lang list
 	used on the EDCI cred (see title tag)?-->
-	<degree lang="es" content-type="text/plain">Ingeniero en Informática</degree>	
-	<degree lang="en" content-type="text/plain">Master on Computer Science Engineering</degree>	
+	<sa:degree lang="es" content-type="text/plain">Ingeniero en Informática</sa:degree>	
+	<sa:degree lang="en" content-type="text/plain">Master on Computer Science Engineering</sa:degree>	
 	
-	<identifier spatialID="ES">0124738434</identifier>
+	<sa:country>http://publications.europa.eu/resource/authority/country/ESP</sa:country>
+	<sa:institutionName lang="es" content-type="text/plain">Universidad Jaume I</sa:institutionName>
+	<sa:institutionName lang="en" content-type="text/plain">Jaume I University</sa:institutionName>
 
-	<country>http://publications.europa.eu/resource/authority/country/ES</country>
-	<institutionName lang="es" content-type="text/plain">Universidad Jaume I</institutionName>
-	<institutionName lang="en" content-type="text/plain">Jaume I University</institutionName>
+	<sa:studyProgramme lang="es" content-type="text/plain">Ingeniería en Informática</sa:studyProgramme>
+	<sa:studyProgramme lang="en" content-type="text/plain">Computer Science Engineering</sa:studyProgramme>
+	<sa:mainFieldOfStudy>http://data.europa.eu/snb/isced-f/0610</sa:mainFieldOfStudy>
+	<sa:modeOfStudy>full time</sa:modeOfStudy>
+	<sa:durationOfEducation>5</sa:durationOfEducation>
+	<sa:scope>300</sa:scope>	<!--Number of ECTS credits of the degree-->
+	<sa:dateOfIssue>2008-07-22</sa:dateOfIssue>
+	<sa:placeOfIssue lang="es" content-type="text/plain">Castellón</sa:placeOfIssue>
+	<sa:placeOfIssue lang="en" content-type="text/plain">Castellon</sa:placeOfIssue>
 
-	<studyProgramme lang="es" content-type="text/plain">Ingeniería en Informática</studyProgramme>
-	<studyProgramme lang="en" content-type="text/plain">Computer Science Engineering</studyProgramme>
-	<mainFieldOfStudy>http://data.europa.eu/snb/isced-f/0610</mainFieldOfStudy>
-	<modeOfStudy>full time</modeOfStudy>
-	<durationOfEducation>5</durationOfEducation>
-	<scope>300</scope>	<!--Number of ECTS credits of the degree-->
-	<dateOfIssue>2008-07-22</dateOfIssue>
-	<placeOfIssue lang="es" content-type="text/plain">Castellón</placeOfIssue>
-	<placeOfIssue lang="en" content-type="text/plain">Castellon</placeOfIssue>
-
-	<holderOfAchievement id="urn:person:ef3b1a56-e668-4397-8dfd-c6a35f970c74">
+	<sa:holderOfAchievement id="urn:person:ef3b1a56-e668-4397-8dfd-c6a35f970c74">
 		<!-- spatialID can be any of these types: MDRCountryCodeEnumType NutsCodeEnumType xs:normalizedString, what do we use? the same as in "country"?, a NUTS code? or a plain one-line-whitespace-normalised-string?-->
 		<!-- also, the issueDate is mandatory, whereas generally we don't know it-->
-		<nationalId
+		<edci:nationalId
 		spatialID="http://publications.europa.eu/resource/authority/country/ES">
 		53377873W
-		</nationalId>
-		<givenNames lang="es" content-type="text/plain">Francisco José</givenNames>
-		<familyName lang="es" content-type="text/plain">Aragó Monzonís</familyName>
-		<dateOfBirth>1984-07-24</dateOfBirth>
-	</holderOfAchievement>
-</de4asa:HigherEducationEvidence>
+		</edci:nationalId>
+		<edci:givenNames><edci:text lang="es" content-type="text/plain">Francisco José</edci:text></edci:givenNames>
+		<edci:familyName><edci:text lang="es" content-type="text/plain">Aragó Monzonís</edci:text></edci:familyName>
+		<edci:dateOfBirth>1984-07-24</edci:dateOfBirth>
+	</sa:holderOfAchievement>
+</sa:HigherEducationEvidence>
 
