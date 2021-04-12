@@ -76,6 +76,57 @@
 			</xs:annotation>
 		</xs:attribute>
 	</xs:complexType>
+
+            <!-- [ph] extracted -->
+            <xs:complexType name="PersonGenderCodeType">
+              <xs:complexContent>
+                <xs:restriction base="CodeType">
+                  <xs:sequence>
+                    <xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+                    <xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+                  </xs:sequence>
+                  <xs:attribute name="uri" type="GenderEnumType" use="optional">
+                    <xs:annotation>
+                      <xs:documentation>The URI identifier of a known code that indicates/specifies the gender</xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+                  <xs:attribute name="type" type="xs:anyURI" use="optional"/>
+                  <xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+                  <xs:attribute name="targetNotation" type="xs:token" use="optional"/>
+                  <xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
+                  <xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
+                  <xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
+                </xs:restriction>
+              </xs:complexContent>
+            </xs:complexType>
+
+            <!-- [ph] extracted -->
+            <xs:complexType name="PersonCountryCodeType">
+              <xs:complexContent>
+                <xs:restriction base="CodeType">
+                  <xs:sequence>
+                    <xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+                    <xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
+                  </xs:sequence>
+                  <xs:attribute name="uri" type="CountryCodeContentType" use="optional">
+                    <xs:annotation>
+                      <xs:documentation>The URI identifier of a known code that indicates/specifies a country</xs:documentation>
+                    </xs:annotation>
+                  </xs:attribute>
+                  <xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
+                  <xs:attribute name="type" type="xs:anyURI" use="optional"/>
+                  <xs:attribute name="description" type="xs:normalizedString" use="optional"/>
+                  <xs:attribute name="targetNotation" type="xs:token" use="optional"/>
+                  <xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
+                  <xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
+                  <xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
+                </xs:restriction>
+              </xs:complexContent>
+            </xs:complexType>
+
 	<xs:complexType name="PersonType">
 		<xs:complexContent>
 			<xs:extension base="AgentType">
@@ -109,58 +160,12 @@
 					</xs:element>
 					<xs:element name="dateOfBirth" type="xs:date"/>
 					<xs:element name="placeOfBirth" type="LocationType" minOccurs="0"/>
-					<xs:element name="gender" minOccurs="0">
-						<xs:complexType>
-							<xs:complexContent>
-								<xs:restriction base="CodeType">
-									<xs:sequence>
-										<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
-										<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
-										<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
-									</xs:sequence>
-									<xs:attribute name="uri" type="GenderEnumType" use="optional">
-										<xs:annotation>
-											<xs:documentation>The URI identifier of a known code that indicates/specifies the gender</xs:documentation>
-										</xs:annotation>
-									</xs:attribute>
-									<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
-									<xs:attribute name="type" type="xs:anyURI" use="optional"/>
-									<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
-									<xs:attribute name="targetNotation" type="xs:token" use="optional"/>
-									<xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
-									<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
-									<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
-								</xs:restriction>
-							</xs:complexContent>
-						</xs:complexType>
+					<xs:element name="gender" minOccurs="0" type="PersonGenderCodeType">
 					</xs:element>
-					<xs:element name="citizenshipCountry" minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="citizenshipCountry" minOccurs="0" maxOccurs="unbounded" type="PersonCountryCodeType">
 						<xs:annotation>
 							<xs:documentation>The country that has conferred citizenship rights on the person. The Country which has issued Citizenship status to an individual either by birth or by application process. The citizenship rights include rights such as the right to vote, to receive certain protection from the community or the issuance of a passport. Multiple citizenships are recorded as multiple instances of the Citizenship relationship. Citizenship is information needed by many cross-border use cases and is a legal status as opposed to the more culturally-focussed and less well-defined term "nationality".</xs:documentation>
 						</xs:annotation>
-						<xs:complexType>
-							<xs:complexContent>
-								<xs:restriction base="CodeType">
-									<xs:sequence>
-										<xs:element name="targetName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
-										<xs:element name="targetDescription" type="NoteType" minOccurs="0" maxOccurs="unbounded"/>
-										<xs:element name="targetFrameworkName" type="LanguageStringType" minOccurs="1" maxOccurs="unbounded"/>
-									</xs:sequence>
-									<xs:attribute name="uri" type="CountryCodeContentType" use="optional">
-										<xs:annotation>
-											<xs:documentation>The URI identifier of a known code that indicates/specifies a country</xs:documentation>
-										</xs:annotation>
-									</xs:attribute>
-									<xs:attribute name="targetID" type="xs:anyURI" use="optional"/>
-									<xs:attribute name="type" type="xs:anyURI" use="optional"/>
-									<xs:attribute name="description" type="xs:normalizedString" use="optional"/>
-									<xs:attribute name="targetNotation" type="xs:token" use="optional"/>
-									<xs:attribute name="targetFrameworkID" type="IdType" use="optional"/>
-									<xs:attribute name="targetFrameworkUrl" type="DocumentURLType" use="required"/>
-									<xs:attribute name="targetFrameworkSpatialID" type="LocationCodeContentType" use="optional"/>
-								</xs:restriction>
-							</xs:complexContent>
-						</xs:complexType>
 					</xs:element>
 					<!--xs:element name="homepage" type="DocumentType" minOccurs="0" maxOccurs="unbounded">
 				<xs:annotation>

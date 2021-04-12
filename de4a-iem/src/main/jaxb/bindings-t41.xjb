@@ -43,6 +43,13 @@
       </bindings>
     </bindings>
   </bindings>
+  <bindings schemaLocation="../resources/schemas/t4.1/uc1/edci_agent.xsd">
+    <bindings node="//xsd:complexType[@name='PersonType']">
+      <bindings node=".//xsd:element[@name='identifier']">
+        <property name="PersonIdentifier"/>
+      </bindings>
+    </bindings>
+  </bindings>
   <bindings schemaLocation="../resources/schemas/t4.1/uc1/SA-UC1-11-02-2021.xsd">
     <schemaBindings>
       <package name="eu.de4a.iem.jaxb.t41.uc1.v2021_02_11" />
