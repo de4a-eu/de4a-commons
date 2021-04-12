@@ -36,7 +36,7 @@ public class DE4AT42NamespaceContext extends MapBasedNamespaceContext
   {
     addMappings (UBL23NamespaceContext.getInstance ());
     addMapping ("cvb", "http://www.w3.org/ns/corevocabulary/BasicComponents");
-    addMapping ("de4at42", CT42.NAMESPACE_URI);
+    addMapping ("dba", CT42.NAMESPACE_URI);
   }
 
   @Nonnull
