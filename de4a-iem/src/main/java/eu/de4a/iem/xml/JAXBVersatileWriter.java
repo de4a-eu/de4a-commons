@@ -15,6 +15,7 @@ package eu.de4a.iem.xml;
 
 import javax.annotation.Nonnull;
 
+import com.helger.commons.ValueEnforcer;
 import com.helger.jaxb.IJAXBWriter;
 
 /**
@@ -32,6 +33,8 @@ public final class JAXBVersatileWriter <T> implements IJAXBVersatileWriter <T>
 
   public JAXBVersatileWriter (@Nonnull final T aObject, @Nonnull final IJAXBWriter <T> aWriter)
   {
+    ValueEnforcer.notNull (aObject, "Object");
+    ValueEnforcer.notNull (aWriter, "Writer");
     m_aObject = aObject;
     m_aWriter = aWriter;
   }
