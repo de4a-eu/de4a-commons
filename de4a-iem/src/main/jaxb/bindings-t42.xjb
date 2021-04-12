@@ -29,16 +29,6 @@
     <xjc:javaType name="java.time.Duration" xmlType="xsd:duration" adapter="com.helger.jaxb.adapter.AdapterDuration" />
   </globalBindings>
     -->
-  <bindings schemaLocation="../resources/schemas/t4.2/doing_Business_abroad_XSD_v0.4 2.xsd">
-    <schemaBindings>
-      <package name="eu.de4a.iem.jaxb.t42.v0_4" />
-    </schemaBindings>
-  </bindings>
-  <bindings schemaLocation="../resources/schemas/t4.2/doing_Business_abroad_XSD_v0.5.xsd">
-    <schemaBindings>
-      <package name="eu.de4a.iem.jaxb.t42.v0_5" />
-    </schemaBindings>
-  </bindings>
   <bindings schemaLocation="../resources/schemas/t4.2/doing_Business_abroad_XSD_v0.6 draft.xsd">
     <schemaBindings>
       <package name="eu.de4a.iem.jaxb.t42.v0_6" />

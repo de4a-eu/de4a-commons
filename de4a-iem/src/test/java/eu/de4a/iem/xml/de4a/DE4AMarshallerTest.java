@@ -83,8 +83,8 @@ public final class DE4AMarshallerTest
     // Request
     _testReadWrite (DE4AMarshaller.deUsiRequestMarshaller (IDE4ACanonicalEvidenceType.NONE),
                     new File (BASE_PATH + "core/DE1-USI-request.xml"));
-    _testReadWrite (DE4AMarshaller.deUsiRequestMarshaller (EDE4ACanonicalEvidenceType.T42_COMPANY_INFO_V04),
-                    new File (BASE_PATH + "core/t4.2/0.4/DE1-USI-request-T42.xml"));
+    _testReadWrite (DE4AMarshaller.deUsiRequestMarshaller (EDE4ACanonicalEvidenceType.T42_COMPANY_INFO_V06),
+                    new File (BASE_PATH + "core/t4.2/0.6/DE1-USI-request-T42.xml"));
 
     // Response
     _testReadWrite (DE4AMarshaller.deUsiResponseMarshaller (), new File (BASE_PATH + "core/DE1-USI-response.xml"));
@@ -99,8 +99,8 @@ public final class DE4AMarshallerTest
     // Response
     _testReadWrite (DE4AMarshaller.doImResponseMarshaller (IDE4ACanonicalEvidenceType.NONE),
                     new File (BASE_PATH + "core/DO1-IM-response.xml"));
-    _testReadWrite (DE4AMarshaller.doImResponseMarshaller (EDE4ACanonicalEvidenceType.T42_COMPANY_INFO_V04),
-                    new File (BASE_PATH + "core/t4.2/0.4/DO1-IM-response-T42.xml"));
+    _testReadWrite (DE4AMarshaller.doImResponseMarshaller (EDE4ACanonicalEvidenceType.T42_COMPANY_INFO_V06),
+                    new File (BASE_PATH + "core/t4.2/0.6/DO1-IM-response-T42.xml"));
   }
 
   @Test
@@ -122,8 +122,8 @@ public final class DE4AMarshallerTest
     // Response
     _testReadWrite (DE4AMarshaller.drImResponseMarshaller (IDE4ACanonicalEvidenceType.NONE),
                     new File (BASE_PATH + "core/DR1-IM-response.xml"));
-    _testReadWrite (DE4AMarshaller.drImResponseMarshaller (EDE4ACanonicalEvidenceType.T42_COMPANY_INFO_V04),
-                    new File (BASE_PATH + "core/t4.2/0.4/DR1-IM-response-T42.xml"));
+    _testReadWrite (DE4AMarshaller.drImResponseMarshaller (EDE4ACanonicalEvidenceType.T42_COMPANY_INFO_V06),
+                    new File (BASE_PATH + "core/t4.2/0.6/DR1-IM-response-T42.xml"));
   }
 
   @Test
@@ -142,8 +142,8 @@ public final class DE4AMarshallerTest
     // Request
     _testReadWrite (DE4AMarshaller.dtUsiRequestMarshaller (IDE4ACanonicalEvidenceType.NONE),
                     new File (BASE_PATH + "core/DT1-USI-request.xml"));
-    _testReadWrite (DE4AMarshaller.dtUsiRequestMarshaller (EDE4ACanonicalEvidenceType.T42_COMPANY_INFO_V04),
-                    new File (BASE_PATH + "core/t4.2/0.4/DT1-USI-request-T42.xml"));
+    _testReadWrite (DE4AMarshaller.dtUsiRequestMarshaller (EDE4ACanonicalEvidenceType.T42_COMPANY_INFO_V06),
+                    new File (BASE_PATH + "core/t4.2/0.6/DT1-USI-request-T42.xml"));
 
     // Response
     _testReadWrite (DE4AMarshaller.dtUsiResponseMarshaller (), new File (BASE_PATH + "core/DT1-USI-response.xml"));

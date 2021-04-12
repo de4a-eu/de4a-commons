@@ -28,10 +28,10 @@
   </p1:DataRequestSubject>
   <p1:CanonicalEvidenceTypeId>p1:CanonicalEvidenceId</p1:CanonicalEvidenceTypeId>
   <p1:CanonicalEvidence>
-    <LegalEntity xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:nsA="http://www.w3.org/1999/xhtml"
-      xsi:noNamespaceSchemaLocation="schema.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <LegalEntity xmlns="urn:eu-de4a:xsd:CanonicalEvidenceType::CompanyRegistration:v0.6"
+                 xmlns:cvb="http://www.w3.org/ns/corevocabulary/BasicComponents">
       <CompanyName>
-        <LegalEntityName>Regional Tris-ice Coöperatie</LegalEntityName>
+        <cvb:LegalEntityLegalName>Regional Tris-ice Coöperatie</cvb:LegalEntityLegalName>
       </CompanyName>
       <CompanyType>coöp</CompanyType>
       <CompanyStatus>economically active</CompanyStatus>
@@ -58,6 +58,7 @@
         <PostName>Zaandam</PostName>
         <AdminUnitL1>NL</AdminUnitL1>
       </PostalAddress>
+     
     </LegalEntity>
   </p1:CanonicalEvidence>
 </p:ResponseTransferEvidence>
