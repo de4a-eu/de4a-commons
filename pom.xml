@@ -59,17 +59,17 @@
     </developer>
   </developers>
 
+  <!-- New staging repo -->
   <distributionManagement>
     <snapshotRepository>
       <!-- Username/password must be in settings.xml -->
       <id>ossrh</id>
-      <!-- New staging repo -->
       <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
     </snapshotRepository>
     <repository>
       <!-- Username/password must be in settings.xml -->
       <id>ossrh</id>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+      <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
     </repository>
   </distributionManagement>
     
