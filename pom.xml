@@ -42,7 +42,7 @@
     <connection>scm:git:git@github.com:de4a-wp5/de4a-commons.git</connection>
     <developerConnection>scm:git:git@github.com:de4a-wp5/de4a-commons.git</developerConnection>
     <url>http://github.com/de4a-wp5/de4a-commons</url>
-    <tag>HEAD</tag>
+    <tag>development</tag>
   </scm>
 
   <organization>
@@ -59,7 +59,7 @@
     </developer>
   </developers>
 
-  <!-- New staging repo -->
+  <!-- New staging repository -->
   <distributionManagement>
     <snapshotRepository>
       <!-- Username/password must be in settings.xml -->
