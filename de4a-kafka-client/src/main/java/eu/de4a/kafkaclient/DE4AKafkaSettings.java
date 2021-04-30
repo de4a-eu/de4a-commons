@@ -38,6 +38,7 @@ public final class DE4AKafkaSettings
   private static final AtomicBoolean s_aLoggingEnabled = new AtomicBoolean (true);
   private static final AtomicBoolean s_aKafkaEnabled = new AtomicBoolean (false);
   private static final AtomicReference <String> s_aKafkaTopic = new AtomicReference <> (DEFAULT_KAFKA_TOPIC);
+  private static final AtomicBoolean s_aHttp = new AtomicBoolean(false);
 
   private DE4AKafkaSettings ()
   {}
@@ -103,6 +104,21 @@ public final class DE4AKafkaSettings
     s_aKafkaTopic.set (sTopic);
     if (LOGGER.isInfoEnabled ())
       LOGGER.info ("DE4A Kafka Client is now set to topic: " + s_aKafkaTopic);
+  }
+
+  public static void setKafkaHttp(@Nonnull final boolean bHttp){
+    s_aHttp.set(bHttp);
+    if(LOGGER.isInfoEnabled())
+      LOGGER.info("HTTP mode for Kafka is now " + (bHttp ? "enabled" : "disabled"));
+  }
+
+  /**
+   * @return <code>true</code> if HTTP mode is enable, <code>false</code> if not.
+   *         Disabled by default.
+   */
+
+  public static boolean isHttpEnabled(){
+    return s_aHttp.get();
   }
 
   @Nonnull

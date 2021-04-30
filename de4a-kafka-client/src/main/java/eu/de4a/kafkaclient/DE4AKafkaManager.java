@@ -29,6 +29,15 @@ import org.apache.kafka.common.serialization.StringSerializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.ReturnsMutableObject;
 import com.helger.commons.collection.impl.CommonsHashMap;
@@ -46,6 +55,9 @@ final class DE4AKafkaManager
   private static final SimpleReadWriteLock s_aRWLock = new SimpleReadWriteLock ();
   @GuardedBy ("s_aRWLock")
   private static KafkaProducer <String, String> s_aProducer;
+
+  @GuardedBy("s_aRWLock")
+  private static HttpURLConnection s_aHttpConnection;
   private static final ICommonsMap <String, String> DEFAULT_PROPS = new CommonsHashMap <> ();
 
   static
@@ -119,6 +131,38 @@ final class DE4AKafkaManager
   }
 
   /**
+   * Init the global Kafka HTTP Client if HTTP is used instead of Kafka TCP Streams
+   *
+   * @return The non-<code>null</code> HttpURLConnection to be used.
+   *
+   */
+
+  @Nonnull
+  public static HttpURLConnection getOrCreateUrlConnection(){
+
+    HttpURLConnection conn = s_aRWLock.readLockedGet(() -> s_aHttpConnection);
+    if(conn == null) {
+      s_aRWLock.writeLock().lock();
+      try {
+        conn = s_aHttpConnection;
+        if (conn == null) {
+          final URL url = new URL((String) _getCreationProperties().get("bootstrap.servers") + "/topics/" + DE4AKafkaSettings.getKafkaTopic());
+          s_aHttpConnection = conn = (HttpURLConnection) url.openConnection();
+          conn.setRequestMethod("POST");
+          conn.setRequestProperty("Content-Type","application/vnd.kafka.json.v2+json; utf-8");
+          conn.setDoOutput(true);
+        }
+      } catch (IOException ex) {
+        LOGGER.debug("IOException: " + ex.getMessage());
+      } finally {
+        s_aRWLock.writeLock().unlock();
+      }
+    }
+
+    return conn;
+  }
+
+  /**
    * Shutdown the global {@link KafkaProducer}. This method can be called
    * independent of the initialization state.
    */
@@ -131,6 +175,11 @@ final class DE4AKafkaManager
         s_aProducer = null;
         if (LOGGER.isDebugEnabled ())
           LOGGER.debug ("Successfully closed KafkaProducer");
+      } else if(s_aHttpConnection != null) {
+        s_aHttpConnection.disconnect();
+        s_aHttpConnection = null;
+        if (LOGGER.isDebugEnabled())
+          LOGGER.debug("Succefully closed Kafka HTTP Connection");
       }
     });
   }
@@ -160,4 +209,27 @@ final class DE4AKafkaManager
     final ProducerRecord <String, String> aMessage = new ProducerRecord <> (DE4AKafkaSettings.getKafkaTopic (), sKey, sValue);
     return getOrCreateProducer ().send (aMessage, aKafkaCallback);
   }
+
+  @Nonnull
+  public static void send(@Nullable final String sKey,
+                          @Nonnull final String sValue) {
+
+    ValueEnforcer.notNull(sValue, "Value");
+    final HttpURLConnection conn = getOrCreateUrlConnection();
+
+    String data = "{\"records\": [{\"key\": \"" + sKey + "\", \"value\": \""+ sValue +"\"}]}";
+
+    int code = -1;
+    try(OutputStream os = conn.getOutputStream()) {
+        byte[] input = data.getBytes("utf-8");
+        os.write(input, 0, input.length);
+        code = conn.getResponseCode();
+    } catch (IOException ex) {
+        LOGGER.debug("IOException: " + ex.getMessage());
+    }
+
+    if(LOGGER.isDebugEnabled())
+        LOGGER.debug("KAFKA REST Status code: " + code);
+  }
+
 }
