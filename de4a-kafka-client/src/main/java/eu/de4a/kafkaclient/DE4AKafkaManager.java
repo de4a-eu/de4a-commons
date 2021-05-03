@@ -149,7 +149,7 @@ final class DE4AKafkaManager
           final URL url = new URL((String) _getCreationProperties().get("bootstrap.servers") + "/topics/" + DE4AKafkaSettings.getKafkaTopic());
           s_aHttpConnection = conn = (HttpURLConnection) url.openConnection();
           conn.setRequestMethod("POST");
-          conn.setRequestProperty("Content-Type","application/vnd.kafka.json.v2+json; utf-8");
+          conn.setRequestProperty("Content-Type","application/vnd.kafka.json.v2+json; charset=utf-8");
           conn.setDoOutput(true);
         }
       } catch (IOException ex) {
