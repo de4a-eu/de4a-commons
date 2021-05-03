@@ -56,8 +56,6 @@ final class DE4AKafkaManager
   @GuardedBy ("s_aRWLock")
   private static KafkaProducer <String, String> s_aProducer;
 
-  @GuardedBy("s_aRWLock")
-  private static HttpURLConnection s_aHttpConnection;
   private static final ICommonsMap <String, String> DEFAULT_PROPS = new CommonsHashMap <> ();
 
   static
@@ -138,28 +136,18 @@ final class DE4AKafkaManager
    */
 
   @Nonnull
-  public static HttpURLConnection getOrCreateUrlConnection(){
+  public static HttpURLConnection createUrlConnection() throws IOException {
 
-    HttpURLConnection conn = s_aRWLock.readLockedGet(() -> s_aHttpConnection);
-    if(conn == null) {
-      s_aRWLock.writeLock().lock();
-      try {
-        conn = s_aHttpConnection;
-        if (conn == null) {
-          final URL url = new URL((String) _getCreationProperties().get("bootstrap.servers") + "/topics/" + DE4AKafkaSettings.getKafkaTopic());
-          s_aHttpConnection = conn = (HttpURLConnection) url.openConnection();
-          conn.setRequestMethod("POST");
-          conn.setRequestProperty("Content-Type","application/vnd.kafka.json.v2+json; charset=utf-8");
-          conn.setDoOutput(true);
-        }
-      } catch (IOException ex) {
-        LOGGER.debug("IOException: " + ex.getMessage());
-      } finally {
-        s_aRWLock.writeLock().unlock();
-      }
-    }
+      HttpURLConnection conn;
 
-    return conn;
+      URL url = new URL((String) _getCreationProperties().get("bootstrap.servers") + "/topics/" + DE4AKafkaSettings.getKafkaTopic());
+      conn = (HttpURLConnection) url.openConnection();
+      conn.setRequestMethod("POST");
+      conn.setRequestProperty("Content-Type","application/vnd.kafka.json.v2+json; charset=utf-8");
+      conn.setRequestProperty("Connection","keep-alive");
+      conn.setDoOutput(true);
+
+      return conn;
   }
 
   /**
@@ -175,11 +163,6 @@ final class DE4AKafkaManager
         s_aProducer = null;
         if (LOGGER.isDebugEnabled ())
           LOGGER.debug ("Successfully closed KafkaProducer");
-      } else if(s_aHttpConnection != null) {
-        s_aHttpConnection.disconnect();
-        s_aHttpConnection = null;
-        if (LOGGER.isDebugEnabled())
-          LOGGER.debug("Succefully closed Kafka HTTP Connection");
       }
     });
   }
@@ -215,17 +198,26 @@ final class DE4AKafkaManager
                           @Nonnull final String sValue) {
 
     ValueEnforcer.notNull(sValue, "Value");
-    final HttpURLConnection conn = getOrCreateUrlConnection();
-
-    String data = "{\"records\": [{\"key\": \"" + sKey + "\", \"value\": \""+ sValue +"\"}]}";
-
+    HttpURLConnection conn;
     int code = -1;
-    try(OutputStream os = conn.getOutputStream()) {
-        byte[] input = data.getBytes("utf-8");
-        os.write(input, 0, input.length);
-        code = conn.getResponseCode();
-    } catch (IOException ex) {
-        LOGGER.debug("IOException: " + ex.getMessage());
+    try {
+        conn = createUrlConnection();
+        String data = "{\"records\": [{\"key\": \"" + sKey + "\", \"value\": \""+ sValue +"\"}]}";
+
+        try(OutputStream os = conn.getOutputStream()) {
+            byte[] input = data.getBytes("utf-8");
+            os.write(input, 0, input.length);
+            code = conn.getResponseCode();
+        } catch (IOException ex) {
+            LOGGER.debug("IOException: " + ex.getMessage());
+        } finally {
+            if (conn != null)
+                conn.disconnect();
+        }
+    } catch (IOException ex ){
+        LOGGER.debug("Error creating HTTP connection: " + ex.getMessage());
+    } finally {
+        conn = null;
     }
 
     if(LOGGER.isDebugEnabled())
