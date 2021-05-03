@@ -40,7 +40,7 @@ public class DE4AT41Marshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYP
   }
 
   @Nonnull
-  public static DE4AT41Marshaller <HigherEducationDiplomaType> higherEducationEvidence ()
+  public static DE4AT41Marshaller <HigherEducationDiplomaType> higherEducationDiploma ()
   {
     return new DE4AT41Marshaller <> (HigherEducationDiplomaType.class,
                                      new eu.de4a.iem.jaxb.t41.uc1.v2021_04_13.ObjectFactory ()::createHigherEducationDiploma);

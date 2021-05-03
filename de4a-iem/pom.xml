@@ -224,14 +224,14 @@
         </configuration>
         <dependencies>
           <dependency>
+            <groupId>com.helger</groupId>
+            <artifactId>ph-jaxb22-plugin</artifactId>
+            <version>2.3.3.3-SNAPSHOT</version>
+          </dependency>
+          <dependency>
             <groupId>com.helger.ubl</groupId>
             <artifactId>ph-ubl23</artifactId>
             <version>${ph-ubl.version}</version>
-          </dependency>
-          <dependency>
-            <groupId>com.helger</groupId>
-            <artifactId>ph-jaxb22-plugin</artifactId>
-            <version>2.3.3.2</version>
           </dependency>
         </dependencies>
       </plugin>

@@ -36,7 +36,8 @@ public final class DE4AT41MarshallerTest
   private static final Logger LOGGER = LoggerFactory.getLogger (DE4AT41MarshallerTest.class);
   private static final String BASE_PATH = "src/test/resources/de4a/t4.1/uc1/v2021-04-13/";
 
-  private static <T> void _testReadWrite (@Nonnull final GenericJAXBMarshaller <T> aMarshaller, @Nonnull final File aFile)
+  private static <T> void _testReadWrite (@Nonnull final GenericJAXBMarshaller <T> aMarshaller,
+                                          @Nonnull final File aFile)
   {
     assertTrue ("Test file does not exists " + aFile.getAbsolutePath (), aFile.exists ());
 
@@ -54,10 +55,12 @@ public final class DE4AT41MarshallerTest
   }
 
   @Test
-  public void testHigherEducationEvidence ()
+  public void testHigherEducationDiploma ()
   {
-    _testReadWrite (DE4AT41Marshaller.higherEducationEvidence (), new File (BASE_PATH + "HigherEducationEvidenceTypev3.2.xml"));
-    _testReadWrite (DE4AT41Marshaller.higherEducationEvidence (), new File (BASE_PATH + "SA-UC1-11-02-2021-example-PT.xml"));
-    _testReadWrite (DE4AT41Marshaller.higherEducationEvidence (), new File (BASE_PATH + "SA-UC1-20-04-2021-SI.xml"));
+    _testReadWrite (DE4AT41Marshaller.higherEducationDiploma (),
+                    new File (BASE_PATH + "HigherEducationEvidenceTypev3.2.xml"));
+    _testReadWrite (DE4AT41Marshaller.higherEducationDiploma (),
+                    new File (BASE_PATH + "SA-UC1-11-02-2021-example-PT.xml"));
+    _testReadWrite (DE4AT41Marshaller.higherEducationDiploma (), new File (BASE_PATH + "SA-UC1-20-04-2021-SI.xml"));
   }
 }

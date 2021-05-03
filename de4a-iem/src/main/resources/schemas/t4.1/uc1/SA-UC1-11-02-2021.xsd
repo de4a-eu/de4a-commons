@@ -14,7 +14,7 @@
 	<xsd:import namespace="http://data.europa.eu/europass/model/credentials#" schemaLocation="edci_credentialTypes.xsd"/>
 	<!--<xsd:import namespace="http://data.europa.eu/europass/model/credentials#" schemaLocation="edci_agent.xsd"/>-->
 	<xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" />
-	<xsd:import namespace="urn:un:unece:uncefact:data:specification:UnqualifiedDataTypesSchemaModule:2" />
+	<xsd:import namespace="urn:oasis:names:specification:bdndr:schema:xsd:UnqualifiedDataTypes-1" />
 	<xsd:element name="HigherEducationEvidence" type="sa:HigherEducationEvidenceType"/>
 	<xsd:complexType name="HigherEducationEvidenceType">
 		<xsd:complexContent>
