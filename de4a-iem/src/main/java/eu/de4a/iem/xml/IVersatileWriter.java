@@ -16,7 +16,6 @@ package eu.de4a.iem.xml;
 import java.io.File;
 import java.io.OutputStream;
 import java.io.Writer;
-import java.nio.BufferOverflowException;
 import java.nio.ByteBuffer;
 import java.nio.file.Path;
 
@@ -33,7 +32,6 @@ import com.helger.commons.state.ESuccess;
 import com.helger.jaxb.IJAXBWriter.IJAXBMarshaller;
 import com.helger.xml.microdom.IMicroDocument;
 import com.helger.xml.microdom.IMicroElement;
-import com.helger.xml.serialize.write.SafeXMLStreamWriter;
 
 /**
  * Base interface for something that can be written to different destinations.

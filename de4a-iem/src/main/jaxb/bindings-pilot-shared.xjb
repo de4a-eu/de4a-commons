@@ -18,17 +18,6 @@
           xmlns="http://java.sun.com/xml/ns/jaxb"
           xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" 
           xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <!--
-  <globalBindings fixedAttributeAsConstantProperty="true"
-                  typesafeEnumMaxMembers="2000"
-                  typesafeEnumMemberName="generateName"
-                  underscoreBinding="asCharInWord">
-    <xjc:javaType name="java.time.OffsetDateTime" xmlType="xsd:dateTime" adapter="com.helger.jaxb.adapter.AdapterOffsetDateTime" />
-    <xjc:javaType name="com.helger.commons.datetime.OffsetDate" xmlType="xsd:date" adapter="com.helger.jaxb.adapter.AdapterOffsetDate" />
-    <xjc:javaType name="java.time.OffsetTime" xmlType="xsd:time" adapter="com.helger.jaxb.adapter.AdapterOffsetTime" />
-    <xjc:javaType name="java.time.Duration" xmlType="xsd:duration" adapter="com.helger.jaxb.adapter.AdapterDuration" />
-  </globalBindings>
-  -->
   <bindings schemaLocation="../resources/schemas/pilot-shared/CoreVocabularies-BasicComponents-1.1.xsd">
     <schemaBindings>
       <package name="eu.de4a.iem.jaxb.w3.cv.bc" />

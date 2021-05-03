@@ -51,10 +51,6 @@
 
   <dependencies>
     <dependency>
-      <groupId>com.sun.xml.bind</groupId>
-      <artifactId>jaxb-impl</artifactId>
-    </dependency>
-    <dependency>
       <groupId>com.helger.commons</groupId>
       <artifactId>ph-commons</artifactId>
     </dependency>
@@ -94,10 +90,6 @@
       <groupId>com.helger.ubl</groupId>
       <artifactId>ph-ubl23</artifactId>
     </dependency>
-    <dependency>
-      <groupId>com.sun.activation</groupId>
-      <artifactId>jakarta.activation</artifactId>
-    </dependency>
 
     <dependency>
       <groupId>org.slf4j</groupId>
@@ -113,6 +105,11 @@
     <dependency>
       <groupId>com.helger</groupId>
       <artifactId>ph-genericode</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.sun.xml.bind</groupId>
+      <artifactId>jaxb-impl</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>
