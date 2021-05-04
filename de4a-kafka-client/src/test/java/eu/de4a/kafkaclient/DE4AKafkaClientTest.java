@@ -16,6 +16,7 @@ package eu.de4a.kafkaclient;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import com.helger.httpclient.HttpClientSettings;
 import org.apache.kafka.common.KafkaException;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -78,4 +79,23 @@ public final class DE4AKafkaClientTest
     aProps.put ("foo", "bar");
     assertEquals ("bar", DE4AKafkaSettings.defaultProperties ().get ("foo"));
   }
+
+  @Test
+    public void testHttpMode(){
+      DE4AKafkaSettings.setKafkaHttp(true);
+      DE4AKafkaSettings.defaultProperties().put("bootstrap.servers","https://de4a-dev-kafka.egovlab.eu");
+      DE4AKafkaSettings.setHttpClientSetting(new HttpClientSettings());
+
+      try{
+          for(int i = 0; i < 5; i++){
+              DE4AKafkaClient.send(EErrorLevel.INFO, "Test-"+i);
+          }
+      } catch (KafkaException ex){
+          System.out.println("Oupsie: " + ex.getMessage());
+      } finally {
+          DE4AKafkaClient.close();
+      }
+
+  }
+
 }
