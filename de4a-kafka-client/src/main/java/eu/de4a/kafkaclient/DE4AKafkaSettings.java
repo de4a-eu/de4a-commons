@@ -18,13 +18,13 @@ import java.util.concurrent.atomic.AtomicReference;
 
 import javax.annotation.Nonnull;
 
-import com.helger.httpclient.HttpClientSettings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.ReturnsMutableObject;
 import com.helger.commons.collection.impl.ICommonsMap;
+import com.helger.httpclient.HttpClientSettings;
 
 /**
  * Global DE4A Kafka settings.
@@ -34,13 +34,14 @@ import com.helger.commons.collection.impl.ICommonsMap;
 public final class DE4AKafkaSettings
 {
   public static final String DEFAULT_KAFKA_TOPIC = "de4a";
+  public static final boolean DEFAULT_USE_HTTP = false;
 
   private static final Logger LOGGER = LoggerFactory.getLogger (DE4AKafkaSettings.class);
-  private static final AtomicBoolean s_aLoggingEnabled = new AtomicBoolean (true);
-  private static final AtomicBoolean s_aKafkaEnabled = new AtomicBoolean (false);
-  private static final AtomicReference <String> s_aKafkaTopic = new AtomicReference <> (DEFAULT_KAFKA_TOPIC);
-  private static final AtomicBoolean s_aHttp = new AtomicBoolean(false);
-  private static final AtomicReference<HttpClientSettings> s_oSettings = new AtomicReference<>(new HttpClientSettings());
+  private static final AtomicBoolean LOGGING_ENABLED = new AtomicBoolean (true);
+  private static final AtomicBoolean KAFKA_ENABLED = new AtomicBoolean (false);
+  private static final AtomicReference <String> KAFKA_TOPIC = new AtomicReference <> (DEFAULT_KAFKA_TOPIC);
+  private static final AtomicBoolean USE_HTTP = new AtomicBoolean (DEFAULT_USE_HTTP);
+  private static final AtomicReference <HttpClientSettings> HTTP_CLIENT_SETTINGS = new AtomicReference <> (new HttpClientSettings ());
 
   private DE4AKafkaSettings ()
   {}
@@ -57,6 +58,15 @@ public final class DE4AKafkaSettings
   }
 
   /**
+   * @return <code>true</code> if Logging is enabled, <code>false</code> if not.
+   *         By default is is enabled.
+   */
+  public static boolean isLoggingEnabled ()
+  {
+    return LOGGING_ENABLED.get ();
+  }
+
+  /**
    * Enable or disable logging globally.
    *
    * @param bLoggingEnabled
@@ -64,18 +74,18 @@ public final class DE4AKafkaSettings
    */
   public static void setLoggingEnabled (final boolean bLoggingEnabled)
   {
-    s_aLoggingEnabled.set (bLoggingEnabled);
+    LOGGING_ENABLED.set (bLoggingEnabled);
     if (LOGGER.isInfoEnabled ())
       LOGGER.info ("DE4A Logging is now " + (bLoggingEnabled ? "enabled" : "disabled"));
   }
 
   /**
-   * @return <code>true</code> if Logging is enabled, <code>false</code> if not.
-   *         By default is is enabled.
+   * @return <code>true</code> if client is enabled, <code>false</code> if not.
+   *         By default is is disabled.
    */
-  public static boolean isLoggingEnabled ()
+  public static boolean isKafkaEnabled ()
   {
-    return s_aLoggingEnabled.get ();
+    return KAFKA_ENABLED.get ();
   }
 
   /**
@@ -86,56 +96,52 @@ public final class DE4AKafkaSettings
    */
   public static void setKafkaEnabled (final boolean bEnabled)
   {
-    s_aKafkaEnabled.set (bEnabled);
+    KAFKA_ENABLED.set (bEnabled);
     if (LOGGER.isInfoEnabled ())
       LOGGER.info ("DE4A Kafka Client is now " + (bEnabled ? "enabled" : "disabled"));
-  }
-
-  /**
-   * @return <code>true</code> if client is enabled, <code>false</code> if not.
-   *         By default is is disabled.
-   */
-  public static boolean isKafkaEnabled ()
-  {
-    return s_aKafkaEnabled.get ();
-  }
-
-  public static void setKafkaTopic (@Nonnull final String sTopic)
-  {
-    ValueEnforcer.notNull (sTopic, "Topic");
-    s_aKafkaTopic.set (sTopic);
-    if (LOGGER.isInfoEnabled ())
-      LOGGER.info ("DE4A Kafka Client is now set to topic: " + s_aKafkaTopic);
-  }
-
-  public static void setKafkaHttp(@Nonnull final boolean bHttp){
-    s_aHttp.set(bHttp);
-    if(LOGGER.isInfoEnabled())
-      LOGGER.info("HTTP mode for Kafka is now " + (bHttp ? "enabled" : "disabled"));
-  }
-
-  /**
-   * @return <code>true</code> if HTTP mode is enable, <code>false</code> if not.
-   *         Disabled by default.
-   */
-
-  public static boolean isHttpEnabled(){
-    return s_aHttp.get();
   }
 
   @Nonnull
   public static String getKafkaTopic ()
   {
-    return s_aKafkaTopic.get ();
+    return KAFKA_TOPIC.get ();
   }
 
-  public static void setHttpClientSetting(@Nonnull final HttpClientSettings settings){
-      s_oSettings.set(settings);
-      if(LOGGER.isInfoEnabled())
-          LOGGER.info("HttpClientSettings are now set");
+  public static void setKafkaTopic (@Nonnull final String sTopic)
+  {
+    ValueEnforcer.notNull (sTopic, "Topic");
+    KAFKA_TOPIC.set (sTopic);
+    if (LOGGER.isInfoEnabled ())
+      LOGGER.info ("DE4A Kafka Client is now set to topic: " + KAFKA_TOPIC);
   }
 
-  public static HttpClientSettings getHttpClientSettings(){
-      return s_oSettings.get();
+  /**
+   * @return <code>true</code> if HTTP mode is enable, <code>false</code> if
+   *         not. Disabled by default.
+   */
+  public static boolean isHttpEnabled ()
+  {
+    return USE_HTTP.get ();
+  }
+
+  public static void setKafkaHttp (final boolean bHttp)
+  {
+    USE_HTTP.set (bHttp);
+    if (LOGGER.isInfoEnabled ())
+      LOGGER.info ("HTTP mode for Kafka is now " + (bHttp ? "enabled" : "disabled"));
+  }
+
+  @Nonnull
+  public static HttpClientSettings getHttpClientSettings ()
+  {
+    return HTTP_CLIENT_SETTINGS.get ();
+  }
+
+  public static void setHttpClientSetting (@Nonnull final HttpClientSettings settings)
+  {
+    ValueEnforcer.notNull (settings, "HttpClientSettings");
+    HTTP_CLIENT_SETTINGS.set (settings);
+    if (LOGGER.isInfoEnabled ())
+      LOGGER.info ("HttpClientSettings are now set");
   }
 }
