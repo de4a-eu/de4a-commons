@@ -13,12 +13,46 @@
  */
 package eu.de4a.kafkaclient;
 
+import com.helger.commons.ValueEnforcer;
+import com.helger.commons.annotation.ReturnsMutableObject;
+import com.helger.commons.collection.impl.CommonsHashMap;
+import com.helger.commons.collection.impl.ICommonsMap;
+import com.helger.commons.concurrent.SimpleReadWriteLock;
+
+import com.helger.httpclient.HttpClientManager;
+import com.helger.httpclient.HttpClientSettings;
+import com.helger.json.JsonArray;
+import com.helger.json.JsonObject;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.ByteArrayInputStream;
+import java.nio.charset.StandardCharsets;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
 import java.util.concurrent.Future;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.client.methods.RequestBuilder;
+import org.apache.http.client.methods.HttpUriRequest;
+import org.apache.http.entity.BasicHttpEntity;
+import org.apache.http.HttpHeaders;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import eu.de4a.kafkaclient.DE4AKafkaSettings;
 import org.apache.kafka.clients.producer.Callback;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
@@ -26,23 +60,7 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.clients.producer.RecordMetadata;
 import org.apache.kafka.common.KafkaException;
 import org.apache.kafka.common.serialization.StringSerializer;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
-
-import com.helger.commons.ValueEnforcer;
-import com.helger.commons.annotation.ReturnsMutableObject;
-import com.helger.commons.collection.impl.CommonsHashMap;
-import com.helger.commons.collection.impl.ICommonsMap;
-import com.helger.commons.concurrent.SimpleReadWriteLock;
 
 /**
  * Global Kafka resource manager. Call shutdown() upon end of application.
@@ -129,28 +147,6 @@ final class DE4AKafkaManager
   }
 
   /**
-   * Init the global Kafka HTTP Client if HTTP is used instead of Kafka TCP Streams
-   *
-   * @return The non-<code>null</code> HttpURLConnection to be used.
-   *
-   */
-
-  @Nonnull
-  public static HttpURLConnection createUrlConnection() throws IOException {
-
-      HttpURLConnection conn;
-
-      URL url = new URL((String) _getCreationProperties().get("bootstrap.servers") + "/topics/" + DE4AKafkaSettings.getKafkaTopic());
-      conn = (HttpURLConnection) url.openConnection();
-      conn.setRequestMethod("POST");
-      conn.setRequestProperty("Content-Type","application/vnd.kafka.json.v2+json; charset=utf-8");
-      conn.setRequestProperty("Connection","keep-alive");
-      conn.setDoOutput(true);
-
-      return conn;
-  }
-
-  /**
    * Shutdown the global {@link KafkaProducer}. This method can be called
    * independent of the initialization state.
    */
@@ -183,7 +179,7 @@ final class DE4AKafkaManager
    * @return The {@link Future} with the details on message receipt
    */
   @Nonnull
-  public static Future <RecordMetadata> send (@Nullable final String sKey,
+  public static Future <RecordMetadata> sendTCP (@Nullable final String sKey,
                                               @Nonnull final String sValue,
                                               @Nullable final Callback aKafkaCallback)
   {
@@ -194,34 +190,41 @@ final class DE4AKafkaManager
   }
 
   @Nonnull
-  public static void send(@Nullable final String sKey,
-                          @Nonnull final String sValue) {
+  public static void sendHTTP(@Nullable final String sKey, @Nonnull final String sValue) {
 
-    ValueEnforcer.notNull(sValue, "Value");
-    HttpURLConnection conn;
-    int code = -1;
-    try {
-        conn = createUrlConnection();
-        String data = "{\"records\": [{\"key\": \"" + sKey + "\", \"value\": \""+ sValue +"\"}]}";
+      ValueEnforcer.notNull(sValue, "Value");
 
-        try(OutputStream os = conn.getOutputStream()) {
-            byte[] input = data.getBytes("utf-8");
-            os.write(input, 0, input.length);
-            code = conn.getResponseCode();
-        } catch (IOException ex) {
-            LOGGER.debug("IOException: " + ex.getMessage());
-        } finally {
-            if (conn != null)
-                conn.disconnect();
-        }
-    } catch (IOException ex ){
-        LOGGER.debug("Error creating HTTP connection: " + ex.getMessage());
-    } finally {
-        conn = null;
-    }
+      HttpClientSettings settings = DE4AKafkaSettings.getHttpClientSettings();
 
-    if(LOGGER.isDebugEnabled())
-        LOGGER.debug("KAFKA REST Status code: " + code);
+      try(HttpClientManager mgr = HttpClientManager.create(settings)) {
+
+          BasicHttpEntity entity = new BasicHttpEntity();
+          entity.setContent(new ByteArrayInputStream(getJsonAsBytes(sKey, sValue)));
+          entity.setContentEncoding("utf-8");
+          HttpUriRequest req = RequestBuilder.post()
+              .setUri((String) _getCreationProperties().get("bootstrap.servers") + "/topics/" + DE4AKafkaSettings.getKafkaTopic())
+              .setHeader(HttpHeaders.CONTENT_TYPE, "application/vnd.kafka.json.v2+json; charset=utf-8")
+              .setEntity(entity)
+              .build();
+
+          try(CloseableHttpResponse res = mgr.execute(req)){
+              if(LOGGER.isInfoEnabled())
+                  LOGGER.info("Kafka REST responsecode: " + res.getStatusLine().getStatusCode());
+          }
+
+
+      } catch (IOException ex) {
+          LOGGER.debug("IOException: " + ex.getMessage());
+      }
   }
+
+    private static byte[] getJsonAsBytes(String key, String value){
+        return new JsonObject()
+            .add("records", new JsonArray()
+                    .add(new JsonObject()
+                        .add("key", key)
+                        .add("value", value)))
+            .getAsJsonString().getBytes(StandardCharsets.UTF_8);
+    }
 
 }

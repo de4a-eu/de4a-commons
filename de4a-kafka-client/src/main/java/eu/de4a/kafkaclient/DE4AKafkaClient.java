@@ -49,9 +49,9 @@ public final class DE4AKafkaClient
 
     // Send but don't wait for the commit!
     if(DE4AKafkaSettings.isHttpEnabled()){
-        DE4AKafkaManager.send((String) null, sLogText);
+        DE4AKafkaManager.sendHTTP((String) null, sLogText);
     } else {
-        DE4AKafkaManager.send ((String) null, sLogText, null);
+        DE4AKafkaManager.sendTCP((String) null, sLogText, null);
     }
   }
 

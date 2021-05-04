@@ -18,6 +18,7 @@ import java.util.concurrent.atomic.AtomicReference;
 
 import javax.annotation.Nonnull;
 
+import com.helger.httpclient.HttpClientSettings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -39,6 +40,7 @@ public final class DE4AKafkaSettings
   private static final AtomicBoolean s_aKafkaEnabled = new AtomicBoolean (false);
   private static final AtomicReference <String> s_aKafkaTopic = new AtomicReference <> (DEFAULT_KAFKA_TOPIC);
   private static final AtomicBoolean s_aHttp = new AtomicBoolean(false);
+  private static final AtomicReference<HttpClientSettings> s_oSettings = new AtomicReference<>(new HttpClientSettings());
 
   private DE4AKafkaSettings ()
   {}
@@ -125,5 +127,15 @@ public final class DE4AKafkaSettings
   public static String getKafkaTopic ()
   {
     return s_aKafkaTopic.get ();
+  }
+
+  public static void setHttpClientSetting(@Nonnull final HttpClientSettings settings){
+      s_oSettings.set(settings);
+      if(LOGGER.isInfoEnabled())
+          LOGGER.info("HttpClientSettings are now set");
+  }
+
+  public static HttpClientSettings getHttpClientSettings(){
+      return s_oSettings.get();
   }
 }
