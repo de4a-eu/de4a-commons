@@ -24,26 +24,16 @@ import com.helger.httpclient.HttpClientSettings;
 import com.helger.json.JsonArray;
 import com.helger.json.JsonObject;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.io.ByteArrayInputStream;
 import java.nio.charset.StandardCharsets;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
-import java.net.URL;
 import java.util.concurrent.Future;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 
-import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
 import org.apache.http.client.methods.RequestBuilder;
 import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.entity.BasicHttpEntity;
@@ -52,7 +42,6 @@ import org.apache.http.HttpHeaders;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import eu.de4a.kafkaclient.DE4AKafkaSettings;
 import org.apache.kafka.clients.producer.Callback;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
@@ -211,7 +200,6 @@ final class DE4AKafkaManager
               if(LOGGER.isInfoEnabled())
                   LOGGER.info("Kafka REST responsecode: " + res.getStatusLine().getStatusCode());
           }
-
 
       } catch (IOException ex) {
           LOGGER.debug("IOException: " + ex.getMessage());
