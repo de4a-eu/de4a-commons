@@ -2,7 +2,14 @@
 
 Shared stuff for DE4A software components.
 
-Last release: **0.1.2** - 2021-05-05
+Last release: **0.1.3**
+
+## History
+
+* v0.1.3 - 2021-05-05
+    * XSD update for USI pattern
+* v0.1.2 - 2021-05-05
+    * XSD updates for Studying Abroad 2021-04-13
 
 ## Building
 
