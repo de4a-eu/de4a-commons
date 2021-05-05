@@ -1,6 +1,8 @@
 # de4a-commons
 
-Shared stuff for DE4A software components
+Shared stuff for DE4A software components.
+
+Last release: **0.1.2** - 2021-05-05
 
 ## Building
 
