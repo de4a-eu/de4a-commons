@@ -48,7 +48,11 @@ public final class DE4AKafkaClient
       LOGGER.debug ("Sending to Kafka: '" + sLogText + "'");
 
     // Send but don't wait for the commit!
-    DE4AKafkaManager.send ((String) null, sLogText, null);
+    if(DE4AKafkaSettings.isHttpEnabled()){
+        DE4AKafkaManager.sendHTTP((String) null, sLogText);
+    } else {
+        DE4AKafkaManager.sendTCP((String) null, sLogText, null);
+    }
   }
 
   /**

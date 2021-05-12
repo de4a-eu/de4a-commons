@@ -13,12 +13,19 @@
  */
 package eu.de4a.kafkaclient;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.concurrent.Future;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 
+import org.apache.http.HttpHeaders;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpUriRequest;
+import org.apache.http.client.methods.RequestBuilder;
+import org.apache.http.entity.ByteArrayEntity;
 import org.apache.kafka.clients.producer.Callback;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
@@ -34,6 +41,11 @@ import com.helger.commons.annotation.ReturnsMutableObject;
 import com.helger.commons.collection.impl.CommonsHashMap;
 import com.helger.commons.collection.impl.ICommonsMap;
 import com.helger.commons.concurrent.SimpleReadWriteLock;
+import com.helger.httpclient.HttpClientManager;
+import com.helger.httpclient.HttpClientSettings;
+import com.helger.json.JsonArray;
+import com.helger.json.JsonObject;
+import com.helger.json.serialize.JsonWriter;
 
 /**
  * Global Kafka resource manager. Call shutdown() upon end of application.
@@ -43,9 +55,10 @@ import com.helger.commons.concurrent.SimpleReadWriteLock;
 final class DE4AKafkaManager
 {
   private static final Logger LOGGER = LoggerFactory.getLogger (DE4AKafkaManager.class);
-  private static final SimpleReadWriteLock s_aRWLock = new SimpleReadWriteLock ();
-  @GuardedBy ("s_aRWLock")
+  private static final SimpleReadWriteLock RW_LOCK = new SimpleReadWriteLock ();
+  @GuardedBy ("RW_LOCK")
   private static KafkaProducer <String, String> s_aProducer;
+
   private static final ICommonsMap <String, String> DEFAULT_PROPS = new CommonsHashMap <> ();
 
   static
@@ -94,10 +107,10 @@ final class DE4AKafkaManager
   public static KafkaProducer <String, String> getOrCreateProducer ()
   {
     // Read-lock first
-    KafkaProducer <String, String> ret = s_aRWLock.readLockedGet ( () -> s_aProducer);
+    KafkaProducer <String, String> ret = RW_LOCK.readLockedGet ( () -> s_aProducer);
     if (ret == null)
     {
-      s_aRWLock.writeLock ().lock ();
+      RW_LOCK.writeLock ().lock ();
       try
       {
         // Try again in write lock
@@ -112,7 +125,7 @@ final class DE4AKafkaManager
       }
       finally
       {
-        s_aRWLock.writeLock ().unlock ();
+        RW_LOCK.writeLock ().unlock ();
       }
     }
     return ret;
@@ -124,7 +137,7 @@ final class DE4AKafkaManager
    */
   public static void shutdown ()
   {
-    s_aRWLock.writeLocked ( () -> {
+    RW_LOCK.writeLocked ( () -> {
       if (s_aProducer != null)
       {
         s_aProducer.close ();
@@ -151,13 +164,56 @@ final class DE4AKafkaManager
    * @return The {@link Future} with the details on message receipt
    */
   @Nonnull
-  public static Future <RecordMetadata> send (@Nullable final String sKey,
-                                              @Nonnull final String sValue,
-                                              @Nullable final Callback aKafkaCallback)
+  public static Future <RecordMetadata> sendTCP (@Nullable final String sKey,
+                                                 @Nonnull final String sValue,
+                                                 @Nullable final Callback aKafkaCallback)
   {
     ValueEnforcer.notNull (sValue, "Value");
 
     final ProducerRecord <String, String> aMessage = new ProducerRecord <> (DE4AKafkaSettings.getKafkaTopic (), sKey, sValue);
     return getOrCreateProducer ().send (aMessage, aKafkaCallback);
   }
+
+  @Nonnull
+  public static void sendHTTP (@Nullable final String sKey, @Nonnull final String sValue)
+  {
+    ValueEnforcer.notNull (sValue, "Value");
+
+    final HttpClientSettings settings = DE4AKafkaSettings.getHttpClientSettings ();
+
+    try (final HttpClientManager mgr = HttpClientManager.create (settings))
+    {
+      final ByteArrayEntity entity = new ByteArrayEntity (getJsonAsBytes (sKey, sValue));
+      entity.setContentEncoding ("utf-8");
+
+      final String sURI = (String) _getCreationProperties ().get ("bootstrap.servers") + "/topics/" + DE4AKafkaSettings.getKafkaTopic ();
+      if (LOGGER.isDebugEnabled ())
+        LOGGER.debug ("Posting to Kafka server " + sURI);
+
+      final HttpUriRequest req = RequestBuilder.post ()
+                                               .setUri (sURI)
+                                               .setHeader (HttpHeaders.CONTENT_TYPE, "application/vnd.kafka.json.v2+json; charset=utf-8")
+                                               .setEntity (entity)
+                                               .build ();
+
+      try (final CloseableHttpResponse res = mgr.execute (req))
+      {
+        if (LOGGER.isInfoEnabled ())
+          LOGGER.info ("Kafka REST responsecode: " + res.getStatusLine ().getStatusCode ());
+      }
+    }
+    catch (final IOException ex)
+    {
+      LOGGER.debug ("IOException: " + ex.getMessage ());
+    }
+  }
+
+  private static byte [] getJsonAsBytes (final String key, final String value)
+  {
+    return new JsonWriter ().writeAsByteArray (new JsonObject ().add ("records",
+                                                                      new JsonArray ().add (new JsonObject ().add ("key", key)
+                                                                                                             .add ("value", value))),
+                                               StandardCharsets.UTF_8);
+  }
+
 }

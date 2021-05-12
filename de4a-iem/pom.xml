@@ -19,7 +19,7 @@
   <parent>
     <groupId>eu.de4a</groupId>
     <artifactId>de4a-commons-parent-pom</artifactId>
-    <version>0.1.0-SNAPSHOT</version>
+    <version>0.1.4-SNAPSHOT</version>
   </parent>
   <artifactId>de4a-iem</artifactId>
   <packaging>bundle</packaging>
@@ -51,19 +51,15 @@
 
   <dependencies>
     <dependency>
-      <groupId>com.sun.xml.bind</groupId>
-      <artifactId>jaxb-impl</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.helger</groupId>
+      <groupId>com.helger.commons</groupId>
       <artifactId>ph-commons</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.helger</groupId>
+      <groupId>com.helger.commons</groupId>
       <artifactId>ph-datetime</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.helger</groupId>
+      <groupId>com.helger.commons</groupId>
       <artifactId>ph-xml</artifactId>
     </dependency>
     <dependency>
@@ -76,7 +72,15 @@
     </dependency>
     <dependency>
       <groupId>com.helger.xsd</groupId>
+      <artifactId>ph-xsds-xades132</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.helger.xsd</groupId>
       <artifactId>ph-xsds-ccts-cct-schemamodule</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.helger.xsd</groupId>
+      <artifactId>ph-xsds-xlink</artifactId>
     </dependency>
     <dependency>
       <groupId>com.helger.ubl</groupId>
@@ -86,25 +90,14 @@
       <groupId>com.helger.ubl</groupId>
       <artifactId>ph-ubl23</artifactId>
     </dependency>
-    <dependency>
-      <groupId>com.helger.schematron</groupId>
-      <artifactId>ph-schematron-xslt</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.helger</groupId>
-      <artifactId>ph-regrep</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.sun.activation</groupId>
-      <artifactId>jakarta.activation</artifactId>
-    </dependency>
 
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-simple</artifactId>
       <scope>test</scope>
     </dependency>
-    <!-- JUnit 4 for testing -->    <dependency>
+    <!-- JUnit 4 for testing -->
+    <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <scope>test</scope>
@@ -112,6 +105,11 @@
     <dependency>
       <groupId>com.helger</groupId>
       <artifactId>ph-genericode</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.sun.xml.bind</groupId>
+      <artifactId>jaxb-impl</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -163,10 +161,14 @@
             <configuration>
               <schemaIncludes>
                 <schemaInclude>core/**/*.xsd</schemaInclude>
+                <schemaInclude>pilot-shared/*.xsd</schemaInclude>
+                <schemaInclude>t4.1/uc1/SA-UC*.xsd</schemaInclude>
                 <schemaInclude>t4.2/*.xsd</schemaInclude>
               </schemaIncludes>
               <bindingIncludes>
                 <bindingInclude>bindings-core.xjb</bindingInclude>
+                <bindingInclude>bindings-pilot-shared.xjb</bindingInclude>
+                <bindingInclude>bindings-t41.xjb</bindingInclude>
                 <bindingInclude>bindings-t42.xjb</bindingInclude>
               </bindingIncludes>
             </configuration>
@@ -192,15 +194,12 @@
             <arg>-Xph-csu</arg>
             <arg>-Xph-cloneable2</arg>
             <arg>-Xph-value-extender</arg>
+            <arg>-Xph-offset-dt-extension</arg>
           </args>
           <episodes>
             <episode>
               <groupId>com.helger.xsd</groupId>
               <artifactId>ph-xsds-ccts-cct-schemamodule</artifactId>
-            </episode>
-            <episode>
-              <groupId>com.helger.ubl</groupId>
-              <artifactId>ph-ubl20</artifactId>
             </episode>
             <episode>
               <groupId>com.helger.ubl</groupId>
@@ -211,27 +210,25 @@
               <artifactId>ph-xsds-xlink</artifactId>
             </episode>
             <episode>
-              <groupId>com.helger</groupId>
-              <artifactId>ph-regrep</artifactId>
+              <groupId>com.helger.xsd</groupId>
+              <artifactId>ph-xsds-xmldsig</artifactId>
+            </episode>
+            <episode>
+              <groupId>com.helger.xsd</groupId>
+              <artifactId>ph-xsds-xades132</artifactId>
             </episode>
           </episodes>
         </configuration>
         <dependencies>
-          <!-- Required for VCard -->
-          <dependency>
-            <groupId>com.helger</groupId>
-            <artifactId>ph-regrep</artifactId>
-            <version>${ph-regrep.version}</version>
-          </dependency>
-          <dependency>
-            <groupId>com.helger.ubl</groupId>
-            <artifactId>ph-ubl20</artifactId>
-            <version>${ph-ubl.version}</version>
-          </dependency>
           <dependency>
             <groupId>com.helger</groupId>
             <artifactId>ph-jaxb22-plugin</artifactId>
-            <version>2.3.3.1</version>
+            <version>2.3.3.3</version>
+          </dependency>
+          <dependency>
+            <groupId>com.helger.ubl</groupId>
+            <artifactId>ph-ubl23</artifactId>
+            <version>${ph-ubl.version}</version>
           </dependency>
         </dependencies>
       </plugin>
@@ -248,7 +245,9 @@
             </goals>
             <configuration>
               <target>
+                <delete dir="${basedir}/target/generated-sources/xjc/com/" />
                 <delete dir="${basedir}/target/generated-sources/xjc/oasis/" />
+                <delete dir="${basedir}/target/generated-sources/xjc/un/" />
               </target>
             </configuration>
           </execution>
@@ -258,7 +257,7 @@
       <plugin>
         <groupId>com.helger.maven</groupId>
         <artifactId>ph-schematron-maven-plugin</artifactId>
-        <version>6.0.3</version>
+        <version>6.2.0</version>
         <executions>
           <execution>
             <id>edm2</id>

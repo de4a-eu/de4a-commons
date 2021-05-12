@@ -23,7 +23,7 @@
   </parent>
   <groupId>eu.de4a</groupId>
   <artifactId>de4a-commons-parent-pom</artifactId>
-  <version>0.1.0-SNAPSHOT</version>
+  <version>0.1.4-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>de4a-commons-parent-pom</name>
   <description>Base POM to build the DE4A Commons projects</description>
@@ -42,7 +42,7 @@
     <connection>scm:git:git@github.com:de4a-wp5/de4a-commons.git</connection>
     <developerConnection>scm:git:git@github.com:de4a-wp5/de4a-commons.git</developerConnection>
     <url>http://github.com/de4a-wp5/de4a-commons</url>
-    <tag>HEAD</tag>
+    <tag>development</tag>
   </scm>
 
   <organization>
@@ -58,27 +58,32 @@
       <url>http://www.helger.com</url>
     </developer>
   </developers>
-  
+
+  <!-- New staging repository -->
+  <distributionManagement>
+    <snapshotRepository>
+      <!-- Username/password must be in settings.xml -->
+      <id>ossrh</id>
+      <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
+    </snapshotRepository>
+    <repository>
+      <!-- Username/password must be in settings.xml -->
+      <id>ossrh</id>
+      <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
+    
   <properties>
-    <jaxb.version>2.3.3</jaxb.version>
-    <ph-regrep.version>1.0.0</ph-regrep.version>
-    <ph-ubl.version>6.4.3</ph-ubl.version>
-    <ph-xsds.version>2.4.2</ph-xsds.version>
+    <ph-ubl.version>6.6.0</ph-ubl.version>
+    <ph-xsds.version>2.6.0</ph-xsds.version>
   </properties>
 
   <dependencyManagement>
     <dependencies>
-      <!-- Import all BOMs -->
       <dependency>
-        <groupId>com.helger</groupId>
-        <artifactId>ph-jaxb-pom</artifactId>
-        <version>1.1.0</version>
-        <type>pom</type>
-      </dependency>
-      <dependency>
-        <groupId>com.helger</groupId>
+        <groupId>com.helger.commons</groupId>
         <artifactId>ph-commons-parent-pom</artifactId>
-        <version>9.5.4</version>
+        <version>10.1.1</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -99,42 +104,35 @@
       <dependency>
         <groupId>com.helger</groupId>
         <artifactId>ph-css-parent-pom</artifactId>
-        <version>6.2.3</version>
+        <version>6.3.1</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
       <dependency>
         <groupId>com.helger.web</groupId>
         <artifactId>ph-web-parent-pom</artifactId>
-        <version>9.5.2</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <dependency>
-        <groupId>com.helger.schematron</groupId>
-        <artifactId>ph-schematron-parent-pom</artifactId>
-        <version>6.0.3</version>
+        <version>9.6.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
       <dependency>
         <groupId>com.helger.peppol</groupId>
         <artifactId>peppol-commons-parent-pom</artifactId>
-        <version>8.4.1</version>
+        <version>8.6.0</version>
         <scope>import</scope>
         <type>pom</type>
       </dependency>
       <dependency>
         <groupId>com.helger.photon</groupId>
         <artifactId>ph-oton-parent-pom</artifactId>
-        <version>8.2.9</version>
+        <version>8.3.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
       <dependency>
         <groupId>com.helger</groupId>
         <artifactId>ph-poi</artifactId>
-        <version>5.0.7</version>
+        <version>5.2.0</version>
       </dependency>
       <dependency>
         <groupId>com.helger</groupId>
@@ -144,24 +142,7 @@
       <dependency>
         <groupId>com.helger</groupId>
         <artifactId>ph-genericode</artifactId>
-        <version>6.1.1</version>
-      </dependency>
-      <dependency>
-        <groupId>com.helger</groupId>
-        <artifactId>ph-regrep</artifactId>
-        <version>${ph-regrep.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.sun.xml.bind</groupId>
-        <artifactId>jaxb-bom-ext</artifactId>
-        <version>${jaxb.version}</version>
-        <scope>import</scope>
-        <type>pom</type>
-      </dependency>
-      <dependency>
-        <groupId>com.sun.activation</groupId>
-        <artifactId>jakarta.activation</artifactId>
-        <version>1.2.2</version>
+        <version>6.3.0</version>
       </dependency>
       <dependency>
         <groupId>org.apache.kafka</groupId>
@@ -171,7 +152,7 @@
       <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-databind</artifactId>
-        <version>2.12.1</version>
+        <version>2.12.3</version>
       </dependency>
 
       <!-- The sub-projects of this project have a constant version -->
@@ -226,10 +207,6 @@
               <path>forbidden-apis-java9.txt</path>
             </signaturesArtifact>
           </signaturesArtifacts>
-          <excludes>
-            <!-- uses Properties internally -->
-            <exclude>**/MainCreateCert.class</exclude>
-          </excludes>
         </configuration>
         <!-- local executions are ignored -->
       </plugin>

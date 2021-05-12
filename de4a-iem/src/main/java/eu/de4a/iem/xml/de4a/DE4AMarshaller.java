@@ -14,35 +14,27 @@
 package eu.de4a.iem.xml.de4a;
 
 import java.util.List;
+import java.util.function.Function;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
-import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
-import javax.xml.bind.JAXBException;
 
 import com.helger.commons.annotation.Nonempty;
-import com.helger.commons.callback.exception.IExceptionCallback;
 import com.helger.commons.collection.impl.CommonsArrayList;
 import com.helger.commons.collection.impl.ICommonsList;
-import com.helger.commons.error.SingleError;
-import com.helger.commons.error.list.ErrorList;
-import com.helger.commons.functional.IFunction;
 import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.jaxb.GenericJAXBMarshaller;
-import com.helger.jaxb.JAXBContextCache;
 
 import eu.de4a.iem.jaxb.common.types.RequestExtractEvidenceIMType;
 import eu.de4a.iem.jaxb.common.types.RequestExtractEvidenceUSIType;
 import eu.de4a.iem.jaxb.common.types.RequestForwardEvidenceType;
-import eu.de4a.iem.jaxb.common.types.RequestLookupEvidenceServiceDataType;
 import eu.de4a.iem.jaxb.common.types.RequestLookupRoutingInformationType;
 import eu.de4a.iem.jaxb.common.types.RequestTransferEvidenceUSIDTType;
 import eu.de4a.iem.jaxb.common.types.RequestTransferEvidenceUSIIMDRType;
 import eu.de4a.iem.jaxb.common.types.ResponseErrorType;
 import eu.de4a.iem.jaxb.common.types.ResponseExtractEvidenceType;
-import eu.de4a.iem.jaxb.common.types.ResponseLookupEvidenceServiceDataType;
 import eu.de4a.iem.jaxb.common.types.ResponseLookupRoutingInformationType;
 import eu.de4a.iem.jaxb.common.types.ResponseTransferEvidenceType;
 
@@ -56,50 +48,10 @@ public class DE4AMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
 {
   public DE4AMarshaller (@Nonnull final Class <JAXBTYPE> aType,
                          @Nullable final List <? extends ClassPathResource> aXSDs,
-                         @Nonnull final IFunction <? super JAXBTYPE, ? extends JAXBElement <JAXBTYPE>> aJAXBElementWrapper)
+                         @Nonnull final Function <? super JAXBTYPE, ? extends JAXBElement <JAXBTYPE>> aJAXBElementWrapper)
   {
     super (aType, aXSDs, aJAXBElementWrapper);
     setNamespaceContext (DE4ANamespaceContext.getInstance ());
-  }
-
-  @Override
-  protected JAXBContext getJAXBContext (@Nullable final ClassLoader aClassLoader) throws JAXBException
-  {
-    // TODO switch when ready
-    if (true)
-      return super.getJAXBContext (aClassLoader);
-
-    final Class <?> [] aClasses = new Class <?> [] { com.helger.xsds.ccts.cct.schemamodule.ObjectFactory.class,
-                                                     com.helger.xsds.xlink.ObjectFactory.class,
-                                                     eu.de4a.iem.jaxb.common.idtypes.ObjectFactory.class,
-                                                     eu.de4a.iem.jaxb.common.types.ObjectFactory.class,
-                                                     eu.de4a.iem.jaxb.cv.agent.ObjectFactory.class,
-                                                     eu.de4a.iem.jaxb.cv.cac.ObjectFactory.class,
-                                                     eu.de4a.iem.jaxb.cv.cbc.ObjectFactory.class,
-                                                     eu.de4a.iem.jaxb.cv.dt.ObjectFactory.class,
-                                                     eu.de4a.iem.jaxb.dcterms.ObjectFactory.class,
-                                                     eu.de4a.iem.jaxb.de_usi.ObjectFactory.class,
-                                                     eu.de4a.iem.jaxb.do_im.ObjectFactory.class,
-                                                     eu.de4a.iem.jaxb.do_usi.ObjectFactory.class,
-                                                     eu.de4a.iem.jaxb.dr_im.ObjectFactory.class,
-                                                     eu.de4a.iem.jaxb.dr_usi.ObjectFactory.class,
-                                                     eu.de4a.iem.jaxb.do_usi.ObjectFactory.class,
-                                                     eu.de4a.iem.jaxb.eidas.lp.ObjectFactory.class,
-                                                     eu.de4a.iem.jaxb.eidas.np.ObjectFactory.class,
-                                                     eu.de4a.iem.jaxb.foaf.ObjectFactory.class,
-                                                     eu.de4a.iem.jaxb.idk.ObjectFactory.class,
-                                                     eu.de4a.iem.jaxb.owl.ObjectFactory.class,
-                                                     eu.de4a.iem.jaxb.rdf.ObjectFactory.class,
-                                                     eu.de4a.iem.jaxb.w3.cv.ac.ObjectFactory.class,
-                                                     eu.de4a.iem.jaxb.w3.cv.bc.ObjectFactory.class,
-                                                     eu.de4a.iem.jaxb.w3.locn.ObjectFactory.class,
-                                                     eu.de4a.iem.jaxb.w3.org.ObjectFactory.class,
-                                                     eu.de4a.iem.jaxb.w3.regorg.ObjectFactory.class,
-                                                     eu.de4a.iem.jaxb.w3.skos.ObjectFactory.class };
-
-    if (isUseContextCache ())
-      return JAXBContextCache.getInstance ().getFromCache (new CommonsArrayList <> (aClasses));
-    return JAXBContext.newInstance (aClasses);
   }
 
   /**
@@ -112,19 +64,6 @@ public class DE4AMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
   {
     setFormattedOutput (true);
     return this;
-  }
-
-  @Nullable
-  public final JAXBTYPE readAndValidate (@Nonnull final String sDocument, @Nonnull final ErrorList aErrors)
-  {
-    final IExceptionCallback <JAXBException> aCB = x -> aErrors.add (SingleError.builderError ()
-                                                                                .setErrorText (x.getMessage ())
-                                                                                .setLinkedException (x.getLinkedException ())
-                                                                                .build ());
-    readExceptionCallbacks ().add (aCB);
-    final JAXBTYPE ret = read (sDocument);
-    readExceptionCallbacks ().removeObject (aCB);
-    return ret;
   }
 
   @Nonnull
@@ -250,21 +189,5 @@ public class DE4AMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
     return new DE4AMarshaller <> (ResponseLookupRoutingInformationType.class,
                                   _getXSDs (CDE4AJAXB.XSD_DR_DT_IDK, null),
                                   new eu.de4a.iem.jaxb.idk.ObjectFactory ()::createResponseLookupRoutingInformation);
-  }
-
-  @Nonnull
-  public static DE4AMarshaller <RequestLookupEvidenceServiceDataType> idkRequestLookupEvidenceServiceDataMarshaller ()
-  {
-    return new DE4AMarshaller <> (RequestLookupEvidenceServiceDataType.class,
-                                  _getXSDs (CDE4AJAXB.XSD_DR_DT_IDK, null),
-                                  new eu.de4a.iem.jaxb.idk.ObjectFactory ()::createRequestLookupEvidenceServiceData);
-  }
-
-  @Nonnull
-  public static DE4AMarshaller <ResponseLookupEvidenceServiceDataType> idkResponseLookupEvidenceServiceDataMarshaller ()
-  {
-    return new DE4AMarshaller <> (ResponseLookupEvidenceServiceDataType.class,
-                                  _getXSDs (CDE4AJAXB.XSD_DR_DT_IDK, null),
-                                  new eu.de4a.iem.jaxb.idk.ObjectFactory ()::createResponseLookupEvidenceServiceData);
   }
 }

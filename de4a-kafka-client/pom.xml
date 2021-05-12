@@ -19,7 +19,7 @@
   <parent>
     <groupId>eu.de4a</groupId>
     <artifactId>de4a-commons-parent-pom</artifactId>
-    <version>0.1.0-SNAPSHOT</version>
+    <version>0.1.4-SNAPSHOT</version>
   </parent>
   <artifactId>de4a-kafka-client</artifactId>
   <packaging>bundle</packaging>
@@ -40,7 +40,7 @@
     <name>de4a</name>
     <url>http://www.de4a.eu</url>
   </organization>
- 
+
   <developers>
     <developer>
       <id>philip</id>
@@ -49,11 +49,15 @@
       <url>http://www.helger.com</url>
     </developer>
   </developers>
-  
+
   <dependencies>
     <dependency>
       <groupId>org.apache.kafka</groupId>
       <artifactId>kafka-clients</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpclient</artifactId>
     </dependency>
     <!-- Required by Kafka for initialization since 2.6.0 -->
     <dependency>
@@ -61,15 +65,25 @@
       <artifactId>jackson-databind</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.helger</groupId>
+      <groupId>com.helger.commons</groupId>
       <artifactId>ph-commons</artifactId>
     </dependency>
+    <dependency>
+      <groupId>com.helger.commons</groupId>
+      <artifactId>ph-json</artifactId>
+    </dependency>
+      <dependency>
+          <groupId>com.helger.web</groupId>
+          <artifactId>ph-httpclient</artifactId>
+      </dependency>
+
 
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-simple</artifactId>
       <scope>test</scope>
     </dependency>
+
   </dependencies>
 
   <build>

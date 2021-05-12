@@ -21,9 +21,8 @@ import com.helger.commons.collection.impl.CommonsArrayList;
 import com.helger.commons.collection.impl.ICommonsList;
 import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.ubl20.CUBL20;
-
-import eu.de4a.iem.xml.cagv.CCAGV;
-import eu.de4a.iem.xml.cv.CCV;
+import com.helger.ubl23.CUBL23;
+import com.helger.xsds.xml.CXML_XSD;
 
 /**
  * Constants for handling DE4A stuff
@@ -44,10 +43,10 @@ public final class CDE4AJAXB
     final ICommonsList <ClassPathResource> a = new CommonsArrayList <> ();
     a.add (new ClassPathResource ("schemas/core/external/eidas-LP.xsd", _getCL ()));
     a.add (new ClassPathResource ("schemas/core/external/eidas-NP.xsd", _getCL ()));
+    a.add (CXML_XSD.getXSDResource ());
     a.add (new ClassPathResource ("schemas/core/de4a/common-identity-types.xsd", _getCL ()));
     a.add (CUBL20.XSD_CODELIST_MIME_MEDIA_TYPE_CODE);
-    a.addAll (CCV.XSDS);
-    a.addAll (CCAGV.XSDS);
+    a.add (CUBL23.XSD_UNQUALIFIED_DATA_TYPES);
     a.add (new ClassPathResource ("schemas/core/de4a/common-types.xsd", _getCL ()));
     XSDS = a.getAsUnmodifiable ();
   }

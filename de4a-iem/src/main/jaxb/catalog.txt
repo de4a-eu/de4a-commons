@@ -7,3 +7,5 @@ PUBLIC "urn:un:unece:uncefact:data:specification:CoreComponentTypeSchemaModule:2
 PUBLIC "http://www.w3.org/XML/1998/namespace"                                        "maven:com.helger.xsd:ph-xsds-xml:jar::!/schemas/xml.xsd"
 PUBLIC "http://www.w3.org/1999/xlink"                                                "maven:com.helger.xsd:ph-xsds-xlink:jar::!/schemas/xlink.xsd"
 PUBLIC "urn:un:unece:uncefact:codelist:specification:IANAMIMEMediaType:2003"         "maven:com.helger.ubl:ph-ubl20:jar::!/schemas/ubl20/common/CodeList_MIMEMediaTypeCode_IANA_7_04.xsd"
+PUBLIC "http://www.w3.org/2000/09/xmldsig#" "maven:com.helger.xsd:ph-xsds-xmldsig:jar::!/schemas/xmldsig-core-schema.xsd"
+PUBLIC "http://uri.etsi.org/01903/v1.3.2#"  "maven:com.helger.xsd:ph-xsds-xades132:jar::!/schemas/XAdES01903v132-201601.xsd"
