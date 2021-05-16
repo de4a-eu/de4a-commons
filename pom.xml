@@ -74,7 +74,7 @@
   </distributionManagement>
     
   <properties>
-    <ph-ubl.version>6.6.0</ph-ubl.version>
+    <ph-ubl.version>6.6.2-SNAPSHOT</ph-ubl.version>
     <ph-xsds.version>2.6.0</ph-xsds.version>
   </properties>
 

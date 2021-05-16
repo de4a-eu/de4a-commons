@@ -20,6 +20,7 @@ import com.helger.commons.collection.impl.CommonsArrayList;
 import com.helger.commons.collection.impl.ICommonsList;
 import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.ubl23.CUBL23;
+import com.helger.xsds.ccts.cct.schemamodule.CCCTS;
 import com.helger.xsds.xml.CXML_XSD;
 
 /**
@@ -46,6 +47,7 @@ public final class CT42
   {
     final ICommonsList <ClassPathResource> a = new CommonsArrayList <> ();
     a.add (CXML_XSD.getXSDResource ());
+    a.add (CCCTS.getXSDResource ());
     a.add (CUBL23.XSD_UNQUALIFIED_DATA_TYPES);
     a.add (new ClassPathResource ("schemas/pilot-shared/CoreVocabularies-BasicComponents-1.1.xsd", _getCL ()));
     a.add (new ClassPathResource ("schemas/t4.2/doing_Business_abroad_XSD_v0.6 draft.xsd", _getCL ()));

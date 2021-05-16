@@ -173,6 +173,23 @@
               </bindingIncludes>
             </configuration>
           </execution>
+          <execution>
+            <id>t43</id>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+            <configuration>
+              <schemaIncludes>
+                <schemaInclude>t4.3/CoreVocabularyB*.xsd</schemaInclude>
+                <schemaInclude>t4.3/v1.5/a*.xsd</schemaInclude>
+              </schemaIncludes>
+              <bindingIncludes>
+                <bindingInclude>bindings-t43.xjb</bindingInclude>
+              </bindingIncludes>
+              <generateDirectory>${project.build.directory}/generated-sources/t43</generateDirectory>
+              <verbose>true</verbose>
+            </configuration>
+          </execution>
         </executions>
         <configuration>
           <schemaDirectory>${basedir}/src/main/resources/schemas</schemaDirectory>
@@ -202,10 +219,6 @@
               <artifactId>ph-xsds-ccts-cct-schemamodule</artifactId>
             </episode>
             <episode>
-              <groupId>com.helger.ubl</groupId>
-              <artifactId>ph-ubl23</artifactId>
-            </episode>
-            <episode>
               <groupId>com.helger.xsd</groupId>
               <artifactId>ph-xsds-xlink</artifactId>
             </episode>
@@ -216,6 +229,14 @@
             <episode>
               <groupId>com.helger.xsd</groupId>
               <artifactId>ph-xsds-xades132</artifactId>
+            </episode>
+            <episode>
+              <groupId>com.helger.xsd</groupId>
+              <artifactId>ph-xsds-xades141</artifactId>
+            </episode>
+            <episode>
+              <groupId>com.helger.ubl</groupId>
+              <artifactId>ph-ubl23</artifactId>
             </episode>
           </episodes>
         </configuration>

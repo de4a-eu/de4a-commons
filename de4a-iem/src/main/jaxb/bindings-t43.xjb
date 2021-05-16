@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+            http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+
+-->
+<bindings version="2.1" 
+          xmlns="http://java.sun.com/xml/ns/jaxb"
+          xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" 
+          xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <globalBindings fixedAttributeAsConstantProperty="true"
+                  typesafeEnumMaxMembers="3000"
+                  typesafeEnumMemberName="generateName"
+                  underscoreBinding="asCharInWord">
+    <xjc:javaType name="com.helger.commons.datetime.XMLOffsetDateTime" xmlType="xsd:dateTime" adapter="com.helger.jaxb.adapter.AdapterXMLOffsetDateTime" />
+    <xjc:javaType name="com.helger.commons.datetime.XMLOffsetDate"     xmlType="xsd:date"     adapter="com.helger.jaxb.adapter.AdapterXMLOffsetDate" />
+    <xjc:javaType name="com.helger.commons.datetime.XMLOffsetTime"     xmlType="xsd:time"     adapter="com.helger.jaxb.adapter.AdapterXMLOffsetTime" />
+  </globalBindings>
+  <!-- CV 1.0 -->
+  <bindings schemaLocation="../resources/schemas/t4.3/CoreVocabularyBasicComponents-v1.00.xsd">
+    <schemaBindings>
+      <package name="eu.de4a.iem.jaxb.w3.cv10.bc" />
+    </schemaBindings>
+  </bindings>
+  <!-- 
+  <bindings schemaLocation="../resources/schemas/t4.3/CoreBusiness-v1.00.xsd">
+    <schemaBindings>
+      <package name="eu.de4a.iem.jaxb.w3.cv10.business" />
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="../resources/schemas/t4.3/CoreLocation-v1.00.xsd">
+    <schemaBindings>
+      <package name="eu.de4a.iem.jaxb.w3.cv10.location" />
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="../resources/schemas/t4.3/CorePerson-v1.00.xsd">
+    <schemaBindings>
+      <package name="eu.de4a.iem.jaxb.w3.cv10.person" />
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="../resources/schemas/t4.3/CoreVocabularyAggregateComponents-v1.00.xsd">
+    <schemaBindings>
+      <package name="eu.de4a.iem.jaxb.w3.cv10.ac" />
+    </schemaBindings>
+  </bindings>
+   -->
+   
+   <!-- 
+  <bindings schemaLocation="../resources/schemas/t4.3/v1.5/birthEvidence-1.5.xsd">
+    <schemaBindings>
+      <package name="eu.de4a.iem.jaxb.t43.v1.5" />
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="../resources/schemas/t4.3/v1.5/domicileRegistrationEvidence-1.5.xsd">
+    <schemaBindings>
+      <package name="eu.de4a.iem.jaxb.t43.v1.5" />
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="../resources/schemas/t4.3/v1.5/marriageEvidence-1.5.xsd">
+    <schemaBindings>
+      <package name="eu.de4a.iem.jaxb.t43.v1.5" />
+    </schemaBindings>
+  </bindings>
+   -->
+</bindings>
