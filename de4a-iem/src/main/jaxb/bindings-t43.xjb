@@ -32,7 +32,6 @@
       <package name="eu.de4a.iem.jaxb.w3.cv10.bc" />
     </schemaBindings>
   </bindings>
-  <!-- 
   <bindings schemaLocation="../resources/schemas/t4.3/CoreBusiness-v1.00.xsd">
     <schemaBindings>
       <package name="eu.de4a.iem.jaxb.w3.cv10.business" />
@@ -53,23 +52,20 @@
       <package name="eu.de4a.iem.jaxb.w3.cv10.ac" />
     </schemaBindings>
   </bindings>
-   -->
    
-   <!-- 
   <bindings schemaLocation="../resources/schemas/t4.3/v1.5/birthEvidence-1.5.xsd">
     <schemaBindings>
-      <package name="eu.de4a.iem.jaxb.t43.v1.5" />
+      <package name="eu.de4a.iem.jaxb.t43.birth.v1_5" />
     </schemaBindings>
   </bindings>
   <bindings schemaLocation="../resources/schemas/t4.3/v1.5/domicileRegistrationEvidence-1.5.xsd">
     <schemaBindings>
-      <package name="eu.de4a.iem.jaxb.t43.v1.5" />
+      <package name="eu.de4a.iem.jaxb.t43.domreg.v1_5" />
     </schemaBindings>
   </bindings>
   <bindings schemaLocation="../resources/schemas/t4.3/v1.5/marriageEvidence-1.5.xsd">
     <schemaBindings>
-      <package name="eu.de4a.iem.jaxb.t43.v1.5" />
+      <package name="eu.de4a.iem.jaxb.t43.marriage.v1_5" />
     </schemaBindings>
   </bindings>
-   -->
 </bindings>

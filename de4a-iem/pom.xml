@@ -174,14 +174,15 @@
             </configuration>
           </execution>
           <execution>
+            <!-- Must be a separate execution, because of mixed CoreVocabulary 1.1 and 1.0 which share the same namespace URI! -->
             <id>t43</id>
             <goals>
               <goal>generate</goal>
             </goals>
             <configuration>
               <schemaIncludes>
-                <schemaInclude>t4.3/CoreVocabularyB*.xsd</schemaInclude>
-                <schemaInclude>t4.3/v1.5/a*.xsd</schemaInclude>
+                <schemaInclude>t4.3/Core*.xsd</schemaInclude>
+                <schemaInclude>t4.3/v1.5/*.xsd</schemaInclude>
               </schemaIncludes>
               <bindingIncludes>
                 <bindingInclude>bindings-t43.xjb</bindingInclude>

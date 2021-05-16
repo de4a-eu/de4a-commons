@@ -59,6 +59,7 @@
 					</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
+      <!-- 
 			<xsd:element name="CertifiesEndOfMarriage" type="EndOfMarriageType" minOccurs="0" maxOccurs="1">
 				<xsd:annotation>
 					<xsd:documentation xml:lang="en">
@@ -66,6 +67,7 @@
 					</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
+       -->
 		</xsd:sequence>
 	</xsd:complexType>
 	<!--=====================================================================================-->

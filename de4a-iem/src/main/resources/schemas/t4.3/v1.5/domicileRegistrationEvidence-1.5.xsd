@@ -209,7 +209,7 @@
 				</xsd:documentation>
 		</xsd:annotation>
 		<xsd:complexContent>
-			<xsd:extension base="AddressType">
+			<xsd:restriction base="AddressType">
 				<xsd:sequence>
 					<xsd:element name="AdminUnitL2" type="cvb:AdminunitSecondlineType" minOccurs="1" maxOccurs="1">
 						<xsd:annotation>
@@ -226,7 +226,7 @@
 						</xsd:annotation>
 					</xsd:element>
 				</xsd:sequence>
-			</xsd:extension>
+			</xsd:restriction>
 		</xsd:complexContent>
 	</xsd:complexType>
 	<!--=====================================================================================-->
@@ -237,7 +237,7 @@
 				</xsd:documentation>
 		</xsd:annotation>
 		<xsd:complexContent>
-			<xsd:extension base="AddressType">
+			<xsd:restriction base="AddressType">
 				<xsd:sequence>
 					<xsd:element name="AdminUnitL2" type="cvb:AdminunitSecondlineType" minOccurs="0" maxOccurs="1">
 						<xsd:annotation>
@@ -254,7 +254,7 @@
 						</xsd:annotation>
 					</xsd:element>
 				</xsd:sequence>
-			</xsd:extension>
+			</xsd:restriction>
 		</xsd:complexContent>
 	</xsd:complexType>
 	<!--=====================================================================================-->
@@ -265,7 +265,7 @@
 				</xsd:documentation>
 		</xsd:annotation>
 		<xsd:complexContent>
-			<xsd:extension base="cva:CvaddressType">
+			<xsd:restriction base="cva:CvaddressType">
 				<xsd:sequence>
 					<xsd:element name="PoBox" type="cvb:PoBoxType" minOccurs="0" maxOccurs="1">
 						<xsd:annotation>
@@ -317,7 +317,7 @@
 						</xsd:annotation>
 					</xsd:element>
 				</xsd:sequence>
-			</xsd:extension>
+			</xsd:restriction>
 		</xsd:complexContent>
 	</xsd:complexType>
 	<!--=====================================================================================-->
