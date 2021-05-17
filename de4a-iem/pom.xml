@@ -188,7 +188,6 @@
                 <bindingInclude>bindings-t43.xjb</bindingInclude>
               </bindingIncludes>
               <generateDirectory>${project.build.directory}/generated-sources/t43</generateDirectory>
-              <verbose>true</verbose>
             </configuration>
           </execution>
         </executions>
