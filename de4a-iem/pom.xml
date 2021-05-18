@@ -181,8 +181,8 @@
             </goals>
             <configuration>
               <schemaIncludes>
-                <schemaInclude>t4.3/Core*.xsd</schemaInclude>
-                <schemaInclude>t4.3/v1.5/*.xsd</schemaInclude>
+                <schemaInclude>t4.3/*.xsd</schemaInclude>
+                <schemaInclude>t4.3/v1.6/*.xsd</schemaInclude>
               </schemaIncludes>
               <bindingIncludes>
                 <bindingInclude>bindings-t43.xjb</bindingInclude>
