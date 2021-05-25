@@ -2,10 +2,12 @@
 
 Shared stuff for DE4A software components.
 
-Last release: **0.1.3**
+Last release: **0.1.4**
 
 ## History
 
+* v0.1.4 - 2021-05-25
+    * XSD update for canonical evidence types
 * v0.1.3 - 2021-05-05
     * XSD update for USI pattern
 * v0.1.2 - 2021-05-05
