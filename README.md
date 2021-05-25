@@ -8,6 +8,8 @@ Last release: **0.1.4**
 
 * v0.1.4 - 2021-05-25
     * XSD update for canonical evidence types
+    * The package for the Core Vocabularies 1.1 as used by the DBA pilot was changed from `eu.de4a.iem.jaxb.w3.cv.*` to `eu.de4a.iem.jaxb.w3.cv11.*`
+    * An initial version of the Moving Abroad XSDs are contained (but no wrappers yet)
 * v0.1.3 - 2021-05-05
     * XSD update for USI pattern
 * v0.1.2 - 2021-05-05
