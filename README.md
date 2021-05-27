@@ -2,10 +2,13 @@
 
 Shared stuff for DE4A software components.
 
-Last release: **0.1.4**
+Last release: **0.1.5**
 
 ## History
 
+* v0.1.5 - 2021-05-27
+    * XSD update for quick redirect XMLs
+    * Added marshallers for Moving Abroad data types
 * v0.1.4 - 2021-05-25
     * XSD update for canonical evidence types
     * The package for the Core Vocabularies 1.1 as used by the DBA pilot was changed from `eu.de4a.iem.jaxb.w3.cv.*` to `eu.de4a.iem.jaxb.w3.cv11.*`
