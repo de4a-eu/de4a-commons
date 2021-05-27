@@ -26,93 +26,11 @@
     <xjc:javaType name="com.helger.commons.datetime.XMLOffsetDate"     xmlType="xsd:date"     adapter="com.helger.jaxb.adapter.AdapterXMLOffsetDate" />
     <xjc:javaType name="com.helger.commons.datetime.XMLOffsetTime"     xmlType="xsd:time"     adapter="com.helger.jaxb.adapter.AdapterXMLOffsetTime" />
   </globalBindings>
-  <!-- Source TOOP stuff -->
-  <!-- 
-  <bindings schemaLocation="../resources/schemas/core/provided/CoreVocabularies-AggregateComponents-1.1.xsd">
-    <schemaBindings>
-      <package name="eu.de4a.iem.jaxb.w3.cv.ac" />
-    </schemaBindings>
-  </bindings>
-  <bindings schemaLocation="../resources/schemas/core/provided/CoreVocabularies-BasicComponents-1.1.xsd">
-    <schemaBindings>
-      <package name="eu.de4a.iem.jaxb.w3.cv.bc" />
-    </schemaBindings>
-  </bindings>
-
-  <bindings schemaLocation="../resources/schemas/core/provided/CV-Agent.xsd">
-    <schemaBindings>
-      <package name="eu.de4a.iem.jaxb.cv.agent" />
-    </schemaBindings>
-  </bindings>
-  <bindings schemaLocation="../resources/schemas/core/provided/CV-CommonAggregateComponents.xsd">
-    <schemaBindings>
-      <package name="eu.de4a.iem.jaxb.cv.cac" />
-    </schemaBindings>
-    <bindings node="//xsd:attributeGroup[@name='ThingAttributes']">
-      <bindings node="./xsd:attribute[@name='versionId']">
-        <property name="VersionIdAttr"/>
-      </bindings>
-    </bindings>
-  </bindings>
-  <bindings schemaLocation="../resources/schemas/core/provided/CV-CommonBasicComponents.xsd">
-    <schemaBindings>
-      <package name="eu.de4a.iem.jaxb.cv.cbc" />
-    </schemaBindings>
-  </bindings>
-   -->
   <bindings schemaLocation="../resources/schemas/core/provided/CV-DataTypes.xsd">
     <schemaBindings>
       <package name="eu.de4a.iem.jaxb.cv.dt" />
     </schemaBindings>
   </bindings>
-  <!-- 
-  <bindings schemaLocation="../resources/schemas/core/provided/dcterms.xsd">
-    <schemaBindings>
-      <package name="eu.de4a.iem.jaxb.dcterms" />
-      <nameXmlTransform>
-        <typeName prefix="DC"/>
-      </nameXmlTransform>
-    </schemaBindings>
-  </bindings>
-  <bindings schemaLocation="../resources/schemas/core/provided/foaf.xsd">
-    <schemaBindings>
-      <package name="eu.de4a.iem.jaxb.foaf" />
-      <nameXmlTransform>
-        <typeName prefix="Foaf"/>
-      </nameXmlTransform>
-    </schemaBindings>
-  </bindings>
-  <bindings schemaLocation="../resources/schemas/core/provided/locn.xsd">
-    <schemaBindings>
-      <package name="eu.de4a.iem.jaxb.w3.locn" />
-    </schemaBindings>
-  </bindings>
-  <bindings schemaLocation="../resources/schemas/core/provided/owl.xsd">
-    <schemaBindings>
-      <package name="eu.de4a.iem.jaxb.owl" />
-    </schemaBindings>
-  </bindings>
-  <bindings schemaLocation="../resources/schemas/core/provided/org.xsd">
-    <schemaBindings>
-      <package name="eu.de4a.iem.jaxb.w3.org" />
-    </schemaBindings>
-  </bindings>
-  <bindings schemaLocation="../resources/schemas/core/provided/rdf.xsd">
-    <schemaBindings>
-      <package name="eu.de4a.iem.jaxb.rdf" />
-    </schemaBindings>
-  </bindings>
-  <bindings schemaLocation="../resources/schemas/core/provided/regorg.xsd">
-    <schemaBindings>
-      <package name="eu.de4a.iem.jaxb.w3.regorg" />
-    </schemaBindings>
-  </bindings>
-  <bindings schemaLocation="../resources/schemas/core/provided/skos.xsd">
-    <schemaBindings>
-      <package name="eu.de4a.iem.jaxb.w3.skos" />
-    </schemaBindings>
-  </bindings>
-   -->
    
   <!-- DE4A stuff -->
   <bindings schemaLocation="../resources/schemas/core/de4a/common-types.xsd">
@@ -135,6 +53,7 @@
       <package name="eu.de4a.iem.jaxb.eidas.np" />
     </schemaBindings>
   </bindings>
+  
   <bindings schemaLocation="../resources/schemas/core/DE1-USI.xsd">
     <schemaBindings>
       <package name="eu.de4a.iem.jaxb.de_usi" />
