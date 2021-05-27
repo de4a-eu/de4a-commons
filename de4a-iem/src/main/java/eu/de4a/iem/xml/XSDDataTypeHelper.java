@@ -20,6 +20,11 @@ import javax.xml.datatype.DatatypeFactory;
 
 import com.helger.commons.exception.InitializationException;
 
+/**
+ * XSD Data type helper.
+ *
+ * @author Philip Helger
+ */
 @Immutable
 public class XSDDataTypeHelper
 {
@@ -40,6 +45,10 @@ public class XSDDataTypeHelper
   private XSDDataTypeHelper ()
   {}
 
+  /**
+   * @return The singleton data type factory for XSD types. Never
+   *         <code>null</code>.
+   */
   @Nonnull
   public static DatatypeFactory getFactory ()
   {
