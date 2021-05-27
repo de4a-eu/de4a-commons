@@ -21,7 +21,7 @@ import com.helger.commons.collection.impl.ICommonsList;
 import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.ubl23.CUBL23;
 import com.helger.xsds.ccts.cct.schemamodule.CCCTS;
-import com.helger.xsds.xades132.CXAdES132;
+import com.helger.xsds.xades141.CXAdES141;
 import com.helger.xsds.xml.CXML_XSD;
 
 /**
@@ -51,11 +51,13 @@ public final class CT43
     final ICommonsList <ClassPathResource> a = new CommonsArrayList <> ();
     a.add (CXML_XSD.getXSDResource ());
     // XMLDsig + Xades
-    a.addAll (CXAdES132.getAllXSDResources ());
+    a.addAll (CXAdES141.getAllXSDResources ());
     a.add (CCCTS.getXSDResource ());
     a.add (CUBL23.XSD_UNQUALIFIED_DATA_TYPES);
     a.add (CUBL23.XSD_QUALIFIED_DATA_TYPES);
     a.add (CUBL23.XSD_COMMON_BASIC_COMPONENTS);
+    if (false)
+      a.add (CUBL23.XSD_EXTENSION_CONTENT_DATA_TYPE);
     a.add (CUBL23.XSD_COMMON_EXTENSION_COMPONENTS);
     a.add (new ClassPathResource ("schemas/t4.3/CoreVocabularyBasicComponents-v1.00.xsd", _getCL ()));
     a.add (new ClassPathResource ("schemas/t4.3/CoreBusiness-v1.00.xsd", _getCL ()));

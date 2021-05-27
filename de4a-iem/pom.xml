@@ -247,6 +247,11 @@
             <version>2.3.3.3</version>
           </dependency>
           <dependency>
+            <groupId>com.helger.xsd</groupId>
+            <artifactId>ph-xsds-ccts-cct-schemamodule</artifactId>
+            <version>${ph-xsds.version}</version>
+          </dependency>
+          <dependency>
             <groupId>com.helger.ubl</groupId>
             <artifactId>ph-ubl23</artifactId>
             <version>${ph-ubl.version}</version>
