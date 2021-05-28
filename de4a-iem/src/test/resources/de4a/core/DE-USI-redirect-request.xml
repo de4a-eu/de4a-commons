@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:RequestUserRedirection xmlns:p="http://www.de4a.eu/2020/data/evaluator/pattern/usi" 
+                          xmlns:p1="http://www.de4a.eu/2020/commons/type">
+  <p1:RequestId>1e4799f5-0136-410c-a27d-80825a9851aa</p1:RequestId>
+  <p1:RedirectURL>https://myserver.de4a.example.org/preview</p1:RedirectURL>
+</p:RequestUserRedirection>

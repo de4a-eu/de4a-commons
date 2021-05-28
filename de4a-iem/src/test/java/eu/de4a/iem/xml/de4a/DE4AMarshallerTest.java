@@ -91,6 +91,16 @@ public final class DE4AMarshallerTest
   }
 
   @Test
+  public void testDE_DO_Redirect_USI ()
+  {
+    // Request
+    _testReadWrite (DE4AMarshaller.deUsiRedirectRequestMarshaller (), new File (BASE_PATH + "core/DE-USI-redirect-request.xml"));
+
+    // Response
+    _testReadWrite (DE4AMarshaller.deUsiRedirectResponseMarshaller (), new File (BASE_PATH + "core/DE-USI-redirect-response.xml"));
+  }
+
+  @Test
   public void testDO_IM ()
   {
     // Request

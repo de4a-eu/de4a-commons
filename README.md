@@ -2,10 +2,12 @@
 
 Shared stuff for DE4A software components.
 
-Last release: **0.1.5**
+Last release: **0.1.6**
 
 ## History
 
+* v0.1.6 - 2021-05-28
+    * Added `DE4AMarshaller.deUsiRedirect(Request|Response)Marshaller`
 * v0.1.5 - 2021-05-27
     * XSD update for quick redirect XMLs
     * Added marshallers for Moving Abroad data types
