@@ -6,6 +6,8 @@ Last release: **0.1.6**
 
 ## History
 
+* v0.1.7 - 2021-06-23
+    * Downgraded to Java 1.8 because there is no need for Java 11
 * v0.1.6 - 2021-05-28
     * Added `DE4AMarshaller.deUsiRedirect(Request|Response)Marshaller`
 * v0.1.5 - 2021-05-27
