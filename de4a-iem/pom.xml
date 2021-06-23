@@ -274,6 +274,7 @@
                 <delete dir="${basedir}/target/generated-sources/xjc/com/" />
                 <delete dir="${basedir}/target/generated-sources/xjc/oasis/" />
                 <delete dir="${basedir}/target/generated-sources/xjc/un/" />
+                <delete dir="${basedir}/target/generated-sources/t43/oasis/" />
               </target>
             </configuration>
           </execution>
