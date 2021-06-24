@@ -2,7 +2,7 @@
 
 Shared stuff for DE4A software components.
 
-Last release: **0.1.6**
+Last release: **0.1.68**
 
 ## History
 
@@ -27,7 +27,7 @@ Last release: **0.1.6**
 ## Building
 
 Prerequisites
-* Java 11 or later
+* Java 1.8 or later
 * Apache Maven 3.6 or later for building
 
 To build the latest version:
