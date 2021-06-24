@@ -2,10 +2,23 @@
 
 Shared stuff for DE4A software components.
 
-Last release: **0.1.3**
+Last release: **0.1.6**
 
 ## History
 
+* v0.1.8 - 2021-06-23
+    * Smaller deployment of de4a-iem module
+* v0.1.7 - 2021-06-23
+    * Downgraded to Java 1.8 because there is no need for Java 11
+* v0.1.6 - 2021-05-28
+    * Added `DE4AMarshaller.deUsiRedirect(Request|Response)Marshaller`
+* v0.1.5 - 2021-05-27
+    * XSD update for quick redirect XMLs
+    * Added marshallers for Moving Abroad data types
+* v0.1.4 - 2021-05-25
+    * XSD update for canonical evidence types
+    * The package for the Core Vocabularies 1.1 as used by the DBA pilot was changed from `eu.de4a.iem.jaxb.w3.cv.*` to `eu.de4a.iem.jaxb.w3.cv11.*`
+    * An initial version of the Moving Abroad XSDs are contained (but no wrappers yet)
 * v0.1.3 - 2021-05-05
     * XSD update for USI pattern
 * v0.1.2 - 2021-05-05

@@ -22,6 +22,7 @@ import com.helger.commons.collection.impl.ICommonsList;
 import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.ubl20.CUBL20;
 import com.helger.ubl23.CUBL23;
+import com.helger.xsds.ccts.cct.schemamodule.CCCTS;
 import com.helger.xsds.xml.CXML_XSD;
 
 /**
@@ -46,6 +47,7 @@ public final class CDE4AJAXB
     a.add (CXML_XSD.getXSDResource ());
     a.add (new ClassPathResource ("schemas/core/de4a/common-identity-types.xsd", _getCL ()));
     a.add (CUBL20.XSD_CODELIST_MIME_MEDIA_TYPE_CODE);
+    a.add (CCCTS.getXSDResource ());
     a.add (CUBL23.XSD_UNQUALIFIED_DATA_TYPES);
     a.add (new ClassPathResource ("schemas/core/de4a/common-types.xsd", _getCL ()));
     XSDS = a.getAsUnmodifiable ();
@@ -55,6 +57,8 @@ public final class CDE4AJAXB
   public static final ClassPathResource XSD_DR_USI = new ClassPathResource ("schemas/core/DR1-USI.xsd", _getCL ());
   public static final ClassPathResource XSD_DT_USI = new ClassPathResource ("schemas/core/DT1-USI.xsd", _getCL ());
   public static final ClassPathResource XSD_DO_USI = new ClassPathResource ("schemas/core/DO1-USI.xsd", _getCL ());
+  // For the redirect
+  public static final ClassPathResource XSD_DE_DO_USI = new ClassPathResource ("schemas/core/DE-DO-USI.xsd", _getCL ());
 
   public static final ClassPathResource XSD_DR_DE_IM = new ClassPathResource ("schemas/core/DR-DE1-IM.xsd", _getCL ());
   public static final ClassPathResource XSD_DT_DO_IM = new ClassPathResource ("schemas/core/DT-DO1-IM.xsd", _getCL ());

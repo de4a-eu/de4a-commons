@@ -1,0 +1,32 @@
+<bi:MarriageEvidence
+  xmlns:bi="urn:eu-de4a:xsd:CanonicalEvidenceType::MarriageEvidence:v1.6" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="urn:eu-de4a:xsd:CanonicalEvidenceType::MarriageEvidence:v1.6  marriageEvidence-1.6.xsd">
+  <bi:IssueDate>2021-05-20</bi:IssueDate>
+  <bi:IssuingAuthority>
+	<bi:PrefLabel>Ministerio de Justicia</bi:PrefLabel>
+  </bi:IssuingAuthority>
+  <bi:IssuingPlace>
+	<bi:AdminUnitL2>Barcelona</bi:AdminUnitL2>
+	<bi:AdminUnitL1>ESP</bi:AdminUnitL1>
+  </bi:IssuingPlace>
+  <bi:CertifiesMarriage> 
+	<bi:DateOfMarriage>1976-07-10</bi:DateOfMarriage>
+	<bi:Spouse>
+	  <bi:PersonName>
+		<bi:GivenName>Ciudadano Ficticio</bi:GivenName>
+	  </bi:PersonName>
+	  <bi:Gender>0</bi:Gender>
+	</bi:Spouse>
+	<bi:Spouse>
+	  <bi:PersonName>
+		<bi:GivenName>Maria Reverte</bi:GivenName>
+	  </bi:PersonName>
+	  <bi:Gender>0</bi:Gender>
+	</bi:Spouse>
+	<bi:PlaceOfMarriage>
+	  <bi:AdminUnitL2>Barcelona</bi:AdminUnitL2>
+	  <bi:AdminUnitL1>ESP</bi:AdminUnitL1>
+	</bi:PlaceOfMarriage>
+  </bi:CertifiesMarriage>
+</bi:MarriageEvidence>

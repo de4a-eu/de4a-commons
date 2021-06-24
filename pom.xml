@@ -23,7 +23,7 @@
   </parent>
   <groupId>eu.de4a</groupId>
   <artifactId>de4a-commons-parent-pom</artifactId>
-  <version>0.1.4-SNAPSHOT</version>
+  <version>0.1.9-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>de4a-commons-parent-pom</name>
   <description>Base POM to build the DE4A Commons projects</description>
@@ -74,7 +74,7 @@
   </distributionManagement>
     
   <properties>
-    <ph-ubl.version>6.6.0</ph-ubl.version>
+    <ph-ubl.version>6.6.2</ph-ubl.version>
     <ph-xsds.version>2.6.0</ph-xsds.version>
   </properties>
 
@@ -83,7 +83,7 @@
       <dependency>
         <groupId>com.helger.commons</groupId>
         <artifactId>ph-commons-parent-pom</artifactId>
-        <version>10.1.1</version>
+        <version>10.1.2</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -104,21 +104,21 @@
       <dependency>
         <groupId>com.helger</groupId>
         <artifactId>ph-css-parent-pom</artifactId>
-        <version>6.3.1</version>
+        <version>6.3.4</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
       <dependency>
         <groupId>com.helger.web</groupId>
         <artifactId>ph-web-parent-pom</artifactId>
-        <version>9.6.0</version>
+        <version>9.6.1</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
       <dependency>
         <groupId>com.helger.peppol</groupId>
         <artifactId>peppol-commons-parent-pom</artifactId>
-        <version>8.6.0</version>
+        <version>8.6.1</version>
         <scope>import</scope>
         <type>pom</type>
       </dependency>
@@ -190,8 +190,8 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
-          <source>11</source>
-          <target>11</target>
+          <source>1.8</source>
+          <target>1.8</target>
         </configuration>
       </plugin>
       <plugin>

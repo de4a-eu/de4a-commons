@@ -33,10 +33,12 @@ import eu.de4a.iem.jaxb.common.types.RequestForwardEvidenceType;
 import eu.de4a.iem.jaxb.common.types.RequestLookupRoutingInformationType;
 import eu.de4a.iem.jaxb.common.types.RequestTransferEvidenceUSIDTType;
 import eu.de4a.iem.jaxb.common.types.RequestTransferEvidenceUSIIMDRType;
+import eu.de4a.iem.jaxb.common.types.RequestUserRedirectionType;
 import eu.de4a.iem.jaxb.common.types.ResponseErrorType;
 import eu.de4a.iem.jaxb.common.types.ResponseExtractEvidenceType;
 import eu.de4a.iem.jaxb.common.types.ResponseLookupRoutingInformationType;
 import eu.de4a.iem.jaxb.common.types.ResponseTransferEvidenceType;
+import eu.de4a.iem.jaxb.common.types.ResponseUserRedirectionType;
 
 /**
  * DE4A Marshaller factory for the core data format
@@ -79,6 +81,8 @@ public class DE4AMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
     return ret;
   }
 
+  // Data Evaluator
+
   @Nonnull
   public static DE4AMarshaller <RequestForwardEvidenceType> deUsiRequestMarshaller (@Nonnull final IDE4ACanonicalEvidenceType aCanonicalEvidenceType)
   {
@@ -94,6 +98,8 @@ public class DE4AMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
                                   _getXSDs (CDE4AJAXB.XSD_DE_USI, null),
                                   new eu.de4a.iem.jaxb.de_usi.ObjectFactory ()::createResponseForwardEvidence);
   }
+
+  // Data Owner
 
   @Nonnull
   public static DE4AMarshaller <RequestExtractEvidenceIMType> doImRequestMarshaller ()
@@ -127,6 +133,8 @@ public class DE4AMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
                                   new eu.de4a.iem.jaxb.do_usi.ObjectFactory ()::createResponseExtractEvidence);
   }
 
+  // Data Requestor
+
   @Nonnull
   public static DE4AMarshaller <RequestTransferEvidenceUSIIMDRType> drImRequestMarshaller ()
   {
@@ -159,6 +167,8 @@ public class DE4AMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
                                   new eu.de4a.iem.jaxb.dr_usi.ObjectFactory ()::createResponseTransferEvidence);
   }
 
+  // Data Transferor
+
   @Nonnull
   public static DE4AMarshaller <RequestTransferEvidenceUSIDTType> dtUsiRequestMarshaller (@Nonnull final IDE4ACanonicalEvidenceType aCanonicalEvidenceType)
   {
@@ -174,6 +184,26 @@ public class DE4AMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
                                   _getXSDs (CDE4AJAXB.XSD_DT_USI, null),
                                   new eu.de4a.iem.jaxb.dt_usi.ObjectFactory ()::createResponseTransferEvidence);
   }
+
+  // Redirect
+
+  @Nonnull
+  public static DE4AMarshaller <RequestUserRedirectionType> deUsiRedirectRequestMarshaller ()
+  {
+    return new DE4AMarshaller <> (RequestUserRedirectionType.class,
+                                  _getXSDs (CDE4AJAXB.XSD_DE_DO_USI, null),
+                                  new eu.de4a.iem.jaxb.de_usi.ObjectFactory ()::createRequestUserRedirection);
+  }
+
+  @Nonnull
+  public static DE4AMarshaller <ResponseUserRedirectionType> deUsiRedirectResponseMarshaller ()
+  {
+    return new DE4AMarshaller <> (ResponseUserRedirectionType.class,
+                                  _getXSDs (CDE4AJAXB.XSD_DE_DO_USI, null),
+                                  new eu.de4a.iem.jaxb.de_usi.ObjectFactory ()::createResponseUserRedirection);
+  }
+
+  // IDK
 
   @Nonnull
   public static DE4AMarshaller <RequestLookupRoutingInformationType> idkRequestLookupRoutingInformationMarshaller ()

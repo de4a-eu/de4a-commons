@@ -19,7 +19,7 @@
   <parent>
     <groupId>eu.de4a</groupId>
     <artifactId>de4a-commons-parent-pom</artifactId>
-    <version>0.1.4-SNAPSHOT</version>
+    <version>0.1.9-SNAPSHOT</version>
   </parent>
   <artifactId>de4a-iem</artifactId>
   <packaging>bundle</packaging>
@@ -173,6 +173,23 @@
               </bindingIncludes>
             </configuration>
           </execution>
+          <execution>
+            <!-- Must be a separate execution, because of mixed CoreVocabulary 1.1 and 1.0 which share the same namespace URI! -->
+            <id>t43</id>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+            <configuration>
+              <schemaIncludes>
+                <schemaInclude>t4.3/*.xsd</schemaInclude>
+                <schemaInclude>t4.3/v1.6/*.xsd</schemaInclude>
+              </schemaIncludes>
+              <bindingIncludes>
+                <bindingInclude>bindings-t43.xjb</bindingInclude>
+              </bindingIncludes>
+              <generateDirectory>${project.build.directory}/generated-sources/t43</generateDirectory>
+            </configuration>
+          </execution>
         </executions>
         <configuration>
           <schemaDirectory>${basedir}/src/main/resources/schemas</schemaDirectory>
@@ -202,10 +219,6 @@
               <artifactId>ph-xsds-ccts-cct-schemamodule</artifactId>
             </episode>
             <episode>
-              <groupId>com.helger.ubl</groupId>
-              <artifactId>ph-ubl23</artifactId>
-            </episode>
-            <episode>
               <groupId>com.helger.xsd</groupId>
               <artifactId>ph-xsds-xlink</artifactId>
             </episode>
@@ -217,6 +230,14 @@
               <groupId>com.helger.xsd</groupId>
               <artifactId>ph-xsds-xades132</artifactId>
             </episode>
+            <episode>
+              <groupId>com.helger.xsd</groupId>
+              <artifactId>ph-xsds-xades141</artifactId>
+            </episode>
+            <episode>
+              <groupId>com.helger.ubl</groupId>
+              <artifactId>ph-ubl23</artifactId>
+            </episode>
           </episodes>
         </configuration>
         <dependencies>
@@ -224,6 +245,11 @@
             <groupId>com.helger</groupId>
             <artifactId>ph-jaxb22-plugin</artifactId>
             <version>2.3.3.3</version>
+          </dependency>
+          <dependency>
+            <groupId>com.helger.xsd</groupId>
+            <artifactId>ph-xsds-ccts-cct-schemamodule</artifactId>
+            <version>${ph-xsds.version}</version>
           </dependency>
           <dependency>
             <groupId>com.helger.ubl</groupId>
@@ -248,6 +274,7 @@
                 <delete dir="${basedir}/target/generated-sources/xjc/com/" />
                 <delete dir="${basedir}/target/generated-sources/xjc/oasis/" />
                 <delete dir="${basedir}/target/generated-sources/xjc/un/" />
+                <delete dir="${basedir}/target/generated-sources/t43/oasis/" />
               </target>
             </configuration>
           </execution>
