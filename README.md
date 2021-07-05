@@ -2,7 +2,7 @@
 
 Shared stuff for DE4A software components.
 
-Last release: **0.1.68**
+Last release: **0.1.8**
 
 ## History
 
