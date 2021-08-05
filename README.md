@@ -6,6 +6,8 @@ Last release: **0.1.8**
 
 ## History
 
+* v0.1.9 - work in progress
+    * Updated to DBA 0.1.6a model
 * v0.1.8 - 2021-06-23
     * Smaller deployment of de4a-iem module
 * v0.1.7 - 2021-06-23

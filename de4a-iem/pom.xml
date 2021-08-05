@@ -182,7 +182,7 @@
             <configuration>
               <schemaIncludes>
                 <schemaInclude>t4.3/*.xsd</schemaInclude>
-                <schemaInclude>t4.3/v1.6/*.xsd</schemaInclude>
+                <schemaInclude>t4.3/v1.6a/*.xsd</schemaInclude>
               </schemaIncludes>
               <bindingIncludes>
                 <bindingInclude>bindings-t43.xjb</bindingInclude>
@@ -280,11 +280,27 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <groupId>com.helger.maven</groupId>
+        <artifactId>ph-merge-jaxb-episodes-maven-plugin</artifactId>
+        <version>0.0.1</version>
+        <executions>
+          <execution>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>merge-jaxb-episodes</goal>
+            </goals>
+            <configuration>
+              <verbose>true</verbose>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
       <!--
       <plugin>
         <groupId>com.helger.maven</groupId>
         <artifactId>ph-schematron-maven-plugin</artifactId>
-        <version>6.2.0</version>
+        <version>6.2.1</version>
         <executions>
           <execution>
             <id>edm2</id>

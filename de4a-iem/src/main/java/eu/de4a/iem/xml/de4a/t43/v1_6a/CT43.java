@@ -11,7 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package eu.de4a.iem.xml.de4a.t43.v1_6;
+package eu.de4a.iem.xml.de4a.t43.v1_6a;
 
 import javax.annotation.Nonnull;
 
@@ -72,7 +72,7 @@ public final class CT43
   public static ICommonsList <ClassPathResource> getAllBirthEvidenceXSDs ()
   {
     final ICommonsList <ClassPathResource> a = _getBaseXSDs ();
-    a.add (new ClassPathResource ("schemas/t4.3/v1.6/birthEvidence-1.6.xsd", _getCL ()));
+    a.add (new ClassPathResource ("schemas/t4.3/v1.6a/birthEvidence-1.6.xsd", _getCL ()));
     return a;
   }
 
@@ -81,7 +81,7 @@ public final class CT43
   public static ICommonsList <ClassPathResource> getAllDomicileRegistrationEvidenceXSDs ()
   {
     final ICommonsList <ClassPathResource> a = _getBaseXSDs ();
-    a.add (new ClassPathResource ("schemas/t4.3/v1.6/domicileRegistrationEvidence-1.6.xsd", _getCL ()));
+    a.add (new ClassPathResource ("schemas/t4.3/v1.6a/domicileRegistrationEvidence-1.6.xsd", _getCL ()));
     return a;
   }
 
@@ -90,7 +90,7 @@ public final class CT43
   public static ICommonsList <ClassPathResource> getAllMarriageEvidenceXSDs ()
   {
     final ICommonsList <ClassPathResource> a = _getBaseXSDs ();
-    a.add (new ClassPathResource ("schemas/t4.3/v1.6/marriageEvidence-1.6.xsd", _getCL ()));
+    a.add (new ClassPathResource ("schemas/t4.3/v1.6a/marriageEvidence-1.6.xsd", _getCL ()));
     return a;
   }
 }
