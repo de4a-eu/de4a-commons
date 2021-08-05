@@ -30,10 +30,10 @@ public enum EDE4ACanonicalEvidenceType implements IDE4ACanonicalEvidenceType
   T41_UC1_2021_02_11 ("T4.1 UC1 v2021-02-11", eu.de4a.iem.xml.de4a.t41.v2021_02_11.CT41.getAllXSDs ()),
   T41_UC1_2021_04_13 ("T4.1 UC1 v2021-04-13", eu.de4a.iem.xml.de4a.t41.v2021_04_13.CT41.getAllXSDs ()),
   T42_COMPANY_INFO_V06 ("T4.2 Company Info v0.6", eu.de4a.iem.xml.de4a.t42.v0_6.CT42.getAllXSDs ()),
-  T43_BIRTH_EVIDENCE_V16 ("T4.3 Birth Evidence v1.6", eu.de4a.iem.xml.de4a.t43.v1_6a.CT43.getAllBirthEvidenceXSDs ()),
-  T43_DOMREG_EVIDENCE_V16 ("T4.3 Domicile Registration Evidence v1.6",
+  T43_BIRTH_EVIDENCE_V16A ("T4.3 Birth Evidence v1.6a", eu.de4a.iem.xml.de4a.t43.v1_6a.CT43.getAllBirthEvidenceXSDs ()),
+  T43_DOMREG_EVIDENCE_V16A ("T4.3 Domicile Registration Evidence v1.6a",
                            eu.de4a.iem.xml.de4a.t43.v1_6a.CT43.getAllDomicileRegistrationEvidenceXSDs ()),
-  T43_MARRIAGE_EVIDENCE_V16 ("T4.3 Marriage Evidence v1.6", eu.de4a.iem.xml.de4a.t43.v1_6a.CT43.getAllMarriageEvidenceXSDs ());
+  T43_MARRIAGE_EVIDENCE_V16A ("T4.3 Marriage Evidence v1.6a", eu.de4a.iem.xml.de4a.t43.v1_6a.CT43.getAllMarriageEvidenceXSDs ());
 
   private final String m_sDisplayName;
   private final ICommonsList <ClassPathResource> m_aXSDs;
