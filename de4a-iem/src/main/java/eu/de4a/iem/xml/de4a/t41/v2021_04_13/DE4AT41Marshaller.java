@@ -23,8 +23,9 @@ import com.helger.jaxb.GenericJAXBMarshaller;
 import eu.de4a.iem.jaxb.t41.uc1.v2021_04_13.HigherEducationDiplomaType;
 
 /**
- * Special marshaller for DE4A T4.1 v2021-04-13 pilot. This class can ONLY ready
- * T4.1 stuff without the surrounding core document.
+ * Special marshaller for canonical evidences of the DE4A T4.1 v2021-04-13
+ * pilot. This class can ONLY ready T4.1 stuff without the surrounding core
+ * document.
  *
  * @author Philip Helger
  * @param <JAXBTYPE>

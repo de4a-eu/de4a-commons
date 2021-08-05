@@ -29,8 +29,8 @@ import eu.de4a.iem.jaxb.t43.domreg.v1_6a.DomicileRegistrationEvidenceType;
 import eu.de4a.iem.jaxb.t43.marriage.v1_6a.MarriageEvidenceType;
 
 /**
- * Special marshaller for DE4A T4.3 v1.6a pilot. This class can ONLY ready T4.3
- * stuff without the surrounding core document.
+ * Special marshaller for canonical evidences of the DE4A T4.3 v1.6a pilot. This
+ * class can ONLY reads T4.3 stuff without the surrounding core document.
  *
  * @author Philip Helger
  * @param <JAXBTYPE>
