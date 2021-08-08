@@ -11,7 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package eu.de4a.iem.xml.de4a.t43.v1_6;
+package eu.de4a.iem.xml.de4a.t43.v1_6a;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -34,7 +34,7 @@ import com.helger.jaxb.GenericJAXBMarshaller;
 public final class DE4AT43MarshallerTest
 {
   private static final Logger LOGGER = LoggerFactory.getLogger (DE4AT43MarshallerTest.class);
-  private static final String BASE_PATH = "src/test/resources/de4a/t4.3/v1.6/";
+  private static final String BASE_PATH = "src/test/resources/de4a/t4.3/v1.6a/";
 
   private static <T> void _testReadWrite (@Nonnull final GenericJAXBMarshaller <T> aMarshaller, @Nonnull final File aFile)
   {

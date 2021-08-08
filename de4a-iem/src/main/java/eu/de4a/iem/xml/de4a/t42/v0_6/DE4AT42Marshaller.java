@@ -23,8 +23,8 @@ import com.helger.jaxb.GenericJAXBMarshaller;
 import eu.de4a.iem.jaxb.t42.v0_6.LegalEntityType;
 
 /**
- * Special marshaller for DE4A T4.2 v0.5 pilot. This class can ONLY ready T4.2
- * stuff without the surrounding core document.
+ * Special marshaller for canonical evidences of the DE4A T4.2 v0.5 pilot. This
+ * class can ONLY ready T4.2 stuff without the surrounding core document.
  *
  * @author Philip Helger
  * @param <JAXBTYPE>
