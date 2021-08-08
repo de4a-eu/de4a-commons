@@ -2,12 +2,13 @@
 
 Shared stuff for DE4A software components.
 
-Last release: **0.1.8**
+Last release: **0.1.9**
 
 ## History
 
-* v0.1.9 - work in progress
+* v0.1.9 - 2021-08-08
     * Updated to DBA 0.1.6a model
+    * Fixed issues #19 and #20
 * v0.1.8 - 2021-06-23
     * Smaller deployment of de4a-iem module
 * v0.1.7 - 2021-06-23
