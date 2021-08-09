@@ -2,13 +2,14 @@
 
 Shared stuff for DE4A software components.
 
-Last release: **0.1.9**
+Last release: **0.1.10**
 
 ## History
 
+* v0.1.10 - 2021-08-08
+    * Renamed Moving Abroad version "0.1.6a" to "0.1.6b"
 * v0.1.9 - 2021-08-08
-    * Updated to DBA 0.1.6a model
-    * Fixed issues #19 and #20
+    * Updated to Moving Abroad 0.1.6a model
 * v0.1.8 - 2021-06-23
     * Smaller deployment of de4a-iem module
 * v0.1.7 - 2021-06-23

@@ -182,7 +182,7 @@
             <configuration>
               <schemaIncludes>
                 <schemaInclude>t4.3/*.xsd</schemaInclude>
-                <schemaInclude>t4.3/v1.6a/*.xsd</schemaInclude>
+                <schemaInclude>t4.3/v1.6b/*.xsd</schemaInclude>
               </schemaIncludes>
               <bindingIncludes>
                 <bindingInclude>bindings-t43.xjb</bindingInclude>
