@@ -54,19 +54,19 @@
   </bindings>
    
   <!-- 1.6 -->
-  <bindings schemaLocation="../resources/schemas/t4.3/v1.6a/birthEvidence-1.6.xsd">
+  <bindings schemaLocation="../resources/schemas/t4.3/v1.6b/birthEvidence-1.6.xsd">
     <schemaBindings>
-      <package name="eu.de4a.iem.jaxb.t43.birth.v1_6a" />
+      <package name="eu.de4a.iem.jaxb.t43.birth.v1_6b" />
     </schemaBindings>
   </bindings>
-  <bindings schemaLocation="../resources/schemas/t4.3/v1.6a/domicileRegistrationEvidence-1.6.xsd">
+  <bindings schemaLocation="../resources/schemas/t4.3/v1.6b/domicileRegistrationEvidence-1.6.xsd">
     <schemaBindings>
-      <package name="eu.de4a.iem.jaxb.t43.domreg.v1_6a" />
+      <package name="eu.de4a.iem.jaxb.t43.domreg.v1_6b" />
     </schemaBindings>
   </bindings>
-  <bindings schemaLocation="../resources/schemas/t4.3/v1.6a/marriageEvidence-1.6.xsd">
+  <bindings schemaLocation="../resources/schemas/t4.3/v1.6b/marriageEvidence-1.6.xsd">
     <schemaBindings>
-      <package name="eu.de4a.iem.jaxb.t43.marriage.v1_6a" />
+      <package name="eu.de4a.iem.jaxb.t43.marriage.v1_6b" />
     </schemaBindings>
   </bindings>
 </bindings>
