@@ -21,7 +21,7 @@ pipeline {
         stage('Build'){
             when {
                 anyOf{
-                    branch 'main'; branch pattern 'iteration\\d+', comparator: 'REGEXP'
+                    branch 'main'; branch pattern: 'iteration\\d+', comparator: 'REGEXP'
                 }
             }
             agent {
