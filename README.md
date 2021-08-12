@@ -4,10 +4,16 @@ Shared stuff for DE4A software components.
 
 Last release: **0.1.11**
 
+In the DE4A project we are differentiating between "Iteration 1" and "Iteration 2". As they are incompatible, care needs to be taken, that they are not mixed together.
+The last release of Iteration 1 is `0.1.11` and the development branch (if ever needed) is https://github.com/de4a-wp5/de4a-commons/tree/iteration1
+
+The `development` branch is used for development of Iteration 2 stuff.
+
 ## History
 
 * v0.1.11 - 2021-08-08
     * Renamed Moving Abroad version "0.1.6a" to "0.1.6b"
+    * This is supposed to be the last version of Iteration 1.
 * v0.1.9 - 2021-08-08
     * Updated to Moving Abroad 0.1.6a model
 * v0.1.8 - 2021-06-23
