@@ -46,7 +46,7 @@ public final class DE4AT43MarshallerTest
     final byte [] aBytes = aMarshaller.getAsBytes (aRead);
     assertNotNull ("Failed to re-write " + aFile.getAbsolutePath (), aBytes);
 
-    if (true)
+    if (false)
     {
       aMarshaller.setFormattedOutput (true);
       LOGGER.info (aMarshaller.getAsString (aRead));
@@ -56,19 +56,51 @@ public final class DE4AT43MarshallerTest
   @Test
   public void testBirthEvidence ()
   {
-    _testReadWrite (DE4AT43Marshaller.birthEvidence (), new File (BASE_PATH + "Sample Birth Evidence ES.xml"));
+    for (final String s : new String [] { "MA-example-Birth-ES.xml",
+                                          "MA-example-Birth-ES-A.xml",
+                                          "MA-example-Birth-ES-B.xml",
+                                          "MA-example-Birth-ES-C.xml",
+                                          "MA-example-Birth-ES-D.xml",
+                                          "MA-example-Birth-PT.xml",
+                                          "MA-example-Birth-PT-A.xml",
+                                          "MA-example-Birth-PT-B.xml",
+                                          "MA-example-Birth-PT-C.xml",
+                                          "MA-example-Birth-PT-D.xml",
+                                          "Sample Birth Evidence ES.xml" })
+      _testReadWrite (DE4AT43Marshaller.birthEvidence (), new File (BASE_PATH + s));
   }
 
   @Test
   public void testDomicileRegistrationEvidence ()
   {
-    _testReadWrite (DE4AT43Marshaller.domicileRegistrationEvidence (),
-                    new File (BASE_PATH + "Sample Domicile Registration Evidence ES.xml"));
+    for (final String s : new String [] { "MA-example-DomicileRegistration-ES.xml",
+                                          "MA-example-DomicileRegistration-ES-A.xml",
+                                          "MA-example-DomicileRegistration-ES-B.xml",
+                                          "MA-example-DomicileRegistration-ES-C.xml",
+                                          "MA-example-DomicileRegistration-ES-D.xml",
+                                          "MA-example-DomicileRegistration-PT.xml",
+                                          "MA-example-DomicileRegistration-PT-A.xml",
+                                          "MA-example-DomicileRegistration-PT-B.xml",
+                                          "MA-example-DomicileRegistration-PT-C.xml",
+                                          "MA-example-DomicileRegistration-PT-D.xml",
+                                          "Sample Domicile Registration Evidence ES.xml" })
+      _testReadWrite (DE4AT43Marshaller.domicileRegistrationEvidence (), new File (BASE_PATH + s));
   }
 
   @Test
   public void testMarriageEvidence ()
   {
-    _testReadWrite (DE4AT43Marshaller.marriageEvidence (), new File (BASE_PATH + "Sample Marriage Evidence ES.xml"));
+    for (final String s : new String [] { "MA-example-Marriage-ES.xml",
+                                          "MA-example-Marriage-ES-A.xml",
+                                          "MA-example-Marriage-ES-B.xml",
+                                          "MA-example-Marriage-ES-C.xml",
+                                          "MA-example-Marriage-ES-D.xml",
+                                          "MA-example-Marriage-PT.xml",
+                                          "MA-example-Marriage-PT-A.xml",
+                                          "MA-example-Marriage-PT-B.xml",
+                                          "MA-example-Marriage-PT-C.xml",
+                                          "MA-example-Marriage-PT-D.xml",
+                                          "Sample Marriage Evidence ES.xml" })
+      _testReadWrite (DE4AT43Marshaller.marriageEvidence (), new File (BASE_PATH + s));
   }
 }
