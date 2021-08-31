@@ -27,18 +27,17 @@ import com.helger.commons.collection.impl.ICommonsList;
 import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.jaxb.GenericJAXBMarshaller;
 
+import eu.de4a.iem.jaxb.common.types.RedirectUserType;
 import eu.de4a.iem.jaxb.common.types.RequestExtractEvidenceIMType;
 import eu.de4a.iem.jaxb.common.types.RequestExtractEvidenceUSIType;
 import eu.de4a.iem.jaxb.common.types.RequestForwardEvidenceType;
 import eu.de4a.iem.jaxb.common.types.RequestLookupRoutingInformationType;
 import eu.de4a.iem.jaxb.common.types.RequestTransferEvidenceUSIDTType;
 import eu.de4a.iem.jaxb.common.types.RequestTransferEvidenceUSIIMDRType;
-import eu.de4a.iem.jaxb.common.types.RequestUserRedirectionType;
 import eu.de4a.iem.jaxb.common.types.ResponseErrorType;
 import eu.de4a.iem.jaxb.common.types.ResponseExtractEvidenceType;
 import eu.de4a.iem.jaxb.common.types.ResponseLookupRoutingInformationType;
 import eu.de4a.iem.jaxb.common.types.ResponseTransferEvidenceType;
-import eu.de4a.iem.jaxb.common.types.ResponseUserRedirectionType;
 
 /**
  * DE4A Marshaller factory for the core data format
@@ -188,19 +187,11 @@ public class DE4AMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
   // Redirect
 
   @Nonnull
-  public static DE4AMarshaller <RequestUserRedirectionType> deUsiRedirectRequestMarshaller ()
+  public static DE4AMarshaller <RedirectUserType> deUsiRedirectUserMarshaller ()
   {
-    return new DE4AMarshaller <> (RequestUserRedirectionType.class,
+    return new DE4AMarshaller <> (RedirectUserType.class,
                                   _getXSDs (CDE4AJAXB.XSD_DE_DO_USI, null),
-                                  new eu.de4a.iem.jaxb.de_usi.ObjectFactory ()::createRequestUserRedirection);
-  }
-
-  @Nonnull
-  public static DE4AMarshaller <ResponseUserRedirectionType> deUsiRedirectResponseMarshaller ()
-  {
-    return new DE4AMarshaller <> (ResponseUserRedirectionType.class,
-                                  _getXSDs (CDE4AJAXB.XSD_DE_DO_USI, null),
-                                  new eu.de4a.iem.jaxb.de_usi.ObjectFactory ()::createResponseUserRedirection);
+                                  new eu.de4a.iem.jaxb.de_usi.ObjectFactory ()::createRedirectUser);
   }
 
   // IDK
