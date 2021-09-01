@@ -11,6 +11,8 @@ The `development` branch is used for development of Iteration 2 stuff.
 
 ## History
 
+* v0.2.0 - 2021-09-01
+    * This is the first version with data model changes for Iteration 2
 * v0.1.11 - 2021-08-08
     * Renamed Moving Abroad version "0.1.6a" to "0.1.6b"
     * This is supposed to be the last version of Iteration 1.
