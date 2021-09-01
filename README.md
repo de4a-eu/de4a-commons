@@ -2,7 +2,9 @@
 
 Shared stuff for DE4A software components.
 
-Last release: **0.1.11**
+Last release: 
+* Iteration 2: **0.2.0**
+* Iteration 1: **0.1.11**
 
 In the DE4A project we are differentiating between "Iteration 1" and "Iteration 2". As they are incompatible, care needs to be taken, that they are not mixed together.
 The last release of Iteration 1 is `0.1.11` and the development branch (if ever needed) is https://github.com/de4a-wp5/de4a-commons/tree/iteration1
