@@ -2,7 +2,7 @@
 <xs:schema xmlns="http://www.de4a.eu/2020/commons/type" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:cv="https://data.europe.eu/semanticassets/ns/cv/common/dataTypes-2.0.0#" xmlns:ct="urn:un:unece:uncefact:data:specification:CoreComponentTypeSchemaModule:2" xmlns:clmIANAMIMEMediaType="urn:un:unece:uncefact:codelist:specification:IANAMIMEMediaType:2003" xmlns:cit="http://www.de4a.eu/2020/commons/identity/type" targetNamespace="http://www.de4a.eu/2020/commons/type" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<xs:import namespace="urn:un:unece:uncefact:data:specification:CoreComponentTypeSchemaModule:2" />
 	<xs:import namespace="urn:un:unece:uncefact:codelist:specification:IANAMIMEMediaType:2003" />
-	<xs:import namespace="http://www.w3.org/XML/1998/namespace"/>
+	<xs:import namespace="http://www.w3.org/XML/1998/namespace" />
 	<xs:import namespace="https://data.europe.eu/semanticassets/ns/cv/common/dataTypes-2.0.0#" schemaLocation="../provided/CV-DataTypes.xsd"/>
 	<xs:import namespace="http://www.de4a.eu/2020/commons/identity/type" schemaLocation="common-identity-types.xsd"/>
 	<xs:simpleType name="CountryType">
@@ -241,16 +241,6 @@
 			<xs:element name="AtuLatinName" type="AtuLatinNameType" minOccurs="0"/>
 			<xs:element name="DataOwnerId" type="AgentUrnType" minOccurs="0"/>
 			<xs:element name="DataOwnerPrefLabel" type="DataOwnerPrefLabelType" minOccurs="0"/>
-			<xs:element name="Provision" type="ProvisionType"/>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="ProvisionType">
-		<xs:sequence>
-			<xs:element name="ProvisionType" type="ProvisionTypeType"/>
-			<xs:choice>
-				<xs:element name="RedirectURL" type="RedirectURLType"/>
-				<xs:element name="Params" type="ParamsType" minOccurs="0"/>
-			</xs:choice>
 		</xs:sequence>
 	</xs:complexType>
 	<xs:simpleType name="NumProvisionsType">
@@ -269,34 +259,6 @@
 		<xs:restriction base="xs:string">
 			<xs:minLength value="1"/>
 			<xs:maxLength value="500"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:simpleType name="ProvisionTypeType">
-		<xs:restriction base="xs:string">
-			<xs:enumeration value="ip"/>
-			<xs:enumeration value="usip"/>
-		</xs:restriction>
-	</xs:simpleType>
-	<xs:complexType name="ParamsType">
-		<xs:sequence>
-			<xs:element name="Param" type="ParamType" minOccurs="1" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="ParamType">
-		<xs:sequence>
-			<xs:element name="Title" type="TitleType"/>
-			<xs:element name="ParamSets" type="ParamSetsType"/>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="ParamSetsType">
-		<xs:sequence>
-			<xs:element name="ParamSet" type="ParamSetType" minOccurs="1" maxOccurs="unbounded"/>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:simpleType name="ParamSetType">
-		<xs:restriction base="xs:string">
-			<xs:minLength value="1"/>
-			<xs:maxLength value="100"/>
 		</xs:restriction>
 	</xs:simpleType>
 	<!-- End New IDK -->
@@ -592,18 +554,16 @@
 			<xs:element name="ErrorList" type="ErrorListType"/>
 		</xs:choice>
 	</xs:complexType>
-	<xs:complexType name="RequestUserRedirectionType">
-		<xs:sequence>
-			<xs:element name="RequestId" type="RequestIdType"/>
-			<xs:element name="RedirectURL" type="RedirectURLType"/>
-		</xs:sequence>
-	</xs:complexType>
-	<xs:complexType name="ResponseUserRedirectionType">
-		<xs:sequence>
-			<xs:element name="RequestId" type="RequestIdType"/>
-			<xs:element name="EvidenceStatus" type="EvidenceStatusType"/>
-			<xs:element name="ErrorList" type="ErrorListType" minOccurs="0"/>
-		</xs:sequence>
+	<xs:complexType name="RedirectUserType">
+    <xs:sequence>
+      <xs:element name="RequestId" type="RequestIdType"/>
+      <xs:element name="SpecificationId" type="SpecificationIdType"/>
+      <xs:element name="TimeStamp" type="TimeStampType"/>
+      <xs:element name="DataEvaluator" type="AgentType"/>
+      <xs:element name="CanonicalEvidenceTypeId" type="CanonicalEvidenceIdType"/>
+      <xs:element name="RedirectUrl" type="RedirectURLType"/>
+      <xs:element name="ErrorList" type="ErrorListType" minOccurs="0"/>
+    </xs:sequence>
 	</xs:complexType>
 	<xs:complexType name="ResponseErrorType">
 		<xs:sequence>
