@@ -21,8 +21,7 @@ import com.helger.commons.datetime.PDTFactory;
 
 import eu.de4a.iem.jaxb.common.types.AckType;
 import eu.de4a.iem.jaxb.common.types.ErrorType;
-import eu.de4a.iem.jaxb.common.types.RequestExtractEvidenceIMType;
-import eu.de4a.iem.jaxb.common.types.RequestTransferEvidenceUSIIMDRType;
+import eu.de4a.iem.jaxb.common.types.RequestExtractEvidenceType;
 import eu.de4a.iem.jaxb.common.types.ResponseErrorType;
 import eu.de4a.iem.jaxb.common.types.ResponseExtractEvidenceType;
 import eu.de4a.iem.jaxb.common.types.ResponseTransferEvidenceType;
@@ -84,7 +83,7 @@ public final class DE4AResponseDocumentHelper
    * @return Never <code>null</code>.
    */
   @Nonnull
-  public static ResponseExtractEvidenceType createResponseExtractEvidence (@Nonnull final RequestExtractEvidenceIMType aRequest)
+  public static ResponseExtractEvidenceType createResponseExtractEvidence (@Nonnull final RequestExtractEvidenceType aRequest)
   {
     ValueEnforcer.notNull (aRequest, "Request");
 
@@ -102,7 +101,7 @@ public final class DE4AResponseDocumentHelper
    * @return Never <code>null</code>.
    */
   @Nonnull
-  public static ResponseTransferEvidenceType createResponseTransferEvidence (@Nonnull final RequestTransferEvidenceUSIIMDRType aRequest)
+  public static ResponseTransferEvidenceType createResponseTransferEvidence (@Nonnull final RequestExtractEvidenceType aRequest)
   {
     ValueEnforcer.notNull (aRequest, "Request");
 
