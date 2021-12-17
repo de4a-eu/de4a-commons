@@ -51,7 +51,7 @@ public final class DE4AKafkaClientTest
     if (false)
     {
       // Set the correct server to see real messages
-      DE4AKafkaSettings.defaultProperties ().put ("bootstrap.servers", "de4a-dev-kafka.egovlab.eu:9092");
+      DE4AKafkaSettings.defaultProperties ().put ("bootstrap.servers", "de4a.simplegob.com:9092");
     }
     try
     {
