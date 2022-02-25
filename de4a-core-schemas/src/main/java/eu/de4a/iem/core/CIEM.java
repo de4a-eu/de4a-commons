@@ -1,4 +1,4 @@
-package eu.de4a.iem;
+package eu.de4a.iem.core;
 
 import javax.annotation.concurrent.Immutable;
 

@@ -11,7 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package eu.de4a.iem.xml.de4a;
+package eu.de4a.iem.core;
 
 import java.util.List;
 import java.util.function.Function;
@@ -27,16 +27,16 @@ import com.helger.commons.collection.impl.ICommonsList;
 import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.jaxb.GenericJAXBMarshaller;
 
-import eu.de4a.iem.jaxb.common.types.EventNotificationType;
-import eu.de4a.iem.jaxb.common.types.RedirectUserType;
-import eu.de4a.iem.jaxb.common.types.RequestEventSubscriptionType;
-import eu.de4a.iem.jaxb.common.types.RequestExtractMultiEvidenceIMType;
-import eu.de4a.iem.jaxb.common.types.RequestExtractMultiEvidenceLUType;
-import eu.de4a.iem.jaxb.common.types.RequestExtractMultiEvidenceUSIType;
-import eu.de4a.iem.jaxb.common.types.RequestLookupRoutingInformationType;
-import eu.de4a.iem.jaxb.common.types.ResponseEventSubscriptionType;
-import eu.de4a.iem.jaxb.common.types.ResponseExtractMultiEvidenceType;
-import eu.de4a.iem.jaxb.common.types.ResponseLookupRoutingInformationType;
+import eu.de4a.iem.core.jaxb.common.EventNotificationType;
+import eu.de4a.iem.core.jaxb.common.RedirectUserType;
+import eu.de4a.iem.core.jaxb.common.RequestEventSubscriptionType;
+import eu.de4a.iem.core.jaxb.common.RequestExtractMultiEvidenceIMType;
+import eu.de4a.iem.core.jaxb.common.RequestExtractMultiEvidenceLUType;
+import eu.de4a.iem.core.jaxb.common.RequestExtractMultiEvidenceUSIType;
+import eu.de4a.iem.core.jaxb.common.RequestLookupRoutingInformationType;
+import eu.de4a.iem.core.jaxb.common.ResponseEventSubscriptionType;
+import eu.de4a.iem.core.jaxb.common.ResponseExtractMultiEvidenceType;
+import eu.de4a.iem.core.jaxb.common.ResponseLookupRoutingInformationType;
 
 /**
  * DE4A Marshaller factory for the core data format
@@ -86,7 +86,7 @@ public class DE4AMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
   {
     return new DE4AMarshaller <> (ResponseExtractMultiEvidenceType.class,
                                   _getXSDs (CDE4AJAXB.XSD_DE, aCanonicalEvidenceType.getAllXSDs ()),
-                                  new eu.de4a.iem.jaxb.de.ObjectFactory ()::createRequestForwardEvidence);
+                                  new eu.de4a.iem.core.jaxb.de.ObjectFactory ()::createRequestForwardEvidence);
   }
 
   @Nonnull
@@ -94,7 +94,7 @@ public class DE4AMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
   {
     return new DE4AMarshaller <> (RedirectUserType.class,
                                   _getXSDs (CDE4AJAXB.XSD_DE, null),
-                                  new eu.de4a.iem.jaxb.de.ObjectFactory ()::createUSIRedirectUser);
+                                  new eu.de4a.iem.core.jaxb.de.ObjectFactory ()::createUSIRedirectUser);
   }
 
   @Nonnull
@@ -102,7 +102,7 @@ public class DE4AMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
   {
     return new DE4AMarshaller <> (EventNotificationType.class,
                                   _getXSDs (CDE4AJAXB.XSD_DE, null),
-                                  new eu.de4a.iem.jaxb.de.ObjectFactory ()::createEventNotification);
+                                  new eu.de4a.iem.core.jaxb.de.ObjectFactory ()::createEventNotification);
   }
 
   // DO - Data Owner
@@ -112,7 +112,7 @@ public class DE4AMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
   {
     return new DE4AMarshaller <> (RequestExtractMultiEvidenceIMType.class,
                                   _getXSDs (CDE4AJAXB.XSD_DO, null),
-                                  new eu.de4a.iem.jaxb.do_.ObjectFactory ()::createRequestExtractMultiEvidenceIM);
+                                  new eu.de4a.iem.core.jaxb.do_.ObjectFactory ()::createRequestExtractMultiEvidenceIM);
   }
 
   @Nonnull
@@ -120,7 +120,7 @@ public class DE4AMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
   {
     return new DE4AMarshaller <> (RequestExtractMultiEvidenceLUType.class,
                                   _getXSDs (CDE4AJAXB.XSD_DO, null),
-                                  new eu.de4a.iem.jaxb.do_.ObjectFactory ()::createRequestExtractMultiEvidenceLU);
+                                  new eu.de4a.iem.core.jaxb.do_.ObjectFactory ()::createRequestExtractMultiEvidenceLU);
   }
 
   @Nonnull
@@ -128,7 +128,7 @@ public class DE4AMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
   {
     return new DE4AMarshaller <> (RequestExtractMultiEvidenceUSIType.class,
                                   _getXSDs (CDE4AJAXB.XSD_DO, null),
-                                  new eu.de4a.iem.jaxb.do_.ObjectFactory ()::createRequestExtractMultiEvidenceUSI);
+                                  new eu.de4a.iem.core.jaxb.do_.ObjectFactory ()::createRequestExtractMultiEvidenceUSI);
   }
 
   @Nonnull
@@ -136,7 +136,7 @@ public class DE4AMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
   {
     return new DE4AMarshaller <> (RequestEventSubscriptionType.class,
                                   _getXSDs (CDE4AJAXB.XSD_DO, null),
-                                  new eu.de4a.iem.jaxb.do_.ObjectFactory ()::createRequestEventSubscription);
+                                  new eu.de4a.iem.core.jaxb.do_.ObjectFactory ()::createRequestEventSubscription);
   }
 
   // DR - Data Requestor
@@ -146,7 +146,7 @@ public class DE4AMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
   {
     return new DE4AMarshaller <> (RequestExtractMultiEvidenceIMType.class,
                                   _getXSDs (CDE4AJAXB.XSD_DR, null),
-                                  new eu.de4a.iem.jaxb.dr.ObjectFactory ()::createRequestTransferEvidenceIM);
+                                  new eu.de4a.iem.core.jaxb.dr.ObjectFactory ()::createRequestTransferEvidenceIM);
   }
 
   @Nonnull
@@ -154,7 +154,7 @@ public class DE4AMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
   {
     return new DE4AMarshaller <> (RequestExtractMultiEvidenceLUType.class,
                                   _getXSDs (CDE4AJAXB.XSD_DR, null),
-                                  new eu.de4a.iem.jaxb.dr.ObjectFactory ()::createRequestTransferEvidenceLU);
+                                  new eu.de4a.iem.core.jaxb.dr.ObjectFactory ()::createRequestTransferEvidenceLU);
   }
 
   @Nonnull
@@ -162,7 +162,7 @@ public class DE4AMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
   {
     return new DE4AMarshaller <> (RequestExtractMultiEvidenceUSIType.class,
                                   _getXSDs (CDE4AJAXB.XSD_DR, null),
-                                  new eu.de4a.iem.jaxb.dr.ObjectFactory ()::createRequestTransferEvidenceUSI);
+                                  new eu.de4a.iem.core.jaxb.dr.ObjectFactory ()::createRequestTransferEvidenceUSI);
   }
 
   @Nonnull
@@ -170,7 +170,7 @@ public class DE4AMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
   {
     return new DE4AMarshaller <> (RequestEventSubscriptionType.class,
                                   _getXSDs (CDE4AJAXB.XSD_DR, null),
-                                  new eu.de4a.iem.jaxb.dr.ObjectFactory ()::createRequestEventSubscription);
+                                  new eu.de4a.iem.core.jaxb.dr.ObjectFactory ()::createRequestEventSubscription);
   }
 
   // DT - Data Transferor
@@ -180,7 +180,7 @@ public class DE4AMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
   {
     return new DE4AMarshaller <> (RedirectUserType.class,
                                   _getXSDs (CDE4AJAXB.XSD_DT, null),
-                                  new eu.de4a.iem.jaxb.dt.ObjectFactory ()::createUSIRedirectUser);
+                                  new eu.de4a.iem.core.jaxb.dt.ObjectFactory ()::createUSIRedirectUser);
   }
 
   @Nonnull
@@ -188,7 +188,7 @@ public class DE4AMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
   {
     return new DE4AMarshaller <> (ResponseExtractMultiEvidenceType.class,
                                   _getXSDs (CDE4AJAXB.XSD_DT, aCanonicalEvidenceType.getAllXSDs ()),
-                                  new eu.de4a.iem.jaxb.dt.ObjectFactory ()::createResponseTransferEvidence);
+                                  new eu.de4a.iem.core.jaxb.dt.ObjectFactory ()::createResponseTransferEvidence);
   }
 
   @Nonnull
@@ -196,7 +196,7 @@ public class DE4AMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
   {
     return new DE4AMarshaller <> (ResponseEventSubscriptionType.class,
                                   _getXSDs (CDE4AJAXB.XSD_DT, null),
-                                  new eu.de4a.iem.jaxb.dt.ObjectFactory ()::createResponseEventSubscription);
+                                  new eu.de4a.iem.core.jaxb.dt.ObjectFactory ()::createResponseEventSubscription);
   }
 
   @Nonnull
@@ -204,7 +204,7 @@ public class DE4AMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
   {
     return new DE4AMarshaller <> (EventNotificationType.class,
                                   _getXSDs (CDE4AJAXB.XSD_DT, null),
-                                  new eu.de4a.iem.jaxb.dt.ObjectFactory ()::createEventNotification);
+                                  new eu.de4a.iem.core.jaxb.dt.ObjectFactory ()::createEventNotification);
   }
 
   // IDK (DR.XSD)
@@ -214,7 +214,7 @@ public class DE4AMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
   {
     return new DE4AMarshaller <> (RequestLookupRoutingInformationType.class,
                                   _getXSDs (CDE4AJAXB.XSD_DR, null),
-                                  new eu.de4a.iem.jaxb.dr.ObjectFactory ()::createRequestLookupRoutingInformation);
+                                  new eu.de4a.iem.core.jaxb.dr.ObjectFactory ()::createRequestLookupRoutingInformation);
   }
 
   @Nonnull
@@ -222,6 +222,6 @@ public class DE4AMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
   {
     return new DE4AMarshaller <> (ResponseLookupRoutingInformationType.class,
                                   _getXSDs (CDE4AJAXB.XSD_DR, null),
-                                  new eu.de4a.iem.jaxb.dr.ObjectFactory ()::createResponseLookupRoutingInformation);
+                                  new eu.de4a.iem.core.jaxb.dr.ObjectFactory ()::createResponseLookupRoutingInformation);
   }
 }

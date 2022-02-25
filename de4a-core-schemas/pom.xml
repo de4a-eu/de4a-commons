@@ -97,8 +97,8 @@
         <artifactId>maven-bundle-plugin</artifactId>
         <configuration>
           <instructions>
-            <Automatic-Module-Name>eu.de4a.edm</Automatic-Module-Name>
-            <Export-Package>eu.de4a.edm.*</Export-Package>
+            <Automatic-Module-Name>eu.de4a.iem.core</Automatic-Module-Name>
+            <Export-Package>eu.de4a.iem.core.*,eu.de4a.iem.xml.*</Export-Package>
             <Import-Package>!javax.annotation.*,*</Import-Package>
             <Require-Capability>osgi.extender; filter:="(osgi.extender=osgi.serviceloader.registrar)"</Require-Capability>
             <Provide-Capability>osgi.serviceloader; osgi.serviceloader=com.helger.schematron.svrl.ISVRLLocationBeautifierSPI</Provide-Capability>
@@ -181,63 +181,6 @@
           </dependency>
         </dependencies>
       </plugin>
-      <!-- Delete the directory with only ObjectFactory 
-           Source: http://stackoverflow.com/questions/32635137
-      -->
-      <plugin>
-        <artifactId>maven-antrun-plugin</artifactId>
-        <executions>
-          <execution>
-            <phase>process-sources</phase>
-            <goals>
-              <goal>run</goal>
-            </goals>
-            <configuration>
-              <target>
-                <delete dir="${basedir}/target/generated-sources/xjc/com/" />
-                <delete dir="${basedir}/target/generated-sources/xjc/oasis/" />
-                <delete dir="${basedir}/target/generated-sources/xjc/un/" />
-                <delete dir="${basedir}/target/generated-sources/t43/oasis/" />
-              </target>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>com.helger.maven</groupId>
-        <artifactId>ph-merge-jaxb-episodes-maven-plugin</artifactId>
-        <version>0.0.2</version>
-        <executions>
-          <execution>
-            <phase>generate-resources</phase>
-            <goals>
-              <goal>merge-jaxb-episodes</goal>
-            </goals>
-            <configuration>
-              <verbose>false</verbose>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      <!--
-      <plugin>
-        <groupId>com.helger.maven</groupId>
-        <artifactId>ph-schematron-maven-plugin</artifactId>
-        <version>6.2.1</version>
-        <executions>
-          <execution>
-            <id>edm2</id>
-            <goals>
-              <goal>convert</goal>
-            </goals>
-            <configuration>
-              <schematronDirectory>src/main/resources/210</schematronDirectory>
-              <xsltDirectory>src/main/resources/210</xsltDirectory>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      -->
     </plugins>
   </build>
 </project>

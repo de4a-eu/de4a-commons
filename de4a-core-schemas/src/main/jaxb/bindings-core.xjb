@@ -28,52 +28,52 @@
   </globalBindings>
   <bindings schemaLocation="../resources/schemas/core/provided/CV-DataTypes.xsd">
     <schemaBindings>
-      <package name="eu.de4a.iem.jaxb.cv.dt" />
+      <package name="eu.de4a.iem.core.jaxb.cv.dt" />
     </schemaBindings>
   </bindings>
    
   <!-- DE4A stuff -->
   <bindings schemaLocation="../resources/schemas/core/de4a/common-types.xsd">
     <schemaBindings>
-      <package name="eu.de4a.iem.jaxb.common.types" />
+      <package name="eu.de4a.iem.core.jaxb.common" />
     </schemaBindings>
   </bindings>
   <bindings schemaLocation="../resources/schemas/core/external/eidas-LP.xsd">
     <schemaBindings>
-      <package name="eu.de4a.iem.jaxb.eidas.lp" />
+      <package name="eu.de4a.iem.core.jaxb.eidas.lp" />
     </schemaBindings>
   </bindings>
   <bindings schemaLocation="../resources/schemas/core/external/eidas-NP.xsd">
     <schemaBindings>
-      <package name="eu.de4a.iem.jaxb.eidas.np" />
+      <package name="eu.de4a.iem.core.jaxb.eidas.np" />
     </schemaBindings>
   </bindings>
   
   <bindings schemaLocation="../resources/schemas/core/DE.xsd">
     <schemaBindings>
-      <package name="eu.de4a.iem.jaxb.de" />
+      <package name="eu.de4a.iem.core.jaxb.de" />
     </schemaBindings>
   </bindings>
   <bindings schemaLocation="../resources/schemas/core/DO.xsd">
     <schemaBindings>
       <!-- "do" is a reserved word and cannot be used as a package name part -->
-      <package name="eu.de4a.iem.jaxb.do_" />
+      <package name="eu.de4a.iem.core.jaxb.do_" />
     </schemaBindings>
   </bindings>
   <bindings schemaLocation="../resources/schemas/core/DR.xsd">
     <schemaBindings>
-      <package name="eu.de4a.iem.jaxb.dr" />
+      <package name="eu.de4a.iem.core.jaxb.dr" />
     </schemaBindings>
   </bindings>
   <bindings schemaLocation="../resources/schemas/core/DT.xsd">
     <schemaBindings>
-      <package name="eu.de4a.iem.jaxb.dt" />
+      <package name="eu.de4a.iem.core.jaxb.dt" />
     </schemaBindings>
   </bindings>
   
   <bindings schemaLocation="../resources/schemas/core/def-response.xsd">
     <schemaBindings>
-      <package name="eu.de4a.iem.jaxb.defresp" />
+      <package name="eu.de4a.iem.core.jaxb.defresp" />
     </schemaBindings>
   </bindings>
 </bindings>

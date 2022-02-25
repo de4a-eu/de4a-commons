@@ -11,15 +11,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package eu.de4a.iem.xml.de4a;
+package eu.de4a.iem.core;
 
 import javax.annotation.Nonnull;
 
 import com.helger.commons.ValueEnforcer;
 import com.helger.commons.annotation.Nonempty;
 
-import eu.de4a.iem.jaxb.common.types.ErrorType;
-import eu.de4a.iem.jaxb.common.types.ResponseErrorType;
+import eu.de4a.iem.core.jaxb.common.ErrorType;
+import eu.de4a.iem.core.jaxb.common.ResponseErrorType;
 
 /**
  * Helper class to create response messages, eventually based on request
