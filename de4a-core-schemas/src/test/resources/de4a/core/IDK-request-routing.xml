@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RequestLookupRoutingInformation xmlns="http://www.de4a.eu/2020/data/requestor/v2" xmlns:ct="http://www.de4a.eu/2020/commons/type/v2">
+  <ct:RoutingEvidenceInformationItem>
+    <ct:CanonicalEvidenceTypeId>CompanyRegistration</ct:CanonicalEvidenceTypeId>
+    <ct:AtuCode>AT</ct:AtuCode>
+  </ct:RoutingEvidenceInformationItem>
+</RequestLookupRoutingInformation>

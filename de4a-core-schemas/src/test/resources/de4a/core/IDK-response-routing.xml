@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ResponseLookupRoutingInformation xmlns="http://www.de4a.eu/2020/data/requestor/v2" xmlns:ct="http://www.de4a.eu/2020/commons/type/v2">
+  <ct:AvailableSource>
+    <ct:CountryCode>AT</ct:CountryCode>
+    <ct:AtuLevel>nuts0</ct:AtuLevel>
+    <ct:NumProvisions>2</ct:NumProvisions>
+  </ct:AvailableSource>
+</ResponseLookupRoutingInformation>
