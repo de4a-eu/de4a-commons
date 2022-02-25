@@ -84,11 +84,11 @@
     </dependency>
     <dependency>
       <groupId>com.helger.ubl</groupId>
-      <artifactId>ph-ubl20</artifactId>
+      <artifactId>ph-ubl23</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.helger.ubl</groupId>
-      <artifactId>ph-ubl23</artifactId>
+      <groupId>eu.de4a</groupId>
+      <artifactId>de4a-core-schemas</artifactId>
     </dependency>
 
     <dependency>
@@ -160,13 +160,11 @@
             </goals>
             <configuration>
               <schemaIncludes>
-                <schemaInclude>core/**/*.xsd</schemaInclude>
                 <schemaInclude>pilot-shared/*.xsd</schemaInclude>
                 <schemaInclude>t4.1/uc1/SA-UC*.xsd</schemaInclude>
                 <schemaInclude>t4.2/*.xsd</schemaInclude>
               </schemaIncludes>
               <bindingIncludes>
-                <bindingInclude>bindings-core.xjb</bindingInclude>
                 <bindingInclude>bindings-pilot-shared.xjb</bindingInclude>
                 <bindingInclude>bindings-t41.xjb</bindingInclude>
                 <bindingInclude>bindings-t42.xjb</bindingInclude>

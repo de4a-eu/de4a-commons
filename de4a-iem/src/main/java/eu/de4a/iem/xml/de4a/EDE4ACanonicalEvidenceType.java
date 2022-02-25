@@ -20,6 +20,8 @@ import com.helger.commons.annotation.ReturnsMutableCopy;
 import com.helger.commons.collection.impl.ICommonsList;
 import com.helger.commons.io.resource.ClassPathResource;
 
+import eu.de4a.iem.core.IDE4ACanonicalEvidenceType;
+
 /**
  * Contains all the predefined DE4A Canonical Evidences
  *
