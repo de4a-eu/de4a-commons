@@ -83,17 +83,4 @@ public final class DE4AMarshallerTest
     _testReadWrite (DE4AMarshaller.deRequestForwardEvidenceMarshaller (IDE4ACanonicalEvidenceType.NONE),
                     new File (BASE_PATH + "core/DE-request-forward-evidence.xml"));
   }
-
-  // @Test
-  // public void testIDK_LookupRoutingInformation ()
-  // {
-  // // Request
-  // _testReadWrite (DE4AMarshaller.idkRequestLookupRoutingInformationMarshaller
-  // (), new File (BASE_PATH + "core/IDK-request-routing.xml"));
-  //
-  // // Response
-  // _testReadWrite
-  // (DE4AMarshaller.idkResponseLookupRoutingInformationMarshaller (),
-  // new File (BASE_PATH + "core/IDK-response-routing.xml"));
-  // }
 }

@@ -33,6 +33,7 @@ import eu.de4a.iem.core.jaxb.common.RequestEventSubscriptionType;
 import eu.de4a.iem.core.jaxb.common.RequestExtractMultiEvidenceIMType;
 import eu.de4a.iem.core.jaxb.common.RequestExtractMultiEvidenceLUType;
 import eu.de4a.iem.core.jaxb.common.RequestExtractMultiEvidenceUSIType;
+import eu.de4a.iem.core.jaxb.common.ResponseErrorType;
 import eu.de4a.iem.core.jaxb.common.ResponseEventSubscriptionType;
 import eu.de4a.iem.core.jaxb.common.ResponseExtractMultiEvidenceType;
 
@@ -204,26 +205,14 @@ public class DE4AMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
                                   _getXSDs (CDE4AJAXB.XSD_DT, null),
                                   new eu.de4a.iem.core.jaxb.dt.ObjectFactory ()::createEventNotification);
   }
-  //
-  // // IDK (DR.XSD)
-  //
-  // @Nonnull
-  // public static DE4AMarshaller <RequestLookupRoutingInformationType>
-  // idkRequestLookupRoutingInformationMarshaller ()
-  // {
-  // return new DE4AMarshaller <> (RequestLookupRoutingInformationType.class,
-  // _getXSDs (CDE4AJAXB.XSD_DR, null),
-  // new eu.de4a.iem.core.jaxb.dr.ObjectFactory
-  // ()::createRequestLookupRoutingInformation);
-  // }
-  //
-  // @Nonnull
-  // public static DE4AMarshaller <ResponseLookupRoutingInformationType>
-  // idkResponseLookupRoutingInformationMarshaller ()
-  // {
-  // return new DE4AMarshaller <> (ResponseLookupRoutingInformationType.class,
-  // _getXSDs (CDE4AJAXB.XSD_DR, null),
-  // new eu.de4a.iem.core.jaxb.dr.ObjectFactory
-  // ()::createResponseLookupRoutingInformation);
-  // }
+
+  // Default response
+
+  @Nonnull
+  public static DE4AMarshaller <ResponseErrorType> defResponseMessage ()
+  {
+    return new DE4AMarshaller <> (ResponseErrorType.class,
+                                  _getXSDs (CDE4AJAXB.XSD_DEFAULT_RESPONSE, null),
+                                  new eu.de4a.iem.core.jaxb.defresp.ObjectFactory ()::createResponseMessage);
+  }
 }
