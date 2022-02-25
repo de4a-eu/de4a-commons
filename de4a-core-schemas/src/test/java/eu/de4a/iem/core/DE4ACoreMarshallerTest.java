@@ -28,13 +28,13 @@ import com.helger.commons.wrapper.Wrapper;
 import com.helger.jaxb.GenericJAXBMarshaller;
 
 /**
- * Test class for class {@link DE4AMarshaller}.
+ * Test class for class {@link DE4ACoreMarshaller}.
  *
  * @author Philip Helger
  */
-public final class DE4AMarshallerTest
+public final class DE4ACoreMarshallerTest
 {
-  private static final Logger LOGGER = LoggerFactory.getLogger (DE4AMarshallerTest.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger (DE4ACoreMarshallerTest.class);
   private static final String BASE_PATH = "src/test/resources/de4a/";
 
   @SuppressWarnings ("unused")
@@ -80,7 +80,7 @@ public final class DE4AMarshallerTest
   @Test
   public void testDE ()
   {
-    _testReadWrite (DE4AMarshaller.deRequestForwardEvidenceMarshaller (IDE4ACanonicalEvidenceType.NONE),
+    _testReadWrite (DE4ACoreMarshaller.deRequestForwardEvidenceMarshaller (IDE4ACanonicalEvidenceType.NONE),
                     new File (BASE_PATH + "core/DE-request-forward-evidence.xml"));
   }
 }

@@ -28,12 +28,12 @@ import com.helger.xsds.xml.CXML_XSD;
  *
  * @author Philip Helger
  */
-public final class CDE4AJAXB
+public final class CDE4ACoreJAXB
 {
   @Nonnull
   private static ClassLoader _getCL ()
   {
-    return CDE4AJAXB.class.getClassLoader ();
+    return CDE4ACoreJAXB.class.getClassLoader ();
   }
 
   public static final List <ClassPathResource> XSDS;
@@ -56,6 +56,6 @@ public final class CDE4AJAXB
 
   public static final ClassPathResource XSD_DEFAULT_RESPONSE = new ClassPathResource ("schemas/core/def-response.xsd", _getCL ());
 
-  private CDE4AJAXB ()
+  private CDE4ACoreJAXB ()
   {}
 }

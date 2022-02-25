@@ -25,14 +25,14 @@ import com.helger.xsds.ccts.cct.schemamodule.CCCTS;
  * @author Philip Helger
  */
 @Singleton
-public class DE4ANamespaceContext extends MapBasedNamespaceContext
+public class DE4ACoreNamespaceContext extends MapBasedNamespaceContext
 {
   private static final class SingletonHolder
   {
-    static final DE4ANamespaceContext s_aInstance = new DE4ANamespaceContext ();
+    static final DE4ACoreNamespaceContext s_aInstance = new DE4ACoreNamespaceContext ();
   }
 
-  protected DE4ANamespaceContext ()
+  protected DE4ACoreNamespaceContext ()
   {
     addMapping ("eilp", "http://eidas.europa.eu/attributes/legalperson");
     addMapping ("einp", "http://eidas.europa.eu/attributes/naturalperson");
@@ -42,7 +42,7 @@ public class DE4ANamespaceContext extends MapBasedNamespaceContext
   }
 
   @Nonnull
-  public static DE4ANamespaceContext getInstance ()
+  public static DE4ACoreNamespaceContext getInstance ()
   {
     return SingletonHolder.s_aInstance;
   }
