@@ -41,13 +41,15 @@ import eu.de4a.iem.core.jaxb.common.ResponseExtractMultiEvidenceType;
  * DE4A Marshaller factory for the core data format
  *
  * @author Philip Helger
+ * @param <JAXBTYPE>
+ *        JAXB implementation type
  */
 @Immutable
 public class DE4ACoreMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
 {
   public DE4ACoreMarshaller (@Nonnull final Class <JAXBTYPE> aType,
-                         @Nullable final List <? extends ClassPathResource> aXSDs,
-                         @Nonnull final Function <? super JAXBTYPE, ? extends JAXBElement <JAXBTYPE>> aJAXBElementWrapper)
+                             @Nullable final List <? extends ClassPathResource> aXSDs,
+                             @Nonnull final Function <? super JAXBTYPE, ? extends JAXBElement <JAXBTYPE>> aJAXBElementWrapper)
   {
     super (aType, aXSDs, aJAXBElementWrapper);
     setNamespaceContext (DE4ACoreNamespaceContext.getInstance ());
@@ -84,24 +86,24 @@ public class DE4ACoreMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTY
   public static DE4ACoreMarshaller <ResponseExtractMultiEvidenceType> deRequestForwardEvidenceMarshaller (@Nonnull final IDE4ACanonicalEvidenceType aCanonicalEvidenceType)
   {
     return new DE4ACoreMarshaller <> (ResponseExtractMultiEvidenceType.class,
-                                  _getXSDs (CDE4ACoreJAXB.XSD_DE, aCanonicalEvidenceType.getAllXSDs ()),
-                                  new eu.de4a.iem.core.jaxb.de.ObjectFactory ()::createRequestForwardEvidence);
+                                      _getXSDs (CDE4ACoreJAXB.XSD_DE, aCanonicalEvidenceType.getAllXSDs ()),
+                                      new eu.de4a.iem.core.jaxb.de.ObjectFactory ()::createRequestForwardEvidence);
   }
 
   @Nonnull
   public static DE4ACoreMarshaller <RedirectUserType> deUsiRedirectUserMarshaller ()
   {
     return new DE4ACoreMarshaller <> (RedirectUserType.class,
-                                  _getXSDs (CDE4ACoreJAXB.XSD_DE, null),
-                                  new eu.de4a.iem.core.jaxb.de.ObjectFactory ()::createUSIRedirectUser);
+                                      _getXSDs (CDE4ACoreJAXB.XSD_DE, null),
+                                      new eu.de4a.iem.core.jaxb.de.ObjectFactory ()::createUSIRedirectUser);
   }
 
   @Nonnull
   public static DE4ACoreMarshaller <EventNotificationType> deEventNotificationMarshaller ()
   {
     return new DE4ACoreMarshaller <> (EventNotificationType.class,
-                                  _getXSDs (CDE4ACoreJAXB.XSD_DE, null),
-                                  new eu.de4a.iem.core.jaxb.de.ObjectFactory ()::createEventNotification);
+                                      _getXSDs (CDE4ACoreJAXB.XSD_DE, null),
+                                      new eu.de4a.iem.core.jaxb.de.ObjectFactory ()::createEventNotification);
   }
 
   // DO - Data Owner
@@ -110,32 +112,32 @@ public class DE4ACoreMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTY
   public static DE4ACoreMarshaller <RequestExtractMultiEvidenceIMType> doRequestExtractMultiEvidenceIMMarshaller ()
   {
     return new DE4ACoreMarshaller <> (RequestExtractMultiEvidenceIMType.class,
-                                  _getXSDs (CDE4ACoreJAXB.XSD_DO, null),
-                                  new eu.de4a.iem.core.jaxb.do_.ObjectFactory ()::createRequestExtractMultiEvidenceIM);
+                                      _getXSDs (CDE4ACoreJAXB.XSD_DO, null),
+                                      new eu.de4a.iem.core.jaxb.do_.ObjectFactory ()::createRequestExtractMultiEvidenceIM);
   }
 
   @Nonnull
   public static DE4ACoreMarshaller <RequestExtractMultiEvidenceLUType> doRequestExtractMultiEvidenceLUMarshaller ()
   {
     return new DE4ACoreMarshaller <> (RequestExtractMultiEvidenceLUType.class,
-                                  _getXSDs (CDE4ACoreJAXB.XSD_DO, null),
-                                  new eu.de4a.iem.core.jaxb.do_.ObjectFactory ()::createRequestExtractMultiEvidenceLU);
+                                      _getXSDs (CDE4ACoreJAXB.XSD_DO, null),
+                                      new eu.de4a.iem.core.jaxb.do_.ObjectFactory ()::createRequestExtractMultiEvidenceLU);
   }
 
   @Nonnull
   public static DE4ACoreMarshaller <RequestExtractMultiEvidenceUSIType> doRequestExtractMultiEvidenceUSIMarshaller ()
   {
     return new DE4ACoreMarshaller <> (RequestExtractMultiEvidenceUSIType.class,
-                                  _getXSDs (CDE4ACoreJAXB.XSD_DO, null),
-                                  new eu.de4a.iem.core.jaxb.do_.ObjectFactory ()::createRequestExtractMultiEvidenceUSI);
+                                      _getXSDs (CDE4ACoreJAXB.XSD_DO, null),
+                                      new eu.de4a.iem.core.jaxb.do_.ObjectFactory ()::createRequestExtractMultiEvidenceUSI);
   }
 
   @Nonnull
   public static DE4ACoreMarshaller <RequestEventSubscriptionType> doRequestEventSubscriptionMarshaller ()
   {
     return new DE4ACoreMarshaller <> (RequestEventSubscriptionType.class,
-                                  _getXSDs (CDE4ACoreJAXB.XSD_DO, null),
-                                  new eu.de4a.iem.core.jaxb.do_.ObjectFactory ()::createRequestEventSubscription);
+                                      _getXSDs (CDE4ACoreJAXB.XSD_DO, null),
+                                      new eu.de4a.iem.core.jaxb.do_.ObjectFactory ()::createRequestEventSubscription);
   }
 
   // DR - Data Requestor
@@ -144,32 +146,32 @@ public class DE4ACoreMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTY
   public static DE4ACoreMarshaller <RequestExtractMultiEvidenceIMType> drRequestTransferEvidenceIMMarshaller ()
   {
     return new DE4ACoreMarshaller <> (RequestExtractMultiEvidenceIMType.class,
-                                  _getXSDs (CDE4ACoreJAXB.XSD_DR, null),
-                                  new eu.de4a.iem.core.jaxb.dr.ObjectFactory ()::createRequestTransferEvidenceIM);
+                                      _getXSDs (CDE4ACoreJAXB.XSD_DR, null),
+                                      new eu.de4a.iem.core.jaxb.dr.ObjectFactory ()::createRequestTransferEvidenceIM);
   }
 
   @Nonnull
   public static DE4ACoreMarshaller <RequestExtractMultiEvidenceLUType> drRequestTransferEvidenceLUMarshaller ()
   {
     return new DE4ACoreMarshaller <> (RequestExtractMultiEvidenceLUType.class,
-                                  _getXSDs (CDE4ACoreJAXB.XSD_DR, null),
-                                  new eu.de4a.iem.core.jaxb.dr.ObjectFactory ()::createRequestTransferEvidenceLU);
+                                      _getXSDs (CDE4ACoreJAXB.XSD_DR, null),
+                                      new eu.de4a.iem.core.jaxb.dr.ObjectFactory ()::createRequestTransferEvidenceLU);
   }
 
   @Nonnull
   public static DE4ACoreMarshaller <RequestExtractMultiEvidenceUSIType> drRequestTransferEvidenceUSIMarshaller ()
   {
     return new DE4ACoreMarshaller <> (RequestExtractMultiEvidenceUSIType.class,
-                                  _getXSDs (CDE4ACoreJAXB.XSD_DR, null),
-                                  new eu.de4a.iem.core.jaxb.dr.ObjectFactory ()::createRequestTransferEvidenceUSI);
+                                      _getXSDs (CDE4ACoreJAXB.XSD_DR, null),
+                                      new eu.de4a.iem.core.jaxb.dr.ObjectFactory ()::createRequestTransferEvidenceUSI);
   }
 
   @Nonnull
   public static DE4ACoreMarshaller <RequestEventSubscriptionType> drRequestEventSubscriptionMarshaller ()
   {
     return new DE4ACoreMarshaller <> (RequestEventSubscriptionType.class,
-                                  _getXSDs (CDE4ACoreJAXB.XSD_DR, null),
-                                  new eu.de4a.iem.core.jaxb.dr.ObjectFactory ()::createRequestEventSubscription);
+                                      _getXSDs (CDE4ACoreJAXB.XSD_DR, null),
+                                      new eu.de4a.iem.core.jaxb.dr.ObjectFactory ()::createRequestEventSubscription);
   }
 
   // DT - Data Transferor
@@ -178,32 +180,32 @@ public class DE4ACoreMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTY
   public static DE4ACoreMarshaller <RedirectUserType> dtUSIRedirectUserMarshaller ()
   {
     return new DE4ACoreMarshaller <> (RedirectUserType.class,
-                                  _getXSDs (CDE4ACoreJAXB.XSD_DT, null),
-                                  new eu.de4a.iem.core.jaxb.dt.ObjectFactory ()::createUSIRedirectUser);
+                                      _getXSDs (CDE4ACoreJAXB.XSD_DT, null),
+                                      new eu.de4a.iem.core.jaxb.dt.ObjectFactory ()::createUSIRedirectUser);
   }
 
   @Nonnull
   public static DE4ACoreMarshaller <ResponseExtractMultiEvidenceType> dtResponseTransferEvidenceMarshaller (@Nonnull final IDE4ACanonicalEvidenceType aCanonicalEvidenceType)
   {
     return new DE4ACoreMarshaller <> (ResponseExtractMultiEvidenceType.class,
-                                  _getXSDs (CDE4ACoreJAXB.XSD_DT, aCanonicalEvidenceType.getAllXSDs ()),
-                                  new eu.de4a.iem.core.jaxb.dt.ObjectFactory ()::createResponseTransferEvidence);
+                                      _getXSDs (CDE4ACoreJAXB.XSD_DT, aCanonicalEvidenceType.getAllXSDs ()),
+                                      new eu.de4a.iem.core.jaxb.dt.ObjectFactory ()::createResponseTransferEvidence);
   }
 
   @Nonnull
   public static DE4ACoreMarshaller <ResponseEventSubscriptionType> dtResponseEventSubscriptionMarshaller ()
   {
     return new DE4ACoreMarshaller <> (ResponseEventSubscriptionType.class,
-                                  _getXSDs (CDE4ACoreJAXB.XSD_DT, null),
-                                  new eu.de4a.iem.core.jaxb.dt.ObjectFactory ()::createResponseEventSubscription);
+                                      _getXSDs (CDE4ACoreJAXB.XSD_DT, null),
+                                      new eu.de4a.iem.core.jaxb.dt.ObjectFactory ()::createResponseEventSubscription);
   }
 
   @Nonnull
   public static DE4ACoreMarshaller <EventNotificationType> dtEventNotificationMarshaller ()
   {
     return new DE4ACoreMarshaller <> (EventNotificationType.class,
-                                  _getXSDs (CDE4ACoreJAXB.XSD_DT, null),
-                                  new eu.de4a.iem.core.jaxb.dt.ObjectFactory ()::createEventNotification);
+                                      _getXSDs (CDE4ACoreJAXB.XSD_DT, null),
+                                      new eu.de4a.iem.core.jaxb.dt.ObjectFactory ()::createEventNotification);
   }
 
   // Default response
@@ -212,7 +214,7 @@ public class DE4ACoreMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTY
   public static DE4ACoreMarshaller <ResponseErrorType> defResponseMessage ()
   {
     return new DE4ACoreMarshaller <> (ResponseErrorType.class,
-                                  _getXSDs (CDE4ACoreJAXB.XSD_DEFAULT_RESPONSE, null),
-                                  new eu.de4a.iem.core.jaxb.defresp.ObjectFactory ()::createResponseMessage);
+                                      _getXSDs (CDE4ACoreJAXB.XSD_DEFAULT_RESPONSE, null),
+                                      new eu.de4a.iem.core.jaxb.defresp.ObjectFactory ()::createResponseMessage);
   }
 }

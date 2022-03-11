@@ -117,7 +117,7 @@ public interface IJAXBVersatileWriter <T> extends IVersatileWriter <T>
    *        The byte buffer to write to. If the buffer is too small, it is
    *        automatically extended. May not be <code>null</code>.
    * @return {@link ESuccess}
-   * @throws BufferOverflowException
+   * @throws java.nio.BufferOverflowException
    *         If the ByteBuffer is too small
    */
   @Nonnull
@@ -155,8 +155,8 @@ public interface IJAXBVersatileWriter <T> extends IVersatileWriter <T>
   /**
    * Convert the passed object to XML. This method is potentially dangerous,
    * when using StreamResult because it may create invalid XML. Only when using
-   * the {@link SafeXMLStreamWriter} it is ensured that only valid XML is
-   * created!
+   * the {@link com.helger.xml.serialize.write.SafeXMLStreamWriter} it is
+   * ensured that only valid XML is created!
    *
    * @param aResult
    *        The result object holder. May not be <code>null</code>. Usually

@@ -32,6 +32,7 @@ import com.helger.commons.state.ESuccess;
 import com.helger.jaxb.IJAXBWriter.IJAXBMarshaller;
 import com.helger.xml.microdom.IMicroDocument;
 import com.helger.xml.microdom.IMicroElement;
+import com.helger.xml.serialize.write.SafeXMLStreamWriter;
 
 /**
  * Base interface for something that can be written to different destinations.
@@ -91,7 +92,7 @@ public interface IVersatileWriter <T>
    *        The byte buffer to write to. If the buffer is too small, it is
    *        automatically extended. May not be <code>null</code>.
    * @return {@link ESuccess}
-   * @throws BufferOverflowException
+   * @throws java.nio.BufferOverflowException
    *         If the ByteBuffer is too small
    */
   @Nonnull

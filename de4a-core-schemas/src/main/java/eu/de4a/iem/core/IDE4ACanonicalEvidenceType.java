@@ -46,6 +46,10 @@ public interface IDE4ACanonicalEvidenceType
   /**
    * A specific instance that encapsulates the provided
    * {@link IDE4ACanonicalEvidenceType} objects.
+   *
+   * @param aTypes
+   *        The canonical evidence types to be combined
+   * @return Never <code>null</code>.
    */
   @Nonnull
   static IDE4ACanonicalEvidenceType multiple (@Nonnull final IDE4ACanonicalEvidenceType... aTypes)
