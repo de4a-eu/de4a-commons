@@ -27,6 +27,7 @@
         <ct:DateOfBirth>2001-01-01</ct:DateOfBirth>
       </ct:DataSubjectRepresentative>
     </ct:DataRequestSubject>
+    <ct:CanonicalEvidenceTypeId>test</ct:CanonicalEvidenceTypeId>
     <ct:CanonicalEvidence>
        <alias xmlns="urn:anything:else">asdf</alias>
     </ct:CanonicalEvidence>
