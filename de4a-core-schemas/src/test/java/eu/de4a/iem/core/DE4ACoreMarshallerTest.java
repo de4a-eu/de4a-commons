@@ -11,7 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package eu.de4a.iem.xml.de4a;
+package eu.de4a.iem.core;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -20,6 +20,7 @@ import java.io.File;
 
 import javax.annotation.Nonnull;
 
+import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,13 +28,13 @@ import com.helger.commons.wrapper.Wrapper;
 import com.helger.jaxb.GenericJAXBMarshaller;
 
 /**
- * Test class for class {@link DE4AMarshaller}.
+ * Test class for class {@link DE4ACoreMarshaller}.
  *
  * @author Philip Helger
  */
-public final class DE4AMarshallerTest
+public final class DE4ACoreMarshallerTest
 {
-  private static final Logger LOGGER = LoggerFactory.getLogger (DE4AMarshallerTest.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger (DE4ACoreMarshallerTest.class);
   private static final String BASE_PATH = "src/test/resources/de4a/";
 
   @SuppressWarnings ("unused")
@@ -76,40 +77,10 @@ public final class DE4AMarshallerTest
     }
   }
 
-  // TODO fix
-  // @Test
-  // public void testDE_USI ()
-  // {
-  // // Request
-  // _testReadWrite (DE4ACoreMarshaller.deUsiRequestMarshaller
-  // (EDE4ACanonicalEvidenceType.T42_COMPANY_INFO_V06),
-  // new File (BASE_PATH + "core/t4.2/0.6/DE1-USI-request-T42.xml"));
-  // }
-  //
-  // @Test
-  // public void testDO_IM ()
-  // {
-  // // Response
-  // _testReadWrite (DE4ACoreMarshaller.doImResponseMarshaller
-  // (EDE4ACanonicalEvidenceType.T42_COMPANY_INFO_V06),
-  // new File (BASE_PATH + "core/t4.2/0.6/DO1-IM-response-T42.xml"));
-  // }
-  //
-  // @Test
-  // public void testDR_IM ()
-  // {
-  // // Response
-  // _testReadWrite (DE4ACoreMarshaller.drImResponseMarshaller
-  // (EDE4ACanonicalEvidenceType.T42_COMPANY_INFO_V06),
-  // new File (BASE_PATH + "core/t4.2/0.6/DR1-IM-response-T42.xml"));
-  // }
-  //
-  // @Test
-  // public void testDT_USI ()
-  // {
-  // // Request
-  // _testReadWrite (DE4ACoreMarshaller.dtUsiRequestMarshaller
-  // (EDE4ACanonicalEvidenceType.T42_COMPANY_INFO_V06),
-  // new File (BASE_PATH + "core/t4.2/0.6/DT1-USI-request-T42.xml"));
-  // }
+  @Test
+  public void testDE ()
+  {
+    _testReadWrite (DE4ACoreMarshaller.deRequestForwardEvidenceMarshaller (IDE4ACanonicalEvidenceType.NONE),
+                    new File (BASE_PATH + "core/DE-request-forward-evidence.xml"));
+  }
 }

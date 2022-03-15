@@ -3,7 +3,7 @@
 Shared stuff for DE4A software components.
 
 Last release: 
-* Iteration 2: **0.2.1**
+* Iteration 2: **0.2.2**
 * Iteration 1: **0.1.11**
 
 In the DE4A project we are differentiating between "Iteration 1" and "Iteration 2". As they are incompatible, care needs to be taken, that they are not mixed together.
@@ -13,6 +13,9 @@ The `development` branch is used for development of Iteration 2 stuff.
 
 ## History
 
+* v0.2.2 - 2022-03-11
+    * Extracted the IAL stuff into a separate project
+    * Extracted the Core Schemas into a separate submodule
 * v0.2.1 - 2021-09-16
     * Simplified the XSD structure and added a constant for the Specification Identifier
 * v0.2.0 - 2021-09-01

@@ -19,7 +19,7 @@
   <parent>
     <groupId>eu.de4a</groupId>
     <artifactId>de4a-commons-parent-pom</artifactId>
-    <version>0.2.2-SNAPSHOT</version>
+    <version>0.2.3-SNAPSHOT</version>
   </parent>
   <artifactId>de4a-iem</artifactId>
   <packaging>bundle</packaging>
@@ -84,11 +84,11 @@
     </dependency>
     <dependency>
       <groupId>com.helger.ubl</groupId>
-      <artifactId>ph-ubl20</artifactId>
+      <artifactId>ph-ubl23</artifactId>
     </dependency>
     <dependency>
-      <groupId>com.helger.ubl</groupId>
-      <artifactId>ph-ubl23</artifactId>
+      <groupId>eu.de4a</groupId>
+      <artifactId>de4a-core-schemas</artifactId>
     </dependency>
 
     <dependency>
@@ -121,8 +121,8 @@
         <artifactId>maven-bundle-plugin</artifactId>
         <configuration>
           <instructions>
-            <Automatic-Module-Name>eu.de4a.edm</Automatic-Module-Name>
-            <Export-Package>eu.de4a.edm.*</Export-Package>
+            <Automatic-Module-Name>eu.de4a.iem.xml</Automatic-Module-Name>
+            <Export-Package>eu.de4a.iem.xml.*</Export-Package>
             <Import-Package>!javax.annotation.*,*</Import-Package>
             <Require-Capability>osgi.extender; filter:="(osgi.extender=osgi.serviceloader.registrar)"</Require-Capability>
             <Provide-Capability>osgi.serviceloader; osgi.serviceloader=com.helger.schematron.svrl.ISVRLLocationBeautifierSPI</Provide-Capability>
@@ -149,9 +149,9 @@
         </configuration>
       </plugin>
       <plugin>
-        <groupId>com.helger.maven</groupId>
-        <artifactId>maven-jaxb2-plugin</artifactId>
-        <version>0.14.3</version>
+        <groupId>com.evolvedbinary.maven.jvnet</groupId>
+        <artifactId>jaxb2-maven-plugin</artifactId>
+        <version>0.15.0</version>
         <executions>
           <execution>
             <id>core</id>
@@ -160,13 +160,11 @@
             </goals>
             <configuration>
               <schemaIncludes>
-                <schemaInclude>core/**/*.xsd</schemaInclude>
                 <schemaInclude>pilot-shared/*.xsd</schemaInclude>
                 <schemaInclude>t4.1/uc1/SA-UC*.xsd</schemaInclude>
                 <schemaInclude>t4.2/*.xsd</schemaInclude>
               </schemaIncludes>
               <bindingIncludes>
-                <bindingInclude>bindings-core.xjb</bindingInclude>
                 <bindingInclude>bindings-pilot-shared.xjb</bindingInclude>
                 <bindingInclude>bindings-t41.xjb</bindingInclude>
                 <bindingInclude>bindings-t42.xjb</bindingInclude>
