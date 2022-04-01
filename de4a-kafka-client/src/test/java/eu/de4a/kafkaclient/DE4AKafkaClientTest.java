@@ -16,14 +16,17 @@ package eu.de4a.kafkaclient;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import com.helger.httpclient.HttpClientSettings;
 import org.apache.kafka.common.KafkaException;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.helger.commons.collection.impl.ICommonsMap;
 import com.helger.commons.error.level.EErrorLevel;
+import com.helger.httpclient.HttpClientSettings;
 
 /**
  * Test class for class {@link DE4AKafkaClient}.
@@ -32,6 +35,8 @@ import com.helger.commons.error.level.EErrorLevel;
  */
 public final class DE4AKafkaClientTest
 {
+  private static final Logger LOGGER = LoggerFactory.getLogger (DE4AKafkaClientTest.class);
+
   @BeforeClass
   public static void beforeAll ()
   {
@@ -48,7 +53,7 @@ public final class DE4AKafkaClientTest
   @Test
   public void testBasic ()
   {
-    if (false)
+    if (true)
     {
       // Set the correct server to see real messages
       DE4AKafkaSettings.defaultProperties ().put ("bootstrap.servers", "de4a.simplegob.com:9092");
@@ -63,6 +68,7 @@ public final class DE4AKafkaClientTest
     catch (final KafkaException ex)
     {
       // lets act as if we are not surprised...
+      LOGGER.error ("Something's wrong with the world today....", ex);
     }
     finally
     {
@@ -81,23 +87,27 @@ public final class DE4AKafkaClientTest
   }
 
   @Test
-    public void testHttpMode(){
-      if(false) {
+  @Ignore
+  public void testHttpMode ()
+  {
+    DE4AKafkaSettings.setKafkaHttp (true);
+    DE4AKafkaSettings.defaultProperties ().put ("bootstrap.servers", "https://de4a-dev-kafka.egovlab.eu");
+    DE4AKafkaSettings.setHttpClientSetting (new HttpClientSettings ());
 
-          DE4AKafkaSettings.setKafkaHttp(true);
-          DE4AKafkaSettings.defaultProperties().put("bootstrap.servers", "https://de4a-dev-kafka.egovlab.eu");
-          DE4AKafkaSettings.setHttpClientSetting(new HttpClientSettings());
-
-          try {
-              for (int i = 0; i < 5; i++) {
-                  DE4AKafkaClient.send(EErrorLevel.INFO, "Test-" + i);
-              }
-          } catch (KafkaException ex) {
-              System.out.println("Oupsie: " + ex.getMessage());
-          } finally {
-              DE4AKafkaClient.close();
-          }
+    try
+    {
+      for (int i = 0; i < 5; i++)
+      {
+        DE4AKafkaClient.send (EErrorLevel.INFO, "Test-" + i);
       }
+    }
+    catch (final KafkaException ex)
+    {
+      System.out.println ("Oupsie: " + ex.getMessage ());
+    }
+    finally
+    {
+      DE4AKafkaClient.close ();
+    }
   }
-
 }
