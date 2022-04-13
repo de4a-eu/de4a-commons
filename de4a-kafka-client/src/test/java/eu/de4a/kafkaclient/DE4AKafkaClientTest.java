@@ -51,13 +51,12 @@ public final class DE4AKafkaClientTest
   }
 
   @Test
+  @Ignore ("Don't spam the Tracker")
   public void testBasic ()
   {
-    if (true)
-    {
-      // Set the correct server to see real messages
-      DE4AKafkaSettings.defaultProperties ().put ("bootstrap.servers", "de4a.simplegob.com:9092");
-    }
+    // Set the correct server to see real messages
+    DE4AKafkaSettings.defaultProperties ().put ("bootstrap.servers", "de4a.simplegob.com:9092");
+
     try
     {
       // Don't send too many - will take forever if no Kafka server is up and
@@ -103,7 +102,7 @@ public final class DE4AKafkaClientTest
     }
     catch (final KafkaException ex)
     {
-      System.out.println ("Oupsie: " + ex.getMessage ());
+      LOGGER.error ("Ooops", ex);
     }
     finally
     {
