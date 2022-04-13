@@ -26,7 +26,7 @@
     <xjc:javaType name="com.helger.commons.datetime.XMLOffsetDate"     xmlType="xsd:date"     adapter="com.helger.jaxb.adapter.AdapterXMLOffsetDate" />
     <xjc:javaType name="com.helger.commons.datetime.XMLOffsetTime"     xmlType="xsd:time"     adapter="com.helger.jaxb.adapter.AdapterXMLOffsetTime" />
   </globalBindings>
-  <bindings schemaLocation="../resources/schemas/core/provided/CV-DataTypes.xsd">
+  <bindings schemaLocation="../resources/schemas/core/external/CV-DataTypes.xsd">
     <schemaBindings>
       <package name="eu.de4a.iem.core.jaxb.cv.dt" />
     </schemaBindings>
