@@ -13,9 +13,11 @@ The `development` branch is used for development of Iteration 2 stuff.
 
 ## History
 
+* v0.2.3 - 2022-04-13
+    * Renamed the submodule `de4a-iem` to `de4a-canonical-evidences`
 * v0.2.2 - 2022-03-11
-    * Extracted the IAL stuff into a separate project
-    * Extracted the Core Schemas into a separate submodule
+    * Extracted the IAL stuff into a separate project - https://github.com/de4a-wp5/ial-service
+    * Extracted the Core Schemas into a separate submodule `de4a-core-schemas`
 * v0.2.1 - 2021-09-16
     * Simplified the XSD structure and added a constant for the Specification Identifier
 * v0.2.0 - 2021-09-01

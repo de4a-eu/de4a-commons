@@ -21,10 +21,10 @@
     <artifactId>de4a-commons-parent-pom</artifactId>
     <version>0.2.3-SNAPSHOT</version>
   </parent>
-  <artifactId>de4a-iem</artifactId>
+  <artifactId>de4a-canonical-evidences</artifactId>
   <packaging>bundle</packaging>
-  <name>de4a-iem</name>
-  <url>https://github.com/de4a-wp5/de4a-commons/de4a-iem</url>
+  <name>de4a-canonical-evidences</name>
+  <url>https://github.com/de4a-wp5/de4a-commons/de4a-canonical-evidences</url>
   <inceptionYear>2021</inceptionYear>
 
   <licenses>
