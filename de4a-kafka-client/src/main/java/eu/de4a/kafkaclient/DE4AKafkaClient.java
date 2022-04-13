@@ -48,11 +48,10 @@ public final class DE4AKafkaClient
       LOGGER.debug ("Sending to Kafka: '" + sLogText + "'");
 
     // Send but don't wait for the commit!
-    if(DE4AKafkaSettings.isHttpEnabled()){
-        DE4AKafkaManager.sendHTTP((String) null, sLogText);
-    } else {
-        DE4AKafkaManager.sendTCP((String) null, sLogText, null);
-    }
+    if (DE4AKafkaSettings.isKafkaHttpEnabled ())
+      DE4AKafkaManager.sendHTTP ((String) null, sLogText);
+    else
+      DE4AKafkaManager.sendTCP ((String) null, sLogText, null);
   }
 
   /**
@@ -102,7 +101,9 @@ public final class DE4AKafkaClient
    *        Exception to be logged. May be <code>null</code>.
    * @see DE4AKafkaSettings#isKafkaEnabled()
    */
-  public static void send (@Nullable final IErrorLevel aErrorLevel, @Nonnull final Supplier <String> aValue, @Nullable final Throwable t)
+  public static void send (@Nullable final IErrorLevel aErrorLevel,
+                           @Nonnull final Supplier <String> aValue,
+                           @Nullable final Throwable t)
   {
     String sValue = null;
     if (aErrorLevel != null && DE4AKafkaSettings.isLoggingEnabled ())

@@ -28,6 +28,7 @@ import org.apache.http.client.methods.RequestBuilder;
 import org.apache.http.entity.ByteArrayEntity;
 import org.apache.kafka.clients.producer.Callback;
 import org.apache.kafka.clients.producer.KafkaProducer;
+import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.clients.producer.RecordMetadata;
@@ -57,7 +58,7 @@ final class DE4AKafkaManager
   private static final Logger LOGGER = LoggerFactory.getLogger (DE4AKafkaManager.class);
   private static final SimpleReadWriteLock RW_LOCK = new SimpleReadWriteLock ();
   @GuardedBy ("RW_LOCK")
-  private static KafkaProducer <String, String> s_aProducer;
+  private static Producer <String, String> s_aProducer;
 
   private static final ICommonsMap <String, String> DEFAULT_PROPS = new CommonsHashMap <> ();
 
@@ -65,8 +66,10 @@ final class DE4AKafkaManager
   {
     // Instead of 16K
     // s_aProps.put ("batch.size", "1");
+
     // Server URL - MUST be configured
     // s_aProps.put ("bootstrap.servers", "193.10.8.211:7073");
+
     // Default: 5secs
     DEFAULT_PROPS.put (ProducerConfig.MAX_BLOCK_MS_CONFIG, "5000");
   }
@@ -104,10 +107,10 @@ final class DE4AKafkaManager
    *         in case of invalid properties (like non-existing server domain)
    */
   @Nonnull
-  public static KafkaProducer <String, String> getOrCreateProducer ()
+  public static Producer <String, String> getOrCreateProducer ()
   {
     // Read-lock first
-    KafkaProducer <String, String> ret = RW_LOCK.readLockedGet ( () -> s_aProducer);
+    Producer <String, String> ret = RW_LOCK.readLockedGet ( () -> s_aProducer);
     if (ret == null)
     {
       RW_LOCK.writeLock ().lock ();
@@ -118,7 +121,9 @@ final class DE4AKafkaManager
         if (ret == null)
         {
           // Create new one
-          s_aProducer = ret = new KafkaProducer <> (_getCreationProperties (), new StringSerializer (), new StringSerializer ());
+          s_aProducer = ret = new KafkaProducer <> (_getCreationProperties (),
+                                                    new StringSerializer (),
+                                                    new StringSerializer ());
           if (LOGGER.isDebugEnabled ())
             LOGGER.debug ("Successfully created new KafkaProducer");
         }
@@ -140,6 +145,8 @@ final class DE4AKafkaManager
     RW_LOCK.writeLocked ( () -> {
       if (s_aProducer != null)
       {
+        if (LOGGER.isDebugEnabled ())
+          LOGGER.debug ("Trying to close KafkaProducer");
         s_aProducer.close ();
         s_aProducer = null;
         if (LOGGER.isDebugEnabled ())
@@ -170,8 +177,21 @@ final class DE4AKafkaManager
   {
     ValueEnforcer.notNull (sValue, "Value");
 
-    final ProducerRecord <String, String> aMessage = new ProducerRecord <> (DE4AKafkaSettings.getKafkaTopic (), sKey, sValue);
+    final ProducerRecord <String, String> aMessage = new ProducerRecord <> (DE4AKafkaSettings.getKafkaTopic (),
+                                                                            sKey,
+                                                                            sValue);
     return getOrCreateProducer ().send (aMessage, aKafkaCallback);
+  }
+
+  @Nonnull
+  private static byte [] _getJsonAsBytes (@Nullable final String key, @Nonnull final String value)
+  {
+    return new JsonWriter ().writeAsByteArray (new JsonObject ().add ("records",
+                                                                      new JsonArray ().add (new JsonObject ().add ("key",
+                                                                                                                   key)
+                                                                                                             .add ("value",
+                                                                                                                   value))),
+                                               StandardCharsets.UTF_8);
   }
 
   @Nonnull
@@ -179,24 +199,27 @@ final class DE4AKafkaManager
   {
     ValueEnforcer.notNull (sValue, "Value");
 
-    final HttpClientSettings settings = DE4AKafkaSettings.getHttpClientSettings ();
+    final HttpClientSettings aHttpClientSettings = DE4AKafkaSettings.getHttpClientSettings ();
 
-    try (final HttpClientManager mgr = HttpClientManager.create (settings))
+    try (final HttpClientManager aHCMgr = HttpClientManager.create (aHttpClientSettings))
     {
-      final ByteArrayEntity entity = new ByteArrayEntity (getJsonAsBytes (sKey, sValue));
-      entity.setContentEncoding ("utf-8");
+      final ByteArrayEntity entity = new ByteArrayEntity (_getJsonAsBytes (sKey, sValue));
+      entity.setContentEncoding (StandardCharsets.UTF_8.name ());
 
-      final String sURI = (String) _getCreationProperties ().get ("bootstrap.servers") + "/topics/" + DE4AKafkaSettings.getKafkaTopic ();
+      final String sURI = (String) _getCreationProperties ().get ("bootstrap.servers") +
+                          "/topics/" +
+                          DE4AKafkaSettings.getKafkaTopic ();
       if (LOGGER.isDebugEnabled ())
         LOGGER.debug ("Posting to Kafka server " + sURI);
 
       final HttpUriRequest req = RequestBuilder.post ()
                                                .setUri (sURI)
-                                               .setHeader (HttpHeaders.CONTENT_TYPE, "application/vnd.kafka.json.v2+json; charset=utf-8")
+                                               .setHeader (HttpHeaders.CONTENT_TYPE,
+                                                           "application/vnd.kafka.json.v2+json; charset=utf-8")
                                                .setEntity (entity)
                                                .build ();
 
-      try (final CloseableHttpResponse res = mgr.execute (req))
+      try (final CloseableHttpResponse res = aHCMgr.execute (req))
       {
         if (LOGGER.isInfoEnabled ())
           LOGGER.info ("Kafka REST responsecode: " + res.getStatusLine ().getStatusCode ());
@@ -207,13 +230,4 @@ final class DE4AKafkaManager
       LOGGER.debug ("IOException: " + ex.getMessage ());
     }
   }
-
-  private static byte [] getJsonAsBytes (final String key, final String value)
-  {
-    return new JsonWriter ().writeAsByteArray (new JsonObject ().add ("records",
-                                                                      new JsonArray ().add (new JsonObject ().add ("key", key)
-                                                                                                             .add ("value", value))),
-                                               StandardCharsets.UTF_8);
-  }
-
 }

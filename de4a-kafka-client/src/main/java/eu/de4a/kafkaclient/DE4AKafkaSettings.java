@@ -118,8 +118,19 @@ public final class DE4AKafkaSettings
   /**
    * @return <code>true</code> if HTTP mode is enable, <code>false</code> if
    *         not. Disabled by default.
+   * @deprecated Use {@link #isKafkaHttpEnabled()} instead
    */
+  @Deprecated
   public static boolean isHttpEnabled ()
+  {
+    return isKafkaHttpEnabled ();
+  }
+
+  /**
+   * @return <code>true</code> if HTTP mode is enable, <code>false</code> if
+   *         not. Disabled by default.
+   */
+  public static boolean isKafkaHttpEnabled ()
   {
     return USE_HTTP.get ();
   }
@@ -137,7 +148,24 @@ public final class DE4AKafkaSettings
     return HTTP_CLIENT_SETTINGS.get ();
   }
 
+  /**
+   * @param settings
+   *        The new HTTP client settings to be used. May not be
+   *        <code>null</code>.
+   * @deprecated Use {@link #setHttpClientSettings(HttpClientSettings)} instead
+   */
+  @Deprecated
   public static void setHttpClientSetting (@Nonnull final HttpClientSettings settings)
+  {
+    setHttpClientSettings (settings);
+  }
+
+  /**
+   * @param settings
+   *        The new HTTP client settings to be used. May not be
+   *        <code>null</code>.
+   */
+  public static void setHttpClientSettings (@Nonnull final HttpClientSettings settings)
   {
     ValueEnforcer.notNull (settings, "HttpClientSettings");
     HTTP_CLIENT_SETTINGS.set (settings);
