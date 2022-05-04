@@ -8,3 +8,7 @@ The SMP truststore contains the following certificates:
 * Let's Encrypt certificates are TLS certificates to access Directory
 
 The password to the trust store is `de4a`.
+
+Updates
+* 2022-05-04 "de4a-truststore-smp-v3-pw-de4a2.jks"
+    * Added the "Telesec Business CA 21"
