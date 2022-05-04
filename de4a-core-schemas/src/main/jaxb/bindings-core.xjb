@@ -26,16 +26,11 @@
     <xjc:javaType name="com.helger.commons.datetime.XMLOffsetDate"     xmlType="xsd:date"     adapter="com.helger.jaxb.adapter.AdapterXMLOffsetDate" />
     <xjc:javaType name="com.helger.commons.datetime.XMLOffsetTime"     xmlType="xsd:time"     adapter="com.helger.jaxb.adapter.AdapterXMLOffsetTime" />
   </globalBindings>
-  <bindings schemaLocation="../resources/schemas/core/provided/CV-DataTypes.xsd">
+  
+  <!-- External stuff -->
+  <bindings schemaLocation="../resources/schemas/core/external/CV-DataTypes.xsd">
     <schemaBindings>
       <package name="eu.de4a.iem.core.jaxb.cv.dt" />
-    </schemaBindings>
-  </bindings>
-   
-  <!-- DE4A stuff -->
-  <bindings schemaLocation="../resources/schemas/core/de4a/common-types.xsd">
-    <schemaBindings>
-      <package name="eu.de4a.iem.core.jaxb.common" />
     </schemaBindings>
   </bindings>
   <bindings schemaLocation="../resources/schemas/core/external/eidas-LP.xsd">
@@ -46,6 +41,13 @@
   <bindings schemaLocation="../resources/schemas/core/external/eidas-NP.xsd">
     <schemaBindings>
       <package name="eu.de4a.iem.core.jaxb.eidas.np" />
+    </schemaBindings>
+  </bindings>
+   
+  <!-- DE4A stuff -->
+  <bindings schemaLocation="../resources/schemas/core/de4a/common-types.xsd">
+    <schemaBindings>
+      <package name="eu.de4a.iem.core.jaxb.common" />
     </schemaBindings>
   </bindings>
   

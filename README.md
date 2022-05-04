@@ -3,7 +3,7 @@
 Shared stuff for DE4A software components.
 
 Last release: 
-* Iteration 2: **0.2.2**
+* Iteration 2: **0.2.4**
 * Iteration 1: **0.1.11**
 
 In the DE4A project we are differentiating between "Iteration 1" and "Iteration 2". As they are incompatible, care needs to be taken, that they are not mixed together.
@@ -14,6 +14,8 @@ The `development` branch is used for development of Iteration 2 stuff.
 ## History
 
 * v0.2.4 - 2022-04-13
+    * Fixed the date/time/dateTime JAXB binding for T41 and T42.
+    * Changed the package names in the `de4a-canonical-evidences` submodule
 * v0.2.3 - 2022-04-13
     * Renamed the submodule `de4a-iem` to `de4a-canonical-evidences`
 * v0.2.2 - 2022-03-11
@@ -60,7 +62,8 @@ mvn clean install
 
 and you receive a set of JAR files in the respective submodule `target` directory.
 
-## Modules
+## Submodules
 
 * **de4a-kafka-client**: a small wrapper to send messages to the shared Kafka instance for remote debugging
-* **de4a-iem**: a wrapper around the DE4A IEM (Information Exchange Model)
+* **de4a-core-schemas**: a wrapper around the DE4A IEM (Information Exchange Model) core schemas
+* **de4a-canonical-evidences**: a wrapper around the pilot specific canonical evidence types

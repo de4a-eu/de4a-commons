@@ -42,7 +42,7 @@ public final class CDE4ACoreJAXB
     final ICommonsList <ClassPathResource> a = new CommonsArrayList <> ();
     a.add (CXML_XSD.getXSDResource ());
     a.add (CCCTS.getXSDResource ());
-    a.add (new ClassPathResource ("schemas/core/provided/CV-DataTypes.xsd", _getCL ()));
+    a.add (new ClassPathResource ("schemas/core/external/CV-DataTypes.xsd", _getCL ()));
     a.add (new ClassPathResource ("schemas/core/external/eidas-LP.xsd", _getCL ()));
     a.add (new ClassPathResource ("schemas/core/external/eidas-NP.xsd", _getCL ()));
     a.add (new ClassPathResource ("schemas/core/de4a/common-types.xsd", _getCL ()));
@@ -54,7 +54,8 @@ public final class CDE4ACoreJAXB
   public static final ClassPathResource XSD_DT = new ClassPathResource ("schemas/core/DT.xsd", _getCL ());
   public static final ClassPathResource XSD_DO = new ClassPathResource ("schemas/core/DO.xsd", _getCL ());
 
-  public static final ClassPathResource XSD_DEFAULT_RESPONSE = new ClassPathResource ("schemas/core/def-response.xsd", _getCL ());
+  public static final ClassPathResource XSD_DEFAULT_RESPONSE = new ClassPathResource ("schemas/core/def-response.xsd",
+                                                                                      _getCL ());
 
   private CDE4ACoreJAXB ()
   {}

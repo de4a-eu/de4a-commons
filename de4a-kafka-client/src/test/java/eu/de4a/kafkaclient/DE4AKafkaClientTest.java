@@ -91,7 +91,7 @@ public final class DE4AKafkaClientTest
   {
     DE4AKafkaSettings.setKafkaHttp (true);
     DE4AKafkaSettings.defaultProperties ().put ("bootstrap.servers", "https://de4a-dev-kafka.egovlab.eu");
-    DE4AKafkaSettings.setHttpClientSetting (new HttpClientSettings ());
+    DE4AKafkaSettings.setHttpClientSettings (new HttpClientSettings ());
 
     try
     {
