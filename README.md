@@ -13,6 +13,7 @@ The `development` branch is used for development of Iteration 2 stuff.
 
 ## History
 
+* v0.2.4 - 2022-04-13
 * v0.2.3 - 2022-04-13
     * Renamed the submodule `de4a-iem` to `de4a-canonical-evidences`
 * v0.2.2 - 2022-03-11

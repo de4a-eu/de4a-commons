@@ -19,7 +19,7 @@
   <parent>
     <groupId>eu.de4a</groupId>
     <artifactId>de4a-commons-parent-pom</artifactId>
-    <version>0.2.3-SNAPSHOT</version>
+    <version>0.2.5-SNAPSHOT</version>
   </parent>
   <artifactId>de4a-core-schemas</artifactId>
   <packaging>bundle</packaging>
