@@ -211,7 +211,7 @@ public class DE4ACoreMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTY
   // Default response
 
   @Nonnull
-  public static DE4ACoreMarshaller <ResponseErrorType> defResponseMessage ()
+  public static DE4ACoreMarshaller <ResponseErrorType> defResponseErrorMarshaller ()
   {
     return new DE4ACoreMarshaller <> (ResponseErrorType.class,
                                       _getXSDs (CDE4ACoreJAXB.XSD_DEFAULT_RESPONSE, null),
