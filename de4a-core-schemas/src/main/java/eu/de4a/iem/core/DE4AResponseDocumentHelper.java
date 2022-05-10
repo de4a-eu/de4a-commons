@@ -48,8 +48,10 @@ public final class DE4AResponseDocumentHelper
     ValueEnforcer.notEmpty (sText, "Text");
 
     final ErrorType ret = new ErrorType ();
-    ret.setCode (sCode);
-    ret.setText (sText);
+    // length checks
+    ret.setCode (sCode.length () <= 10 ? sCode : sCode.substring (0, 10));
+    // length checks
+    ret.setText (sText.length () <= 4000 ? sText : sText.substring (0, 4000));
     return ret;
   }
 
