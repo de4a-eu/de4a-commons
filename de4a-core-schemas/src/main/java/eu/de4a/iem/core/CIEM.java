@@ -14,6 +14,9 @@ public final class CIEM
   // Iteration 2 identifier for the IEM "/SpecificationId" element
   public static final String SPECIFICATION_ID = "de4a-iem-v2";
 
+  // Specific Document Type Identifier value for multi-item requests
+  public static final String MULTI_ITEM_TYPE = "MultiItem:1.0";
+
   private CIEM ()
   {}
 }
