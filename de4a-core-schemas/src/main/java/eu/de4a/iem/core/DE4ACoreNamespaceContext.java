@@ -29,7 +29,7 @@ public class DE4ACoreNamespaceContext extends MapBasedNamespaceContext
 {
   private static final class SingletonHolder
   {
-    static final DE4ACoreNamespaceContext s_aInstance = new DE4ACoreNamespaceContext ();
+    static final DE4ACoreNamespaceContext INSTANCE = new DE4ACoreNamespaceContext ();
   }
 
   protected DE4ACoreNamespaceContext ()
@@ -44,6 +44,6 @@ public class DE4ACoreNamespaceContext extends MapBasedNamespaceContext
   @Nonnull
   public static DE4ACoreNamespaceContext getInstance ()
   {
-    return SingletonHolder.s_aInstance;
+    return SingletonHolder.INSTANCE;
   }
 }
