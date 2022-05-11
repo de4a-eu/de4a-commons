@@ -13,6 +13,8 @@ The `development` branch is used for development of Iteration 2 stuff.
 
 ## History
 
+* v0.2.5 - work in progress
+    * Removed the SA UC1 data model 2021-02-11
 * v0.2.4 - 2022-04-13
     * Fixed the date/time/dateTime JAXB binding for T41 and T42.
     * Changed the package names in the `de4a-canonical-evidences` submodule
