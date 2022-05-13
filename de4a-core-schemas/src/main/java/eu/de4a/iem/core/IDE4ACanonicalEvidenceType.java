@@ -60,7 +60,9 @@ public interface IDE4ACanonicalEvidenceType
       @Nonempty
       public String getDisplayName ()
       {
-        return "collectionOf(" + StringHelper.getImplodedMapped (',', aTypes, IDE4ACanonicalEvidenceType::getDisplayName) + ")";
+        return "collectionOf(" +
+               StringHelper.imploder ().separator (',').source (aTypes, IDE4ACanonicalEvidenceType::getDisplayName).build () +
+               ")";
       }
 
       @Nonnull

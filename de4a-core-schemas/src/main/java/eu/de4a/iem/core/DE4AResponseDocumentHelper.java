@@ -29,6 +29,10 @@ import eu.de4a.iem.core.jaxb.common.ResponseErrorType;
  */
 public final class DE4AResponseDocumentHelper
 {
+  // See DE4A XSD
+  public static final int MAX_ERROR_CODE_LENGTH = 10;
+  public static final int MAX_ERROR_TEXT_LENGTH = 4000;
+
   private DE4AResponseDocumentHelper ()
   {}
 
@@ -48,8 +52,10 @@ public final class DE4AResponseDocumentHelper
     ValueEnforcer.notEmpty (sText, "Text");
 
     final ErrorType ret = new ErrorType ();
-    ret.setCode (sCode);
-    ret.setText (sText);
+    // length checks
+    ret.setCode (sCode.length () <= MAX_ERROR_CODE_LENGTH ? sCode : sCode.substring (0, MAX_ERROR_CODE_LENGTH));
+    // length checks
+    ret.setText (sText.length () <= MAX_ERROR_TEXT_LENGTH ? sText : sText.substring (0, MAX_ERROR_TEXT_LENGTH));
     return ret;
   }
 
