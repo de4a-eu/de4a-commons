@@ -11,6 +11,26 @@ The last release of Iteration 1 is `0.1.11` and the development branch (if ever 
 
 The `development` branch is used for development of Iteration 2 stuff.
 
+## Building
+
+Prerequisites
+* Java 1.8 or later
+* Apache Maven 3.6 or later for building
+
+To build the latest version:
+
+```shell
+mvn clean install
+```
+
+and you receive a set of JAR files in the respective submodule `target` directory.
+
+## Submodules
+
+* **de4a-kafka-client**: a small wrapper to send messages to the shared Kafka instance for remote debugging
+* **de4a-core-schemas**: a wrapper around the DE4A IEM (Information Exchange Model) core schemas
+* **de4a-canonical-evidences**: a wrapper around the pilot specific canonical evidence types
+
 ## History
 
 * v0.2.5 - 2022-05-13
@@ -49,23 +69,3 @@ The `development` branch is used for development of Iteration 2 stuff.
     * XSD update for USI pattern
 * v0.1.2 - 2021-05-05
     * XSD updates for Studying Abroad 2021-04-13
-
-## Building
-
-Prerequisites
-* Java 1.8 or later
-* Apache Maven 3.6 or later for building
-
-To build the latest version:
-
-```shell
-mvn clean install
-```
-
-and you receive a set of JAR files in the respective submodule `target` directory.
-
-## Submodules
-
-* **de4a-kafka-client**: a small wrapper to send messages to the shared Kafka instance for remote debugging
-* **de4a-core-schemas**: a wrapper around the DE4A IEM (Information Exchange Model) core schemas
-* **de4a-canonical-evidences**: a wrapper around the pilot specific canonical evidence types
