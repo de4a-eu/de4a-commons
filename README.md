@@ -36,6 +36,7 @@ and you receive a set of JAR files in the respective submodule `target` director
 * v0.2.6 - work in progress
     * Changed `eu.de4a.iem.jaxb.t41.uc1.v2021_04_13` to `eu.de4a.iem.jaxb.t41.uc1.hed.v2021_04_13`
     * Changed `eu.de4a.iem.cev.de4a.t41.v2021_04_13` to `eu.de4a.iem.cev.de4a.t41`
+    * Added support for T4.1 Secondary Education Diploma data model
 * v0.2.5 - 2022-05-13
     * Removed the SA UC1 data model 2021-02-11
 * v0.2.4 - 2022-04-13
