@@ -41,6 +41,9 @@ and you receive a set of JAR files in the respective submodule `target` director
     * Added support for T4.1 Secondary Education Diploma data model
     * Added support for T4.1 Disability data model
     * Added support for T4.1 Large Family data model
+    * Updated the T4.3 Birth Evidence to v1.7
+    * Updated the T4.3 Domicile Registration Evidence to v1.7
+    * Updated the T4.3 Marriage Evidence to v1.7
 * v0.2.5 - 2022-05-13
     * Removed the SA UC1 data model 2021-02-11
 * v0.2.4 - 2022-04-13
