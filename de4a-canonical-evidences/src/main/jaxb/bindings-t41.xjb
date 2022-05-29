@@ -68,4 +68,9 @@
       <package name="eu.de4a.iem.jaxb.t41.uc1.sed.v2022_05_12" />
     </schemaBindings>
   </bindings>
+  <bindings schemaLocation="../resources/schemas/t4.1/SA-UC2-DisabilityEvidenceType-12-05-2022.xsd">
+    <schemaBindings>
+      <package name="eu.de4a.iem.jaxb.t41.uc2.de.v2022_05_12" />
+    </schemaBindings>
+  </bindings>
 </bindings>

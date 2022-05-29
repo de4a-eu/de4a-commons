@@ -25,7 +25,7 @@ import com.helger.xsds.xades132.CXAdES132;
 import com.helger.xsds.xml.CXML_XSD;
 
 /**
- * Constants for handling DE4A T4.1 v2021-04-13 pilot stuff
+ * Constants for handling DE4A T4.1 pilot stuff
  *
  * @author Philip Helger
  */
@@ -33,6 +33,7 @@ public final class CT41
 {
   public static final String NAMESPACE_URI_HED = "urn:eu-de4a:xsd:CanonicalEvidenceType::HigherEducationEvidence:v1.0";
   public static final String NAMESPACE_URI_SED = "urn:eu-de4a:xsd:CanonicalEvidenceType::SecondaryEducationEvidence:v1.0";
+  public static final String NAMESPACE_URI_DE = "urn:eu-de4a:xsd:CanonicalEvidenceType::DisabilityEvidence:v1.0";
 
   private CT41 ()
   {}
@@ -94,6 +95,16 @@ public final class CT41
     final ICommonsList <ClassPathResource> aList = new CommonsArrayList <> ();
     _addEDCI (aList);
     aList.add (new ClassPathResource ("schemas/t4.1/SA-UC1-SecondaryEducationEvidenceType-12-05-2022.xsd", _getCL ()));
+    return aList;
+  }
+
+  @Nonnull
+  @ReturnsMutableCopy
+  public static ICommonsList <ClassPathResource> getAllXSDsDisability ()
+  {
+    final ICommonsList <ClassPathResource> aList = new CommonsArrayList <> ();
+    _addEDCI (aList);
+    aList.add (new ClassPathResource ("schemas/t4.1/SA-UC2-DisabilityEvidenceType-12-05-2022.xsd", _getCL ()));
     return aList;
   }
 }

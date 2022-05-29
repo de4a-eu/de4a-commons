@@ -33,5 +33,7 @@ public final class CT41Test
       assertTrue (aCP.getPath (), aCP.exists ());
     for (final ClassPathResource aCP : CT41.getAllXSDsSecondaryEducationDiploma ())
       assertTrue (aCP.getPath (), aCP.exists ());
+    for (final ClassPathResource aCP : CT41.getAllXSDsDisability ())
+      assertTrue (aCP.getPath (), aCP.exists ());
   }
 }

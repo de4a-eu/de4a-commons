@@ -71,4 +71,11 @@ public final class DE4AT41MarshallerTest
     _testReadWrite (DE4AT41Marshaller.secondaryEducationDiploma (),
                     new File (sBasePath + "SA-UC1-SecondaryEducationEvidenceType-sample.xml"));
   }
+
+  @Test
+  public void testDisability ()
+  {
+    final String sBasePath = "src/test/resources/de4a/t4.1/de/";
+    _testReadWrite (DE4AT41Marshaller.disability (), new File (sBasePath + "SA-UC2-DisabilityEvidenceSample.xml"));
+  }
 }
