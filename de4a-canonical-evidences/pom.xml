@@ -283,7 +283,6 @@ eu.de4a.ieam.jaxb.*</Export-Package>
             <configuration>
               <target>
                 <delete dir="${basedir}/target/generated-sources/t41/com/" />
-                <delete dir="${basedir}/target/generated-sources/t41/eu/de4a/iem/jaxb/w3/" />
                 <delete dir="${basedir}/target/generated-sources/t43/oasis/" />
               </target>
             </configuration>

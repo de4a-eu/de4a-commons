@@ -27,13 +27,6 @@
     <xjc:javaType name="com.helger.commons.datetime.XMLOffsetTime"     xmlType="xsd:time"     adapter="com.helger.jaxb.adapter.AdapterXMLOffsetTime" />
   </globalBindings>
 
-  <!-- CV 1.0 -->
-  <bindings schemaLocation="../resources/schemas/t4.1/CoreVocabularyBasicComponents-v1.00.xsd">
-    <schemaBindings>
-      <package name="eu.de4a.iem.jaxb.w3.cv10.bc" />
-    </schemaBindings>
-  </bindings>
-
   <!-- 
   <bindings schemaLocation="../resources/schemas/t4.1/edci_learningOpportunity.xsd">
     <bindings node="//xsd:element[@name='learningOutcomeType']">

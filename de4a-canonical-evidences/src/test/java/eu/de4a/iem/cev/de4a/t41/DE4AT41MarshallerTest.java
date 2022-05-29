@@ -11,7 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package eu.de4a.iem.cev.de4a.t41.v2021_04_13;
+package eu.de4a.iem.cev.de4a.t41;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -34,7 +34,6 @@ import com.helger.jaxb.GenericJAXBMarshaller;
 public final class DE4AT41MarshallerTest
 {
   private static final Logger LOGGER = LoggerFactory.getLogger (DE4AT41MarshallerTest.class);
-  private static final String BASE_PATH = "src/test/resources/de4a/t4.1/uc1/v2021-04-13/";
 
   private static <T> void _testReadWrite (@Nonnull final GenericJAXBMarshaller <T> aMarshaller,
                                           @Nonnull final File aFile)
@@ -57,10 +56,19 @@ public final class DE4AT41MarshallerTest
   @Test
   public void testHigherEducationDiploma ()
   {
+    final String sBasePath = "src/test/resources/de4a/t4.1/hed/";
     _testReadWrite (DE4AT41Marshaller.higherEducationDiploma (),
-                    new File (BASE_PATH + "HigherEducationEvidenceTypev3.2.xml"));
+                    new File (sBasePath + "HigherEducationEvidenceTypev3.2.xml"));
     _testReadWrite (DE4AT41Marshaller.higherEducationDiploma (),
-                    new File (BASE_PATH + "SA-UC1-11-02-2021-example-PT.xml"));
-    _testReadWrite (DE4AT41Marshaller.higherEducationDiploma (), new File (BASE_PATH + "SA-UC1-20-04-2021-SI.xml"));
+                    new File (sBasePath + "SA-UC1-11-02-2021-example-PT.xml"));
+    _testReadWrite (DE4AT41Marshaller.higherEducationDiploma (), new File (sBasePath + "SA-UC1-20-04-2021-SI.xml"));
+  }
+
+  @Test
+  public void testSecondaryEducationDiploma ()
+  {
+    final String sBasePath = "src/test/resources/de4a/t4.1/sed/";
+    _testReadWrite (DE4AT41Marshaller.secondaryEducationDiploma (),
+                    new File (sBasePath + "SA-UC1-SecondaryEducationEvidenceType-sample.xml"));
   }
 }

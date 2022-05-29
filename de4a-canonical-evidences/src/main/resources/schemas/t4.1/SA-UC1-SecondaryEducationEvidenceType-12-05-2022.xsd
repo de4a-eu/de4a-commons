@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:sauc1="urn:eu-de4a:xsd:CanonicalEvidenceType::SecondaryEducationEvidence:v1.0" xmlns:eup="http://data.europa.eu/europass/model/credentials#" xmlns:ns1="http://www.w3.org/ns/corevocabulary/BasicComponents" targetNamespace="urn:eu-de4a:xsd:CanonicalEvidenceType::SecondaryEducationEvidence:v1.0" elementFormDefault="qualified">
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:sauc1="urn:eu-de4a:xsd:CanonicalEvidenceType::SecondaryEducationEvidence:v1.0" xmlns:eup="http://data.europa.eu/europass/model/credentials#" targetNamespace="urn:eu-de4a:xsd:CanonicalEvidenceType::SecondaryEducationEvidence:v1.0" elementFormDefault="qualified">
 	<xsd:import namespace="http://data.europa.eu/europass/model/credentials#" schemaLocation="edci_credentialTypes.xsd"/>
-	<xsd:import namespace="http://www.w3.org/ns/corevocabulary/BasicComponents" schemaLocation="CoreVocabularyBasicComponents-v1.00.xsd"/>
 	<xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" />
 	<xsd:element name="SecondaryEducationDiploma" type="sauc1:SecondaryEducationDiplomaType"/>
 	<xsd:complexType name="SecondaryEducationDiplomaType">

@@ -11,7 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package eu.de4a.iem.cev.de4a.t41.v2021_04_13;
+package eu.de4a.iem.cev.de4a.t41;
 
 import javax.annotation.Nonnull;
 
@@ -37,7 +37,6 @@ public class DE4AT41NamespaceContext extends MapBasedNamespaceContext
     addMappings (UBL23NamespaceContext.getInstance ());
     addMapping ("eup", "http://data.europa.eu/europass/model/credentials#");
     addMapping ("cred", "http://data.europa.eu/europass/model/credentials/w3c#");
-    addMapping ("sa", CT41.NAMESPACE_URI);
   }
 
   @Nonnull

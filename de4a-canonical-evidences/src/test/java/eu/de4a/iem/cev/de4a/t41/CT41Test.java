@@ -11,7 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package eu.de4a.iem.cev.de4a.t41.v2021_04_13;
+package eu.de4a.iem.cev.de4a.t41;
 
 import static org.junit.Assert.assertTrue;
 
@@ -29,7 +29,9 @@ public final class CT41Test
   @Test
   public void testBasic ()
   {
-    for (final ClassPathResource aCP : CT41.getAllXSDs ())
+    for (final ClassPathResource aCP : CT41.getAllXSDsHigherEducationDiploma ())
+      assertTrue (aCP.getPath (), aCP.exists ());
+    for (final ClassPathResource aCP : CT41.getAllXSDsSecondaryEducationDiploma ())
       assertTrue (aCP.getPath (), aCP.exists ());
   }
 }
