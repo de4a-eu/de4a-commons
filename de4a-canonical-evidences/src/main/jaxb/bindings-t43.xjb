@@ -26,6 +26,7 @@
     <xjc:javaType name="com.helger.commons.datetime.XMLOffsetDate"     xmlType="xsd:date"     adapter="com.helger.jaxb.adapter.AdapterXMLOffsetDate" />
     <xjc:javaType name="com.helger.commons.datetime.XMLOffsetTime"     xmlType="xsd:time"     adapter="com.helger.jaxb.adapter.AdapterXMLOffsetTime" />
   </globalBindings>
+  
   <!-- CV 1.0 -->
   <bindings schemaLocation="../resources/schemas/t4.3/CoreVocabularyBasicComponents-v1.00.xsd">
     <schemaBindings>

@@ -20,7 +20,7 @@ import javax.xml.bind.JAXBElement;
 
 import com.helger.jaxb.GenericJAXBMarshaller;
 
-import eu.de4a.iem.jaxb.t41.uc1.v2021_04_13.HigherEducationDiplomaType;
+import eu.de4a.iem.jaxb.t41.uc1.hed.v2021_04_13.HigherEducationDiplomaType;
 
 /**
  * Special marshaller for canonical evidences of the DE4A T4.1 v2021-04-13
@@ -44,6 +44,6 @@ public class DE4AT41Marshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYP
   public static DE4AT41Marshaller <HigherEducationDiplomaType> higherEducationDiploma ()
   {
     return new DE4AT41Marshaller <> (HigherEducationDiplomaType.class,
-                                     new eu.de4a.iem.jaxb.t41.uc1.v2021_04_13.ObjectFactory ()::createHigherEducationDiploma);
+                                     new eu.de4a.iem.jaxb.t41.uc1.hed.v2021_04_13.ObjectFactory ()::createHigherEducationDiploma);
   }
 }
