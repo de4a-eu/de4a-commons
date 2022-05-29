@@ -31,9 +31,9 @@ import com.helger.xsds.xml.CXML_XSD;
  */
 public final class CT43
 {
-  public static final String NS_URI_BIRTH_EVIDENCE = "urn:eu-de4a:xsd:CanonicalEvidenceType::BirthEvidence:v1.6";
-  public static final String NS_URI_DOMICILE_REGISTRATION_EVIDENCE = "urn:eu-de4a:xsd:CanonicalEvidenceType::DomicileRegistrationEvidence:v1.6";
-  public static final String NS_URI_MARRIAGE_EVIDENCE = "urn:eu-de4a:xsd:CanonicalEvidenceType::MarriageEvidence:v1.6";
+  public static final String NS_URI_BIRTH_EVIDENCE = "urn:eu-de4a:xsd:CanonicalEvidenceType::BirthEvidence:v1.7";
+  public static final String NS_URI_DOMICILE_REGISTRATION_EVIDENCE = "urn:eu-de4a:xsd:CanonicalEvidenceType::DomicileRegistrationEvidence:v1.7";
+  public static final String NS_URI_MARRIAGE_EVIDENCE = "urn:eu-de4a:xsd:CanonicalEvidenceType::MarriageEvidence:v1.7";
 
   private CT43 ()
   {}
@@ -72,7 +72,7 @@ public final class CT43
   public static ICommonsList <ClassPathResource> getAllBirthEvidenceXSDs ()
   {
     final ICommonsList <ClassPathResource> a = _getBaseXSDs ();
-    a.add (new ClassPathResource ("schemas/t4.3/v1.6b/birthEvidence-1.6.xsd", _getCL ()));
+    a.add (new ClassPathResource ("schemas/t4.3/v1.7/birthEvidence-1.7.xsd", _getCL ()));
     return a;
   }
 
@@ -81,7 +81,7 @@ public final class CT43
   public static ICommonsList <ClassPathResource> getAllDomicileRegistrationEvidenceXSDs ()
   {
     final ICommonsList <ClassPathResource> a = _getBaseXSDs ();
-    a.add (new ClassPathResource ("schemas/t4.3/v1.6b/domicileRegistrationEvidence-1.6.xsd", _getCL ()));
+    a.add (new ClassPathResource ("schemas/t4.3/v1.7/domicileRegistrationEvidence-1.7.xsd", _getCL ()));
     return a;
   }
 
@@ -90,7 +90,7 @@ public final class CT43
   public static ICommonsList <ClassPathResource> getAllMarriageEvidenceXSDs ()
   {
     final ICommonsList <ClassPathResource> a = _getBaseXSDs ();
-    a.add (new ClassPathResource ("schemas/t4.3/v1.6b/marriageEvidence-1.6.xsd", _getCL ()));
+    a.add (new ClassPathResource ("schemas/t4.3/v1.7/marriageEvidence-1.7.xsd", _getCL ()));
     return a;
   }
 }

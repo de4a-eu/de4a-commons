@@ -192,8 +192,9 @@ eu.de4a.ieam.jaxb.*</Export-Package>
             </goals>
             <configuration>
               <schemaIncludes>
+                <schemaInclude>t4.3/Codelists/*.xsd</schemaInclude>
                 <schemaInclude>t4.3/*.xsd</schemaInclude>
-                <schemaInclude>t4.3/v1.6b/*.xsd</schemaInclude>
+                <schemaInclude>t4.3/v1.7/*.xsd</schemaInclude>
               </schemaIncludes>
               <bindingIncludes>
                 <bindingInclude>bindings-t43.xjb</bindingInclude>

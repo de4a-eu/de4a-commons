@@ -24,9 +24,9 @@ import javax.xml.namespace.NamespaceContext;
 import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.jaxb.GenericJAXBMarshaller;
 
-import eu.de4a.iem.jaxb.t43.birth.v1_6b.BirthEvidenceType;
-import eu.de4a.iem.jaxb.t43.domreg.v1_6b.DomicileRegistrationEvidenceType;
-import eu.de4a.iem.jaxb.t43.marriage.v1_6b.MarriageEvidenceType;
+import eu.de4a.iem.jaxb.t43.birth.v1_7.BirthEvidenceType;
+import eu.de4a.iem.jaxb.t43.domreg.v1_7.DomicileRegistrationEvidenceType;
+import eu.de4a.iem.jaxb.t43.marriage.v1_7.MarriageEvidenceType;
 
 /**
  * Special marshaller for canonical evidences of the DE4A T4.3 v1.6a pilot. This
@@ -52,7 +52,7 @@ public class DE4AT43Marshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYP
   {
     return new DE4AT43Marshaller <> (BirthEvidenceType.class,
                                      CT43.getAllBirthEvidenceXSDs (),
-                                     new eu.de4a.iem.jaxb.t43.birth.v1_6b.ObjectFactory ()::createBirthEvidence,
+                                     new eu.de4a.iem.jaxb.t43.birth.v1_7.ObjectFactory ()::createBirthEvidence,
                                      DE4AT43NamespaceContext.getBirthEvidenceInstance ());
   }
 
@@ -61,7 +61,7 @@ public class DE4AT43Marshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYP
   {
     return new DE4AT43Marshaller <> (DomicileRegistrationEvidenceType.class,
                                      CT43.getAllDomicileRegistrationEvidenceXSDs (),
-                                     new eu.de4a.iem.jaxb.t43.domreg.v1_6b.ObjectFactory ()::createDomicileRegistrationEvidence,
+                                     new eu.de4a.iem.jaxb.t43.domreg.v1_7.ObjectFactory ()::createDomicileRegistrationEvidence,
                                      DE4AT43NamespaceContext.getDomicileRegistrationEvidenceInstance ());
   }
 
@@ -70,7 +70,7 @@ public class DE4AT43Marshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYP
   {
     return new DE4AT43Marshaller <> (MarriageEvidenceType.class,
                                      CT43.getAllMarriageEvidenceXSDs (),
-                                     new eu.de4a.iem.jaxb.t43.marriage.v1_6b.ObjectFactory ()::createMarriageEvidence,
+                                     new eu.de4a.iem.jaxb.t43.marriage.v1_7.ObjectFactory ()::createMarriageEvidence,
                                      DE4AT43NamespaceContext.getMarriageEvidenceInstance ());
   }
 }
