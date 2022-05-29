@@ -78,4 +78,11 @@ public final class DE4AT41MarshallerTest
     final String sBasePath = "src/test/resources/de4a/t4.1/de/";
     _testReadWrite (DE4AT41Marshaller.disability (), new File (sBasePath + "SA-UC2-DisabilityEvidenceSample.xml"));
   }
+
+  @Test
+  public void testLargeFamily ()
+  {
+    final String sBasePath = "src/test/resources/de4a/t4.1/lf/";
+    _testReadWrite (DE4AT41Marshaller.largeFamily (), new File (sBasePath + "SA-UC2-LargeFamilyEvidenceSample.xml"));
+  }
 }

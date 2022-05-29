@@ -26,6 +26,7 @@ import com.helger.xml.namespace.MapBasedNamespaceContext;
 import eu.de4a.iem.jaxb.t41.uc1.hed.v2021_04_13.HigherEducationDiplomaType;
 import eu.de4a.iem.jaxb.t41.uc1.sed.v2022_05_12.SecondaryEducationDiplomaType;
 import eu.de4a.iem.jaxb.t41.uc2.de.v2022_05_12.DisabilityEvidenceType;
+import eu.de4a.iem.jaxb.t41.uc2.lf.v2022_05_12.LargeFamilyEvidenceType;
 
 /**
  * Special marshaller for canonical evidences of the DE4A T4.1 v2021-04-13
@@ -77,6 +78,18 @@ public class DE4AT41Marshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYP
                                                                                      new eu.de4a.iem.jaxb.t41.uc2.de.v2022_05_12.ObjectFactory ()::createDisability);
     final MapBasedNamespaceContext aNsCtx = DE4AT41NamespaceContext.getInstance ().getClone ();
     aNsCtx.addMapping ("sa", CT41.NAMESPACE_URI_DE);
+    ret.setNamespaceContext (aNsCtx);
+    return ret;
+  }
+
+  @Nonnull
+  public static DE4AT41Marshaller <LargeFamilyEvidenceType> largeFamily ()
+  {
+    final DE4AT41Marshaller <LargeFamilyEvidenceType> ret = new DE4AT41Marshaller <> (LargeFamilyEvidenceType.class,
+                                                                                      CT41.getAllXSDsLargeFamily (),
+                                                                                      new eu.de4a.iem.jaxb.t41.uc2.lf.v2022_05_12.ObjectFactory ()::createLargeFamily);
+    final MapBasedNamespaceContext aNsCtx = DE4AT41NamespaceContext.getInstance ().getClone ();
+    aNsCtx.addMapping ("sa", CT41.NAMESPACE_URI_LF);
     ret.setNamespaceContext (aNsCtx);
     return ret;
   }
