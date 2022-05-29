@@ -36,6 +36,7 @@ and you receive a set of JAR files in the respective submodule `target` director
 * v0.2.6 - work in progress
     * Changed `eu.de4a.iem.jaxb.t41.uc1.v2021_04_13` to `eu.de4a.iem.jaxb.t41.uc1.hed.v2021_04_13`
     * Changed `eu.de4a.iem.cev.de4a.t41.v2021_04_13` to `eu.de4a.iem.cev.de4a.t41`
+    * Changed `eu.de4a.iem.cev.de4a.t42.v0_6` to `eu.de4a.iem.cev.de4a.t42`
     * Added support for T4.1 Secondary Education Diploma data model
     * Added support for T4.1 Disability data model
     * Added support for T4.1 Large Family data model
