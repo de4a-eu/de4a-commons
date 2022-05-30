@@ -69,4 +69,31 @@ public class DE4AT43NamespaceContext extends MapBasedNamespaceContext
     ret.addDefaultNamespaceURI (CT43.NS_URI_MARRIAGE_EVIDENCE);
     return ret;
   }
+
+  @Nonnull
+  @ReturnsMutableCopy
+  public static MapBasedNamespaceContext getPensionMeansOfLivingEvidenceInstance ()
+  {
+    final MapBasedNamespaceContext ret = SingletonHolder.INSTANCE.getClone ();
+    ret.addDefaultNamespaceURI (CT43.NS_URI_PENSION_MOL_EVIDENCE);
+    return ret;
+  }
+
+  @Nonnull
+  @ReturnsMutableCopy
+  public static MapBasedNamespaceContext getUnemploymentMeansOfLivingEvidenceInstance ()
+  {
+    final MapBasedNamespaceContext ret = SingletonHolder.INSTANCE.getClone ();
+    ret.addDefaultNamespaceURI (CT43.NS_URI_UNEMPLOYMENT_MOL_EVIDENCE);
+    return ret;
+  }
+
+  @Nonnull
+  @ReturnsMutableCopy
+  public static MapBasedNamespaceContext getWorkingLifeMeansOfLivingEvidenceInstance ()
+  {
+    final MapBasedNamespaceContext ret = SingletonHolder.INSTANCE.getClone ();
+    ret.addDefaultNamespaceURI (CT43.NS_URI_WORKING_LIFE_MOL_EVIDENCE);
+    return ret;
+  }
 }
