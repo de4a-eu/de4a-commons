@@ -13,11 +13,15 @@
  */
 package eu.de4a.iem.cev.de4a.t42;
 
+import java.util.List;
 import java.util.function.Function;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import javax.xml.bind.JAXBElement;
+import javax.xml.namespace.NamespaceContext;
 
+import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.jaxb.GenericJAXBMarshaller;
 
 import eu.de4a.iem.jaxb.t42.v0_6.LegalEntityType;
@@ -33,15 +37,20 @@ import eu.de4a.iem.jaxb.t42.v0_6.LegalEntityType;
 public class DE4AT42Marshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYPE>
 {
   public DE4AT42Marshaller (@Nonnull final Class <JAXBTYPE> aType,
-                            @Nonnull final Function <? super JAXBTYPE, ? extends JAXBElement <JAXBTYPE>> aJAXBElementWrapper)
+                            @Nullable final List <? extends ClassPathResource> aXSDs,
+                            @Nonnull final Function <? super JAXBTYPE, ? extends JAXBElement <JAXBTYPE>> aJAXBElementWrapper,
+                            @Nullable final NamespaceContext aNSContext)
   {
-    super (aType, CT42.getAllXSDs (), aJAXBElementWrapper);
-    setNamespaceContext (DE4AT42NamespaceContext.getInstance ());
+    super (aType, aXSDs, aJAXBElementWrapper);
+    setNamespaceContext (aNSContext);
   }
 
   @Nonnull
   public static DE4AT42Marshaller <LegalEntityType> legalEntity ()
   {
-    return new DE4AT42Marshaller <> (LegalEntityType.class, new eu.de4a.iem.jaxb.t42.v0_6.ObjectFactory ()::createLegalEntity);
+    return new DE4AT42Marshaller <> (LegalEntityType.class,
+                                     CT42.getAllXSDs (),
+                                     new eu.de4a.iem.jaxb.t42.v0_6.ObjectFactory ()::createLegalEntity,
+                                     DE4AT42NamespaceContext.getInstance ());
   }
 }

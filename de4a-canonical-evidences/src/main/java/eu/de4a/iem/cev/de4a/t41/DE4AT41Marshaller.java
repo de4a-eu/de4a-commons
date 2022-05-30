@@ -17,7 +17,9 @@ import java.util.List;
 import java.util.function.Function;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import javax.xml.bind.JAXBElement;
+import javax.xml.namespace.NamespaceContext;
 
 import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.jaxb.GenericJAXBMarshaller;
@@ -40,48 +42,46 @@ public class DE4AT41Marshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYP
 {
   protected DE4AT41Marshaller (@Nonnull final Class <JAXBTYPE> aType,
                                @Nonnull final List <? extends ClassPathResource> aXSDs,
-                               @Nonnull final Function <? super JAXBTYPE, ? extends JAXBElement <JAXBTYPE>> aJAXBElementWrapper)
+                               @Nonnull final Function <? super JAXBTYPE, ? extends JAXBElement <JAXBTYPE>> aJAXBElementWrapper,
+                               @Nullable final NamespaceContext aNSContext)
   {
     super (aType, aXSDs, aJAXBElementWrapper);
+    setNamespaceContext (aNSContext);
   }
 
   @Nonnull
   public static DE4AT41Marshaller <HigherEducationDiplomaType> higherEducationDiploma ()
   {
-    final DE4AT41Marshaller <HigherEducationDiplomaType> ret = new DE4AT41Marshaller <> (HigherEducationDiplomaType.class,
-                                                                                         CT41.getAllXSDsHigherEducationDiploma (),
-                                                                                         new eu.de4a.iem.jaxb.t41.uc1.hed.v2021_04_13.ObjectFactory ()::createHigherEducationDiploma);
-    ret.setNamespaceContext (DE4AT41NamespaceContext.getHigherEducationDiplomaInstance ());
-    return ret;
+    return new DE4AT41Marshaller <> (HigherEducationDiplomaType.class,
+                                     CT41.getAllXSDsHigherEducationDiploma (),
+                                     new eu.de4a.iem.jaxb.t41.uc1.hed.v2021_04_13.ObjectFactory ()::createHigherEducationDiploma,
+                                     DE4AT41NamespaceContext.getHigherEducationDiplomaInstance ());
   }
 
   @Nonnull
   public static DE4AT41Marshaller <SecondaryEducationDiplomaType> secondaryEducationDiploma ()
   {
-    final DE4AT41Marshaller <SecondaryEducationDiplomaType> ret = new DE4AT41Marshaller <> (SecondaryEducationDiplomaType.class,
-                                                                                            CT41.getAllXSDsSecondaryEducationDiploma (),
-                                                                                            new eu.de4a.iem.jaxb.t41.uc1.sed.v2022_05_12.ObjectFactory ()::createSecondaryEducationDiploma);
-    ret.setNamespaceContext (DE4AT41NamespaceContext.getSecondaryEducationDiplomaInstance ());
-    return ret;
+    return new DE4AT41Marshaller <> (SecondaryEducationDiplomaType.class,
+                                     CT41.getAllXSDsSecondaryEducationDiploma (),
+                                     new eu.de4a.iem.jaxb.t41.uc1.sed.v2022_05_12.ObjectFactory ()::createSecondaryEducationDiploma,
+                                     DE4AT41NamespaceContext.getSecondaryEducationDiplomaInstance ());
   }
 
   @Nonnull
   public static DE4AT41Marshaller <DisabilityEvidenceType> disability ()
   {
-    final DE4AT41Marshaller <DisabilityEvidenceType> ret = new DE4AT41Marshaller <> (DisabilityEvidenceType.class,
-                                                                                     CT41.getAllXSDsDisability (),
-                                                                                     new eu.de4a.iem.jaxb.t41.uc2.de.v2022_05_12.ObjectFactory ()::createDisability);
-    ret.setNamespaceContext (DE4AT41NamespaceContext.getDisabilityInstance ());
-    return ret;
+    return new DE4AT41Marshaller <> (DisabilityEvidenceType.class,
+                                     CT41.getAllXSDsDisability (),
+                                     new eu.de4a.iem.jaxb.t41.uc2.de.v2022_05_12.ObjectFactory ()::createDisability,
+                                     DE4AT41NamespaceContext.getDisabilityInstance ());
   }
 
   @Nonnull
   public static DE4AT41Marshaller <LargeFamilyEvidenceType> largeFamily ()
   {
-    final DE4AT41Marshaller <LargeFamilyEvidenceType> ret = new DE4AT41Marshaller <> (LargeFamilyEvidenceType.class,
-                                                                                      CT41.getAllXSDsLargeFamily (),
-                                                                                      new eu.de4a.iem.jaxb.t41.uc2.lf.v2022_05_12.ObjectFactory ()::createLargeFamily);
-    ret.setNamespaceContext (DE4AT41NamespaceContext.getLargeFamilyInstance ());
-    return ret;
+    return new DE4AT41Marshaller <> (LargeFamilyEvidenceType.class,
+                                     CT41.getAllXSDsLargeFamily (),
+                                     new eu.de4a.iem.jaxb.t41.uc2.lf.v2022_05_12.ObjectFactory ()::createLargeFamily,
+                                     DE4AT41NamespaceContext.getLargeFamilyInstance ());
   }
 }
