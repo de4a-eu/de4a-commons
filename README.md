@@ -33,7 +33,7 @@ and you receive a set of JAR files in the respective submodule `target` director
 
 ## History
 
-* v0.2.6 - work in progress
+* v0.2.6 - 2022-05-30
     * Changed `eu.de4a.iem.jaxb.t41.uc1.v2021_04_13` to `eu.de4a.iem.jaxb.t41.uc1.hed.v2021_04_13`
     * Changed `eu.de4a.iem.cev.de4a.t41.v2021_04_13` to `eu.de4a.iem.cev.de4a.t41`
     * Changed `eu.de4a.iem.cev.de4a.t42.v0_6` to `eu.de4a.iem.cev.de4a.t42`
@@ -44,6 +44,9 @@ and you receive a set of JAR files in the respective submodule `target` director
     * Updated the T4.3 Birth Evidence to v1.7
     * Updated the T4.3 Domicile Registration Evidence to v1.7
     * Updated the T4.3 Marriage Evidence to v1.7
+    * Added the T4.3 Pension Means of Living Evidence v0.1
+    * Added the T4.3 Unemployment Means of Living Evidence v0.1
+    * Added the T4.3 Working Life Means of Living Evidence v0.1
 * v0.2.5 - 2022-05-13
     * Removed the SA UC1 data model 2021-02-11
 * v0.2.4 - 2022-04-13
