@@ -19,17 +19,23 @@
           xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" 
           xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <globalBindings fixedAttributeAsConstantProperty="true"
-                  typesafeEnumMaxMembers="3000"
+                  typesafeEnumMaxMembers="6000"
                   typesafeEnumMemberName="generateName"
                   underscoreBinding="asCharInWord">
     <xjc:javaType name="com.helger.commons.datetime.XMLOffsetDateTime" xmlType="xsd:dateTime" adapter="com.helger.jaxb.adapter.AdapterXMLOffsetDateTime" />
     <xjc:javaType name="com.helger.commons.datetime.XMLOffsetDate"     xmlType="xsd:date"     adapter="com.helger.jaxb.adapter.AdapterXMLOffsetDate" />
     <xjc:javaType name="com.helger.commons.datetime.XMLOffsetTime"     xmlType="xsd:time"     adapter="com.helger.jaxb.adapter.AdapterXMLOffsetTime" />
   </globalBindings>
+  
   <!-- CV 1.0 -->
   <bindings schemaLocation="../resources/schemas/t4.3/CoreVocabularyBasicComponents-v1.00.xsd">
     <schemaBindings>
       <package name="eu.de4a.iem.jaxb.w3.cv10.bc" />
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="../resources/schemas/t4.3/CoreVocabularyAggregateComponents-v1.00.xsd">
+    <schemaBindings>
+      <package name="eu.de4a.iem.jaxb.w3.cv10.ac" />
     </schemaBindings>
   </bindings>
   <bindings schemaLocation="../resources/schemas/t4.3/CoreBusiness-v1.00.xsd">
@@ -47,26 +53,78 @@
       <package name="eu.de4a.iem.jaxb.w3.cv10.person" />
     </schemaBindings>
   </bindings>
-  <bindings schemaLocation="../resources/schemas/t4.3/CoreVocabularyAggregateComponents-v1.00.xsd">
+   
+  <!-- Code Lists -->
+  <bindings schemaLocation="../resources/schemas/t4.3/Codelists/Codelist_Country.xsd">
     <schemaBindings>
-      <package name="eu.de4a.iem.jaxb.w3.cv10.ac" />
+      <package name="eu.de4a.iem.jaxb.t43.codelists.country" />
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="../resources/schemas/t4.3/Codelists/Codelist_Currency.xsd">
+    <schemaBindings>
+      <package name="eu.de4a.iem.jaxb.t43.codelists.currency" />
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="../resources/schemas/t4.3/Codelists/Codelist_HumanSex.xsd">
+    <schemaBindings>
+      <package name="eu.de4a.iem.jaxb.t43.codelists.humansex" />
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="../resources/schemas/t4.3/Codelists/Codelist_MaritalStatus.xsd">
+    <schemaBindings>
+      <package name="eu.de4a.iem.jaxb.t43.codelists.maritalstatus" />
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="../resources/schemas/t4.3/Codelists/Codelist_NUTS2021.xsd">
+    <schemaBindings>
+      <package name="eu.de4a.iem.jaxb.t43.codelists.nuts2021" />
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="../resources/schemas/t4.3/Codelists/Codelist_PensionCategory.xsd">
+    <schemaBindings>
+      <package name="eu.de4a.iem.jaxb.t43.codelists.pensioncat" />
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="../resources/schemas/t4.3/Codelists/Codelist_PensionContractType.xsd">
+    <schemaBindings>
+      <package name="eu.de4a.iem.jaxb.t43.codelists.pensioncontract" />
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="../resources/schemas/t4.3/Codelists/Codelist_PensionStatus.xsd">
+    <schemaBindings>
+      <package name="eu.de4a.iem.jaxb.t43.codelists.pensionstatus" />
     </schemaBindings>
   </bindings>
    
-  <!-- 1.6 -->
-  <bindings schemaLocation="../resources/schemas/t4.3/v1.6b/birthEvidence-1.6.xsd">
+  <!-- 1.7 -->
+  <bindings schemaLocation="../resources/schemas/t4.3/v1.7/birthEvidence-1.7.xsd">
     <schemaBindings>
-      <package name="eu.de4a.iem.jaxb.t43.birth.v1_6b" />
+      <package name="eu.de4a.iem.jaxb.t43.birth.v1_7" />
     </schemaBindings>
   </bindings>
-  <bindings schemaLocation="../resources/schemas/t4.3/v1.6b/domicileRegistrationEvidence-1.6.xsd">
+  <bindings schemaLocation="../resources/schemas/t4.3/v1.7/domicileRegistrationEvidence-1.7.xsd">
     <schemaBindings>
-      <package name="eu.de4a.iem.jaxb.t43.domreg.v1_6b" />
+      <package name="eu.de4a.iem.jaxb.t43.domreg.v1_7" />
     </schemaBindings>
   </bindings>
-  <bindings schemaLocation="../resources/schemas/t4.3/v1.6b/marriageEvidence-1.6.xsd">
+  <bindings schemaLocation="../resources/schemas/t4.3/v1.7/marriageEvidence-1.7.xsd">
     <schemaBindings>
-      <package name="eu.de4a.iem.jaxb.t43.marriage.v1_6b" />
+      <package name="eu.de4a.iem.jaxb.t43.marriage.v1_7" />
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="../resources/schemas/t4.3/v1.7/pensionMeansOfLivingEvidence-0.1.xsd">
+    <schemaBindings>
+      <package name="eu.de4a.iem.jaxb.t43.pension.v0_1" />
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="../resources/schemas/t4.3/v1.7/unemploymentMeansOfLivingEvidence-0.1.xsd">
+    <schemaBindings>
+      <package name="eu.de4a.iem.jaxb.t43.unemployment.v0_1" />
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="../resources/schemas/t4.3/v1.7/workingLifeMeansOfLivingEvidence-0.1.xsd">
+    <schemaBindings>
+      <package name="eu.de4a.iem.jaxb.t43.workinglife.v0_1" />
     </schemaBindings>
   </bindings>
 </bindings>

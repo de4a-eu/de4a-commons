@@ -11,8 +11,42 @@ The last release of Iteration 1 is `0.1.11` and the development branch (if ever 
 
 The `development` branch is used for development of Iteration 2 stuff.
 
+## Building
+
+Prerequisites
+* Java 1.8 or later
+* Apache Maven 3.6 or later for building
+
+To build the latest version:
+
+```shell
+mvn clean install
+```
+
+and you receive a set of JAR files in the respective submodule `target` directory.
+
+## Submodules
+
+* **de4a-kafka-client**: a small wrapper to send messages to the shared Kafka instance for remote debugging
+* **de4a-core-schemas**: a wrapper around the DE4A IEM (Information Exchange Model) core schemas
+* **de4a-canonical-evidences**: a wrapper around the pilot specific canonical evidence types
+
 ## History
 
+* v0.2.6 - 2022-05-30
+    * Changed `eu.de4a.iem.jaxb.t41.uc1.v2021_04_13` to `eu.de4a.iem.jaxb.t41.uc1.hed.v2021_04_13`
+    * Changed `eu.de4a.iem.cev.de4a.t41.v2021_04_13` to `eu.de4a.iem.cev.de4a.t41`
+    * Changed `eu.de4a.iem.cev.de4a.t42.v0_6` to `eu.de4a.iem.cev.de4a.t42`
+    * Changed `eu.de4a.iem.cev.de4a.t43.v1_6b` to `eu.de4a.iem.cev.de4a.t43`
+    * Added support for T4.1 Secondary Education Diploma data model
+    * Added support for T4.1 Disability data model
+    * Added support for T4.1 Large Family data model
+    * Updated the T4.3 Birth Evidence to v1.7
+    * Updated the T4.3 Domicile Registration Evidence to v1.7
+    * Updated the T4.3 Marriage Evidence to v1.7
+    * Added the T4.3 Pension Means of Living Evidence v0.1
+    * Added the T4.3 Unemployment Means of Living Evidence v0.1
+    * Added the T4.3 Working Life Means of Living Evidence v0.1
 * v0.2.5 - 2022-05-13
     * Removed the SA UC1 data model 2021-02-11
 * v0.2.4 - 2022-04-13
@@ -49,23 +83,3 @@ The `development` branch is used for development of Iteration 2 stuff.
     * XSD update for USI pattern
 * v0.1.2 - 2021-05-05
     * XSD updates for Studying Abroad 2021-04-13
-
-## Building
-
-Prerequisites
-* Java 1.8 or later
-* Apache Maven 3.6 or later for building
-
-To build the latest version:
-
-```shell
-mvn clean install
-```
-
-and you receive a set of JAR files in the respective submodule `target` directory.
-
-## Submodules
-
-* **de4a-kafka-client**: a small wrapper to send messages to the shared Kafka instance for remote debugging
-* **de4a-core-schemas**: a wrapper around the DE4A IEM (Information Exchange Model) core schemas
-* **de4a-canonical-evidences**: a wrapper around the pilot specific canonical evidence types

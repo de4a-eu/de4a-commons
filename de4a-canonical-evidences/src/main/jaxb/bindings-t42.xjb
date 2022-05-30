@@ -18,6 +18,21 @@
           xmlns="http://java.sun.com/xml/ns/jaxb"
           xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" 
           xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <globalBindings fixedAttributeAsConstantProperty="true"
+                  typesafeEnumMaxMembers="3000"
+                  typesafeEnumMemberName="generateName"
+                  underscoreBinding="asCharInWord">
+    <xjc:javaType name="com.helger.commons.datetime.XMLOffsetDateTime" xmlType="xsd:dateTime" adapter="com.helger.jaxb.adapter.AdapterXMLOffsetDateTime" />
+    <xjc:javaType name="com.helger.commons.datetime.XMLOffsetDate"     xmlType="xsd:date"     adapter="com.helger.jaxb.adapter.AdapterXMLOffsetDate" />
+    <xjc:javaType name="com.helger.commons.datetime.XMLOffsetTime"     xmlType="xsd:time"     adapter="com.helger.jaxb.adapter.AdapterXMLOffsetTime" />
+  </globalBindings>
+
+  <!-- CV 1.1 -->
+  <bindings schemaLocation="../resources/schemas/t4.2/CoreVocabularies-BasicComponents-1.1.xsd">
+    <schemaBindings>
+      <package name="eu.de4a.iem.jaxb.w3.cv11.bc" />
+    </schemaBindings>
+  </bindings>
   <bindings schemaLocation="../resources/schemas/t4.2/doing_Business_abroad_XSD_v0.6 draft.xsd">
     <schemaBindings>
       <package name="eu.de4a.iem.jaxb.t42.v0_6" />

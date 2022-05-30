@@ -18,40 +18,64 @@
           xmlns="http://java.sun.com/xml/ns/jaxb"
           xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" 
           xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-    <!-- 
-  <bindings schemaLocation="../resources/schemas/t4.1/uc1/edci_learningOpportunity.xsd">
+  <globalBindings fixedAttributeAsConstantProperty="true"
+                  typesafeEnumMaxMembers="3000"
+                  typesafeEnumMemberName="generateName"
+                  underscoreBinding="asCharInWord">
+    <xjc:javaType name="com.helger.commons.datetime.XMLOffsetDateTime" xmlType="xsd:dateTime" adapter="com.helger.jaxb.adapter.AdapterXMLOffsetDateTime" />
+    <xjc:javaType name="com.helger.commons.datetime.XMLOffsetDate"     xmlType="xsd:date"     adapter="com.helger.jaxb.adapter.AdapterXMLOffsetDate" />
+    <xjc:javaType name="com.helger.commons.datetime.XMLOffsetTime"     xmlType="xsd:time"     adapter="com.helger.jaxb.adapter.AdapterXMLOffsetTime" />
+  </globalBindings>
+
+  <!-- 
+  <bindings schemaLocation="../resources/schemas/t4.1/edci_learningOpportunity.xsd">
     <bindings node="//xsd:element[@name='learningOutcomeType']">
       <property name="LearningOutcomeTypeElement" />
     </bindings>  
   </bindings>
-   -->
-  <bindings schemaLocation="../resources/schemas/t4.1/uc1/edci_complexContentTypes.xsd">
+ -->
+  <bindings schemaLocation="../resources/schemas/t4.1/edci_complexContentTypes.xsd">
     <bindings node="//xsd:complexType[@name='CredentialTypeType']">
       <bindings node=".//xsd:attribute[@name='targetFrameworkName']">
         <property name="TargetFrameworkNameAttr"/>
       </bindings>
     </bindings>
   </bindings>
-  <bindings schemaLocation="../resources/schemas/t4.1/uc1/edci_agent.xsd">
+  <bindings schemaLocation="../resources/schemas/t4.1/edci_agent.xsd">
     <bindings node="//xsd:complexType[@name='PersonType']">
       <bindings node=".//xsd:element[@name='identifier']">
         <property name="PersonIdentifier"/>
       </bindings>
     </bindings>
   </bindings>
-  <bindings schemaLocation="../resources/schemas/t4.1/uc1/edci_credentialTypes.xsd">
+  <bindings schemaLocation="../resources/schemas/t4.1/edci_credentialTypes.xsd">
     <schemaBindings>
       <package name="eu.de4a.iem.jaxb.t41.edci" />
     </schemaBindings>
   </bindings>
-  <bindings schemaLocation="../resources/schemas/t4.1/uc1/w3c_verifiableCredentials.xsd">
+  <bindings schemaLocation="../resources/schemas/t4.1/w3c_verifiableCredentials.xsd">
     <schemaBindings>
       <package name="eu.de4a.iem.jaxb.t41.edci.w3c" />
     </schemaBindings>
   </bindings>
-  <bindings schemaLocation="../resources/schemas/t4.1/uc1/SA-UC1-13-04-2021.xsd">
+  <bindings schemaLocation="../resources/schemas/t4.1/SA-UC1-13-04-2021.xsd">
     <schemaBindings>
-      <package name="eu.de4a.iem.jaxb.t41.uc1.v2021_04_13" />
+      <package name="eu.de4a.iem.jaxb.t41.uc1.hed.v2021_04_13" />
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="../resources/schemas/t4.1/SA-UC1-SecondaryEducationEvidenceType-12-05-2022.xsd">
+    <schemaBindings>
+      <package name="eu.de4a.iem.jaxb.t41.uc1.sed.v2022_05_12" />
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="../resources/schemas/t4.1/SA-UC2-DisabilityEvidenceType-12-05-2022.xsd">
+    <schemaBindings>
+      <package name="eu.de4a.iem.jaxb.t41.uc2.de.v2022_05_12" />
+    </schemaBindings>
+  </bindings>
+  <bindings schemaLocation="../resources/schemas/t4.1/SA-UC2-LargeFamilyEvidenceType-12-05-2022.xsd">
+    <schemaBindings>
+      <package name="eu.de4a.iem.jaxb.t41.uc2.lf.v2022_05_12" />
     </schemaBindings>
   </bindings>
 </bindings>

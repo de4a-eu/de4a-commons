@@ -1,4 +1,4 @@
-/**
+/*
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -43,7 +43,8 @@ public class JAXBVersatileReader <JAXBTYPE, T> implements IJAXBVersatileReader <
   private final IJAXBReader <JAXBTYPE> m_aReader;
   private final Function <JAXBTYPE, T> m_aMapper;
 
-  public JAXBVersatileReader (@Nonnull final IJAXBReader <JAXBTYPE> aReader, @Nonnull final Function <JAXBTYPE, T> aMapper)
+  public JAXBVersatileReader (@Nonnull final IJAXBReader <JAXBTYPE> aReader,
+                              @Nonnull final Function <JAXBTYPE, T> aMapper)
   {
     ValueEnforcer.notNull (aReader, "Reader");
     ValueEnforcer.notNull (aMapper, "Mapper");

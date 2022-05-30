@@ -155,21 +155,33 @@ eu.de4a.ieam.jaxb.*</Export-Package>
         <version>0.15.0</version>
         <executions>
           <execution>
-            <id>core</id>
+            <id>t41</id>
             <goals>
               <goal>generate</goal>
             </goals>
             <configuration>
               <schemaIncludes>
-                <schemaInclude>pilot-shared/*.xsd</schemaInclude>
-                <schemaInclude>t4.1/uc1/SA-UC*.xsd</schemaInclude>
+                <schemaInclude>t4.1/SA-UC*.xsd</schemaInclude>
+              </schemaIncludes>
+              <bindingIncludes>
+                <bindingInclude>bindings-t41.xjb</bindingInclude>
+              </bindingIncludes>
+              <generateDirectory>${project.build.directory}/generated-sources/t41</generateDirectory>
+            </configuration>
+          </execution>
+          <execution>
+            <id>t42</id>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+            <configuration>
+              <schemaIncludes>
                 <schemaInclude>t4.2/*.xsd</schemaInclude>
               </schemaIncludes>
               <bindingIncludes>
-                <bindingInclude>bindings-pilot-shared.xjb</bindingInclude>
-                <bindingInclude>bindings-t41.xjb</bindingInclude>
                 <bindingInclude>bindings-t42.xjb</bindingInclude>
               </bindingIncludes>
+              <generateDirectory>${project.build.directory}/generated-sources/t42</generateDirectory>
             </configuration>
           </execution>
           <execution>
@@ -180,8 +192,9 @@ eu.de4a.ieam.jaxb.*</Export-Package>
             </goals>
             <configuration>
               <schemaIncludes>
+                <schemaInclude>t4.3/Codelists/*.xsd</schemaInclude>
                 <schemaInclude>t4.3/*.xsd</schemaInclude>
-                <schemaInclude>t4.3/v1.6b/*.xsd</schemaInclude>
+                <schemaInclude>t4.3/v1.7/*.xsd</schemaInclude>
               </schemaIncludes>
               <bindingIncludes>
                 <bindingInclude>bindings-t43.xjb</bindingInclude>
@@ -270,9 +283,7 @@ eu.de4a.ieam.jaxb.*</Export-Package>
             </goals>
             <configuration>
               <target>
-                <delete dir="${basedir}/target/generated-sources/xjc/com/" />
-                <delete dir="${basedir}/target/generated-sources/xjc/oasis/" />
-                <delete dir="${basedir}/target/generated-sources/xjc/un/" />
+                <delete dir="${basedir}/target/generated-sources/t41/com/" />
                 <delete dir="${basedir}/target/generated-sources/t43/oasis/" />
               </target>
             </configuration>

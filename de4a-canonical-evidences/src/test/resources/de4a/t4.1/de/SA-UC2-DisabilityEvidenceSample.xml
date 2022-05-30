@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sauc2:Disability
+        xmlns:edci="http://data.europa.eu/europass/model/credentials#"
+        xmlns:sauc2="urn:eu-de4a:xsd:CanonicalEvidenceType::DisabilityEvidence:v1.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="urn:eu-de4a:xsd:CanonicalEvidenceType::DisabilityEvidence:v1.0  SA-UC2-DisabilityEvidenceType-12-05-2022.xsd">
+    <sauc2:beneficiary id="http://tempuri.org">
+        <edci:nationalId spatialID="http://publications.europa.eu/resource/authority/country/SVN">0</edci:nationalId>
+        <edci:givenNames>
+            <edci:text content-type="text/html" lang="sl">Marjeta</edci:text>
+        </edci:givenNames>
+        <edci:familyName>
+            <edci:text content-type="text/html" lang="sl">Maček</edci:text>
+        </edci:familyName>
+        <edci:dateOfBirth>1999-09-16</edci:dateOfBirth>
+    </sauc2:beneficiary>
+    <sauc2:disabilityCertificate>
+        <sauc2:certificateID>111</sauc2:certificateID>
+        <sauc2:effectiveDate>2020-01-01</sauc2:effectiveDate>
+        <!--<sauc2:revisionDate>2025-01-01</sauc2:revisionDate>-->
+        <sauc2:disabilityPercentage>55</sauc2:disabilityPercentage>
+    </sauc2:disabilityCertificate>
+</sauc2:Disability>

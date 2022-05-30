@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" xmlns:sauc1="urn:eu-de4a:xsd:CanonicalEvidenceType::SecondaryEducationEvidence:v1.0" xmlns:eup="http://data.europa.eu/europass/model/credentials#" targetNamespace="urn:eu-de4a:xsd:CanonicalEvidenceType::SecondaryEducationEvidence:v1.0" elementFormDefault="qualified">
+	<xsd:import namespace="http://data.europa.eu/europass/model/credentials#" schemaLocation="edci_credentialTypes.xsd"/>
+	<xsd:import namespace="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" />
+	<xsd:element name="SecondaryEducationDiploma" type="sauc1:SecondaryEducationDiplomaType"/>
+	<xsd:complexType name="SecondaryEducationDiplomaType">
+		<xsd:complexContent>
+			<xsd:extension base="eup:AchievementType">
+				<xsd:sequence>
+					<xsd:element name="country" type="eup:MDRCountryCodeEnumType" minOccurs="1" maxOccurs="1">
+						<xsd:annotation>
+							<xsd:documentation>Country of completed secondary education</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="degree" type="eup:TextType" minOccurs="0" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Degree previously obtained (e.g. General upper secondary education)</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="nameOfSchool" type="eup:TextType" minOccurs="1" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Name of a secondary school that the person finished</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="nameOfProgram" type="eup:TextType" minOccurs="1" maxOccurs="unbounded">
+						<xsd:annotation>
+							<xsd:documentation>Name of a secondary school programme that a person successfully finished (e.g. General secondary programme)</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="grade" type="sauc1:gradeType" minOccurs="0" maxOccurs="1">
+						<xsd:annotation>
+							<xsd:documentation>Mark indicating a degree of accomplishment</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+					<xsd:element name="issuingDate" type="cbc:DateType" minOccurs="1" maxOccurs="1">
+						<xsd:annotation>
+							<xsd:documentation>Issuing date of the accomplishment</xsd:documentation>
+						</xsd:annotation>
+					</xsd:element>
+				</xsd:sequence>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:complexType name="gradeType">
+		<xsd:simpleContent>
+			<xsd:extension base="eup:TextScoreType">
+				<xsd:attribute name="explanation" type="xsd:normalizedString">
+					<xsd:annotation>
+						<xsd:documentation>Short textual explanation.</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
+</xsd:schema>
