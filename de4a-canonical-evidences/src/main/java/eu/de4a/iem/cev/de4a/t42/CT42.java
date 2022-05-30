@@ -24,13 +24,13 @@ import com.helger.xsds.ccts.cct.schemamodule.CCCTS;
 import com.helger.xsds.xml.CXML_XSD;
 
 /**
- * Constants for handling DE4A T4.2 v0.6 pilot stuff
+ * Constants for handling DE4A T4.2 pilot stuff
  *
  * @author Philip Helger
  */
 public final class CT42
 {
-  public static final String NAMESPACE_URI = "urn:eu-de4a:xsd:CanonicalEvidenceType::CompanyRegistration:v0.6";
+  public static final String NS_URI_COMPANY_REGISTRATION = "urn:eu-de4a:xsd:CanonicalEvidenceType::CompanyRegistration:v0.6";
 
   private CT42 ()
   {}

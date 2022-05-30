@@ -31,10 +31,10 @@ import com.helger.xsds.xml.CXML_XSD;
  */
 public final class CT41
 {
-  public static final String NAMESPACE_URI_HED = "urn:eu-de4a:xsd:CanonicalEvidenceType::HigherEducationEvidence:v1.0";
-  public static final String NAMESPACE_URI_SED = "urn:eu-de4a:xsd:CanonicalEvidenceType::SecondaryEducationEvidence:v1.0";
-  public static final String NAMESPACE_URI_DE = "urn:eu-de4a:xsd:CanonicalEvidenceType::DisabilityEvidence:v1.0";
-  public static final String NAMESPACE_URI_LF = "urn:eu-de4a:xsd:CanonicalEvidenceType::LargeFamilyEvidence:v1.0";
+  public static final String NS_URI_HIGHER_EDUCATION_EVIDENCE = "urn:eu-de4a:xsd:CanonicalEvidenceType::HigherEducationEvidence:v1.0";
+  public static final String NS_URI_SECONDARY_EDUCATION_EVIDENCE = "urn:eu-de4a:xsd:CanonicalEvidenceType::SecondaryEducationEvidence:v1.0";
+  public static final String NS_URI_DISABILITY_EVIDENCE = "urn:eu-de4a:xsd:CanonicalEvidenceType::DisabilityEvidence:v1.0";
+  public static final String NS_URI_LARGE_FAMILY_EVIDENCE = "urn:eu-de4a:xsd:CanonicalEvidenceType::LargeFamilyEvidence:v1.0";
 
   private CT41 ()
   {}

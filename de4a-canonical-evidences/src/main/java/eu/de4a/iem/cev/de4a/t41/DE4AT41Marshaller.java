@@ -21,7 +21,6 @@ import javax.xml.bind.JAXBElement;
 
 import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.jaxb.GenericJAXBMarshaller;
-import com.helger.xml.namespace.MapBasedNamespaceContext;
 
 import eu.de4a.iem.jaxb.t41.uc1.hed.v2021_04_13.HigherEducationDiplomaType;
 import eu.de4a.iem.jaxb.t41.uc1.sed.v2022_05_12.SecondaryEducationDiplomaType;
@@ -52,9 +51,7 @@ public class DE4AT41Marshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYP
     final DE4AT41Marshaller <HigherEducationDiplomaType> ret = new DE4AT41Marshaller <> (HigherEducationDiplomaType.class,
                                                                                          CT41.getAllXSDsHigherEducationDiploma (),
                                                                                          new eu.de4a.iem.jaxb.t41.uc1.hed.v2021_04_13.ObjectFactory ()::createHigherEducationDiploma);
-    final MapBasedNamespaceContext aNsCtx = DE4AT41NamespaceContext.getInstance ().getClone ();
-    aNsCtx.addMapping ("sa", CT41.NAMESPACE_URI_HED);
-    ret.setNamespaceContext (aNsCtx);
+    ret.setNamespaceContext (DE4AT41NamespaceContext.getHigherEducationDiplomaInstance ());
     return ret;
   }
 
@@ -64,9 +61,7 @@ public class DE4AT41Marshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYP
     final DE4AT41Marshaller <SecondaryEducationDiplomaType> ret = new DE4AT41Marshaller <> (SecondaryEducationDiplomaType.class,
                                                                                             CT41.getAllXSDsSecondaryEducationDiploma (),
                                                                                             new eu.de4a.iem.jaxb.t41.uc1.sed.v2022_05_12.ObjectFactory ()::createSecondaryEducationDiploma);
-    final MapBasedNamespaceContext aNsCtx = DE4AT41NamespaceContext.getInstance ().getClone ();
-    aNsCtx.addMapping ("sa", CT41.NAMESPACE_URI_SED);
-    ret.setNamespaceContext (aNsCtx);
+    ret.setNamespaceContext (DE4AT41NamespaceContext.getSecondaryEducationDiplomaInstance ());
     return ret;
   }
 
@@ -76,9 +71,7 @@ public class DE4AT41Marshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYP
     final DE4AT41Marshaller <DisabilityEvidenceType> ret = new DE4AT41Marshaller <> (DisabilityEvidenceType.class,
                                                                                      CT41.getAllXSDsDisability (),
                                                                                      new eu.de4a.iem.jaxb.t41.uc2.de.v2022_05_12.ObjectFactory ()::createDisability);
-    final MapBasedNamespaceContext aNsCtx = DE4AT41NamespaceContext.getInstance ().getClone ();
-    aNsCtx.addMapping ("sa", CT41.NAMESPACE_URI_DE);
-    ret.setNamespaceContext (aNsCtx);
+    ret.setNamespaceContext (DE4AT41NamespaceContext.getDisabilityInstance ());
     return ret;
   }
 
@@ -88,9 +81,7 @@ public class DE4AT41Marshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYP
     final DE4AT41Marshaller <LargeFamilyEvidenceType> ret = new DE4AT41Marshaller <> (LargeFamilyEvidenceType.class,
                                                                                       CT41.getAllXSDsLargeFamily (),
                                                                                       new eu.de4a.iem.jaxb.t41.uc2.lf.v2022_05_12.ObjectFactory ()::createLargeFamily);
-    final MapBasedNamespaceContext aNsCtx = DE4AT41NamespaceContext.getInstance ().getClone ();
-    aNsCtx.addMapping ("sa", CT41.NAMESPACE_URI_LF);
-    ret.setNamespaceContext (aNsCtx);
+    ret.setNamespaceContext (DE4AT41NamespaceContext.getLargeFamilyInstance ());
     return ret;
   }
 }
