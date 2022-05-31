@@ -24,10 +24,10 @@ import javax.xml.namespace.NamespaceContext;
 import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.jaxb.GenericJAXBMarshaller;
 
-import eu.de4a.iem.jaxb.t41.uc1.hed.v2021_04_13.HigherEducationDiplomaType;
-import eu.de4a.iem.jaxb.t41.uc1.sed.v2022_05_12.SecondaryEducationDiplomaType;
-import eu.de4a.iem.jaxb.t41.uc2.de.v2022_05_12.DisabilityEvidenceType;
-import eu.de4a.iem.jaxb.t41.uc2.lf.v2022_05_12.LargeFamilyEvidenceType;
+import eu.de4a.iem.jaxb.t41.disability.v2022_05_12.DisabilityEvidenceType;
+import eu.de4a.iem.jaxb.t41.higheredu.v2021_04_13.HigherEducationDiplomaType;
+import eu.de4a.iem.jaxb.t41.largefamily.v2022_05_12.LargeFamilyEvidenceType;
+import eu.de4a.iem.jaxb.t41.secondaryedu.v2022_05_12.SecondaryEducationDiplomaType;
 
 /**
  * Special marshaller for canonical evidences of the DE4A T4.1 v2021-04-13
@@ -54,7 +54,7 @@ public class DE4AT41Marshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYP
   {
     return new DE4AT41Marshaller <> (HigherEducationDiplomaType.class,
                                      CT41.getAllXSDsHigherEducationDiploma (),
-                                     new eu.de4a.iem.jaxb.t41.uc1.hed.v2021_04_13.ObjectFactory ()::createHigherEducationDiploma,
+                                     new eu.de4a.iem.jaxb.t41.higheredu.v2021_04_13.ObjectFactory ()::createHigherEducationDiploma,
                                      DE4AT41NamespaceContext.getHigherEducationDiplomaInstance ());
   }
 
@@ -63,7 +63,7 @@ public class DE4AT41Marshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYP
   {
     return new DE4AT41Marshaller <> (SecondaryEducationDiplomaType.class,
                                      CT41.getAllXSDsSecondaryEducationDiploma (),
-                                     new eu.de4a.iem.jaxb.t41.uc1.sed.v2022_05_12.ObjectFactory ()::createSecondaryEducationDiploma,
+                                     new eu.de4a.iem.jaxb.t41.secondaryedu.v2022_05_12.ObjectFactory ()::createSecondaryEducationDiploma,
                                      DE4AT41NamespaceContext.getSecondaryEducationDiplomaInstance ());
   }
 
@@ -72,7 +72,7 @@ public class DE4AT41Marshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYP
   {
     return new DE4AT41Marshaller <> (DisabilityEvidenceType.class,
                                      CT41.getAllXSDsDisability (),
-                                     new eu.de4a.iem.jaxb.t41.uc2.de.v2022_05_12.ObjectFactory ()::createDisability,
+                                     new eu.de4a.iem.jaxb.t41.disability.v2022_05_12.ObjectFactory ()::createDisability,
                                      DE4AT41NamespaceContext.getDisabilityInstance ());
   }
 
@@ -81,7 +81,7 @@ public class DE4AT41Marshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYP
   {
     return new DE4AT41Marshaller <> (LargeFamilyEvidenceType.class,
                                      CT41.getAllXSDsLargeFamily (),
-                                     new eu.de4a.iem.jaxb.t41.uc2.lf.v2022_05_12.ObjectFactory ()::createLargeFamily,
+                                     new eu.de4a.iem.jaxb.t41.largefamily.v2022_05_12.ObjectFactory ()::createLargeFamily,
                                      DE4AT41NamespaceContext.getLargeFamilyInstance ());
   }
 }
