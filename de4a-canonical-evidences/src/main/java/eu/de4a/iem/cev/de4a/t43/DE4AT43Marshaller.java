@@ -99,7 +99,7 @@ public class DE4AT43Marshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYP
   public static DE4AT43Marshaller <WorkingLifeMeansOfLivingEvidenceType> workingLifeMeansOfLivingEvidence ()
   {
     return new DE4AT43Marshaller <> (WorkingLifeMeansOfLivingEvidenceType.class,
-                                     CT43.getAllUnemploymentMOLEvidenceXSDs (),
+                                     CT43.getAllWorkingLifeMOLEvidenceXSDs (),
                                      new eu.de4a.iem.jaxb.t43.workinglife.v0_1.ObjectFactory ()::createWorkingLifeMeansOfLivingEvidence,
                                      DE4AT43NamespaceContext.getWorkingLifeMeansOfLivingEvidenceInstance ());
   }
