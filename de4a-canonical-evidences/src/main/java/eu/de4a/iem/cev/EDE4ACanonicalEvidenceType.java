@@ -29,20 +29,39 @@ import eu.de4a.iem.core.IDE4ACanonicalEvidenceType;
  */
 public enum EDE4ACanonicalEvidenceType implements IDE4ACanonicalEvidenceType
 {
-  // Studying abroad
-  T41_UC1_2021_04_13 ("t41-uc1-2021-04-13",
-                      "T4.1 UC1 v2021-04-13",
-                      eu.de4a.iem.cev.de4a.t41.CT41.getAllXSDsHigherEducationDiploma ()),
-  T42_COMPANY_INFO_V06 ("t42-companyinfo-v06", "T4.2 Company Info v0.6", eu.de4a.iem.cev.de4a.t42.CT42.getAllXSDs ()),
-  T43_BIRTH_EVIDENCE_V16B ("t43-birth-v16b",
-                           "T4.3 Birth Evidence v1.6b",
-                           eu.de4a.iem.cev.de4a.t43.CT43.getAllBirthEvidenceXSDs ()),
-  T43_DOMREG_EVIDENCE_V16B ("t43-domreg-v16b",
-                            "T4.3 Domicile Registration Evidence v1.6b",
-                            eu.de4a.iem.cev.de4a.t43.CT43.getAllDomicileRegistrationEvidenceXSDs ()),
-  T43_MARRIAGE_EVIDENCE_V16B ("t43-marriage-v16b",
-                              "T4.3 Marriage Evidence v1.6b",
-                              eu.de4a.iem.cev.de4a.t43.CT43.getAllMarriageEvidenceXSDs ());
+  T41_HIGHER_EDUCATION_EVIDENCE_2021_04_13 ("t41-hed-2021-04-13",
+                                            "T4.1 Higher Education Evidence v2021-04-13",
+                                            eu.de4a.iem.cev.de4a.t41.CT41.getAllXSDsHigherEducationDiploma ()),
+  T41_SECONDARY_EDUCATION_EVIDENCE_2022_05_12 ("t41-sed-2022-05-12",
+                                               "T4.1 Secondary Education Evidence v2022-05-12",
+                                               eu.de4a.iem.cev.de4a.t41.CT41.getAllXSDsSecondaryEducationDiploma ()),
+  T41_DISABILITY_EVIDENCE_2022_05_12 ("t41-disability-2022-05-12",
+                                      "T4.1 Disability Evidence v2022-05-12",
+                                      eu.de4a.iem.cev.de4a.t41.CT41.getAllXSDsDisability ()),
+  T41_LARGE_FAMILY_EVIDENCE_2022_05_12 ("t41-largefam-2022-05-12",
+                                        "T4.1 Large Family v2022-05-12",
+                                        eu.de4a.iem.cev.de4a.t41.CT41.getAllXSDsLargeFamily ()),
+
+  T42_LEGAL_ENTITY_V06 ("t42-legalentity-v06", "T4.2 Legal Entity v0.6", eu.de4a.iem.cev.de4a.t42.CT42.getAllXSDs ()),
+
+  T43_BIRTH_EVIDENCE_V17 ("t43-birth-v17",
+                          "T4.3 Birth Evidence v1.7",
+                          eu.de4a.iem.cev.de4a.t43.CT43.getAllBirthEvidenceXSDs ()),
+  T43_DOMREG_EVIDENCE_V17 ("t43-domreg-v17",
+                           "T4.3 Domicile Registration Evidence v1.7",
+                           eu.de4a.iem.cev.de4a.t43.CT43.getAllDomicileRegistrationEvidenceXSDs ()),
+  T43_MARRIAGE_EVIDENCE_V17 ("t43-marriage-v17",
+                             "T4.3 Marriage Evidence v1.7",
+                             eu.de4a.iem.cev.de4a.t43.CT43.getAllMarriageEvidenceXSDs ()),
+  T43_PENSION_MOL_EVIDENCE_V01 ("t43-pensionmol-v01",
+                                "T4.3 Pension Means of Living Evidence v0.1",
+                                eu.de4a.iem.cev.de4a.t43.CT43.getAllPensionMOLEvidenceXSDs ()),
+  T43_UNEMPLOYMENT_MOL_EVIDENCE_V01 ("t43-unemploymentmol-v01",
+                                     "T4.3 Unemployment Means of Living Evidence v0.1",
+                                     eu.de4a.iem.cev.de4a.t43.CT43.getAllUnemploymentMOLEvidenceXSDs ()),
+  T43_WORKING_LIFE_MOL_EVIDENCE_V01 ("t43-workinglifemol-v01",
+                                     "T4.3 Working Life Means of Living Evidence v0.1",
+                                     eu.de4a.iem.cev.de4a.t43.CT43.getAllWorkingLifeMOLEvidenceXSDs ());
 
   private final String m_sID;
   private final String m_sDisplayName;

@@ -33,6 +33,8 @@ and you receive a set of JAR files in the respective submodule `target` director
 
 ## History
 
+* v0.2.7 - 2022-05-31
+    * Updated the `EDE4ACanonicalEvidenceType` enum
 * v0.2.6 - 2022-05-30
     * Changed `eu.de4a.iem.jaxb.t41.uc1.v2021_04_13` to `eu.de4a.iem.jaxb.t41.uc1.hed.v2021_04_13`
     * Changed `eu.de4a.iem.cev.de4a.t41.v2021_04_13` to `eu.de4a.iem.cev.de4a.t41`
