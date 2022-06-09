@@ -87,7 +87,7 @@ public class DE4ACoreMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTY
   {
     return new DE4ACoreMarshaller <> (ResponseExtractMultiEvidenceType.class,
                                       _getXSDs (CDE4ACoreJAXB.XSD_DE, aCanonicalEvidenceType.getAllXSDs ()),
-                                      new eu.de4a.iem.core.jaxb.de.ObjectFactory ()::createRequestForwardEvidence);
+                                      new eu.de4a.iem.core.jaxb.de.ObjectFactory ()::createResponseTransferEvidence);
   }
 
   @Nonnull
