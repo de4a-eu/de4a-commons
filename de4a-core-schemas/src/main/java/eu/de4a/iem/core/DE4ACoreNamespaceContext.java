@@ -34,11 +34,11 @@ public class DE4ACoreNamespaceContext extends MapBasedNamespaceContext
 
   protected DE4ACoreNamespaceContext ()
   {
-    addMapping ("eilp", "http://eidas.europa.eu/attributes/legalperson");
-    addMapping ("einp", "http://eidas.europa.eu/attributes/naturalperson");
-    addMapping ("de4a", "http://www.de4a.eu/2020/commons/type/v2");
+    addMapping ("eil", "http://eidas.europa.eu/attributes/legalperson");
+    addMapping ("ein", "http://eidas.europa.eu/attributes/naturalperson");
+    addMapping ("ct", "http://www.de4a.eu/2020/commons/type/v2");
     addMapping ("cv", "https://data.europe.eu/semanticassets/ns/cv/common/dataTypes-2.0.0#");
-    addMapping ("ct", CCCTS.NAMESPACE_URI);
+    addMapping (CCCTS.DEFAULT_PREFIX, CCCTS.NAMESPACE_URI);
   }
 
   @Nonnull
