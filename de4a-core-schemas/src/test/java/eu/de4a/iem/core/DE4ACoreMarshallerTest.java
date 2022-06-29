@@ -83,5 +83,20 @@ public final class DE4ACoreMarshallerTest
                     new File (BASE_PATH + "core/DO-request-extract-multi-evidence-lu.xml"));
     _testReadWrite (DE4ACoreMarshaller.doRequestExtractMultiEvidenceUSIMarshaller (),
                     new File (BASE_PATH + "core/DO-request-extract-multi-evidence-usi.xml"));
+    _testReadWrite (DE4ACoreMarshaller.doRequestEventSubscriptionMarshaller (),
+                    new File (BASE_PATH + "core/DO-request-event-subscription.xml"));
+  }
+
+  @Test
+  public void testDR ()
+  {
+    _testReadWrite (DE4ACoreMarshaller.drRequestTransferEvidenceIMMarshaller (),
+                    new File (BASE_PATH + "core/DR-request-transfer-evidence-im.xml"));
+    _testReadWrite (DE4ACoreMarshaller.drRequestTransferEvidenceLUMarshaller (),
+                    new File (BASE_PATH + "core/DR-request-transfer-evidence-lu.xml"));
+    _testReadWrite (DE4ACoreMarshaller.drRequestTransferEvidenceUSIMarshaller (),
+                    new File (BASE_PATH + "core/DR-request-transfer-evidence-usi.xml"));
+    _testReadWrite (DE4ACoreMarshaller.drRequestEventSubscriptionMarshaller (),
+                    new File (BASE_PATH + "core/DR-request-event-subscription.xml"));
   }
 }
