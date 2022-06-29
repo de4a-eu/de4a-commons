@@ -44,12 +44,6 @@ public final class DE4ACoreMarshallerTest
 
     assertTrue ("Test file does not exists " + aFile.getAbsolutePath (), aFile.exists ());
 
-    if (true)
-    {
-      aMarshaller.readExceptionCallbacks ().set (ex -> LOGGER.error ("Read error", ex));
-      aMarshaller.writeExceptionCallbacks ().set (ex -> LOGGER.error ("Write error", ex));
-    }
-
     final T aRead = aMarshaller.read (aFile);
     assertNotNull ("Failed to read " + aFile.getAbsolutePath (), aRead);
 
@@ -105,5 +99,11 @@ public final class DE4ACoreMarshallerTest
   {
     _testReadWrite (DE4ACoreMarshaller.dtUSIRedirectUserMarshaller (),
                     new File (BASE_PATH + "core/DT-usi-redirect-user.xml"));
+    _testReadWrite (DE4ACoreMarshaller.dtResponseTransferEvidenceMarshaller (IDE4ACanonicalEvidenceType.NONE),
+                    new File (BASE_PATH + "core/DT-response-transfer-evidence.xml"));
+    _testReadWrite (DE4ACoreMarshaller.dtResponseEventSubscriptionMarshaller (),
+                    new File (BASE_PATH + "core/DT-response-event-subscription.xml"));
+    _testReadWrite (DE4ACoreMarshaller.dtEventNotificationMarshaller (),
+                    new File (BASE_PATH + "core/DT-event-notification.xml"));
   }
 }
