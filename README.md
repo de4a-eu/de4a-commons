@@ -3,7 +3,7 @@
 Shared stuff for DE4A software components.
 
 Last release: 
-* Iteration 2: **0.2.7**
+* Iteration 2: **0.2.8**
 * Iteration 1: **0.1.11**
 
 In the DE4A project we are differentiating between "Iteration 1" and "Iteration 2". As they are incompatible, care needs to be taken, that they are not mixed together.
@@ -36,6 +36,7 @@ and you receive a set of JAR files in the respective submodule `target` director
 
 * v0.2.8 - 2022-06-29
     * Updated the T4.1 HigherEducationDiploma XSD
+        * Package changed from `eu.de4a.iem.jaxb.t41.higheredu.v2021_04_13` to `eu.de4a.iem.jaxb.t41.higheredu.v2022_06_23`
     * Renamed `DE4ACoreMarshaller` methods for consistency with the element names instead of the types
         * `deResponseExtractMultiEvidenceMarshaller` became `deResponseTransferEvidenceMarshaller`
         * `drRequestExtractMultiEvidenceIMMarshaller` became `drRequestTransferEvidenceIMMarshaller`
