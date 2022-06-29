@@ -84,5 +84,7 @@ public final class DE4ACoreMarshallerTest
   {
     _testReadWrite (DE4ACoreMarshaller.deResponseTransferEvidenceMarshaller (IDE4ACanonicalEvidenceType.NONE),
                     new File (BASE_PATH + "core/DE-response-transfer-evidence.xml"));
+    _testReadWrite (DE4ACoreMarshaller.deUSIRedirectUserMarshaller (),
+                    new File (BASE_PATH + "core/DE-usi-redirect.xml"));
   }
 }
