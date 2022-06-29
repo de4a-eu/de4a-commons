@@ -34,7 +34,6 @@ import com.helger.jaxb.GenericJAXBMarshaller;
 public final class DE4AT42MarshallerTest
 {
   private static final Logger LOGGER = LoggerFactory.getLogger (DE4AT42MarshallerTest.class);
-  private static final String BASE_PATH = "src/test/resources/de4a/t4.2/v0.6/";
 
   private static <T> void _testReadWrite (@Nonnull final GenericJAXBMarshaller <T> aMarshaller,
                                           @Nonnull final File aFile)
@@ -47,7 +46,7 @@ public final class DE4AT42MarshallerTest
     final byte [] aBytes = aMarshaller.getAsBytes (aRead);
     assertNotNull ("Failed to re-write " + aFile.getAbsolutePath (), aBytes);
 
-    if (true)
+    if (false)
     {
       aMarshaller.setFormattedOutput (true);
       LOGGER.info (aMarshaller.getAsString (aRead));
@@ -57,9 +56,10 @@ public final class DE4AT42MarshallerTest
   @Test
   public void testLegalEntity ()
   {
-    _testReadWrite (DE4AT42Marshaller.legalEntity (), new File (BASE_PATH + "Sample Company Registration AT.xml"));
-    _testReadWrite (DE4AT42Marshaller.legalEntity (), new File (BASE_PATH + "Sample Company Registration NL KVK.xml"));
-    _testReadWrite (DE4AT42Marshaller.legalEntity (), new File (BASE_PATH + "Sample Company Registration RO ONRC.xml"));
-    _testReadWrite (DE4AT42Marshaller.legalEntity (), new File (BASE_PATH + "Sample Company Registration SE.xml"));
+    final String sBasePath = "src/test/resources/de4a/t4.2/v0.6/";
+    _testReadWrite (DE4AT42Marshaller.legalEntity (), new File (sBasePath + "Sample Company Registration AT.xml"));
+    _testReadWrite (DE4AT42Marshaller.legalEntity (), new File (sBasePath + "Sample Company Registration NL KVK.xml"));
+    _testReadWrite (DE4AT42Marshaller.legalEntity (), new File (sBasePath + "Sample Company Registration RO ONRC.xml"));
+    _testReadWrite (DE4AT42Marshaller.legalEntity (), new File (sBasePath + "Sample Company Registration SE.xml"));
   }
 }

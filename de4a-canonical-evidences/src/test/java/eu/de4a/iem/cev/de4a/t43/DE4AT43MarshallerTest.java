@@ -34,7 +34,6 @@ import com.helger.jaxb.GenericJAXBMarshaller;
 public final class DE4AT43MarshallerTest
 {
   private static final Logger LOGGER = LoggerFactory.getLogger (DE4AT43MarshallerTest.class);
-  private static final String BASE_PATH = "src/test/resources/de4a/t4.3/v1.7/";
 
   private static <T> void _testReadWrite (@Nonnull final GenericJAXBMarshaller <T> aMarshaller,
                                           @Nonnull final File aFile)
@@ -57,44 +56,50 @@ public final class DE4AT43MarshallerTest
   @Test
   public void testBirthEvidence ()
   {
+    final String sBasePath = "src/test/resources/de4a/t4.3/birth/";
     for (final String s : new String [] { "birth-evidence-1.7-generated-example.xml",
                                           "birth-evidence-1.7-generated-example-without-optional-attributes.xml" })
-      _testReadWrite (DE4AT43Marshaller.birthEvidence (), new File (BASE_PATH + s));
+      _testReadWrite (DE4AT43Marshaller.birthEvidence (), new File (sBasePath + s));
   }
 
   @Test
   public void testDomicileRegistrationEvidence ()
   {
+    final String sBasePath = "src/test/resources/de4a/t4.3/domreg/";
     for (final String s : new String [] {})
-      _testReadWrite (DE4AT43Marshaller.domicileRegistrationEvidence (), new File (BASE_PATH + s));
+      _testReadWrite (DE4AT43Marshaller.domicileRegistrationEvidence (), new File (sBasePath + s));
   }
 
   @Test
   public void testMarriageEvidence ()
   {
+    final String sBasePath = "src/test/resources/de4a/t4.3/marriage/";
     for (final String s : new String [] { "marriage-evidence-1.7-generated-example.xml",
                                           "marriage-evidence-1.7-generated-example-without-optional-attributes.xml" })
-      _testReadWrite (DE4AT43Marshaller.marriageEvidence (), new File (BASE_PATH + s));
+      _testReadWrite (DE4AT43Marshaller.marriageEvidence (), new File (sBasePath + s));
   }
 
   @Test
   public void testPensionMeansOfLivingEvidence ()
   {
+    final String sBasePath = "src/test/resources/de4a/t4.3/pension/";
     for (final String s : new String [] {})
-      _testReadWrite (DE4AT43Marshaller.pensionMeansOfLivingEvidence (), new File (BASE_PATH + s));
+      _testReadWrite (DE4AT43Marshaller.pensionMeansOfLivingEvidence (), new File (sBasePath + s));
   }
 
   @Test
   public void testUnemploymentMeansOfLivingEvidence ()
   {
+    final String sBasePath = "src/test/resources/de4a/t4.3/unemployment/";
     for (final String s : new String [] {})
-      _testReadWrite (DE4AT43Marshaller.unemploymentMeansOfLivingEvidence (), new File (BASE_PATH + s));
+      _testReadWrite (DE4AT43Marshaller.unemploymentMeansOfLivingEvidence (), new File (sBasePath + s));
   }
 
   @Test
   public void testWorkingLifeMeansOfLivingEvidence ()
   {
+    final String sBasePath = "src/test/resources/de4a/t4.3/workinglife/";
     for (final String s : new String [] {})
-      _testReadWrite (DE4AT43Marshaller.workingLifeMeansOfLivingEvidence (), new File (BASE_PATH + s));
+      _testReadWrite (DE4AT43Marshaller.workingLifeMeansOfLivingEvidence (), new File (sBasePath + s));
   }
 }

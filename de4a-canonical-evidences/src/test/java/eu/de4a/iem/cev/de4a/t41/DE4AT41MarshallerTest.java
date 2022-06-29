@@ -46,7 +46,7 @@ public final class DE4AT41MarshallerTest
     final byte [] aBytes = aMarshaller.getAsBytes (aRead);
     assertNotNull ("Failed to re-write " + aFile.getAbsolutePath (), aBytes);
 
-    if (true)
+    if (false)
     {
       aMarshaller.setFormattedOutput (true);
       LOGGER.info (aMarshaller.getAsString (aRead));
