@@ -69,7 +69,7 @@ public final class DE4ACoreMarshallerTest
     _testReadWrite (DE4ACoreMarshaller.deResponseTransferEvidenceMarshaller (IDE4ACanonicalEvidenceType.NONE),
                     new File (BASE_PATH + "core/DE-response-transfer-evidence.xml"));
     _testReadWrite (DE4ACoreMarshaller.deUSIRedirectUserMarshaller (),
-                    new File (BASE_PATH + "core/DE-usi-redirect.xml"));
+                    new File (BASE_PATH + "core/DE-usi-redirect-user.xml"));
     _testReadWrite (DE4ACoreMarshaller.deEventNotificationMarshaller (),
                     new File (BASE_PATH + "core/DE-event-notification.xml"));
   }
@@ -98,5 +98,12 @@ public final class DE4ACoreMarshallerTest
                     new File (BASE_PATH + "core/DR-request-transfer-evidence-usi.xml"));
     _testReadWrite (DE4ACoreMarshaller.drRequestEventSubscriptionMarshaller (),
                     new File (BASE_PATH + "core/DR-request-event-subscription.xml"));
+  }
+
+  @Test
+  public void testDT ()
+  {
+    _testReadWrite (DE4ACoreMarshaller.dtUSIRedirectUserMarshaller (),
+                    new File (BASE_PATH + "core/DT-usi-redirect-user.xml"));
   }
 }
