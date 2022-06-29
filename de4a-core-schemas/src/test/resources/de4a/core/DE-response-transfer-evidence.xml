@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<RequestForwardEvidence xmlns="http://www.de4a.eu/2020/data/evaluator/v2" xmlns:ct="http://www.de4a.eu/2020/commons/type/v2"
-                        xmlns:ein="http://eidas.europa.eu/attributes/naturalperson">
+<ResponseTransferEvidence xmlns="http://www.de4a.eu/2020/data/evaluator/v2" 
+                          xmlns:ct="http://www.de4a.eu/2020/commons/type/v2"
+                          xmlns:ein="http://eidas.europa.eu/attributes/naturalperson">
   <ct:RequestId>req1</ct:RequestId>
   <ct:TimeStamp>2022-02-25T01:50:00</ct:TimeStamp>
   <ct:DataEvaluator>
@@ -32,4 +33,4 @@
        <alias xmlns="urn:anything:else">asdf</alias>
     </ct:CanonicalEvidence>
   </ct:ResponseExtractEvidenceItem>
-</RequestForwardEvidence>
+</ResponseTransferEvidence>

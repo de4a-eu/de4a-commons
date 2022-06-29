@@ -82,7 +82,7 @@ public final class DE4ACoreMarshallerTest
   @Test
   public void testDE ()
   {
-    _testReadWrite (DE4ACoreMarshaller.deResponseExtractMultiEvidenceMarshaller (IDE4ACanonicalEvidenceType.NONE),
-                    new File (BASE_PATH + "core/DE-request-forward-evidence.xml"));
+    _testReadWrite (DE4ACoreMarshaller.deResponseTransferEvidenceMarshaller (IDE4ACanonicalEvidenceType.NONE),
+                    new File (BASE_PATH + "core/DE-response-transfer-evidence.xml"));
   }
 }
