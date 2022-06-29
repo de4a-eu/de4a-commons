@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <USIRedirectUser xmlns="http://www.de4a.eu/2020/data/evaluator/v2" 
-                 xmlns:ct="http://www.de4a.eu/2020/commons/type/v2"
-                 xmlns:ein="http://eidas.europa.eu/attributes/naturalperson">
+                 xmlns:ct="http://www.de4a.eu/2020/commons/type/v2">
   <ct:RequestId>req1</ct:RequestId>
   <ct:SpecificationId>spec1</ct:SpecificationId>
   <ct:TimeStamp>2022-02-25T01:50:00</ct:TimeStamp>

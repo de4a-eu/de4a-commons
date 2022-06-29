@@ -86,5 +86,7 @@ public final class DE4ACoreMarshallerTest
                     new File (BASE_PATH + "core/DE-response-transfer-evidence.xml"));
     _testReadWrite (DE4ACoreMarshaller.deUSIRedirectUserMarshaller (),
                     new File (BASE_PATH + "core/DE-usi-redirect.xml"));
+    _testReadWrite (DE4ACoreMarshaller.deEventNotificationMarshaller (),
+                    new File (BASE_PATH + "core/DE-event-notification.xml"));
   }
 }
