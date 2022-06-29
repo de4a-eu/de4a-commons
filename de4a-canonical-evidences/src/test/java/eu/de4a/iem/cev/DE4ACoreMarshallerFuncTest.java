@@ -11,7 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package eu.de4a.iem.cev.de4a.t42;
+package eu.de4a.iem.cev;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
@@ -26,19 +26,30 @@ import org.slf4j.LoggerFactory;
 
 import com.helger.jaxb.GenericJAXBMarshaller;
 
+import eu.de4a.iem.core.DE4ACoreMarshaller;
+
 /**
- * Test class for class {@link DE4AT42Marshaller}.
+ * Test class for class {@link DE4AMarshaller}.
  *
  * @author Philip Helger
  */
-public final class DE4AT42MarshallerTest
+public final class DE4ACoreMarshallerFuncTest
 {
-  private static final Logger LOGGER = LoggerFactory.getLogger (DE4AT42MarshallerTest.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger (DE4ACoreMarshallerFuncTest.class);
 
   private static <T> void _testReadWrite (@Nonnull final GenericJAXBMarshaller <T> aMarshaller,
                                           @Nonnull final File aFile)
   {
+    if (LOGGER.isInfoEnabled ())
+      LOGGER.info ("Reading Core+Canonical file " + aFile.getName ());
+
     assertTrue ("Test file does not exists " + aFile.getAbsolutePath (), aFile.exists ());
+
+    if (false)
+    {
+      aMarshaller.readExceptionCallbacks ().set (ex -> LOGGER.error ("Read error", ex));
+      aMarshaller.writeExceptionCallbacks ().set (ex -> LOGGER.error ("Write error", ex));
+    }
 
     final T aRead = aMarshaller.read (aFile);
     assertNotNull ("Failed to read " + aFile.getAbsolutePath (), aRead);
@@ -54,12 +65,12 @@ public final class DE4AT42MarshallerTest
   }
 
   @Test
-  public void testLegalEntity ()
+  public void testDBA ()
   {
-    final String sBasePath = "src/test/resources/de4a/t4.2/v0.6/";
-    _testReadWrite (DE4AT42Marshaller.legalEntity (), new File (sBasePath + "Sample Company Registration AT.xml"));
-    _testReadWrite (DE4AT42Marshaller.legalEntity (), new File (sBasePath + "Sample Company Registration NL KVK.xml"));
-    _testReadWrite (DE4AT42Marshaller.legalEntity (), new File (sBasePath + "Sample Company Registration RO ONRC.xml"));
-    _testReadWrite (DE4AT42Marshaller.legalEntity (), new File (sBasePath + "Sample Company Registration SE.xml"));
+    final String sBasePath = "src/test/resources/de4a/";
+    _testReadWrite (DE4ACoreMarshaller.deResponseTransferEvidenceMarshaller (EDE4ACanonicalEvidenceType.T42_LEGAL_ENTITY_V06),
+                    new File (sBasePath + "core/t4.2/0.6/DE-response-transfer-evidence-DBA.xml"));
+    _testReadWrite (DE4ACoreMarshaller.dtResponseTransferEvidenceMarshaller (EDE4ACanonicalEvidenceType.T42_LEGAL_ENTITY_V06),
+                    new File (sBasePath + "core/t4.2/0.6/DT-response-transfer-evidence-DBA.xml"));
   }
 }

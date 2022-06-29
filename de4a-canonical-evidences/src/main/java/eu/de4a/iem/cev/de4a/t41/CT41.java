@@ -85,7 +85,7 @@ public final class CT41
   {
     final ICommonsList <ClassPathResource> aList = new CommonsArrayList <> ();
     _addEDCI (aList);
-    aList.add (new ClassPathResource ("schemas/t4.1/SA-UC1-13-04-2021.xsd", _getCL ()));
+    aList.add (new ClassPathResource ("schemas/t4.1/SA-UC1-HigherEducationDiplomaType-23-06-2022.xsd", _getCL ()));
     return aList;
   }
 

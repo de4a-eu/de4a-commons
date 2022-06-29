@@ -24,7 +24,6 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.helger.commons.wrapper.Wrapper;
 import com.helger.jaxb.GenericJAXBMarshaller;
 
 /**
@@ -37,34 +36,13 @@ public final class DE4ACoreMarshallerTest
   private static final Logger LOGGER = LoggerFactory.getLogger (DE4ACoreMarshallerTest.class);
   private static final String BASE_PATH = "src/test/resources/de4a/";
 
-  @SuppressWarnings ("unused")
-  private static <T> void _receiveViaHttp (@Nonnull final GenericJAXBMarshaller <T> aMarshaller,
-                                           @Nonnull final File aFile) throws Exception
-  {
-    final Wrapper <Exception> aExWrapper = new Wrapper <> ();
-    aMarshaller.readExceptionCallbacks ().removeAll ();
-    aMarshaller.readExceptionCallbacks ().add (ex -> aExWrapper.set (ex));
-    aMarshaller.readExceptionCallbacks ().add (ex -> LOGGER.error ("Failed to parse XML", ex));
-
-    final T aRead = aMarshaller.read (aFile);
-    if (aRead == null)
-    {
-      if (aExWrapper.isSet ())
-        throw aExWrapper.get ();
-      throw new Exception ("HTTP 400");
-    }
-  }
-
   private static <T> void _testReadWrite (@Nonnull final GenericJAXBMarshaller <T> aMarshaller,
                                           @Nonnull final File aFile)
   {
-    assertTrue ("Test file does not exists " + aFile.getAbsolutePath (), aFile.exists ());
+    if (LOGGER.isInfoEnabled ())
+      LOGGER.info ("Reading Core file " + aFile.getName ());
 
-    if (false)
-    {
-      aMarshaller.readExceptionCallbacks ().set (ex -> LOGGER.error ("Read error", ex));
-      aMarshaller.writeExceptionCallbacks ().set (ex -> LOGGER.error ("Write error", ex));
-    }
+    assertTrue ("Test file does not exists " + aFile.getAbsolutePath (), aFile.exists ());
 
     final T aRead = aMarshaller.read (aFile);
     assertNotNull ("Failed to read " + aFile.getAbsolutePath (), aRead);
@@ -82,7 +60,50 @@ public final class DE4ACoreMarshallerTest
   @Test
   public void testDE ()
   {
-    _testReadWrite (DE4ACoreMarshaller.deResponseExtractMultiEvidenceMarshaller (IDE4ACanonicalEvidenceType.NONE),
-                    new File (BASE_PATH + "core/DE-request-forward-evidence.xml"));
+    _testReadWrite (DE4ACoreMarshaller.deResponseTransferEvidenceMarshaller (IDE4ACanonicalEvidenceType.NONE),
+                    new File (BASE_PATH + "core/DE-response-transfer-evidence.xml"));
+    _testReadWrite (DE4ACoreMarshaller.deUSIRedirectUserMarshaller (),
+                    new File (BASE_PATH + "core/DE-usi-redirect-user.xml"));
+    _testReadWrite (DE4ACoreMarshaller.deEventNotificationMarshaller (),
+                    new File (BASE_PATH + "core/DE-event-notification.xml"));
+  }
+
+  @Test
+  public void testDO ()
+  {
+    _testReadWrite (DE4ACoreMarshaller.doRequestExtractMultiEvidenceIMMarshaller (),
+                    new File (BASE_PATH + "core/DO-request-extract-multi-evidence-im.xml"));
+    _testReadWrite (DE4ACoreMarshaller.doRequestExtractMultiEvidenceLUMarshaller (),
+                    new File (BASE_PATH + "core/DO-request-extract-multi-evidence-lu.xml"));
+    _testReadWrite (DE4ACoreMarshaller.doRequestExtractMultiEvidenceUSIMarshaller (),
+                    new File (BASE_PATH + "core/DO-request-extract-multi-evidence-usi.xml"));
+    _testReadWrite (DE4ACoreMarshaller.doRequestEventSubscriptionMarshaller (),
+                    new File (BASE_PATH + "core/DO-request-event-subscription.xml"));
+  }
+
+  @Test
+  public void testDR ()
+  {
+    _testReadWrite (DE4ACoreMarshaller.drRequestTransferEvidenceIMMarshaller (),
+                    new File (BASE_PATH + "core/DR-request-transfer-evidence-im.xml"));
+    _testReadWrite (DE4ACoreMarshaller.drRequestTransferEvidenceLUMarshaller (),
+                    new File (BASE_PATH + "core/DR-request-transfer-evidence-lu.xml"));
+    _testReadWrite (DE4ACoreMarshaller.drRequestTransferEvidenceUSIMarshaller (),
+                    new File (BASE_PATH + "core/DR-request-transfer-evidence-usi.xml"));
+    _testReadWrite (DE4ACoreMarshaller.drRequestEventSubscriptionMarshaller (),
+                    new File (BASE_PATH + "core/DR-request-event-subscription.xml"));
+  }
+
+  @Test
+  public void testDT ()
+  {
+    _testReadWrite (DE4ACoreMarshaller.dtUSIRedirectUserMarshaller (),
+                    new File (BASE_PATH + "core/DT-usi-redirect-user.xml"));
+    _testReadWrite (DE4ACoreMarshaller.dtResponseTransferEvidenceMarshaller (IDE4ACanonicalEvidenceType.NONE),
+                    new File (BASE_PATH + "core/DT-response-transfer-evidence.xml"));
+    _testReadWrite (DE4ACoreMarshaller.dtResponseEventSubscriptionMarshaller (),
+                    new File (BASE_PATH + "core/DT-response-event-subscription.xml"));
+    _testReadWrite (DE4ACoreMarshaller.dtEventNotificationMarshaller (),
+                    new File (BASE_PATH + "core/DT-event-notification.xml"));
   }
 }

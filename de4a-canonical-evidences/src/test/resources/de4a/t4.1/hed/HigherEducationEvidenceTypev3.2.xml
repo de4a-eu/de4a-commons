@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sa:HigherEducationDiploma
-	xmlns:cvb="http://www.w3.org/ns/corevocabulary/BasicComponents"
-	xmlns:udt="urn:un:unece:uncefact:data:specification:UnqualifiedDataTypesSchemaModule:2"
-	xmlns:ds="http://www.w3.org/2000/09/xmldsig#" 
 	xmlns:sa="urn:eu-de4a:xsd:CanonicalEvidenceType::HigherEducationEvidence:v1.0" 
 	xmlns:edci="http://data.europa.eu/europass/model/credentials#" 
-	xmlns:cred="http://data.europa.eu/europass/model/credentials/w3c#" 
-	xmlns:cbc="urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2" 
 	id="urn:credential:ef3b1a56-e668-4397-8dfd-c6a35f970c73"
 	>
 

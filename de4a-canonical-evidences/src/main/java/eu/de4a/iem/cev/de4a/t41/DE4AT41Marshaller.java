@@ -25,7 +25,7 @@ import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.jaxb.GenericJAXBMarshaller;
 
 import eu.de4a.iem.jaxb.t41.disability.v2022_05_12.DisabilityEvidenceType;
-import eu.de4a.iem.jaxb.t41.higheredu.v2021_04_13.HigherEducationDiplomaType;
+import eu.de4a.iem.jaxb.t41.higheredu.v2022_06_23.HigherEducationDiplomaType;
 import eu.de4a.iem.jaxb.t41.largefamily.v2022_05_12.LargeFamilyEvidenceType;
 import eu.de4a.iem.jaxb.t41.secondaryedu.v2022_05_12.SecondaryEducationDiplomaType;
 
@@ -54,7 +54,7 @@ public class DE4AT41Marshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYP
   {
     return new DE4AT41Marshaller <> (HigherEducationDiplomaType.class,
                                      CT41.getAllXSDsHigherEducationDiploma (),
-                                     new eu.de4a.iem.jaxb.t41.higheredu.v2021_04_13.ObjectFactory ()::createHigherEducationDiploma,
+                                     new eu.de4a.iem.jaxb.t41.higheredu.v2022_06_23.ObjectFactory ()::createHigherEducationDiploma,
                                      DE4AT41NamespaceContext.getHigherEducationDiplomaInstance ());
   }
 

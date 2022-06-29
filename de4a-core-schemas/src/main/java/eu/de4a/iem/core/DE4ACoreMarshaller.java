@@ -83,11 +83,11 @@ public class DE4ACoreMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTY
   // DE - Data Evaluator
 
   @Nonnull
-  public static DE4ACoreMarshaller <ResponseExtractMultiEvidenceType> deResponseExtractMultiEvidenceMarshaller (@Nonnull final IDE4ACanonicalEvidenceType aCanonicalEvidenceType)
+  public static DE4ACoreMarshaller <ResponseExtractMultiEvidenceType> deResponseTransferEvidenceMarshaller (@Nonnull final IDE4ACanonicalEvidenceType aCanonicalEvidenceType)
   {
     return new DE4ACoreMarshaller <> (ResponseExtractMultiEvidenceType.class,
                                       _getXSDs (CDE4ACoreJAXB.XSD_DE, aCanonicalEvidenceType.getAllXSDs ()),
-                                      new eu.de4a.iem.core.jaxb.de.ObjectFactory ()::createRequestForwardEvidence);
+                                      new eu.de4a.iem.core.jaxb.de.ObjectFactory ()::createResponseTransferEvidence);
   }
 
   @Nonnull
@@ -143,7 +143,7 @@ public class DE4ACoreMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTY
   // DR - Data Requestor
 
   @Nonnull
-  public static DE4ACoreMarshaller <RequestExtractMultiEvidenceIMType> drRequestExtractMultiEvidenceIMMarshaller ()
+  public static DE4ACoreMarshaller <RequestExtractMultiEvidenceIMType> drRequestTransferEvidenceIMMarshaller ()
   {
     return new DE4ACoreMarshaller <> (RequestExtractMultiEvidenceIMType.class,
                                       _getXSDs (CDE4ACoreJAXB.XSD_DR, null),
@@ -151,7 +151,7 @@ public class DE4ACoreMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTY
   }
 
   @Nonnull
-  public static DE4ACoreMarshaller <RequestExtractMultiEvidenceLUType> drRequestExtractMultiEvidenceLUMarshaller ()
+  public static DE4ACoreMarshaller <RequestExtractMultiEvidenceLUType> drRequestTransferEvidenceLUMarshaller ()
   {
     return new DE4ACoreMarshaller <> (RequestExtractMultiEvidenceLUType.class,
                                       _getXSDs (CDE4ACoreJAXB.XSD_DR, null),
@@ -159,7 +159,7 @@ public class DE4ACoreMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTY
   }
 
   @Nonnull
-  public static DE4ACoreMarshaller <RequestExtractMultiEvidenceUSIType> drRequestExtractMultiEvidenceUSIMarshaller ()
+  public static DE4ACoreMarshaller <RequestExtractMultiEvidenceUSIType> drRequestTransferEvidenceUSIMarshaller ()
   {
     return new DE4ACoreMarshaller <> (RequestExtractMultiEvidenceUSIType.class,
                                       _getXSDs (CDE4ACoreJAXB.XSD_DR, null),
@@ -185,7 +185,7 @@ public class DE4ACoreMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTY
   }
 
   @Nonnull
-  public static DE4ACoreMarshaller <ResponseExtractMultiEvidenceType> dtResponseExtractMultiEvidenceMarshaller (@Nonnull final IDE4ACanonicalEvidenceType aCanonicalEvidenceType)
+  public static DE4ACoreMarshaller <ResponseExtractMultiEvidenceType> dtResponseTransferEvidenceMarshaller (@Nonnull final IDE4ACanonicalEvidenceType aCanonicalEvidenceType)
   {
     return new DE4ACoreMarshaller <> (ResponseExtractMultiEvidenceType.class,
                                       _getXSDs (CDE4ACoreJAXB.XSD_DT, aCanonicalEvidenceType.getAllXSDs ()),
@@ -211,7 +211,7 @@ public class DE4ACoreMarshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTY
   // Default response
 
   @Nonnull
-  public static DE4ACoreMarshaller <ResponseErrorType> defResponseErrorMarshaller ()
+  public static DE4ACoreMarshaller <ResponseErrorType> defResponseMarshaller ()
   {
     return new DE4ACoreMarshaller <> (ResponseErrorType.class,
                                       _getXSDs (CDE4ACoreJAXB.XSD_DEFAULT_RESPONSE, null),

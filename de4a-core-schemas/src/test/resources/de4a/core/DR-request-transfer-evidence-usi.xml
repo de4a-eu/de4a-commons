@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<RequestForwardEvidence xmlns="http://www.de4a.eu/2020/data/evaluator/v2" xmlns:ct="http://www.de4a.eu/2020/commons/type/v2"
-                        xmlns:ein="http://eidas.europa.eu/attributes/naturalperson">
+<RequestTransferEvidenceUSI xmlns="http://www.de4a.eu/2020/data/requestor/v2"
+                          xmlns:ct="http://www.de4a.eu/2020/commons/type/v2"
+                          xmlns:ein="http://eidas.europa.eu/attributes/naturalperson">
   <ct:RequestId>req1</ct:RequestId>
+  <ct:SpecificationId>spec1</ct:SpecificationId>
   <ct:TimeStamp>2022-02-25T01:50:00</ct:TimeStamp>
+  <ct:ProcedureId>proc1</ct:ProcedureId>
   <ct:DataEvaluator>
     <ct:AgentUrn>bla</ct:AgentUrn>
     <ct:AgentName>foo</ct:AgentName>
@@ -11,7 +14,7 @@
     <ct:AgentUrn>bla</ct:AgentUrn>
     <ct:AgentName>foo</ct:AgentName>
   </ct:DataOwner>
-  <ct:ResponseExtractEvidenceItem>
+  <ct:RequestEvidenceUSIItem>
     <ct:RequestItemId>item1</ct:RequestItemId>
     <ct:DataRequestSubject>
       <ct:DataSubjectPerson>
@@ -28,8 +31,9 @@
       </ct:DataSubjectRepresentative>
     </ct:DataRequestSubject>
     <ct:CanonicalEvidenceTypeId>test</ct:CanonicalEvidenceTypeId>
-    <ct:CanonicalEvidence>
-       <alias xmlns="urn:anything:else">asdf</alias>
-    </ct:CanonicalEvidence>
-  </ct:ResponseExtractEvidenceItem>
-</RequestForwardEvidence>
+    <ct:RequestGrounds>
+      <ct:ExplicitRequest>SDGR14</ct:ExplicitRequest>
+    </ct:RequestGrounds>
+    <ct:DataEvaluatorURL>https://bla.de.example.org/back-again</ct:DataEvaluatorURL>
+  </ct:RequestEvidenceUSIItem>
+</RequestTransferEvidenceUSI>
