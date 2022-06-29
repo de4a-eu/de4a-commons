@@ -33,6 +33,9 @@ and you receive a set of JAR files in the respective submodule `target` director
 
 ## History
 
+
+* v0.2.8 - 2022-06-29
+    * Updated the T4.1 HigherEducationDiploma XSD
 * v0.2.7 - 2022-05-31
     * Updated the `EDE4ACanonicalEvidenceType` enum
     * Changed the created T4.1 package names below `eu.de4a.iem.jaxb.t41`
