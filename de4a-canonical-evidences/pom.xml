@@ -19,7 +19,7 @@
   <parent>
     <groupId>eu.de4a</groupId>
     <artifactId>de4a-commons-parent-pom</artifactId>
-    <version>0.2.8</version>
+    <version>0.2.9-SNAPSHOT</version>
   </parent>
   <artifactId>de4a-canonical-evidences</artifactId>
   <packaging>bundle</packaging>
