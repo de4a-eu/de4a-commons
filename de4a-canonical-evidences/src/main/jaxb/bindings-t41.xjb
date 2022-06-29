@@ -58,9 +58,9 @@
       <package name="eu.de4a.iem.jaxb.t41.edci.w3c" />
     </schemaBindings>
   </bindings>
-  <bindings schemaLocation="../resources/schemas/t4.1/SA-UC1-13-04-2021.xsd">
+  <bindings schemaLocation="../resources/schemas/t4.1/SA-UC1-HigherEducationDiplomaType-23-06-2022.xsd">
     <schemaBindings>
-      <package name="eu.de4a.iem.jaxb.t41.higheredu.v2021_04_13" />
+      <package name="eu.de4a.iem.jaxb.t41.higheredu.v2022_06_23" />
     </schemaBindings>
   </bindings>
   <bindings schemaLocation="../resources/schemas/t4.1/SA-UC1-SecondaryEducationEvidenceType-12-05-2022.xsd">
