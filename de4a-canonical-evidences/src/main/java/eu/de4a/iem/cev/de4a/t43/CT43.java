@@ -36,9 +36,6 @@ public final class CT43
   public static final String NS_URI_BIRTH_EVIDENCE = "urn:eu-de4a:xsd:CanonicalEvidenceType::BirthEvidence:v1.7";
   public static final String NS_URI_DOMICILE_REGISTRATION_EVIDENCE = "urn:eu-de4a:xsd:CanonicalEvidenceType::DomicileRegistrationEvidence:v1.7";
   public static final String NS_URI_MARRIAGE_EVIDENCE = "urn:eu-de4a:xsd:CanonicalEvidenceType::MarriageEvidence:v1.7";
-  public static final String NS_URI_PENSION_MOL_EVIDENCE = "urn:eu-de4a:xsd:CanonicalEvidenceType::PensionMeansOfLivingEvidence:v0.1";
-  public static final String NS_URI_UNEMPLOYMENT_MOL_EVIDENCE = "urn:eu-de4a:xsd:CanonicalEvidenceType::UnemploymentMeansOfLivingEvidence:v0.1";
-  public static final String NS_URI_WORKING_LIFE_MOL_EVIDENCE = "urn:eu-de4a:xsd:CanonicalEvidenceType::WorkingLifeMeansOfLivingEvidence:v0.1";
 
   private CT43 ()
   {}

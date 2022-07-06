@@ -36,6 +36,9 @@ and you receive a set of JAR files in the respective submodule `target` director
 
 * v0.2.9 - work in progress
     * Updated the HigherEducation version in `EDE4ACanonicalEvidenceType` - for the changes of 0.2.8
+    * Removed the T4.3 Pension Means of Living Evidence v0.1
+    * Removed the T4.3 Unemployment Means of Living Evidence v0.1
+    * Removed the T4.3 Working Life Means of Living Evidence v0.1
 * v0.2.8 - 2022-06-29
     * Updated the T4.1 HigherEducationDiploma XSD
         * Package changed from `eu.de4a.iem.jaxb.t41.higheredu.v2021_04_13` to `eu.de4a.iem.jaxb.t41.higheredu.v2022_06_23`

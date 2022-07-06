@@ -52,16 +52,7 @@ public enum EDE4ACanonicalEvidenceType implements IDE4ACanonicalEvidenceType
                            eu.de4a.iem.cev.de4a.t43.CT43.getAllDomicileRegistrationEvidenceXSDs ()),
   T43_MARRIAGE_EVIDENCE_V17 ("t43-marriage-v17",
                              "T4.3 Marriage Evidence v1.7",
-                             eu.de4a.iem.cev.de4a.t43.CT43.getAllMarriageEvidenceXSDs ()),
-  T43_PENSION_MOL_EVIDENCE_V01 ("t43-pensionmol-v01",
-                                "T4.3 Pension Means of Living Evidence v0.1",
-                                eu.de4a.iem.cev.de4a.t43.CT43.getAllPensionMOLEvidenceXSDs ()),
-  T43_UNEMPLOYMENT_MOL_EVIDENCE_V01 ("t43-unemploymentmol-v01",
-                                     "T4.3 Unemployment Means of Living Evidence v0.1",
-                                     eu.de4a.iem.cev.de4a.t43.CT43.getAllUnemploymentMOLEvidenceXSDs ()),
-  T43_WORKING_LIFE_MOL_EVIDENCE_V01 ("t43-workinglifemol-v01",
-                                     "T4.3 Working Life Means of Living Evidence v0.1",
-                                     eu.de4a.iem.cev.de4a.t43.CT43.getAllWorkingLifeMOLEvidenceXSDs ());
+                             eu.de4a.iem.cev.de4a.t43.CT43.getAllMarriageEvidenceXSDs ());
 
   private final String m_sID;
   private final String m_sDisplayName;
