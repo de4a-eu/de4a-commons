@@ -95,31 +95,4 @@ public final class CT43
     a.add (new ClassPathResource ("schemas/t4.3/v1.7/marriageEvidence-1.7.xsd", _getCL ()));
     return a;
   }
-
-  @Nonnull
-  @ReturnsMutableCopy
-  public static ICommonsList <ClassPathResource> getAllPensionMOLEvidenceXSDs ()
-  {
-    final ICommonsList <ClassPathResource> a = _getBaseXSDs ();
-    a.add (new ClassPathResource ("schemas/t4.3/v1.7/pensionMeansOfLivingEvidence-0.1.xsd", _getCL ()));
-    return a;
-  }
-
-  @Nonnull
-  @ReturnsMutableCopy
-  public static ICommonsList <ClassPathResource> getAllUnemploymentMOLEvidenceXSDs ()
-  {
-    final ICommonsList <ClassPathResource> a = _getBaseXSDs ();
-    a.add (new ClassPathResource ("schemas/t4.3/v1.7/unemploymentMeansOfLivingEvidence-0.1.xsd", _getCL ()));
-    return a;
-  }
-
-  @Nonnull
-  @ReturnsMutableCopy
-  public static ICommonsList <ClassPathResource> getAllWorkingLifeMOLEvidenceXSDs ()
-  {
-    final ICommonsList <ClassPathResource> a = _getBaseXSDs ();
-    a.add (new ClassPathResource ("schemas/t4.3/v1.7/workingLifeMeansOfLivingEvidence-0.1.xsd", _getCL ()));
-    return a;
-  }
 }
