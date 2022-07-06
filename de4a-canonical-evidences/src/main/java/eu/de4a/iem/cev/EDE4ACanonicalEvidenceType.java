@@ -29,8 +29,8 @@ import eu.de4a.iem.core.IDE4ACanonicalEvidenceType;
  */
 public enum EDE4ACanonicalEvidenceType implements IDE4ACanonicalEvidenceType
 {
-  T41_HIGHER_EDUCATION_EVIDENCE_2021_04_13 ("t41-hed-2021-04-13",
-                                            "T4.1 Higher Education Evidence v2021-04-13",
+  T41_HIGHER_EDUCATION_EVIDENCE_2022_06_23 ("t41-hed-2022-06-23",
+                                            "T4.1 Higher Education Evidence v2022-06-23",
                                             eu.de4a.iem.cev.de4a.t41.CT41.getAllXSDsHigherEducationDiploma ()),
   T41_SECONDARY_EDUCATION_EVIDENCE_2022_05_12 ("t41-sed-2022-05-12",
                                                "T4.1 Secondary Education Evidence v2022-05-12",
