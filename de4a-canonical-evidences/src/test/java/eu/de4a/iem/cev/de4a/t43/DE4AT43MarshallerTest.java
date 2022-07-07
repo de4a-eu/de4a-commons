@@ -78,28 +78,4 @@ public final class DE4AT43MarshallerTest
                                           "marriage-evidence-1.7-generated-example-without-optional-attributes.xml" })
       _testReadWrite (DE4AT43Marshaller.marriageEvidence (), new File (sBasePath + s));
   }
-
-  @Test
-  public void testPensionMeansOfLivingEvidence ()
-  {
-    final String sBasePath = "src/test/resources/de4a/t4.3/pension/";
-    for (final String s : new String [] {})
-      _testReadWrite (DE4AT43Marshaller.pensionMeansOfLivingEvidence (), new File (sBasePath + s));
-  }
-
-  @Test
-  public void testUnemploymentMeansOfLivingEvidence ()
-  {
-    final String sBasePath = "src/test/resources/de4a/t4.3/unemployment/";
-    for (final String s : new String [] {})
-      _testReadWrite (DE4AT43Marshaller.unemploymentMeansOfLivingEvidence (), new File (sBasePath + s));
-  }
-
-  @Test
-  public void testWorkingLifeMeansOfLivingEvidence ()
-  {
-    final String sBasePath = "src/test/resources/de4a/t4.3/workinglife/";
-    for (final String s : new String [] {})
-      _testReadWrite (DE4AT43Marshaller.workingLifeMeansOfLivingEvidence (), new File (sBasePath + s));
-  }
 }

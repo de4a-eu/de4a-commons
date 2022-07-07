@@ -3,7 +3,7 @@
 Shared stuff for DE4A software components.
 
 Last release: 
-* Iteration 2: **0.2.8**
+* Iteration 2: **0.2.10**
 * Iteration 1: **0.1.11**
 
 In the DE4A project we are differentiating between "Iteration 1" and "Iteration 2". As they are incompatible, care needs to be taken, that they are not mixed together.
@@ -34,6 +34,11 @@ and you receive a set of JAR files in the respective submodule `target` director
 ## History
 
 
+* v0.2.10 - 2022-07-07
+    * Updated the HigherEducation version in `EDE4ACanonicalEvidenceType` - for the changes of 0.2.8
+    * Removed the T4.3 Pension Means of Living Evidence v0.1 again
+    * Removed the T4.3 Unemployment Means of Living Evidence v0.1 again
+    * Removed the T4.3 Working Life Means of Living Evidence v0.1 again
 * v0.2.8 - 2022-06-29
     * Updated the T4.1 HigherEducationDiploma XSD
         * Package changed from `eu.de4a.iem.jaxb.t41.higheredu.v2021_04_13` to `eu.de4a.iem.jaxb.t41.higheredu.v2022_06_23`

@@ -36,9 +36,6 @@ public final class CT43
   public static final String NS_URI_BIRTH_EVIDENCE = "urn:eu-de4a:xsd:CanonicalEvidenceType::BirthEvidence:v1.7";
   public static final String NS_URI_DOMICILE_REGISTRATION_EVIDENCE = "urn:eu-de4a:xsd:CanonicalEvidenceType::DomicileRegistrationEvidence:v1.7";
   public static final String NS_URI_MARRIAGE_EVIDENCE = "urn:eu-de4a:xsd:CanonicalEvidenceType::MarriageEvidence:v1.7";
-  public static final String NS_URI_PENSION_MOL_EVIDENCE = "urn:eu-de4a:xsd:CanonicalEvidenceType::PensionMeansOfLivingEvidence:v0.1";
-  public static final String NS_URI_UNEMPLOYMENT_MOL_EVIDENCE = "urn:eu-de4a:xsd:CanonicalEvidenceType::UnemploymentMeansOfLivingEvidence:v0.1";
-  public static final String NS_URI_WORKING_LIFE_MOL_EVIDENCE = "urn:eu-de4a:xsd:CanonicalEvidenceType::WorkingLifeMeansOfLivingEvidence:v0.1";
 
   private CT43 ()
   {}
@@ -96,33 +93,6 @@ public final class CT43
   {
     final ICommonsList <ClassPathResource> a = _getBaseXSDs ();
     a.add (new ClassPathResource ("schemas/t4.3/v1.7/marriageEvidence-1.7.xsd", _getCL ()));
-    return a;
-  }
-
-  @Nonnull
-  @ReturnsMutableCopy
-  public static ICommonsList <ClassPathResource> getAllPensionMOLEvidenceXSDs ()
-  {
-    final ICommonsList <ClassPathResource> a = _getBaseXSDs ();
-    a.add (new ClassPathResource ("schemas/t4.3/v1.7/pensionMeansOfLivingEvidence-0.1.xsd", _getCL ()));
-    return a;
-  }
-
-  @Nonnull
-  @ReturnsMutableCopy
-  public static ICommonsList <ClassPathResource> getAllUnemploymentMOLEvidenceXSDs ()
-  {
-    final ICommonsList <ClassPathResource> a = _getBaseXSDs ();
-    a.add (new ClassPathResource ("schemas/t4.3/v1.7/unemploymentMeansOfLivingEvidence-0.1.xsd", _getCL ()));
-    return a;
-  }
-
-  @Nonnull
-  @ReturnsMutableCopy
-  public static ICommonsList <ClassPathResource> getAllWorkingLifeMOLEvidenceXSDs ()
-  {
-    final ICommonsList <ClassPathResource> a = _getBaseXSDs ();
-    a.add (new ClassPathResource ("schemas/t4.3/v1.7/workingLifeMeansOfLivingEvidence-0.1.xsd", _getCL ()));
     return a;
   }
 }

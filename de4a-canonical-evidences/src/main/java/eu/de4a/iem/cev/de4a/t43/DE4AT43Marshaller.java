@@ -27,9 +27,6 @@ import com.helger.jaxb.GenericJAXBMarshaller;
 import eu.de4a.iem.jaxb.t43.birth.v1_7.BirthEvidenceType;
 import eu.de4a.iem.jaxb.t43.domreg.v1_7.DomicileRegistrationEvidenceType;
 import eu.de4a.iem.jaxb.t43.marriage.v1_7.MarriageEvidenceType;
-import eu.de4a.iem.jaxb.t43.pension.v0_1.PensionMeansOfLivingEvidenceType;
-import eu.de4a.iem.jaxb.t43.unemployment.v0_1.UnemploymentMeansOfLivingEvidenceType;
-import eu.de4a.iem.jaxb.t43.workinglife.v0_1.WorkingLifeMeansOfLivingEvidenceType;
 
 /**
  * Special marshaller for canonical evidences of the DE4A T4.3 v1.6a pilot. This
@@ -75,32 +72,5 @@ public class DE4AT43Marshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYP
                                      CT43.getAllMarriageEvidenceXSDs (),
                                      new eu.de4a.iem.jaxb.t43.marriage.v1_7.ObjectFactory ()::createMarriageEvidence,
                                      DE4AT43NamespaceContext.getMarriageEvidenceInstance ());
-  }
-
-  @Nonnull
-  public static DE4AT43Marshaller <PensionMeansOfLivingEvidenceType> pensionMeansOfLivingEvidence ()
-  {
-    return new DE4AT43Marshaller <> (PensionMeansOfLivingEvidenceType.class,
-                                     CT43.getAllPensionMOLEvidenceXSDs (),
-                                     new eu.de4a.iem.jaxb.t43.pension.v0_1.ObjectFactory ()::createPensionMeansOfLivingEvidence,
-                                     DE4AT43NamespaceContext.getPensionMeansOfLivingEvidenceInstance ());
-  }
-
-  @Nonnull
-  public static DE4AT43Marshaller <UnemploymentMeansOfLivingEvidenceType> unemploymentMeansOfLivingEvidence ()
-  {
-    return new DE4AT43Marshaller <> (UnemploymentMeansOfLivingEvidenceType.class,
-                                     CT43.getAllUnemploymentMOLEvidenceXSDs (),
-                                     new eu.de4a.iem.jaxb.t43.unemployment.v0_1.ObjectFactory ()::createUnemploymentMeansOfLivingEvidence,
-                                     DE4AT43NamespaceContext.getUnemploymentMeansOfLivingEvidenceInstance ());
-  }
-
-  @Nonnull
-  public static DE4AT43Marshaller <WorkingLifeMeansOfLivingEvidenceType> workingLifeMeansOfLivingEvidence ()
-  {
-    return new DE4AT43Marshaller <> (WorkingLifeMeansOfLivingEvidenceType.class,
-                                     CT43.getAllWorkingLifeMOLEvidenceXSDs (),
-                                     new eu.de4a.iem.jaxb.t43.workinglife.v0_1.ObjectFactory ()::createWorkingLifeMeansOfLivingEvidence,
-                                     DE4AT43NamespaceContext.getWorkingLifeMeansOfLivingEvidenceInstance ());
   }
 }
