@@ -2,10 +2,12 @@
 
 Shared stuff for DE4A software components.
 
-Last release: **0.1.11**
+Last release: **0.1.12**
 
 ## History
 
+* v0.1.12 - 2022-07-14
+    * Updated dependencies to the latest versions
 * v0.1.11 - 2021-08-08
     * Renamed Moving Abroad version "0.1.6a" to "0.1.6b"
 * v0.1.9 - 2021-08-08
