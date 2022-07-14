@@ -49,7 +49,8 @@ public final class DE4AT42MarshallerTest
     if (false)
     {
       aMarshaller.setFormattedOutput (true);
-      LOGGER.info (aMarshaller.getAsString (aRead));
+      if (LOGGER.isInfoEnabled ())
+        LOGGER.info ("Created version of '" + aFile.getName () + "'\n" + aMarshaller.getAsString (aRead));
     }
   }
 

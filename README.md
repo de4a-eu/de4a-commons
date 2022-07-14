@@ -4,7 +4,7 @@ Shared stuff for DE4A software components.
 
 Last release: 
 * Iteration 2: **0.2.10**
-* Iteration 1: **0.1.11**
+* Iteration 1: **0.1.12**
 
 In the DE4A project we are differentiating between "Iteration 1" and "Iteration 2". As they are incompatible, care needs to be taken, that they are not mixed together.
 The last release of Iteration 1 is `0.1.11` and the development branch (if ever needed) is https://github.com/de4a-wp5/de4a-commons/tree/iteration1
@@ -80,6 +80,8 @@ and you receive a set of JAR files in the respective submodule `target` director
     * Simplified the XSD structure and added a constant for the Specification Identifier
 * v0.2.0 - 2021-09-01
     * This is the first version with data model changes for Iteration 2
+* v0.1.12 - 2022-07-14
+    * Updated dependencies to the latest versions
 * v0.1.11 - 2021-08-08
     * Renamed Moving Abroad version "0.1.6a" to "0.1.6b"
     * This is supposed to be the last version of Iteration 1.
