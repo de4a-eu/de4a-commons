@@ -1,10 +1,13 @@
 package eu.de4a.kafkaclient.model;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 import com.helger.commons.annotation.Nonempty;
+import com.helger.commons.id.IHasID;
+import com.helger.commons.lang.EnumHelper;
 
-public enum EExternalModule
+public enum EExternalModule implements IHasID <String>
 {
   IDK ("01", "IDK"),
   SMP ("02", "SMP"),
@@ -17,26 +20,32 @@ public enum EExternalModule
   IAL ("09", "IAL"),
   NONE ("00", "NONE");
 
-  private final String id;
-  private final String label;
+  private final String m_sID;
+  private final String m_sLabel;
 
-  EExternalModule (@Nonnull @Nonempty final String id, @Nonnull @Nonempty final String label)
+  EExternalModule (@Nonnull @Nonempty final String sID, @Nonnull @Nonempty final String sLabel)
   {
-    this.id = id;
-    this.label = label;
+    m_sID = sID;
+    m_sLabel = sLabel;
   }
 
   @Nonnull
   @Nonempty
   public String getID ()
   {
-    return id;
+    return m_sID;
   }
 
   @Nonnull
   @Nonempty
   public String getLabel ()
   {
-    return label;
+    return m_sLabel;
+  }
+
+  @Nullable
+  public static EExternalModule getFromIDOrNull (@Nullable final String sID)
+  {
+    return EnumHelper.getFromIDOrNull (EExternalModule.class, sID);
   }
 }

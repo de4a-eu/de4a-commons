@@ -4,7 +4,7 @@ import javax.annotation.Nonnull;
 
 import com.helger.commons.annotation.Nonempty;
 
-public enum ELogMessage {
+public enum ELogMessage implements ILogMessage {
   
   // Request message received on DR from Data Evaluator (used in ConnectorController & RequestController)
   LOG_REQ_IM_LEGACY_DE_DR("log.request.de.dr.legacy", EExternalModule.CONNECTOR_DR, ELogMessageLevel.INFO, "01"), 		//DRI01
@@ -91,34 +91,44 @@ public enum ELogMessage {
   LOG_ERROR_AS4_MSG_SENDING("log.error.as4.sending.message", ELogMessageType.ERROR, "07", EExternalModule.CONNECTOR_DT, EExternalModule.CONNECTOR_DR);
   */
  
-  private final String key;
-  private final String code;
-  private final EExternalModule module;
-  private final ELogMessageLevel level;
+  private final String m_sKey;
+  private final EExternalModule m_eModule;
+  private final ELogMessageLevel m_eLevel;
+  private final String m_sCode;
   
   ELogMessage(@Nonnull @Nonempty final String key, @Nonnull final EExternalModule module, 
 		  @Nonnull final ELogMessageLevel level, @Nonnull @Nonempty final String code) {
-	    this.key = key;
-	    this.level = level;
-	    this.module = module;
-	    this.code = code;
+	    m_sKey = key;
+	    m_eLevel = level;
+	    m_eModule = module;
+	    m_sCode = code;
 	  }
 
   @Nonnull
   @Nonempty
   public String getLogCode() {
-    return this.module.getID() + this.level.getCode() + this.code;
+    return m_eModule.getID() + m_eLevel.getCode() + m_sCode;
   }
 
   @Nonnull
   @Nonempty
   public String getKey() {
-    return key;
+    return m_sKey;
   }
   
   @Nonnull
-  @Nonempty
   public EExternalModule getModule() {
-    return module;
+    return m_eModule;
+  }
+  
+  @Nonnull
+  public ELogMessageLevel getLevel() {
+    return m_eLevel;
+  }
+
+  @Nonnull
+  @Nonempty
+  public String getCode() {
+    return m_sCode;
   }
 }

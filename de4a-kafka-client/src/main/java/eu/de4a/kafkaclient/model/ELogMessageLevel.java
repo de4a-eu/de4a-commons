@@ -11,26 +11,26 @@ public enum ELogMessageLevel
   ERROR ("ERROR", "E"),
   WARNING ("WARNING", "W");
 
-  private final String name;
-  private final String code;
+  private final String m_sName;
+  private final String m_sCode;
 
-  ELogMessageLevel (@Nonnull @Nonempty final String name, @Nonnull @Nonempty final String code)
+  ELogMessageLevel (@Nonnull @Nonempty final String sName, @Nonnull @Nonempty final String sCode)
   {
-    this.name = name;
-    this.code = code;
+    m_sName = sName;
+    m_sCode = sCode;
   }
 
   @Nonnull
   @Nonempty
   public String getName ()
   {
-    return this.name;
+    return m_sName;
   }
 
   @Nonnull
   @Nonempty
   public String getCode ()
   {
-    return this.code;
+    return m_sCode;
   }
 }
