@@ -29,7 +29,7 @@ import com.helger.jaxb.GenericJAXBMarshaller;
 import eu.de4a.iem.core.DE4ACoreMarshaller;
 
 /**
- * Test class for class {@link DE4AMarshaller}.
+ * Test class for class {@link DE4ACoreMarshaller}.
  *
  * @author Philip Helger
  */
@@ -37,8 +37,7 @@ public final class DE4ACoreMarshallerFuncTest
 {
   private static final Logger LOGGER = LoggerFactory.getLogger (DE4ACoreMarshallerFuncTest.class);
 
-  private static <T> void _testReadWrite (@Nonnull final GenericJAXBMarshaller <T> aMarshaller,
-                                          @Nonnull final File aFile)
+  private static <T> void _testReadWrite (@Nonnull final GenericJAXBMarshaller <T> aMarshaller, @Nonnull final File aFile)
   {
     if (LOGGER.isInfoEnabled ())
       LOGGER.info ("Reading Core+Canonical file " + aFile.getName ());
