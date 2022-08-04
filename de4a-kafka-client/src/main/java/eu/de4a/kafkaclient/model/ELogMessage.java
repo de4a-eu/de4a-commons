@@ -56,9 +56,26 @@ public enum ELogMessage implements ILogMessage {
   LOG_ERROR_DR_PARTICIPANT_LOOKUP("log.error.participant.lookup", EExternalModule.CONNECTOR_DR, ELogMessageLevel.ERROR, "11"), //DRE11
   LOG_ERROR_DT_PARTICIPANT_LOOKUP("log.error.participant.lookup", EExternalModule.CONNECTOR_DR, ELogMessageLevel.ERROR, "11"), //DTE11
   
-  //Message sent to DE from DR
-  LOG_REQ_DE("log.request.sent.de", EExternalModule.CONNECTOR_DR, ELogMessageLevel.INFO, "07");
+  // Message sent to DE from DR
+  LOG_REQ_DE("log.request.sent.de", EExternalModule.CONNECTOR_DR, ELogMessageLevel.INFO, "07"),
   
+  // DO Error codes
+  LOG_DO_ERROR_EXTRACT_EVIDENCE("log.do.error.extract.evidence", EExternalModule.DATA_OWNER, ELogMessageLevel.ERROR, "01"),
+  LOG_DO_ERROR_EVIDENCE_NOT_AVAILABLE("log.do.error.evidence.not.available", EExternalModule.DATA_OWNER, ELogMessageLevel.ERROR, "02"),
+  LOG_DO_ERROR_IDENTITY_MATCHING("log.do.error.identity.matching", EExternalModule.DATA_OWNER, ELogMessageLevel.ERROR, "03"),
+  LOG_DO_ERROR_PREVIEW_UNSUCCESSFUL("log.do.error.preview.unsuccessful", EExternalModule.DATA_OWNER, ELogMessageLevel.ERROR, "04"),
+  LOG_DO_ERROR_USER_IDENTITY("log.do.error.user.identity", EExternalModule.DATA_OWNER, ELogMessageLevel.ERROR, "05"),
+  LOG_DO_ERROR_PREVIEW_REJECTED("log.do.error.preview.rejected", EExternalModule.DATA_OWNER, ELogMessageLevel.ERROR, "06"),
+  LOG_DO_ERROR_EVIDENCE_GENERATION("log.do.error.evidence.generation", EExternalModule.DATA_OWNER, ELogMessageLevel.ERROR, "07"),
+  
+  // DE Codes
+  LOG_DE_PROCESS_STARTED("log.de.process.started", EExternalModule.DATA_EVALUATOR, ELogMessageLevel.INFO, "01"),
+  LOG_DE_PROCESS_FINISHED("log.de.process.finished", EExternalModule.DATA_EVALUATOR, ELogMessageLevel.INFO, "02"),
+  
+  // DE Error codes
+  LOG_DE_ERROR_USER_IDENTITY("log.de.error.user.identity", EExternalModule.DATA_EVALUATOR, ELogMessageLevel.ERROR, "03"),
+  LOG_DE_ERROR_PREVIEW_REJECTED("log.de.error.preview.rejected", EExternalModule.DATA_EVALUATOR, ELogMessageLevel.ERROR, "04");
+
   // AS4 Messsages
   //LOG_AS4_MSG_SENT("log.message.sent.as4", EExternalModule.AS4, ELogMessageLevel.INFO, "01"),
   //LOG_AS4_REQ_RECEIPT("log.message.received.as4", EExternalModule.AS4, ELogMessageLevel.INFO, "02");
