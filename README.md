@@ -3,7 +3,7 @@
 Shared stuff for DE4A software components.
 
 Last release: 
-* Iteration 2: **0.2.10**
+* Iteration 2: **0.2.11**
 * Iteration 1: **0.1.12**
 
 In the DE4A project we are differentiating between "Iteration 1" and "Iteration 2". As they are incompatible, care needs to be taken, that they are not mixed together.
@@ -33,7 +33,8 @@ and you receive a set of JAR files in the respective submodule `target` director
 
 ## History
 
-
+* v0.2.11 - 2022-08-04
+    * Added log enums to `de4a-kafka-client`
 * v0.2.10 - 2022-07-07
     * Updated the HigherEducation version in `EDE4ACanonicalEvidenceType` - for the changes of 0.2.8
     * Removed the T4.3 Pension Means of Living Evidence v0.1 again
