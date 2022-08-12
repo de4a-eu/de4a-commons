@@ -284,7 +284,10 @@
     <xs:sequence>
       <xs:element name="RequestItemId" type="IdType"/>
 	    <xs:element name="CanonicalEventCatalogUri" type="xs:anyURI"/>
-      <xs:element name="SubscriptionPeriod" type="TimePeriodType"/>
+      <xs:choice>
+        <xs:element name="SubscriptionPeriod" type="TimePeriodType"/>
+        <xs:element name="Error" type="ErrorType" maxOccurs="unbounded"/>
+      </xs:choice>
     </xs:sequence>
   </xs:complexType>
   
