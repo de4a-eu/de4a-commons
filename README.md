@@ -33,6 +33,8 @@ and you receive a set of JAR files in the respective submodule `target` director
 
 ## History
 
+* v0.2.12 - 2022-08-12
+    * Made a change to the XSD (add error handling to `ResponseEventSubscriptionItemType`)
 * v0.2.11 - 2022-08-04
     * Added log enums to `de4a-kafka-client`
 * v0.2.10 - 2022-07-07
