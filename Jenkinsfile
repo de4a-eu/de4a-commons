@@ -4,7 +4,8 @@ pipeline {
         stage('Test') {
             when {
                 anyOf {
-                    branch 'development'; branch pattern: 'PR-\\d+', comparator: 'REGEXP'
+                    branch 'development';
+                    branch pattern: 'PR-\\d+', comparator: 'REGEXP'
                 }
             }
             agent {
@@ -14,14 +15,16 @@ pipeline {
                 }
             }
             steps {
-                sh 'mvn clean test sonar:sonar -Dsonar.host.url=http://sonarqube:9000/sonarqube -Dsonar.login=$SONAR_TOKEN'
+                // sh 'mvn clean test sonar:sonar -Dsonar.host.url=http://sonarqube:9000/sonarqube -Dsonar.login=$SONAR_TOKEN'
+                sh 'mvn clean test'
             }
         }
 
         stage('Build'){
             when {
                 anyOf{
-                    branch 'main'; branch pattern: 'iteration\\d+', comparator: 'REGEXP'
+                    branch 'main';
+                    branch pattern: 'iteration\\d+', comparator: 'REGEXP'
                 }
             }
             agent {
