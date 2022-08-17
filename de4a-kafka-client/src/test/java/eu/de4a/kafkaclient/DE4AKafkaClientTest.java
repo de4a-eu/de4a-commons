@@ -86,18 +86,18 @@ public final class DE4AKafkaClientTest
   }
 
   @Test
-  @Ignore
+  @Ignore ("Don't spam the Tracker")
   public void testHttpMode ()
   {
     DE4AKafkaSettings.setKafkaHttp (true);
-    DE4AKafkaSettings.defaultProperties ().put ("bootstrap.servers", "https://de4a-dev-kafka.egovlab.eu");
+    DE4AKafkaSettings.defaultProperties ().put ("bootstrap.servers", "https://de4a.simplegob.com/kafka-rest/");
     DE4AKafkaSettings.setHttpClientSettings (new HttpClientSettings ());
 
     try
     {
       for (int i = 0; i < 5; i++)
       {
-        DE4AKafkaClient.send (EErrorLevel.INFO, "Test-" + i);
+        DE4AKafkaClient.send (EErrorLevel.INFO, "Via HTTP Test-" + i);
       }
     }
     catch (final KafkaException ex)

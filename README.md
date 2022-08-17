@@ -33,6 +33,8 @@ and you receive a set of JAR files in the respective submodule `target` director
 
 ## History
 
+* v0.2.13 - work in progress
+    * Updated to Apache Http Client v5.x
 * v0.2.12 - 2022-08-12
     * Made a change to the XSD (add error handling to `ResponseEventSubscriptionItemType`)
 * v0.2.11 - 2022-08-04

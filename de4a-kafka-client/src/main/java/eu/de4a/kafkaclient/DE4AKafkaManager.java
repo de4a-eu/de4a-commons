@@ -21,11 +21,11 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 
-import org.apache.http.HttpHeaders;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpUriRequest;
-import org.apache.http.client.methods.RequestBuilder;
-import org.apache.http.entity.ByteArrayEntity;
+import org.apache.hc.client5.http.classic.methods.HttpPost;
+import org.apache.hc.client5.http.impl.classic.CloseableHttpResponse;
+import org.apache.hc.core5.http.ContentType;
+import org.apache.hc.core5.http.io.entity.ByteArrayEntity;
+import org.apache.hc.core5.http.io.entity.EntityUtils;
 import org.apache.kafka.clients.producer.Callback;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
@@ -203,26 +203,24 @@ final class DE4AKafkaManager
 
     try (final HttpClientManager aHCMgr = HttpClientManager.create (aHttpClientSettings))
     {
-      final ByteArrayEntity entity = new ByteArrayEntity (_getJsonAsBytes (sKey, sValue));
-      entity.setContentEncoding (StandardCharsets.UTF_8.name ());
+      final ByteArrayEntity entity = new ByteArrayEntity (_getJsonAsBytes (sKey, sValue),
+                                                          ContentType.parse ("application/vnd.kafka.json.v2+json")
+                                                                     .withCharset (StandardCharsets.UTF_8));
 
       final String sURI = (String) _getCreationProperties ().get ("bootstrap.servers") +
                           "/topics/" +
                           DE4AKafkaSettings.getKafkaTopic ();
       if (LOGGER.isDebugEnabled ())
-        LOGGER.debug ("Posting to Kafka server " + sURI);
+        LOGGER.debug ("Posting to Kafka server '" + sURI + "'");
 
-      final HttpUriRequest req = RequestBuilder.post ()
-                                               .setUri (sURI)
-                                               .setHeader (HttpHeaders.CONTENT_TYPE,
-                                                           "application/vnd.kafka.json.v2+json; charset=utf-8")
-                                               .setEntity (entity)
-                                               .build ();
+      final HttpPost req = new HttpPost (sURI);
+      req.setEntity (entity);
 
       try (final CloseableHttpResponse res = aHCMgr.execute (req))
       {
         if (LOGGER.isInfoEnabled ())
-          LOGGER.info ("Kafka REST responsecode: " + res.getStatusLine ().getStatusCode ());
+          LOGGER.info ("Kafka REST responsecode: " + res.getCode ());
+        EntityUtils.consume (res.getEntity ());
       }
     }
     catch (final IOException ex)
