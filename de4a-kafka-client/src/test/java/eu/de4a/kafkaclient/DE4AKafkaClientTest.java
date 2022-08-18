@@ -16,7 +16,6 @@ package eu.de4a.kafkaclient;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import com.helger.httpclient.HttpClientSettings;
 import org.apache.kafka.common.KafkaException;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -24,6 +23,7 @@ import org.junit.Test;
 
 import com.helger.commons.collection.impl.ICommonsMap;
 import com.helger.commons.error.level.EErrorLevel;
+import com.helger.httpclient.HttpClientSettings;
 
 /**
  * Test class for class {@link DE4AKafkaClient}.

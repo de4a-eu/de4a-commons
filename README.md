@@ -2,10 +2,13 @@
 
 Shared stuff for DE4A software components.
 
-Last release: **0.1.12**
+Last release: **0.1.13**
 
 ## History
 
+* v0.1.13 - 2022-08-18
+    * Updated to Apache Http Client v5.x
+    * Fixed an issue with referencing `BinaryObjectMimeCodeContentType`
 * v0.1.12 - 2022-07-14
     * Updated dependencies to the latest versions
 * v0.1.11 - 2021-08-08

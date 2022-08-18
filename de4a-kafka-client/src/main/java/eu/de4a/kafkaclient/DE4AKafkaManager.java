@@ -21,11 +21,10 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 
-import org.apache.http.HttpHeaders;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpUriRequest;
-import org.apache.http.client.methods.RequestBuilder;
-import org.apache.http.entity.ByteArrayEntity;
+import org.apache.hc.client5.http.classic.methods.HttpPost;
+import org.apache.hc.client5.http.impl.classic.CloseableHttpResponse;
+import org.apache.hc.core5.http.ContentType;
+import org.apache.hc.core5.http.io.entity.ByteArrayEntity;
 import org.apache.kafka.clients.producer.Callback;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
@@ -118,7 +117,9 @@ final class DE4AKafkaManager
         if (ret == null)
         {
           // Create new one
-          s_aProducer = ret = new KafkaProducer <> (_getCreationProperties (), new StringSerializer (), new StringSerializer ());
+          s_aProducer = ret = new KafkaProducer <> (_getCreationProperties (),
+                                                    new StringSerializer (),
+                                                    new StringSerializer ());
           if (LOGGER.isDebugEnabled ())
             LOGGER.debug ("Successfully created new KafkaProducer");
         }
@@ -170,7 +171,9 @@ final class DE4AKafkaManager
   {
     ValueEnforcer.notNull (sValue, "Value");
 
-    final ProducerRecord <String, String> aMessage = new ProducerRecord <> (DE4AKafkaSettings.getKafkaTopic (), sKey, sValue);
+    final ProducerRecord <String, String> aMessage = new ProducerRecord <> (DE4AKafkaSettings.getKafkaTopic (),
+                                                                            sKey,
+                                                                            sValue);
     return getOrCreateProducer ().send (aMessage, aKafkaCallback);
   }
 
@@ -183,23 +186,23 @@ final class DE4AKafkaManager
 
     try (final HttpClientManager mgr = HttpClientManager.create (settings))
     {
-      final ByteArrayEntity entity = new ByteArrayEntity (getJsonAsBytes (sKey, sValue));
-      entity.setContentEncoding ("utf-8");
 
-      final String sURI = (String) _getCreationProperties ().get ("bootstrap.servers") + "/topics/" + DE4AKafkaSettings.getKafkaTopic ();
+      final String sURI = (String) _getCreationProperties ().get ("bootstrap.servers") +
+                          "/topics/" +
+                          DE4AKafkaSettings.getKafkaTopic ();
       if (LOGGER.isDebugEnabled ())
         LOGGER.debug ("Posting to Kafka server " + sURI);
+      final HttpPost req = new HttpPost (sURI);
 
-      final HttpUriRequest req = RequestBuilder.post ()
-                                               .setUri (sURI)
-                                               .setHeader (HttpHeaders.CONTENT_TYPE, "application/vnd.kafka.json.v2+json; charset=utf-8")
-                                               .setEntity (entity)
-                                               .build ();
+      final ByteArrayEntity entity = new ByteArrayEntity (getJsonAsBytes (sKey, sValue),
+                                                          ContentType.parse ("application/vnd.kafka.json.v2+json")
+                                                                     .withCharset (StandardCharsets.UTF_8));
+      req.setEntity (entity);
 
       try (final CloseableHttpResponse res = mgr.execute (req))
       {
         if (LOGGER.isInfoEnabled ())
-          LOGGER.info ("Kafka REST responsecode: " + res.getStatusLine ().getStatusCode ());
+          LOGGER.info ("Kafka REST responsecode: " + res.getCode ());
       }
     }
     catch (final IOException ex)
@@ -211,8 +214,10 @@ final class DE4AKafkaManager
   private static byte [] getJsonAsBytes (final String key, final String value)
   {
     return new JsonWriter ().writeAsByteArray (new JsonObject ().add ("records",
-                                                                      new JsonArray ().add (new JsonObject ().add ("key", key)
-                                                                                                             .add ("value", value))),
+                                                                      new JsonArray ().add (new JsonObject ().add ("key",
+                                                                                                                   key)
+                                                                                                             .add ("value",
+                                                                                                                   value))),
                                                StandardCharsets.UTF_8);
   }
 
