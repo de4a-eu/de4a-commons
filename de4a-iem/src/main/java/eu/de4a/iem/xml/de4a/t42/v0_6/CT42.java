@@ -49,8 +49,8 @@ public final class CT42
     a.add (CXML_XSD.getXSDResource ());
     a.add (CCCTS.getXSDResource ());
     a.add (CUBL23.XSD_UNQUALIFIED_DATA_TYPES);
-    a.add (new ClassPathResource ("schemas/pilot-shared/CoreVocabularies-BasicComponents-1.1.xsd", _getCL ()));
-    a.add (new ClassPathResource ("schemas/t4.2/doing_Business_abroad_XSD_v0.6 draft.xsd", _getCL ()));
+    a.add (new ClassPathResource ("schemas/it1/pilot-shared/CoreVocabularies-BasicComponents-1.1.xsd", _getCL ()));
+    a.add (new ClassPathResource ("schemas/it1/t4.2/doing_Business_abroad_XSD_v0.6 draft.xsd", _getCL ()));
     return a;
   }
 }

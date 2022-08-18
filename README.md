@@ -8,7 +8,7 @@ Last release: **0.1.13**
 
 * v0.1.13 - 2022-08-18
     * Updated to Apache Http Client v5.x
-    * Fixed an issue with referencing `BinaryObjectMimeCodeContentType`
+    * Moved the Iteration 1 schemas from `schemas/*` to `schemas/it1/*` to avoid issues with Iteration 2
 * v0.1.12 - 2022-07-14
     * Updated dependencies to the latest versions
 * v0.1.11 - 2021-08-08

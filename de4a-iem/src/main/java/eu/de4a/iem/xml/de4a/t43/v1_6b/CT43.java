@@ -59,11 +59,11 @@ public final class CT43
     if (false)
       a.add (CUBL23.XSD_EXTENSION_CONTENT_DATA_TYPE);
     a.add (CUBL23.XSD_COMMON_EXTENSION_COMPONENTS);
-    a.add (new ClassPathResource ("schemas/t4.3/CoreVocabularyBasicComponents-v1.00.xsd", _getCL ()));
-    a.add (new ClassPathResource ("schemas/t4.3/CoreBusiness-v1.00.xsd", _getCL ()));
-    a.add (new ClassPathResource ("schemas/t4.3/CoreLocation-v1.00.xsd", _getCL ()));
-    a.add (new ClassPathResource ("schemas/t4.3/CorePerson-v1.00.xsd", _getCL ()));
-    a.add (new ClassPathResource ("schemas/t4.3/CoreVocabularyAggregateComponents-v1.00.xsd", _getCL ()));
+    a.add (new ClassPathResource ("schemas/it1/t4.3/CoreVocabularyBasicComponents-v1.00.xsd", _getCL ()));
+    a.add (new ClassPathResource ("schemas/it1/t4.3/CoreBusiness-v1.00.xsd", _getCL ()));
+    a.add (new ClassPathResource ("schemas/it1/t4.3/CoreLocation-v1.00.xsd", _getCL ()));
+    a.add (new ClassPathResource ("schemas/it1/t4.3/CorePerson-v1.00.xsd", _getCL ()));
+    a.add (new ClassPathResource ("schemas/it1/t4.3/CoreVocabularyAggregateComponents-v1.00.xsd", _getCL ()));
     return a;
   }
 
@@ -72,7 +72,7 @@ public final class CT43
   public static ICommonsList <ClassPathResource> getAllBirthEvidenceXSDs ()
   {
     final ICommonsList <ClassPathResource> a = _getBaseXSDs ();
-    a.add (new ClassPathResource ("schemas/t4.3/v1.6b/birthEvidence-1.6.xsd", _getCL ()));
+    a.add (new ClassPathResource ("schemas/it1/t4.3/v1.6b/birthEvidence-1.6.xsd", _getCL ()));
     return a;
   }
 
@@ -81,7 +81,7 @@ public final class CT43
   public static ICommonsList <ClassPathResource> getAllDomicileRegistrationEvidenceXSDs ()
   {
     final ICommonsList <ClassPathResource> a = _getBaseXSDs ();
-    a.add (new ClassPathResource ("schemas/t4.3/v1.6b/domicileRegistrationEvidence-1.6.xsd", _getCL ()));
+    a.add (new ClassPathResource ("schemas/it1/t4.3/v1.6b/domicileRegistrationEvidence-1.6.xsd", _getCL ()));
     return a;
   }
 
@@ -90,7 +90,7 @@ public final class CT43
   public static ICommonsList <ClassPathResource> getAllMarriageEvidenceXSDs ()
   {
     final ICommonsList <ClassPathResource> a = _getBaseXSDs ();
-    a.add (new ClassPathResource ("schemas/t4.3/v1.6b/marriageEvidence-1.6.xsd", _getCL ()));
+    a.add (new ClassPathResource ("schemas/it1/t4.3/v1.6b/marriageEvidence-1.6.xsd", _getCL ()));
     return a;
   }
 }

@@ -42,28 +42,32 @@ public final class CDE4AJAXB
   static
   {
     final ICommonsList <ClassPathResource> a = new CommonsArrayList <> ();
-    a.add (new ClassPathResource ("schemas/core/external/eidas-LP.xsd", _getCL ()));
-    a.add (new ClassPathResource ("schemas/core/external/eidas-NP.xsd", _getCL ()));
+    a.add (new ClassPathResource ("schemas/it1/core/external/eidas-LP.xsd", _getCL ()));
+    a.add (new ClassPathResource ("schemas/it1/core/external/eidas-NP.xsd", _getCL ()));
     a.add (CXML_XSD.getXSDResource ());
-    a.add (new ClassPathResource ("schemas/core/de4a/common-identity-types.xsd", _getCL ()));
+    a.add (new ClassPathResource ("schemas/it1/core/de4a/common-identity-types.xsd", _getCL ()));
     a.add (CUBL20.XSD_CODELIST_MIME_MEDIA_TYPE_CODE);
     a.add (CCCTS.getXSDResource ());
     a.add (CUBL23.XSD_UNQUALIFIED_DATA_TYPES);
-    a.add (new ClassPathResource ("schemas/core/de4a/common-types.xsd", _getCL ()));
+    a.add (new ClassPathResource ("schemas/it1/core/de4a/common-types.xsd", _getCL ()));
     XSDS = a.getAsUnmodifiable ();
   }
 
-  public static final ClassPathResource XSD_DE_USI = new ClassPathResource ("schemas/core/DE1-USI.xsd", _getCL ());
-  public static final ClassPathResource XSD_DR_USI = new ClassPathResource ("schemas/core/DR1-USI.xsd", _getCL ());
-  public static final ClassPathResource XSD_DT_USI = new ClassPathResource ("schemas/core/DT1-USI.xsd", _getCL ());
-  public static final ClassPathResource XSD_DO_USI = new ClassPathResource ("schemas/core/DO1-USI.xsd", _getCL ());
+  public static final ClassPathResource XSD_DE_USI = new ClassPathResource ("schemas/it1/core/DE1-USI.xsd", _getCL ());
+  public static final ClassPathResource XSD_DR_USI = new ClassPathResource ("schemas/it1/core/DR1-USI.xsd", _getCL ());
+  public static final ClassPathResource XSD_DT_USI = new ClassPathResource ("schemas/it1/core/DT1-USI.xsd", _getCL ());
+  public static final ClassPathResource XSD_DO_USI = new ClassPathResource ("schemas/it1/core/DO1-USI.xsd", _getCL ());
   // For the redirect
-  public static final ClassPathResource XSD_DE_DO_USI = new ClassPathResource ("schemas/core/DE-DO-USI.xsd", _getCL ());
+  public static final ClassPathResource XSD_DE_DO_USI = new ClassPathResource ("schemas/it1/core/DE-DO-USI.xsd",
+                                                                               _getCL ());
 
-  public static final ClassPathResource XSD_DR_DE_IM = new ClassPathResource ("schemas/core/DR-DE1-IM.xsd", _getCL ());
-  public static final ClassPathResource XSD_DT_DO_IM = new ClassPathResource ("schemas/core/DT-DO1-IM.xsd", _getCL ());
+  public static final ClassPathResource XSD_DR_DE_IM = new ClassPathResource ("schemas/it1/core/DR-DE1-IM.xsd",
+                                                                              _getCL ());
+  public static final ClassPathResource XSD_DT_DO_IM = new ClassPathResource ("schemas/it1/core/DT-DO1-IM.xsd",
+                                                                              _getCL ());
 
-  public static final ClassPathResource XSD_DR_DT_IDK = new ClassPathResource ("schemas/core/DR-DT1-IDK.xsd", _getCL ());
+  public static final ClassPathResource XSD_DR_DT_IDK = new ClassPathResource ("schemas/it1/core/DR-DT1-IDK.xsd",
+                                                                               _getCL ());
 
   private CDE4AJAXB ()
   {}

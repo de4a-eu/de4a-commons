@@ -54,30 +54,32 @@ public final class CT41
     a.add (CUBL23.XSD_UNQUALIFIED_DATA_TYPES);
     a.add (CUBL23.XSD_QUALIFIED_DATA_TYPES);
     a.add (CUBL23.XSD_COMMON_BASIC_COMPONENTS);
+
+    final String sT41 = "schemas/it1/t4.1/uc1/";
     if (false)
     {
       // No includes - just imports
-      a.add (new ClassPathResource ("schemas/t4.1/uc1/w3c_verifiableCredentials.xsd", _getCL ()));
-      a.add (new ClassPathResource ("schemas/t4.1/uc1/imported/edci_esco_individuals.xsd", _getCL ()));
-      a.add (new ClassPathResource ("schemas/t4.1/uc1/imported/edci_esco_eqf.xsd", _getCL ()));
-      a.add (new ClassPathResource ("schemas/t4.1/uc1/imported/edci_esco_iscedf2013.xsd", _getCL ()));
-      a.add (new ClassPathResource ("schemas/t4.1/uc1/imported/edci_mdr_humansex.xsd", _getCL ()));
-      a.add (new ClassPathResource ("schemas/t4.1/uc1/imported/edci_mdr_currency.xsd", _getCL ()));
-      a.add (new ClassPathResource ("schemas/t4.1/uc1/imported/edci_esco_nuts2016.xsd", _getCL ()));
-      a.add (new ClassPathResource ("schemas/t4.1/uc1/imported/edci_mdr_languages.xsd", _getCL ()));
-      a.add (new ClassPathResource ("schemas/t4.1/uc1/imported/edci_mdr_countries.xsd", _getCL ()));
-      a.add (new ClassPathResource ("schemas/t4.1/uc1/edci_individuals.xsd", _getCL ()));
-      a.add (new ClassPathResource ("schemas/t4.1/uc1/edci_simpleContentTypes.xsd", _getCL ()));
-      a.add (new ClassPathResource ("schemas/t4.1/uc1/edci_complexContentTypes.xsd", _getCL ()));
-      a.add (new ClassPathResource ("schemas/t4.1/uc1/edci_associationobject.xsd", _getCL ()));
-      a.add (new ClassPathResource ("schemas/t4.1/uc1/edci_contact.xsd", _getCL ()));
-      a.add (new ClassPathResource ("schemas/t4.1/uc1/edci_learningOpportunity.xsd", _getCL ()));
-      a.add (new ClassPathResource ("schemas/t4.1/uc1/edci_accreditation.xsd", _getCL ()));
-      a.add (new ClassPathResource ("schemas/t4.1/uc1/edci_agent.xsd", _getCL ()));
-      a.add (new ClassPathResource ("schemas/t4.1/uc1/edci_commonTypes.xsd", _getCL ()));
+      a.add (new ClassPathResource (sT41 + "w3c_verifiableCredentials.xsd", _getCL ()));
+      a.add (new ClassPathResource (sT41 + "imported/edci_esco_individuals.xsd", _getCL ()));
+      a.add (new ClassPathResource (sT41 + "imported/edci_esco_eqf.xsd", _getCL ()));
+      a.add (new ClassPathResource (sT41 + "imported/edci_esco_iscedf2013.xsd", _getCL ()));
+      a.add (new ClassPathResource (sT41 + "imported/edci_mdr_humansex.xsd", _getCL ()));
+      a.add (new ClassPathResource (sT41 + "imported/edci_mdr_currency.xsd", _getCL ()));
+      a.add (new ClassPathResource (sT41 + "imported/edci_esco_nuts2016.xsd", _getCL ()));
+      a.add (new ClassPathResource (sT41 + "imported/edci_mdr_languages.xsd", _getCL ()));
+      a.add (new ClassPathResource (sT41 + "imported/edci_mdr_countries.xsd", _getCL ()));
+      a.add (new ClassPathResource (sT41 + "edci_individuals.xsd", _getCL ()));
+      a.add (new ClassPathResource (sT41 + "edci_simpleContentTypes.xsd", _getCL ()));
+      a.add (new ClassPathResource (sT41 + "edci_complexContentTypes.xsd", _getCL ()));
+      a.add (new ClassPathResource (sT41 + "edci_associationobject.xsd", _getCL ()));
+      a.add (new ClassPathResource (sT41 + "edci_contact.xsd", _getCL ()));
+      a.add (new ClassPathResource (sT41 + "edci_learningOpportunity.xsd", _getCL ()));
+      a.add (new ClassPathResource (sT41 + "edci_accreditation.xsd", _getCL ()));
+      a.add (new ClassPathResource (sT41 + "edci_agent.xsd", _getCL ()));
+      a.add (new ClassPathResource (sT41 + "edci_commonTypes.xsd", _getCL ()));
     }
-    a.add (new ClassPathResource ("schemas/t4.1/uc1/edci_credentialTypes.xsd", _getCL ()));
-    a.add (new ClassPathResource ("schemas/t4.1/uc1/SA-UC1-11-02-2021.xsd", _getCL ()));
+    a.add (new ClassPathResource (sT41 + "edci_credentialTypes.xsd", _getCL ()));
+    a.add (new ClassPathResource (sT41 + "SA-UC1-11-02-2021.xsd", _getCL ()));
     return a;
   }
 }
