@@ -19,7 +19,7 @@
           xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" 
           xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <!-- CV 1.1 -->
-  <bindings schemaLocation="../resources/schemas/pilot-shared/CoreVocabularies-BasicComponents-1.1.xsd">
+  <bindings schemaLocation="../resources/schemas/it1/pilot-shared/CoreVocabularies-BasicComponents-1.1.xsd">
     <schemaBindings>
       <package name="eu.de4a.iem.jaxb.w3.cv11.bc" />
     </schemaBindings>

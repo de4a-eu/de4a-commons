@@ -18,7 +18,7 @@
           xmlns="http://java.sun.com/xml/ns/jaxb"
           xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" 
           xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <bindings schemaLocation="../resources/schemas/t4.2/doing_Business_abroad_XSD_v0.6 draft.xsd">
+  <bindings schemaLocation="../resources/schemas/it1/t4.2/doing_Business_abroad_XSD_v0.6 draft.xsd">
     <schemaBindings>
       <package name="eu.de4a.iem.jaxb.t42.v0_6" />
     </schemaBindings>

@@ -27,44 +27,44 @@
     <xjc:javaType name="com.helger.commons.datetime.XMLOffsetTime"     xmlType="xsd:time"     adapter="com.helger.jaxb.adapter.AdapterXMLOffsetTime" />
   </globalBindings>
   <!-- CV 1.0 -->
-  <bindings schemaLocation="../resources/schemas/t4.3/CoreVocabularyBasicComponents-v1.00.xsd">
+  <bindings schemaLocation="../resources/schemas/it1/t4.3/CoreVocabularyBasicComponents-v1.00.xsd">
     <schemaBindings>
       <package name="eu.de4a.iem.jaxb.w3.cv10.bc" />
     </schemaBindings>
   </bindings>
-  <bindings schemaLocation="../resources/schemas/t4.3/CoreBusiness-v1.00.xsd">
+  <bindings schemaLocation="../resources/schemas/it1/t4.3/CoreBusiness-v1.00.xsd">
     <schemaBindings>
       <package name="eu.de4a.iem.jaxb.w3.cv10.business" />
     </schemaBindings>
   </bindings>
-  <bindings schemaLocation="../resources/schemas/t4.3/CoreLocation-v1.00.xsd">
+  <bindings schemaLocation="../resources/schemas/it1/t4.3/CoreLocation-v1.00.xsd">
     <schemaBindings>
       <package name="eu.de4a.iem.jaxb.w3.cv10.location" />
     </schemaBindings>
   </bindings>
-  <bindings schemaLocation="../resources/schemas/t4.3/CorePerson-v1.00.xsd">
+  <bindings schemaLocation="../resources/schemas/it1/t4.3/CorePerson-v1.00.xsd">
     <schemaBindings>
       <package name="eu.de4a.iem.jaxb.w3.cv10.person" />
     </schemaBindings>
   </bindings>
-  <bindings schemaLocation="../resources/schemas/t4.3/CoreVocabularyAggregateComponents-v1.00.xsd">
+  <bindings schemaLocation="../resources/schemas/it1/t4.3/CoreVocabularyAggregateComponents-v1.00.xsd">
     <schemaBindings>
       <package name="eu.de4a.iem.jaxb.w3.cv10.ac" />
     </schemaBindings>
   </bindings>
    
   <!-- 1.6 -->
-  <bindings schemaLocation="../resources/schemas/t4.3/v1.6b/birthEvidence-1.6.xsd">
+  <bindings schemaLocation="../resources/schemas/it1/t4.3/v1.6b/birthEvidence-1.6.xsd">
     <schemaBindings>
       <package name="eu.de4a.iem.jaxb.t43.birth.v1_6b" />
     </schemaBindings>
   </bindings>
-  <bindings schemaLocation="../resources/schemas/t4.3/v1.6b/domicileRegistrationEvidence-1.6.xsd">
+  <bindings schemaLocation="../resources/schemas/it1/t4.3/v1.6b/domicileRegistrationEvidence-1.6.xsd">
     <schemaBindings>
       <package name="eu.de4a.iem.jaxb.t43.domreg.v1_6b" />
     </schemaBindings>
   </bindings>
-  <bindings schemaLocation="../resources/schemas/t4.3/v1.6b/marriageEvidence-1.6.xsd">
+  <bindings schemaLocation="../resources/schemas/it1/t4.3/v1.6b/marriageEvidence-1.6.xsd">
     <schemaBindings>
       <package name="eu.de4a.iem.jaxb.t43.marriage.v1_6b" />
     </schemaBindings>

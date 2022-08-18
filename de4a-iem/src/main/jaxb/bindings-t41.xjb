@@ -19,32 +19,32 @@
           xmlns:xjc="http://java.sun.com/xml/ns/jaxb/xjc" 
           xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <!-- 
-  <bindings schemaLocation="../resources/schemas/t4.1/uc1/edci_learningOpportunity.xsd">
+  <bindings schemaLocation="../resources/schemas/it1/t4.1/uc1/edci_learningOpportunity.xsd">
     <bindings node="//xsd:element[@name='learningOutcomeType']">
       <property name="LearningOutcomeTypeElement" />
     </bindings>  
   </bindings>
    -->
-  <bindings schemaLocation="../resources/schemas/t4.1/uc1/edci_complexContentTypes.xsd">
+  <bindings schemaLocation="../resources/schemas/it1/t4.1/uc1/edci_complexContentTypes.xsd">
     <bindings node="//xsd:complexType[@name='CredentialTypeType']">
       <bindings node=".//xsd:attribute[@name='targetFrameworkName']">
         <property name="TargetFrameworkNameAttr"/>
       </bindings>
     </bindings>
   </bindings>
-  <bindings schemaLocation="../resources/schemas/t4.1/uc1/edci_agent.xsd">
+  <bindings schemaLocation="../resources/schemas/it1/t4.1/uc1/edci_agent.xsd">
     <bindings node="//xsd:complexType[@name='PersonType']">
       <bindings node=".//xsd:element[@name='identifier']">
         <property name="PersonIdentifier"/>
       </bindings>
     </bindings>
   </bindings>
-  <bindings schemaLocation="../resources/schemas/t4.1/uc1/SA-UC1-11-02-2021.xsd">
+  <bindings schemaLocation="../resources/schemas/it1/t4.1/uc1/SA-UC1-11-02-2021.xsd">
     <schemaBindings>
       <package name="eu.de4a.iem.jaxb.t41.uc1.v2021_02_11" />
     </schemaBindings>
   </bindings>
-  <bindings schemaLocation="../resources/schemas/t4.1/uc1/SA-UC1-13-04-2021.xsd">
+  <bindings schemaLocation="../resources/schemas/it1/t4.1/uc1/SA-UC1-13-04-2021.xsd">
     <schemaBindings>
       <package name="eu.de4a.iem.jaxb.t41.uc1.v2021_04_13" />
     </schemaBindings>
