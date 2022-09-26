@@ -28,9 +28,12 @@ import org.w3c.dom.Element;
 
 import com.helger.jaxb.GenericJAXBMarshaller;
 
+import eu.de4a.iem.cev.de4a.t41.DE4AT41Marshaller;
 import eu.de4a.iem.cev.de4a.t42.DE4AT42Marshaller;
 import eu.de4a.iem.core.DE4ACoreMarshaller;
+import eu.de4a.iem.core.IDE4ACanonicalEvidenceType;
 import eu.de4a.iem.core.jaxb.common.ResponseExtractMultiEvidenceType;
+import eu.de4a.iem.jaxb.t41.higheredu.v2022_06_23.HigherEducationDiplomaType;
 import eu.de4a.iem.jaxb.t42.v0_6.LegalEntityType;
 
 /**
@@ -79,7 +82,25 @@ public final class DE4ACoreMarshallerFuncTest
   }
 
   @Test
-  public void testExtractCanonicalEvidence ()
+  public void testExtractCanonicalEvidenceT41 ()
+  {
+    final String sBasePath = "src/test/resources/de4a/";
+    final DE4ACoreMarshaller <ResponseExtractMultiEvidenceType> m = DE4ACoreMarshaller.dtResponseTransferEvidenceMarshaller (IDE4ACanonicalEvidenceType.NONE);
+    final ResponseExtractMultiEvidenceType aDoc = m.read (new File (sBasePath + "core/t4.1/hed/maria1.xml"));
+    assertNotNull (aDoc);
+    assertEquals (1, aDoc.getResponseExtractEvidenceItemCount ());
+    final Object aCanonicalEvidence = aDoc.getResponseExtractEvidenceItemAtIndex (0).getCanonicalEvidence ().getAny ();
+    assertNotNull (aCanonicalEvidence);
+    assertTrue (aCanonicalEvidence instanceof Element);
+
+    final HigherEducationDiplomaType aHED = DE4AT41Marshaller.higherEducationDiploma ().read ((Element) aCanonicalEvidence);
+    assertNotNull (aHED);
+    assertEquals (1, aHED.getIdentifierCount ());
+    assertEquals ("0124738434", aHED.getIdentifierAtIndex (0).getValue ());
+  }
+
+  @Test
+  public void testExtractCanonicalEvidenceT42 ()
   {
     final String sBasePath = "src/test/resources/de4a/";
     final DE4ACoreMarshaller <ResponseExtractMultiEvidenceType> m = DE4ACoreMarshaller.deResponseTransferEvidenceMarshaller (EDE4ACanonicalEvidenceType.T42_LEGAL_ENTITY_V06);
