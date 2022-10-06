@@ -30,11 +30,13 @@ import com.helger.jaxb.GenericJAXBMarshaller;
 
 import eu.de4a.iem.cev.de4a.t41.DE4AT41Marshaller;
 import eu.de4a.iem.cev.de4a.t42.DE4AT42Marshaller;
+import eu.de4a.iem.cev.de4a.t43.DE4AT43Marshaller;
 import eu.de4a.iem.core.DE4ACoreMarshaller;
 import eu.de4a.iem.core.IDE4ACanonicalEvidenceType;
 import eu.de4a.iem.core.jaxb.common.ResponseExtractMultiEvidenceType;
 import eu.de4a.iem.jaxb.t41.higheredu.v2022_06_23.HigherEducationDiplomaType;
 import eu.de4a.iem.jaxb.t42.v0_6.LegalEntityType;
+import eu.de4a.iem.jaxb.t43.birth.v1_7.BirthEvidenceType;
 
 /**
  * Test class for class {@link DE4ACoreMarshaller}.
@@ -45,7 +47,8 @@ public final class DE4ACoreMarshallerFuncTest
 {
   private static final Logger LOGGER = LoggerFactory.getLogger (DE4ACoreMarshallerFuncTest.class);
 
-  private static <T> void _testReadWrite (@Nonnull final GenericJAXBMarshaller <T> aMarshaller, @Nonnull final File aFile)
+  private static <T> void _testReadWrite (@Nonnull final GenericJAXBMarshaller <T> aMarshaller,
+                                          @Nonnull final File aFile)
   {
     if (LOGGER.isInfoEnabled ())
       LOGGER.info ("Reading Core+Canonical file " + aFile.getName ());
@@ -93,10 +96,13 @@ public final class DE4ACoreMarshallerFuncTest
     assertNotNull (aCanonicalEvidence);
     assertTrue (aCanonicalEvidence instanceof Element);
 
-    final HigherEducationDiplomaType aHED = DE4AT41Marshaller.higherEducationDiploma ().read ((Element) aCanonicalEvidence);
+    final HigherEducationDiplomaType aHED = DE4AT41Marshaller.higherEducationDiploma ()
+                                                             .read ((Element) aCanonicalEvidence);
     assertNotNull (aHED);
     assertEquals (1, aHED.getIdentifierCount ());
     assertEquals ("0124738434", aHED.getIdentifierAtIndex (0).getValue ());
+
+    assertNotNull (m.getAsBytes (aDoc));
   }
 
   @Test
@@ -104,7 +110,8 @@ public final class DE4ACoreMarshallerFuncTest
   {
     final String sBasePath = "src/test/resources/de4a/";
     final DE4ACoreMarshaller <ResponseExtractMultiEvidenceType> m = DE4ACoreMarshaller.deResponseTransferEvidenceMarshaller (EDE4ACanonicalEvidenceType.T42_LEGAL_ENTITY_V06);
-    final ResponseExtractMultiEvidenceType aDoc = m.read (new File (sBasePath + "core/t4.2/0.6/DE-response-transfer-evidence-DBA.xml"));
+    final ResponseExtractMultiEvidenceType aDoc = m.read (new File (sBasePath +
+                                                                    "core/t4.2/0.6/DE-response-transfer-evidence-DBA.xml"));
     assertNotNull (aDoc);
     assertEquals (1, aDoc.getResponseExtractEvidenceItemCount ());
     final Object aCanonicalEvidence = aDoc.getResponseExtractEvidenceItemAtIndex (0).getCanonicalEvidence ().getAny ();
@@ -114,5 +121,26 @@ public final class DE4ACoreMarshallerFuncTest
     final LegalEntityType aLegalEntity = DE4AT42Marshaller.legalEntity ().read ((Element) aCanonicalEvidence);
     assertNotNull (aLegalEntity);
     assertEquals ("Einzelunternehmen", aLegalEntity.getCompanyType ());
+
+    assertNotNull (m.getAsBytes (aDoc));
+  }
+
+  @Test
+  public void testExtractCanonicalEvidenceT43 ()
+  {
+    final String sBasePath = "src/test/resources/de4a/";
+    final DE4ACoreMarshaller <ResponseExtractMultiEvidenceType> m = DE4ACoreMarshaller.dtResponseTransferEvidenceMarshaller (EDE4ACanonicalEvidenceType.T43_BIRTH_EVIDENCE_V17);
+    final ResponseExtractMultiEvidenceType aDoc = m.read (new File (sBasePath + "core/t4.3/birth/birth1.xml"));
+    assertNotNull (aDoc);
+    assertEquals (1, aDoc.getResponseExtractEvidenceItemCount ());
+    final Object aCanonicalEvidence = aDoc.getResponseExtractEvidenceItemAtIndex (0).getCanonicalEvidence ().getAny ();
+    assertNotNull (aCanonicalEvidence);
+    assertTrue (aCanonicalEvidence instanceof Element);
+
+    final BirthEvidenceType aCE = DE4AT43Marshaller.birthEvidence ().read ((Element) aCanonicalEvidence);
+    assertNotNull (aCE);
+    assertEquals ("1234", aCE.getIdentifier ().getIdentifier ().getValue ());
+
+    assertNotNull (m.getAsBytes (aDoc));
   }
 }
