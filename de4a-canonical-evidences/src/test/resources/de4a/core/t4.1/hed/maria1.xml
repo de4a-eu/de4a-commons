@@ -1,0 +1,71 @@
+<ResponseTransferEvidence xmlns="http://www.de4a.eu/2020/data/transferor/v2"
+                           xmlns:ct="http://www.de4a.eu/2020/commons/type/v2"
+                           xmlns:eil="http://eidas.europa.eu/attributes/legalperson"
+                           xmlns:ein="http://eidas.europa.eu/attributes/naturalperson"
+                           xmlns:lcm="urn:oasis:names:tc:ebxml-regrep:xsd:lcm:4.0"
+                           xmlns:query="urn:oasis:names:tc:ebxml-regrep:xsd:query:4.0"
+                           xmlns:rim="urn:oasis:names:tc:ebxml-regrep:xsd:rim:4.0"
+                           xmlns:rs="urn:oasis:names:tc:ebxml-regrep:xsd:rs:4.0"
+                           xmlns:spi="urn:oasis:names:tc:ebxml-regrep:xsd:spi:4.0"
+                           xmlns:wsa="http://www.w3.org/2005/08/addressing"
+                           xmlns:xlink="http://www.w3.org/1999/xlink"
+                           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <ct:RequestId>8dd14ef9-2c8d-4f3d-916f-6737732b1cbe</ct:RequestId>
+   <ct:TimeStamp>2022-09-26T13:42:44.711</ct:TimeStamp>
+   <ct:DataEvaluator>
+      <ct:AgentUrn>iso6523-actorid-upis::9920:esq6250003h-mock-it2</ct:AgentUrn>
+      <ct:AgentName>(UJI) Universitat Jaume I de Castellón</ct:AgentName>
+      <ct:RedirectURL>https://devel.uji.es/sdg/rest/main/getEvidenceStatus?requestId=8dd14ef9-2c8d-4f3d-916f-6737732b1cbe</ct:RedirectURL>
+   </ct:DataEvaluator>
+   <ct:DataOwner>
+      <ct:AgentUrn>iso6523-actorid-upis::9999:ess2833002e-mock-it2</ct:AgentUrn>
+      <ct:AgentName/>
+   </ct:DataOwner>
+   <ct:ResponseExtractEvidenceItem>
+      <ct:RequestItemId>7843e1fc-d39c-4f12-8d55-0f2a41830d26</ct:RequestItemId>
+      <ct:DataRequestSubject>
+         <ct:DataSubjectPerson>
+            <ct:PersonIdentifier>ES/ES/53377873W</ct:PersonIdentifier>
+            <ct:FirstName>Nombre</ct:FirstName>
+            <ct:FamilyName>ApellidoPrimero ApellidoSegundo</ct:FamilyName>
+            <ct:DateOfBirth>2000-01-01</ct:DateOfBirth>
+         </ct:DataSubjectPerson>
+      </ct:DataRequestSubject>
+      <ct:CanonicalEvidenceTypeId>urn:de4a-eu:CanonicalEvidenceType::HigherEducationDiploma:1.0</ct:CanonicalEvidenceTypeId>
+      <ct:CanonicalEvidence>
+         <HigherEducationDiploma xmlns="urn:eu-de4a:xsd:CanonicalEvidenceType::HigherEducationEvidence:v1.0"
+                                  xmlns:eup="http://data.europa.eu/europass/model/credentials#"
+                                  xmlns:ns3="urn:eu-de4a:xsd:CanonicalEvidenceType::SecondaryEducationEvidence:v1.0"
+                                  id="http://tempuri.org">
+            <eup:identifier spatialID="ES">0124738434</eup:identifier>
+            <eup:title>
+               <eup:text content-type="text/plain" lang="en">Diploma on Computer Engineering</eup:text>
+            </eup:title>
+            <degree content-type="text/plain" lang="en">Master on Computer Science Engineering</degree>
+            <country>http://publications.europa.eu/resource/authority/country/ESP</country>
+            <institutionName content-type="text/plain" lang="en">Jaume I University</institutionName>
+            <studyProgramme content-type="text/plain" lang="en">Computer Science Engineering</studyProgramme>
+            <mainFieldOfStudy uri="http://data.europa.eu/snb/isced-f/0610"/>
+            <modeOfStudy>http://data.europa.eu/europass/learningScheduleType/fullTime</modeOfStudy>
+            <durationOfEducation>P5Y</durationOfEducation>
+            <scope schemeID="http://data.europa.eu/europass/educationalCreditPointSystem/ects">300</scope>
+            <dateOfIssue>2008-07-22</dateOfIssue>
+            <placeOfIssue>
+               <eup:name>
+                  <eup:text content-type="text/plain" lang="en">Castellon</eup:text>
+               </eup:name>
+            </placeOfIssue>
+            <holderOfAchievement id="urn:person:ef3b1a56-e668-4397-8dfd-c6a35f970c74">
+               <eup:nationalId spatialID="http://publications.europa.eu/resource/authority/country/ES">53377873W</eup:nationalId>
+               <eup:givenNames>
+                  <eup:text content-type="text/plain" lang="en">Francisco Jose</eup:text>
+               </eup:givenNames>
+               <eup:familyName>
+                  <eup:text content-type="text/plain" lang="en">Arago Monzonis</eup:text>
+               </eup:familyName>
+               <eup:dateOfBirth>1984-07-24</eup:dateOfBirth>
+            </holderOfAchievement>
+         </HigherEducationDiploma>
+      </ct:CanonicalEvidence>
+   </ct:ResponseExtractEvidenceItem>
+</ResponseTransferEvidence>
