@@ -21,7 +21,7 @@ import com.helger.ubl23.UBL23NamespaceContext;
 import com.helger.xml.namespace.MapBasedNamespaceContext;
 
 /**
- * XML Namespace context for DE4A T4.3 v1.6
+ * XML Namespace context for DE4A T4.3
  *
  * @author Philip Helger
  */
@@ -49,6 +49,15 @@ public class DE4AT43NamespaceContext extends MapBasedNamespaceContext
   {
     final MapBasedNamespaceContext ret = SingletonHolder.INSTANCE.getClone ();
     ret.addDefaultNamespaceURI (CT43.NS_URI_BIRTH_EVIDENCE);
+    return ret;
+  }
+
+  @Nonnull
+  @ReturnsMutableCopy
+  public static MapBasedNamespaceContext getDomicileDeregistrationEvidenceInstance ()
+  {
+    final MapBasedNamespaceContext ret = SingletonHolder.INSTANCE.getClone ();
+    ret.addDefaultNamespaceURI (CT43.NS_URI_DOMICILE_DEREGISTRATION_EVIDENCE);
     return ret;
   }
 

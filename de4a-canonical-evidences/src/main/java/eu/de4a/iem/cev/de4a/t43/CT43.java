@@ -34,6 +34,7 @@ import com.helger.xsds.xml.CXML_XSD;
 public final class CT43
 {
   public static final String NS_URI_BIRTH_EVIDENCE = "urn:eu-de4a:xsd:CanonicalEvidenceType::BirthEvidence:v1.7";
+  public static final String NS_URI_DOMICILE_DEREGISTRATION_EVIDENCE = "urn:eu-de4a:xsd:CanonicalEvidenceType::DomicileDeregistrationEvidence:v1.0";
   public static final String NS_URI_DOMICILE_REGISTRATION_EVIDENCE = "urn:eu-de4a:xsd:CanonicalEvidenceType::DomicileRegistrationEvidence:v1.7";
   public static final String NS_URI_MARRIAGE_EVIDENCE = "urn:eu-de4a:xsd:CanonicalEvidenceType::MarriageEvidence:v1.7";
 
@@ -75,6 +76,15 @@ public final class CT43
   {
     final ICommonsList <ClassPathResource> a = _getBaseXSDs ();
     a.add (new ClassPathResource ("schemas/t4.3/v1.7/birthEvidence-1.7.xsd", _getCL ()));
+    return a;
+  }
+
+  @Nonnull
+  @ReturnsMutableCopy
+  public static ICommonsList <ClassPathResource> getAllDomicileDeregistrationEvidenceXSDs ()
+  {
+    final ICommonsList <ClassPathResource> a = _getBaseXSDs ();
+    a.add (new ClassPathResource ("schemas/t4.3/v1.7/domicileDeregistrationEvidence-1.0.xsd", _getCL ()));
     return a;
   }
 

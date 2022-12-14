@@ -33,6 +33,8 @@ and you receive a set of JAR files in the respective submodule `target` director
 
 ## History
 
+* v0.2.14 - 2022-12-13
+    * Added Domicile Deregistration Evidence 1.0 support for T4.3
 * v0.2.13 - 2022-08-18
     * Updated to Apache Http Client v5.x
 * v0.2.12 - 2022-08-12
