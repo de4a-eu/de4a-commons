@@ -31,6 +31,8 @@ public final class CT43Test
   {
     for (final ClassPathResource aCP : CT43.getAllBirthEvidenceXSDs ())
       assertTrue (aCP.getPath (), aCP.exists ());
+    for (final ClassPathResource aCP : CT43.getAllDomicileDeregistrationEvidenceXSDs ())
+      assertTrue (aCP.getPath (), aCP.exists ());
     for (final ClassPathResource aCP : CT43.getAllDomicileRegistrationEvidenceXSDs ())
       assertTrue (aCP.getPath (), aCP.exists ());
     for (final ClassPathResource aCP : CT43.getAllMarriageEvidenceXSDs ())

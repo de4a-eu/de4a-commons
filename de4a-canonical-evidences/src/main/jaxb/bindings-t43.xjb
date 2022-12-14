@@ -87,6 +87,11 @@
       <package name="eu.de4a.iem.jaxb.t43.birth.v1_7" />
     </schemaBindings>
   </bindings>
+  <bindings schemaLocation="../resources/schemas/t4.3/v1.7/domicileDeregistrationEvidence-1.0.xsd">
+    <schemaBindings>
+      <package name="eu.de4a.iem.jaxb.t43.domdereg.v1_0" />
+    </schemaBindings>
+  </bindings>
   <bindings schemaLocation="../resources/schemas/t4.3/v1.7/domicileRegistrationEvidence-1.7.xsd">
     <schemaBindings>
       <package name="eu.de4a.iem.jaxb.t43.domreg.v1_7" />

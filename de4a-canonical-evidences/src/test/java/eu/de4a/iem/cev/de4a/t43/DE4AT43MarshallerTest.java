@@ -64,10 +64,18 @@ public final class DE4AT43MarshallerTest
   }
 
   @Test
+  public void testDomicileDeregistrationEvidence ()
+  {
+    final String sBasePath = "src/test/resources/de4a/t4.3/domdereg/";
+    for (final String s : new String [] { "domdereg1.xml" })
+      _testReadWrite (DE4AT43Marshaller.domicileDeregistrationEvidence (), new File (sBasePath + s));
+  }
+
+  @Test
   public void testDomicileRegistrationEvidence ()
   {
     final String sBasePath = "src/test/resources/de4a/t4.3/domreg/";
-    for (final String s : new String [] {})
+    for (final String s : new String [] { "domreg1.xml" })
       _testReadWrite (DE4AT43Marshaller.domicileRegistrationEvidence (), new File (sBasePath + s));
   }
 

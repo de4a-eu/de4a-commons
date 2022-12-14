@@ -25,6 +25,7 @@ import com.helger.commons.io.resource.ClassPathResource;
 import com.helger.jaxb.GenericJAXBMarshaller;
 
 import eu.de4a.iem.jaxb.t43.birth.v1_7.BirthEvidenceType;
+import eu.de4a.iem.jaxb.t43.domdereg.v1_0.DomicileDeregistrationEvidenceType;
 import eu.de4a.iem.jaxb.t43.domreg.v1_7.DomicileRegistrationEvidenceType;
 import eu.de4a.iem.jaxb.t43.marriage.v1_7.MarriageEvidenceType;
 
@@ -54,6 +55,15 @@ public class DE4AT43Marshaller <JAXBTYPE> extends GenericJAXBMarshaller <JAXBTYP
                                      CT43.getAllBirthEvidenceXSDs (),
                                      new eu.de4a.iem.jaxb.t43.birth.v1_7.ObjectFactory ()::createBirthEvidence,
                                      DE4AT43NamespaceContext.getBirthEvidenceInstance ());
+  }
+
+  @Nonnull
+  public static DE4AT43Marshaller <DomicileDeregistrationEvidenceType> domicileDeregistrationEvidence ()
+  {
+    return new DE4AT43Marshaller <> (DomicileDeregistrationEvidenceType.class,
+                                     CT43.getAllDomicileDeregistrationEvidenceXSDs (),
+                                     new eu.de4a.iem.jaxb.t43.domdereg.v1_0.ObjectFactory ()::createDomicileDeregistrationEvidence,
+                                     DE4AT43NamespaceContext.getDomicileDeregistrationEvidenceInstance ());
   }
 
   @Nonnull
