@@ -3,7 +3,7 @@
 Shared stuff for DE4A software components.
 
 Last release: 
-* Iteration 2: **0.2.13**
+* Iteration 2: **0.2.14**
 * Iteration 1: **0.1.13**
 
 In the DE4A project we are differentiating between "Iteration 1" and "Iteration 2". As they are incompatible, care needs to be taken, that they are not mixed together.
