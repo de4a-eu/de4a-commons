@@ -186,7 +186,38 @@
   </modules>
   
   <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>com.mycila</groupId>
+          <artifactId>license-maven-plugin</artifactId>
+          <version>4.2</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+    
     <plugins>
+      <plugin>
+        <groupId>com.mycila</groupId>
+        <artifactId>license-maven-plugin</artifactId>
+        <configuration>
+          <aggregate>false</aggregate>
+          <skipExistingHeaders>true</skipExistingHeaders>
+          <strictCheck>true</strictCheck>
+          <licenseSets>
+            <licenseSet>
+              <header>src/etc/license-template2.txt</header>
+              <excludes>
+                <exclude>certificates/**</exclude>
+                <exclude>**/*.jks</exclude>
+                <exclude>**/*.p12</exclude>
+                <exclude>**/*.pem</exclude>
+                <exclude>**/*.txt</exclude>
+              </excludes>
+            </licenseSet>  
+          </licenseSets>
+        </configuration>
+      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
