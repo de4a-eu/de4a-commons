@@ -3,8 +3,8 @@
 Shared stuff for DE4A software components.
 
 Last release: 
-* Iteration 2: **0.2.14**
-* Iteration 1: **0.1.13**
+* Iteration 2: **0.2.15**
+* [old] Iteration 1: **0.1.13**
 
 In the DE4A project we are differentiating between "Iteration 1" and "Iteration 2". As they are incompatible, care needs to be taken, that they are not mixed together.
 The last release of Iteration 1 is `0.1.11` and the development branch (if ever needed) is https://github.com/de4a-wp5/de4a-commons/tree/iteration1
@@ -33,6 +33,8 @@ and you receive a set of JAR files in the respective submodule `target` director
 
 ## History
 
+* v0.2.15 - 2023-04-04
+    * Updated the license headers to the final version
 * v0.2.14 - 2022-12-13
     * Added Domicile Deregistration Evidence 1.0 support for T4.3
 * v0.2.13 - 2022-08-18
