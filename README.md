@@ -89,6 +89,9 @@ and you receive a set of JAR files in the respective submodule `target` director
     * Simplified the XSD structure and added a constant for the Specification Identifier
 * v0.2.0 - 2021-09-01
     * This is the first version with data model changes for Iteration 2
+* v0.1.13 - 2022-08-18
+    * Updated to Apache Http Client v5.x
+    * Moved the Iteration 1 schemas from schemas/* to schemas/it1/* to avoid issues with Iteration 2
 * v0.1.12 - 2022-07-14
     * Updated dependencies to the latest versions
 * v0.1.11 - 2021-08-08
